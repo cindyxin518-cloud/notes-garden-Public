@@ -28,7 +28,16 @@
           <div class="hero-copy">
             <p class="eyebrow">Notes, thoughts, and little lights</p>
             <h1>Live freely and truthfully as who you really are.</h1>
-            <p class="hero-text">We write to taste life twice, in the moment and in retrospection. — Anaïs Nin</p>
+            <div class="hero-quotes" aria-label="Writing quotes">
+              <blockquote>
+                <p>“We write to taste life twice, in the moment and in retrospection.”</p>
+                <cite>Anaïs Nin</cite>
+              </blockquote>
+              <blockquote>
+                <p>“Arrange whatever pieces come your way.”</p>
+                <cite>Virginia Woolf</cite>
+              </blockquote>
+            </div>
             <div class="hero-tools">
               <label class="search-box">
                 <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m16.5 16.5 4 4" /></svg>
@@ -95,30 +104,23 @@
             <h2>Share a Favorite Note</h2>
             <p>Share a line, passage, or thought you love. Leave something meaningful for other visitors to discover.</p>
           </div>
-          <form class="contribute-form" id="contributeForm">
-            <label>
-              <span>Note text</span>
-              <textarea id="newText" rows="3" required placeholder="Paste the note in English or your preferred language"></textarea>
-            </label>
-            <div class="form-row">
+            <form class="contribute-form" id="contributeForm">
               <label>
-                <span>Language</span>
-                <select id="newLanguage">
-                  <option value="English">English</option>
-                  <option value="Preferred language">Preferred language</option>
-                </select>
+                <span>Share a note in your preferred language</span>
+                <textarea id="newText" rows="3" required placeholder="Share a line, passage, or thought you love"></textarea>
               </label>
-              <label id="preferredLanguageWrap" hidden>
-                <span>Which language?</span>
-                <input id="preferredLanguage" type="text" placeholder="e.g. Chinese" />
+              <label>
+                <span>Translate into English (optional)</span>
+                <textarea id="newEnglish" rows="2" placeholder="Optional English translation"></textarea>
               </label>
+              <div class="form-row">
               <label>
                 <span>Theme</span>
                 <select id="newTheme"></select>
               </label>
               <label>
-                <span>Source</span>
-                <input id="newSource" type="text" placeholder="Source or note" />
+                <span>Source (optional)</span>
+                <input id="newSource" type="text" placeholder="Please add the source, if any" />
               </label>
             </div>
             <button class="primary-link" type="submit">Add note</button>

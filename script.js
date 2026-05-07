@@ -84,9 +84,7 @@ const collectionTitle = document.querySelector("#collectionTitle");
 const contributeForm = document.querySelector("#contributeForm");
 const contributeStatus = document.querySelector("#contributeStatus");
 const newText = document.querySelector("#newText");
-const newLanguage = document.querySelector("#newLanguage");
-const preferredLanguageWrap = document.querySelector("#preferredLanguageWrap");
-const preferredLanguage = document.querySelector("#preferredLanguage");
+const newEnglish = document.querySelector("#newEnglish");
 const newTheme = document.querySelector("#newTheme");
 const newSource = document.querySelector("#newSource");
 const searchInput = document.querySelector("#searchInput");
@@ -438,15 +436,13 @@ document.querySelector(".stats-band").addEventListener("click", (event) => {
 contributeForm.addEventListener("submit", (event) => {
   event.preventDefault();
   const text = newText.value.trim();
-  const language = newLanguage.value === "Preferred language"
-    ? preferredLanguage.value.trim() || "Preferred language"
-    : "English";
+  const english = newEnglish.value.trim();
   const quote = {
-    zh: language === "English" ? "" : text,
-    en: language === "English" ? text : "",
+    zh: text,
+    en: english,
     category: newTheme.value,
-    source: newSource.value.trim() || "Reader submission",
-    language
+    source: newSource.value.trim() || "Visitor submission",
+    language: "Preferred language"
   };
 
   if (!text) {
@@ -458,7 +454,6 @@ contributeForm.addEventListener("submit", (event) => {
   localStorage.setItem("userQuotes", JSON.stringify(userQuotes));
   quotes = [...baseQuotes, ...userQuotes];
   contributeForm.reset();
-  preferredLanguageWrap.hidden = true;
   newTheme.value = quote.category;
   contributeStatus.textContent = "Added. Thank you for contributing.";
   updateStats();
@@ -466,16 +461,6 @@ contributeForm.addEventListener("submit", (event) => {
   window.location.hash = `#category/${encodeURIComponent(quote.category)}`;
   if (activeCategory === quote.category) {
     renderQuotes();
-  }
-});
-
-newLanguage.addEventListener("change", () => {
-  const showPreferred = newLanguage.value === "Preferred language";
-  preferredLanguageWrap.hidden = !showPreferred;
-  if (showPreferred) {
-    preferredLanguage.focus();
-  } else {
-    preferredLanguage.value = "";
   }
 });
 
