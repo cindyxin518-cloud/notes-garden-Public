@@ -134,6 +134,7 @@ const themeGroups = [
   { id: "Life", label: "Life" },
   { id: "Relationships", label: "Relationships" },
   { id: "Reading", label: "Reading" },
+  { id: "Famous", label: "Famous Quotes", virtual: true },
   { id: "Others", label: "Others" }
 ];
 const groupIds = themeGroups.map((group) => group.id);
@@ -183,6 +184,16 @@ function groupForQuote(quote) {
   return categoryGroups[quote.category] || (groupIds.includes(quote.category) ? quote.category : "Others");
 }
 
+function isFamousQuote(quote) {
+  const genericSources = ["文摘", "微语录", "Visitor submission", "Reader submission", "Clipping"];
+  return quote.source && !genericSources.includes(quote.source);
+}
+
+function quoteMatchesGroup(quote, groupId) {
+  if (groupId === "Famous") return isFamousQuote(quote);
+  return groupForQuote(quote) === groupId;
+}
+
 function categoryLabel(category) {
   if (category === allCategory || category === "全部") return allCategory;
   return categoryGroups[category] || (groupIds.includes(category) ? category : "Others");
@@ -220,12 +231,12 @@ function renderFilters() {
 function renderCategoryCards() {
   categoryGrid.innerHTML = themeGroups
     .map((group) => {
-      const groupQuotes = quotes.filter((quote) => groupForQuote(quote) === group.id);
+      const groupQuotes = quotes.filter((quote) => quoteMatchesGroup(quote, group.id));
       const sample = groupQuotes[0];
       return `
         <a class="category-card" href="#category/${encodeURIComponent(group.id)}">
           <strong>${escapeHtml(group.label)}</strong>
-          <span>${groupQuotes.length} notes · ${escapeHtml(sample.en || sample.zh)}</span>
+          <span>${groupQuotes.length} notes${sample ? ` · ${escapeHtml(sample.en || sample.zh)}` : ""}</span>
           <em>Open</em>
         </a>
       `;
@@ -235,6 +246,7 @@ function renderCategoryCards() {
 
 function renderContributionThemes() {
   newTheme.innerHTML = themeGroups
+    .filter((group) => !group.virtual)
     .map((group) => `<option value="${group.id}">${escapeHtml(group.label)}</option>`)
     .join("");
 }
@@ -332,7 +344,7 @@ function getVisibleQuotes() {
     .filter(({ quote, index }) => {
       if (collectionMode === "popular") return getPopularityScore(index) > 0;
       if (collectionMode === "visitor") return index >= baseQuotes.length;
-      return activeCategory === allCategory || groupForQuote(quote) === activeCategory;
+      return activeCategory === allCategory || quoteMatchesGroup(quote, activeCategory);
     })
     .filter(({ quote }) => {
       if (!keyword) return true;
@@ -478,7 +490,7 @@ function showCategory(category) {
   collectionMode = "category";
   categoryHome.hidden = true;
   collection.hidden = false;
-  collectionTitle.textContent = activeCategory === allCategory ? "Search Results" : `${categoryLabel(activeCategory)} Notes`;
+  collectionTitle.textContent = activeCategory === allCategory ? "Search Results" : activeCategory === "Famous" ? "Famous Quotes" : `${categoryLabel(activeCategory)} Notes`;
   document.title = `${collectionTitle.textContent} | Notes Garden`;
   updateStats();
   filters.hidden = false;
