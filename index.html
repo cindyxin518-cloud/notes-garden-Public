@@ -1,0 +1,150 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notes Garden | I am rooted but I flow</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="hero">
+        <nav class="topbar" aria-label="Main navigation">
+          <a class="brand" href="#top" aria-label="Notes Garden home">
+            <span class="brand-mark">N</span>
+            <span>Notes Garden</span>
+          </a>
+          <div class="nav-actions">
+            <a class="icon-button" href="#categories" aria-label="Browse themes" title="Browse themes">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5M4 20l17-17M21 16v5h-5M15 15l6 6M4 4l5.5 5.5" /></svg>
+            </a>
+            <button class="icon-button" id="themeBtn" type="button" aria-label="Switch theme" title="Switch theme">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2M12 19v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M3 12h2M19 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" /><circle cx="12" cy="12" r="4" /></svg>
+            </button>
+          </div>
+        </nav>
+
+        <section class="hero-grid" id="top">
+          <div class="hero-copy">
+            <p class="eyebrow">Notes, paragraphs, and little lights</p>
+            <h1>Live freely and truthfully as who you really are.</h1>
+            <p class="hero-text">A bright, calm space for notes, passages, and small fragments of wisdom gathered across different channels.</p>
+            <div class="hero-tools">
+              <label class="search-box">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m16.5 16.5 4 4" /></svg>
+                <input id="searchInput" type="search" placeholder="Search" autocomplete="off" />
+              </label>
+              <a class="primary-link" href="#categories">Browse themes</a>
+            </div>
+          </div>
+        </section>
+      </header>
+
+      <main>
+        <section class="category-home" id="categories">
+          <section class="stats-band" aria-label="Quote statistics">
+            <button type="button" data-stat-link="all">
+              <strong id="totalCount">0</strong>
+              <span>notes</span>
+            </button>
+            <button type="button" data-stat-link="themes">
+              <strong id="categoryCount">0</strong>
+              <span>themes</span>
+            </button>
+            <button type="button" data-stat-link="popular">
+              <strong id="favoriteCount">0</strong>
+              <span>most popular</span>
+            </button>
+            <button type="button" data-stat-link="reader-added">
+              <strong id="readerAddedCount">0</strong>
+              <span>added by visitor</span>
+            </button>
+          </section>
+
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Themes</p>
+              <h2>Read by Theme</h2>
+            </div>
+            <p>Choose a theme to open its notes page.</p>
+          </div>
+          <p class="source-note">Collected reading notes. AI translations may be imperfect; corrections and reflections are welcome.</p>
+          <div class="category-grid" id="categoryGrid"></div>
+        </section>
+
+        <section class="collection" id="collection" hidden>
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Collection</p>
+              <h2 id="collectionTitle">My Notes</h2>
+            </div>
+            <div class="section-actions">
+              <a class="back-link" href="#top">Back to home</a>
+              <p id="resultCount"></p>
+            </div>
+          </div>
+          <p class="source-note">Collected reading notes. AI translations may be imperfect; corrections and reflections are welcome.</p>
+          <div class="filters" id="filters" aria-label="Theme navigation"></div>
+          <div class="quote-grid" id="quoteGrid"></div>
+          <p class="empty-state" id="emptyState">No matching notes found. Try another keyword.</p>
+        </section>
+
+        <section class="contribute-panel" aria-label="Open contributions">
+          <div class="contribute-copy">
+            <p class="eyebrow">Open Contributions</p>
+            <h2>Add a Favorite Note</h2>
+            <p>Let visitors add a note or passage they love. New entries are saved in this browser and appear under the selected theme.</p>
+          </div>
+          <form class="contribute-form" id="contributeForm">
+            <label>
+              <span>Note text</span>
+              <textarea id="newText" rows="3" required placeholder="Paste the note in English or your preferred language"></textarea>
+            </label>
+            <div class="form-row">
+              <label>
+                <span>Language</span>
+                <select id="newLanguage">
+                  <option value="English">English</option>
+                  <option value="Preferred language">Preferred language</option>
+                </select>
+              </label>
+              <label id="preferredLanguageWrap" hidden>
+                <span>Which language?</span>
+                <input id="preferredLanguage" type="text" placeholder="e.g. Chinese" />
+              </label>
+              <label>
+                <span>Theme</span>
+                <select id="newTheme"></select>
+              </label>
+              <label>
+                <span>Source</span>
+                <input id="newSource" type="text" placeholder="Source or note" />
+              </label>
+            </div>
+            <button class="primary-link" type="submit">Add note</button>
+            <p class="form-status" id="contributeStatus" role="status"></p>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="proofreadModal" hidden>
+      <form class="proofread-dialog" id="proofreadForm" aria-labelledby="proofreadTitle">
+        <div class="dialog-head">
+          <div>
+            <p class="eyebrow">Public message board</p>
+            <h2 id="proofreadTitle">Proofread this note</h2>
+          </div>
+          <button class="icon-button dialog-close" id="proofreadClose" type="button" aria-label="Close proofread dialog">×</button>
+        </div>
+        <textarea id="proofreadText" rows="4" required placeholder="Leave a correction, better translation, source clue, or reflection."></textarea>
+        <div class="dialog-actions">
+          <button class="secondary-button" id="proofreadCancel" type="button">Cancel</button>
+          <button class="primary-link" type="submit">Send</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
