@@ -222,15 +222,17 @@ h2 {
   width: min(300px, 28vw);
   align-items: start;
   gap: 10px;
-  padding: 14px 16px;
-  border: 1px solid rgba(35, 50, 56, 0.11);
-  border-radius: 8px;
+  padding: 16px 18px;
+  border: 1px solid rgba(116, 214, 189, 0.28);
+  border-radius: 22px 22px 8px 22px;
   color: #3f5f68;
   font-size: 0.88rem;
   font-weight: 700;
   line-height: 1.45;
-  background: rgba(255, 255, 255, 0.68);
-  box-shadow: 0 18px 44px rgba(35, 50, 56, 0.1);
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.88), rgba(234, 249, 245, 0.78)),
+    rgba(255, 255, 255, 0.68);
+  box-shadow: 0 18px 44px rgba(35, 50, 56, 0.1), 0 0 0 6px rgba(255, 255, 255, 0.22);
   backdrop-filter: blur(16px);
 }
 
@@ -241,9 +243,9 @@ h2 {
   bottom: -8px;
   width: 16px;
   height: 16px;
-  border-right: 1px solid rgba(35, 50, 56, 0.11);
-  border-bottom: 1px solid rgba(35, 50, 56, 0.11);
-  background: rgba(255, 255, 255, 0.68);
+  border-right: 1px solid rgba(116, 214, 189, 0.28);
+  border-bottom: 1px solid rgba(116, 214, 189, 0.28);
+  background: rgba(247, 253, 250, 0.86);
   transform: rotate(45deg);
 }
 
@@ -258,14 +260,41 @@ h2 {
 .visitor-emoji {
   display: grid;
   flex: 0 0 auto;
-  width: 30px;
-  height: 30px;
+  width: 34px;
+  height: 34px;
   place-items: center;
   border-radius: 50%;
   color: #123432;
-  font-size: 1rem;
+  font-size: 1.08rem;
   font-weight: 800;
   background: var(--sun);
+  box-shadow: 0 8px 18px rgba(214, 145, 45, 0.18);
+  transform-origin: 70% 70%;
+  animation: wave 1.8s ease-in-out infinite;
+}
+
+@keyframes wave {
+  0%,
+  54%,
+  100% {
+    transform: rotate(0deg);
+  }
+
+  12% {
+    transform: rotate(16deg);
+  }
+
+  24% {
+    transform: rotate(-10deg);
+  }
+
+  36% {
+    transform: rotate(12deg);
+  }
+
+  46% {
+    transform: rotate(-4deg);
+  }
 }
 
 .hero-tools {
