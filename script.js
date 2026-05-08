@@ -118,12 +118,13 @@ let publicComments = JSON.parse(localStorage.getItem("quotePublicComments") || "
 
 Object.values(reactions).forEach((reaction) => {
   delete reaction.resonate;
+  delete reaction.save;
 });
 
 Object.entries(reactions).forEach(([index, reaction]) => {
   reactionCounts[index] = reactionCounts[index] || {};
+  delete reactionCounts[index].save;
   if (reaction.like && !reactionCounts[index].like) reactionCounts[index].like = 1;
-  if (reaction.save && !reactionCounts[index].save) reactionCounts[index].save = 1;
 });
 
 const allCategory = "All";
@@ -249,19 +250,19 @@ function getReactionCount(index, key) {
 
 function getMostPopularScore() {
   return Object.values(reactionCounts).reduce((max, counts) => {
-    const score = (counts.like || 0) + (counts.save || 0);
+    const score = counts.like || 0;
     return Math.max(max, score);
   }, 0);
 }
 
 function getPopularityScore(index) {
   const counts = reactionCounts[index] || {};
-  return (counts.like || 0) + (counts.save || 0);
+  return counts.like || 0;
 }
 
 function getTotalPopularityScore() {
   return Object.values(reactionCounts).reduce((total, counts) => {
-    return total + (counts.like || 0) + (counts.save || 0);
+    return total + (counts.like || 0);
   }, 0);
 }
 
@@ -270,7 +271,7 @@ function getMostPopularIndex() {
   let bestScore = -1;
   quotes.forEach((quote, index) => {
     const counts = reactionCounts[index] || {};
-    const score = (counts.like || 0) + (counts.save || 0);
+    const score = counts.like || 0;
     if (score > bestScore) {
       bestScore = score;
       bestIndex = index;
@@ -317,8 +318,7 @@ function quoteCard(quote, index) {
       </div>
       <div class="reader-actions" aria-label="Reader actions">
         ${reactionButton(index, "like", "Like", '<path d="M7 10v11M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h3l3.7-6.6A2 2 0 0 1 14.42 4a2 2 0 0 1 .58 1.88Z" />')}
-        ${reactionButton(index, "save", "Save", '<path d="m19 21-7-4-7 4V5a2 2 0 0 1 2-2h10a2 2 0 0 1 2 2v16Z" />')}
-        <button class="reaction-btn note-action" type="button" data-proofread="${index}">Proofread</button>
+        <button class="reaction-btn note-action" type="button" data-proofread="${index}">Refine</button>
       </div>
       ${commentBoard(index)}
     </article>
