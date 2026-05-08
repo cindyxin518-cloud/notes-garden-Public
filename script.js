@@ -72,8 +72,88 @@ const baseQuotes = [
   { zh: "只有当人们认为现状无法持久时，他们才会放弃现状。", en: "People abandon the status quo only when they assess that the current situation will not last.", category: "改变", source: "文摘" }
 ];
 
+const dutchTranslations = [
+  "Wanneer de wereld groter wordt, wordt het zelf kleiner; wanneer je blik verder reikt, worden zorgen lichter.",
+  "Leef vrij en waarachtig als wie je werkelijk bent.",
+  "Lezen is een toevluchtsoord dat je met je meedraagt.",
+  "Ik ben geworteld, maar ik stroom.",
+  "Er staat iets moois te gebeuren.",
+  "Alles wat je je kunt voorstellen, is echt.",
+  "Aanvaard groei, en aanvaard ook dat sommige dingen zonder harmonie eindigen.",
+  "Tijd geneest pijn niet. Ze leert je ermee te leven.",
+  "Tel de dagen niet; laat de dagen tellen.",
+  "Gezegend met lezen draag je je leven lang troost met je mee.",
+  "Ken tevredenheid en ken ook wat ontbreekt; weet wat je moet doen en wat je moet laten.",
+  "Jij bent de poortwachter van je eigen leven. Elke dag bepaal je hoe je leeft.",
+  "Alleen door in gewone dagen loslaten te oefenen, kun je zorgen, ouderdom, ziekte en dood kalm tegemoet treden.",
+  "Leg geen onrealistische verwachtingen op wat je dierbaar is, want de enige zekerheid van het leven is onzekerheid.",
+  "Een weldoener is iemand die oud denken doorbreekt, je begrip verruimt en je naar een hoger niveau tilt.",
+  "Laat obsessie los en wees vriendelijk voor jezelf. Lezen brengt helderheid; verdienen brengt veerkracht.",
+  "Weiger vastberaden mensen die je onrust geven en neem afstand van wie je in negativiteit trekt; hen verliezen is het begin van geluk.",
+  "Een doel-eerst mentaliteit stelt geluk vaak uit. Er is meer dan een weg naar succes; geen enkel scenario hoeft je tevredenheid te bepalen.",
+  "Het ontwaken van de ziel, de verheffing van het denken en onafhankelijkheid van karakter zijn echt talent.",
+  "Een leven moet geraakt worden door pracht en ontroerd door eenvoud; daartussen ligt zijn breedte.",
+  "Waarvan je wilt vluchten, is wat je moet aanvaarden; waar je bang voor bent, is wat je onder ogen moet zien.",
+  "Vermijd winst die te lang duurt en plekken waar iedereen om strijdt; deel voordeel en houd strategie bij weinigen.",
+  "Wanneer je zonder aarzeling of schuldgevoel kunt weigeren, begint een vrijer leven echt.",
+  "Wanneer we ophouden het leven te verbeelden en er volledig instappen, overtreft de schoonheid ervan onze verbeelding.",
+  "Jij staat aan de kant van het geweten; hij staat aan de kant van de winnaar. Dat is een verschil in waarden.",
+  "De beste manier om jezelf te laten bezinken is discipline in drukte, reflectie in stilte en kracht in lage momenten.",
+  "Hoe zorgvuldig het leven ook gepland is, het kan alsnog buigen voor een wending van het lot.",
+  "Wat je werkelijk steun geeft, is kennis, financiële basis, emotionele stabiliteit, een leefbaar ritme en een ongebroken zelf.",
+  "Het stof van de weg kun je niet zomaar afkloppen; word als een oester en verander zand in parels.",
+  "Hoe rijker iemand vanbinnen is, hoe minder hij nodig heeft van wat buiten hem ligt.",
+  "Je kunt niet tegelijk lentebloesem en herfstmaan bezitten. Leer afwegen en loslaten voordat je kunt ontvangen.",
+  "Alleen onderweg kun je grenzen en gehechtheid losser maken, zodat elke keuze en zoektocht levend wordt.",
+  "Groei is de strijd om zelfstandig te leven en te denken; volwassenheid is de oefening om arrogantie en vooroordelen op te lossen.",
+  "Het leven is als een liniaal: het vraagt maat. De beste relaties houden een gracieuze afstand en worden niet vermoeiend.",
+  "Familie zit rustig bijeen, lamplicht is warm. Mogen wie je mist veilig en blij zijn, en mogen je wensen soepel verlopen.",
+  "Wanneer talent je ambitie nog niet kan dragen, word stil en werk; op een dag breek je door de grond.",
+  "Let op je gedachten, woorden, daden, gewoonten en karakter, want zij worden je lot.",
+  "Wanneer het leven slecht genoeg wordt, begint het te keren. Na inspanning leer je dat volhouden je erdoorheen draagt.",
+  "Kort succes kan komen door talent, uiterlijk of inzet; blijvend succes rust op karakter.",
+  "Ook als je vooruitgaat onder de modder, blijf lopen; op een dag droogt die op en valt hij van je af.",
+  "Het is nooit te laat om te veranderen. Kies een richting, ga stap voor stap, en het leven kan elk moment keren.",
+  "Geen berg is te hoog en geen weg te lang voor gestage stappen en volharding.",
+  "Omdat er nergens heen te vluchten is, kies vreugde; omdat er geen zuiver land verschijnt, kalmeer het hart; omdat wensen mislukken, laat los.",
+  "Dankbaarheid betekent het leven dat je nu hebt respecteren en aanvaarden.",
+  "Je taak is de grond effenen, niet je zorgen maken over tijd; wat je in de lente doet, krijgt in de nazomer antwoord.",
+  "Wij worden gevormd door wat we herhaaldelijk doen. Uitmuntendheid is geen daad, maar een gewoonte.",
+  "In dit korte leven verliezen we uiteindelijk alles. Wees moedig: heb iemand lief, beklim een berg, jaag een droom na.",
+  "Vrees de lange weg niet en blijf niet hangen in moeite; elke stap brengt uitzicht, elke stap vooruit een klein geluk.",
+  "Zodra je die stap zet, kun je merken dat alles allang klaarstond.",
+  "Blijf niet treuren om wat je miste. Wat echt bij je hoort, kan laat komen, maar het zal je niet missen.",
+  "Klem je niet te stevig vast aan nu en maak je niet te veel zorgen over de toekomst; na sommige ervaringen verandert het uitzicht voor je.",
+  "Geen boek kan je geluk brengen, maar boeken kunnen je stilletjes helpen jezelf te worden.",
+  "Een teken van volwassenheid is beseffen dat 99% van wat jou elke dag overkomt voor anderen weinig betekent.",
+  "Wij zijn niet wie we vorig jaar waren. Iemand blijven liefhebben die ook verandert, is een vorm van geluk.",
+  "De wereld blijft niet stilstaan bij je trots; mensen zien wat je hebt bereikt.",
+  "Geef niet alle zoetheid aan kinderen en alle bitterheid aan jezelf. Nakomelingen hebben hun eigen geluk; zonder hen, geniet van je eigen leven.",
+  "Ik hoop dat iedereen zo volledig mogelijk zichzelf leeft, op de manier die bij hem of haar past.",
+  "Geen hart raakt gewond door een droom na te jagen. Wanneer je iets werkelijk verlangt, komt het universum helpen.",
+  "Goede vriendschappen ontstaan vanzelf, niet door dwang; zelfs de beste vrienden hebben afstand nodig.",
+  "Niemand kan terug naar het verleden om opnieuw te beginnen, maar iedereen kan vandaag beginnen en een ander einde schrijven.",
+  "Het leven is gelukkig omdat het geen vaste betekenis heeft; zo blijft er ruimte voor ieder van ons om er een te geven.",
+  "Als het leven je goed behandelt, laat je gedrevenheid niet verzachten; als het je steeds blokkeert, verlies dan geen geloof of moed.",
+  "Wanneer je je aan één ding vastklampt, is dat alles wat je kunt vasthouden; wanneer je het loslaat, verschijnen andere keuzes.",
+  "Je bent niet verplicht te zijn wie je een jaar, een dag of vijftien minuten geleden was. Je hebt het recht om te veranderen en te groeien.",
+  "Niets in de wereld gebeurt puur toevallig; op een dag vindt alles zijn verklaring.",
+  "Wanneer iets onredelijks verschijnt: aanvaard het, handel het af, neem afstand en blijf niet vragen waarom.",
+  "Tijd heeft schakeringen; harten hebben afstanden. Jaren gaan voorbij, lang of kort; in dit zwevende leven zijn allen voorbijgaande gasten.",
+  "We verlangden ooit zo naar erkenning van buitenaf, om uiteindelijk te leren dat de wereld van onszelf is en weinig met anderen te maken heeft.",
+  "Hoe logisch je verbeteringsvoorstellen ook zijn en hoeveel voordeel ze de organisatie ook brengen, je kunt veel weerstand verwachten.",
+  "Mensen verzetten zich tegen verandering omdat die een netwerk van ongeschreven rechten en beloften verstoort. Anders gezegd: mensen hebben persoonlijk belang bij de status quo.",
+  "Mensen laten de status quo pas los wanneer ze inschatten dat de huidige situatie niet zal blijven duren."
+];
+
+baseQuotes.forEach((quote, index) => {
+  quote.id = `base-${index}`;
+  quote.nl = dutchTranslations[index] || "";
+});
+
 let userQuotes = JSON.parse(localStorage.getItem("userQuotes") || "[]");
-let quotes = [...baseQuotes, ...userQuotes];
+let publicVisitorQuotes = [];
+let quotes = [];
 
 const quoteGrid = document.querySelector("#quoteGrid");
 const filters = document.querySelector("#filters");
@@ -108,11 +188,40 @@ let collectionMode = "category";
 let activeProofreadIndex = null;
 const visitorCounterEndpoint = "https://notes-garden-counter.cindyxin518.workers.dev";
 
-if (localStorage.getItem("reactionResetV3") !== "done") {
+function prepareStoredQuote(quote, index, prefix) {
+  return {
+    ...quote,
+    id: quote.id || `${prefix}-${index}`,
+    nl: quote.nl || "",
+    source: quote.source || "Visitor submission"
+  };
+}
+
+function rebuildQuotes() {
+  userQuotes = userQuotes.map((quote, index) => prepareStoredQuote(quote, index, "local"));
+  publicVisitorQuotes = publicVisitorQuotes.map((quote, index) => prepareStoredQuote(quote, index, "visitor"));
+  quotes = [...baseQuotes, ...publicVisitorQuotes, ...userQuotes];
+}
+
+function quoteKey(index) {
+  return quotes[index]?.id || `quote-${index}`;
+}
+
+function mergePublicReactions(counts = {}, myReactions = {}) {
+  reactionCounts = { ...reactionCounts, ...counts };
+  Object.entries(myReactions).forEach(([id, reaction]) => {
+    reactions[id] = { ...(reactions[id] || {}), ...reaction };
+  });
+  saveFavorites();
+}
+
+rebuildQuotes();
+
+if (localStorage.getItem("reactionResetV4") !== "done") {
   localStorage.removeItem("quoteFavorites");
   localStorage.removeItem("quoteReactions");
   localStorage.removeItem("quoteReactionCounts");
-  localStorage.setItem("reactionResetV3", "done");
+  localStorage.setItem("reactionResetV4", "done");
 }
 
 let reactions = JSON.parse(localStorage.getItem("quoteReactions") || "{}");
@@ -242,6 +351,62 @@ async function initVisitorCounter() {
   }
 }
 
+async function loadPublicState() {
+  try {
+    const response = await fetch(`${visitorCounterEndpoint}/state?visitorId=${encodeURIComponent(getVisitorId())}`);
+    if (!response.ok) throw new Error("Public state unavailable");
+    const data = await response.json();
+    publicVisitorQuotes = Array.isArray(data.visitorNotes) ? data.visitorNotes : [];
+    publicComments = data.comments || publicComments;
+    mergePublicReactions(data.reactionCounts || {}, data.myReactions || {});
+    rebuildQuotes();
+    updateStats();
+    renderCategoryCards();
+    renderContributionThemes();
+    renderQuotes();
+  } catch (error) {
+    rebuildQuotes();
+  }
+}
+
+async function togglePublicLike(index, liked) {
+  const id = quoteKey(index);
+  const response = await fetch(`${visitorCounterEndpoint}/reaction`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ visitorId: getVisitorId(), quoteId: id, liked })
+  });
+  if (!response.ok) throw new Error("Like sync unavailable");
+  const data = await response.json();
+  reactions[id] = { ...(reactions[id] || {}), like: Boolean(data.liked) };
+  reactionCounts[id] = { ...(reactionCounts[id] || {}), like: Number(data.count || 0) };
+  saveFavorites();
+}
+
+async function addPublicComment(index, text) {
+  const response = await fetch(`${visitorCounterEndpoint}/comment`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ quoteId: quoteKey(index), text })
+  });
+  if (!response.ok) throw new Error("Comment sync unavailable");
+  const data = await response.json();
+  publicComments = data.comments || publicComments;
+  savePublicComments();
+}
+
+async function addPublicVisitorNote(quote) {
+  const response = await fetch(`${visitorCounterEndpoint}/note`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ note: quote })
+  });
+  if (!response.ok) throw new Error("Visitor note sync unavailable");
+  const data = await response.json();
+  publicVisitorQuotes = data.visitorNotes || publicVisitorQuotes;
+  rebuildQuotes();
+}
+
 function renderFilters() {
   filters.innerHTML = themeGroups
     .map((group) => `<a class="filter-chip ${group.id === activeCategory ? "is-active" : ""}" href="#category/${encodeURIComponent(group.id)}">${escapeHtml(group.label)}</a>`)
@@ -271,11 +436,11 @@ function renderContributionThemes() {
 }
 
 function getReaction(index, key) {
-  return Boolean(reactions[index]?.[key]);
+  return Boolean(reactions[quoteKey(index)]?.[key]);
 }
 
 function getReactionCount(index, key) {
-  return reactionCounts[index]?.[key] || 0;
+  return reactionCounts[quoteKey(index)]?.[key] || 0;
 }
 
 function getMostPopularScore() {
@@ -286,7 +451,7 @@ function getMostPopularScore() {
 }
 
 function getPopularityScore(index) {
-  const counts = reactionCounts[index] || {};
+  const counts = reactionCounts[quoteKey(index)] || {};
   return counts.like || 0;
 }
 
@@ -300,7 +465,7 @@ function getMostPopularIndex() {
   let bestIndex = 0;
   let bestScore = -1;
   quotes.forEach((quote, index) => {
-    const counts = reactionCounts[index] || {};
+    const counts = reactionCounts[quoteKey(index)] || {};
     const score = counts.like || 0;
     if (score > bestScore) {
       bestScore = score;
@@ -323,7 +488,7 @@ function reactionButton(index, key, label, iconPath) {
 }
 
 function commentBoard(index) {
-  const comments = publicComments[index] || [];
+  const comments = publicComments[quoteKey(index)] || [];
   if (!comments.length) return "";
   return `
     <div class="comment-board" aria-label="Public comments">
@@ -336,10 +501,11 @@ function commentBoard(index) {
 }
 
 function quoteCard(quote, index) {
-  const isLong = (quote.zh || "").length + (quote.en || "").length > 150;
+  const isLong = (quote.zh || "").length + (quote.en || "").length + (quote.nl || "").length > 180;
   const body = [
     quote.zh ? `<p class="quote-text quote-zh">${escapeHtml(quote.zh)}</p>` : "",
-    quote.en ? `<p class="quote-text quote-en">${escapeHtml(quote.en)}</p>` : ""
+    quote.en ? `<p class="quote-text quote-en">${escapeHtml(quote.en)}</p>` : "",
+    quote.nl ? `<p class="quote-text quote-nl"><span>Dutch</span>${escapeHtml(quote.nl)}</p>` : ""
   ].join("");
   return `
     <article class="quote-card ${isLong ? "long" : ""}" id="quote-${index}">
@@ -381,7 +547,7 @@ function renderQuotes() {
   focusQuoteFromHash();
 }
 
-quoteGrid.addEventListener("click", (event) => {
+quoteGrid.addEventListener("click", async (event) => {
   const proofreadButton = event.target.closest("[data-proofread]");
   if (proofreadButton) {
     activeProofreadIndex = proofreadButton.dataset.proofread;
@@ -395,15 +561,20 @@ quoteGrid.addEventListener("click", (event) => {
   if (!button) return;
   const index = button.dataset.index;
   const key = button.dataset.reaction;
-  const nextValue = !reactions[index]?.[key];
-  const nextCount = nextValue
-    ? getReactionCount(index, key) + 1
-    : Math.max(0, getReactionCount(index, key) - 1);
-  reactions[index] = { ...(reactions[index] || {}), [key]: nextValue };
-  reactionCounts[index] = {
-    ...(reactionCounts[index] || {}),
-    [key]: nextCount
-  };
+  const id = quoteKey(index);
+  const nextValue = !reactions[id]?.[key];
+  try {
+    await togglePublicLike(index, nextValue);
+  } catch (error) {
+    const nextCount = nextValue
+      ? getReactionCount(index, key) + 1
+      : Math.max(0, getReactionCount(index, key) - 1);
+    reactions[id] = { ...(reactions[id] || {}), [key]: nextValue };
+    reactionCounts[id] = {
+      ...(reactionCounts[id] || {}),
+      [key]: nextCount
+    };
+  }
   saveFavorites();
   updateStats();
   renderQuotes();
@@ -415,14 +586,19 @@ function closeProofreadDialog() {
   proofreadText.value = "";
 }
 
-proofreadForm.addEventListener("submit", (event) => {
+proofreadForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const text = proofreadText.value.trim();
   if (!text || activeProofreadIndex === null) return;
-  publicComments[activeProofreadIndex] = [
-    ...(publicComments[activeProofreadIndex] || []),
-    { text, createdAt: new Date().toISOString() }
-  ];
+  try {
+    await addPublicComment(activeProofreadIndex, text);
+  } catch (error) {
+    const id = quoteKey(activeProofreadIndex);
+    publicComments[id] = [
+      ...(publicComments[id] || []),
+      { text, createdAt: new Date().toISOString() }
+    ];
+  }
   savePublicComments();
   closeProofreadDialog();
   renderQuotes();
@@ -463,13 +639,15 @@ document.querySelector(".stats-band").addEventListener("click", (event) => {
   window.location.hash = "#collection/most-popular";
 });
 
-contributeForm.addEventListener("submit", (event) => {
+contributeForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const text = newText.value.trim();
   const english = newEnglish.value.trim();
   const quote = {
+    id: `visitor-${Date.now()}-${Math.random().toString(16).slice(2)}`,
     zh: text,
     en: english,
+    nl: "",
     category: newTheme.value,
     source: newSource.value.trim() || "Visitor submission",
     language: "Preferred language"
@@ -480,9 +658,13 @@ contributeForm.addEventListener("submit", (event) => {
     return;
   }
 
-  userQuotes.push(quote);
-  localStorage.setItem("userQuotes", JSON.stringify(userQuotes));
-  quotes = [...baseQuotes, ...userQuotes];
+  try {
+    await addPublicVisitorNote(quote);
+  } catch (error) {
+    userQuotes.push(quote);
+    localStorage.setItem("userQuotes", JSON.stringify(userQuotes));
+    rebuildQuotes();
+  }
   contributeForm.reset();
   newTheme.value = quote.category;
   contributeStatus.textContent = "Added. Thank you for contributing.";
@@ -576,3 +758,4 @@ renderContributionThemes();
 renderCategoryCards();
 route();
 initVisitorCounter();
+loadPublicState();
