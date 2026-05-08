@@ -145,7 +145,7 @@ button {
   align-content: center;
   max-width: 1180px;
   margin: 0 auto;
-  padding: clamp(48px, 8vw, 82px) 0 18px;
+  padding: clamp(44px, 7vw, 72px) 0 24px;
 }
 
 .eyebrow {
@@ -164,9 +164,9 @@ h2 {
 }
 
 h1 {
-  max-width: 1040px;
-  font-size: clamp(2.6rem, 6.2vw, 5.9rem);
-  line-height: 1.02;
+  max-width: 900px;
+  font-size: clamp(2.35rem, 5.15vw, 4.85rem);
+  line-height: 1.05;
 }
 
 h2 {
@@ -175,50 +175,60 @@ h2 {
 
 .hero-quotes {
   display: grid;
-  max-width: 760px;
-  gap: 12px;
-  margin: 28px 0 0;
+  max-width: 780px;
+  gap: 0;
+  margin: 26px 0 0;
+  padding-left: 18px;
+  border-left: 2px solid rgba(60, 122, 114, 0.24);
   color: #43565e;
 }
 
 .hero-quotes blockquote {
   margin: 0;
+  padding: 10px 0;
+}
+
+.hero-quotes blockquote + blockquote {
+  border-top: 1px solid rgba(35, 50, 56, 0.09);
 }
 
 .hero-quotes p {
   margin: 0;
-  font-size: clamp(1rem, 1.9vw, 1.18rem);
+  font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+  font-size: clamp(1rem, 1.7vw, 1.16rem);
   font-weight: 600;
-  line-height: 1.58;
+  line-height: 1.5;
 }
 
 .hero-quotes cite {
   display: block;
-  margin-top: 3px;
+  margin-top: 5px;
   color: var(--muted);
-  font-size: 0.88rem;
+  font-size: 0.76rem;
   font-style: normal;
+  font-weight: 700;
+  text-transform: uppercase;
 }
 
 .hero-tools {
   display: flex;
   align-items: center;
   flex-wrap: wrap;
-  gap: 14px;
-  margin-top: 32px;
+  gap: 12px;
+  margin-top: 28px;
 }
 
 .search-box {
   display: flex;
   align-items: center;
   gap: 10px;
-  width: min(100%, 430px);
-  min-height: 50px;
+  width: min(100%, 470px);
+  min-height: 48px;
   padding: 0 16px;
   border: 1px solid var(--line);
   border-radius: 999px;
   background: rgba(255, 255, 255, 0.72);
-  box-shadow: 0 18px 42px rgba(35, 50, 56, 0.12);
+  box-shadow: 0 16px 34px rgba(35, 50, 56, 0.1);
 }
 
 .search-box input {
@@ -233,13 +243,13 @@ h2 {
 .primary-link {
   display: inline-flex;
   align-items: center;
-  min-height: 50px;
-  padding: 0 22px;
+  min-height: 48px;
+  padding: 0 24px;
   border-radius: 999px;
   color: #142727;
   font-weight: 800;
   background: var(--sun);
-  box-shadow: 0 16px 34px rgba(214, 145, 45, 0.22);
+  box-shadow: 0 14px 28px rgba(214, 145, 45, 0.2);
 }
 
 .stats-band {
@@ -760,13 +770,41 @@ h2 {
   }
 
   .hero-grid {
-    padding-top: 48px;
+    padding-top: 34px;
+  }
+
+  h1 {
+    font-size: clamp(2.15rem, 12vw, 3.75rem);
+    line-height: 1.08;
+  }
+
+  .hero-quotes {
+    margin-top: 22px;
+    padding-left: 14px;
+  }
+
+  .hero-quotes blockquote {
+    padding: 8px 0;
+  }
+
+  .hero-quotes p {
+    font-size: 0.98rem;
   }
 
   .hero-tools,
-  .search-box,
-  .primary-link {
+  .search-box {
     width: 100%;
+  }
+
+  .hero-tools {
+    gap: 10px;
+    margin-top: 24px;
+  }
+
+  .primary-link {
+    width: fit-content;
+    min-height: 44px;
+    padding: 0 20px;
   }
 
   .primary-link {
