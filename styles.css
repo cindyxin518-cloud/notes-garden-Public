@@ -148,6 +148,10 @@ button {
   padding: clamp(44px, 7vw, 72px) 0 24px;
 }
 
+.hero-copy {
+  position: relative;
+}
+
 .eyebrow {
   margin: 0 0 12px;
   color: #3c7a72;
@@ -211,16 +215,36 @@ h2 {
 }
 
 .visitor-welcome {
-  display: inline-flex;
-  width: fit-content;
-  margin: 18px 0 0;
-  padding: 8px 14px;
-  border: 1px solid rgba(60, 122, 114, 0.16);
-  border-radius: 999px;
+  position: absolute;
+  right: 0;
+  top: clamp(118px, 12vw, 176px);
+  display: flex;
+  width: min(300px, 28vw);
+  align-items: start;
+  gap: 10px;
+  padding: 14px 16px;
+  border: 1px solid rgba(35, 50, 56, 0.11);
+  border-radius: 8px;
   color: #3f5f68;
-  font-size: 0.92rem;
+  font-size: 0.88rem;
   font-weight: 700;
-  background: rgba(255, 255, 255, 0.52);
+  line-height: 1.45;
+  background: rgba(255, 255, 255, 0.68);
+  box-shadow: 0 18px 44px rgba(35, 50, 56, 0.1);
+  backdrop-filter: blur(16px);
+}
+
+.visitor-welcome::after {
+  content: "";
+  position: absolute;
+  right: 30px;
+  bottom: -8px;
+  width: 16px;
+  height: 16px;
+  border-right: 1px solid rgba(35, 50, 56, 0.11);
+  border-bottom: 1px solid rgba(35, 50, 56, 0.11);
+  background: rgba(255, 255, 255, 0.68);
+  transform: rotate(45deg);
 }
 
 .visitor-welcome[hidden] {
@@ -229,6 +253,19 @@ h2 {
 
 .visitor-welcome strong {
   color: var(--ink);
+}
+
+.visitor-emoji {
+  display: grid;
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  place-items: center;
+  border-radius: 50%;
+  color: #123432;
+  font-size: 1rem;
+  font-weight: 800;
+  background: var(--sun);
 }
 
 .hero-tools {
@@ -772,6 +809,13 @@ h2 {
 
   .hero-grid {
     grid-template-columns: 1fr;
+  }
+
+  .visitor-welcome {
+    position: static;
+    width: fit-content;
+    max-width: 100%;
+    margin-top: 18px;
   }
 
   .contribute-panel {
