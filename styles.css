@@ -210,6 +210,27 @@ h2 {
   text-transform: uppercase;
 }
 
+.visitor-welcome {
+  display: inline-flex;
+  width: fit-content;
+  margin: 18px 0 0;
+  padding: 8px 14px;
+  border: 1px solid rgba(60, 122, 114, 0.16);
+  border-radius: 999px;
+  color: #3f5f68;
+  font-size: 0.92rem;
+  font-weight: 700;
+  background: rgba(255, 255, 255, 0.52);
+}
+
+.visitor-welcome[hidden] {
+  display: none;
+}
+
+.visitor-welcome strong {
+  color: var(--ink);
+}
+
 .hero-tools {
   display: flex;
   align-items: center;

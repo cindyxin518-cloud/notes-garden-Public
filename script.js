@@ -95,6 +95,8 @@ const categoryCount = document.querySelector("#categoryCount");
 const mostPopularCount = document.querySelector("#favoriteCount");
 const readerAddedCount = document.querySelector("#readerAddedCount");
 const themeBtn = document.querySelector("#themeBtn");
+const visitorWelcome = document.querySelector("#visitorWelcome");
+const visitorNumber = document.querySelector("#visitorNumber");
 const proofreadModal = document.querySelector("#proofreadModal");
 const proofreadForm = document.querySelector("#proofreadForm");
 const proofreadText = document.querySelector("#proofreadText");
@@ -104,6 +106,7 @@ const proofreadCancel = document.querySelector("#proofreadCancel");
 let activeCategory = "";
 let collectionMode = "category";
 let activeProofreadIndex = null;
+const visitorCounterEndpoint = "https://notes-garden-counter.cindyxin518.workers.dev";
 
 if (localStorage.getItem("reactionResetV3") !== "done") {
   localStorage.removeItem("quoteFavorites");
@@ -210,6 +213,33 @@ function saveFavorites() {
 
 function savePublicComments() {
   localStorage.setItem("quotePublicComments", JSON.stringify(publicComments));
+}
+
+function getVisitorId() {
+  let visitorId = localStorage.getItem("notesGardenVisitorId");
+  if (!visitorId) {
+    visitorId = crypto.randomUUID ? crypto.randomUUID() : `visitor-${Date.now()}-${Math.random().toString(16).slice(2)}`;
+    localStorage.setItem("notesGardenVisitorId", visitorId);
+  }
+  return visitorId;
+}
+
+async function initVisitorCounter() {
+  if (!visitorWelcome || !visitorNumber) return;
+  try {
+    const response = await fetch(visitorCounterEndpoint, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ visitorId: getVisitorId() })
+    });
+    if (!response.ok) throw new Error("Visitor counter unavailable");
+    const data = await response.json();
+    if (!data.visitorNumber) return;
+    visitorNumber.textContent = Number(data.visitorNumber).toLocaleString();
+    visitorWelcome.hidden = false;
+  } catch (error) {
+    visitorWelcome.hidden = true;
+  }
 }
 
 function renderFilters() {
@@ -545,3 +575,4 @@ updateStats();
 renderContributionThemes();
 renderCategoryCards();
 route();
+initVisitorCounter();
