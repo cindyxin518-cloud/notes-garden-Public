@@ -355,23 +355,24 @@ h2 {
 
 .stats-band {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
   gap: 12px;
-  max-width: 620px;
+  max-width: 1040px;
   margin: 0 0 32px;
   padding: 0;
 }
 
 .stats-band button {
   display: flex;
-  min-height: 74px;
-  align-items: center;
+  min-height: 86px;
+  align-items: flex-start;
   justify-content: center;
+  flex-direction: column;
   gap: 8px;
-  padding: 14px 16px;
+  padding: 16px 18px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
-  text-align: center;
+  text-align: left;
   background: rgba(255, 255, 255, 0.76);
   box-shadow: 0 12px 26px rgba(35, 50, 56, 0.08);
   backdrop-filter: blur(16px);
@@ -388,13 +389,13 @@ h2 {
 }
 
 .stats-band strong {
-  font-size: clamp(1.5rem, 3.5vw, 2rem);
+  font-size: clamp(1.35rem, 2.8vw, 1.85rem);
   line-height: 1;
 }
 
 .stats-band span {
   color: var(--muted);
-  font-size: 0.9rem;
+  font-size: 0.86rem;
   font-weight: 700;
 }
 
@@ -600,6 +601,12 @@ h2 {
   box-shadow: 0 18px 38px rgba(35, 50, 56, 0.12);
 }
 
+.category-card-special {
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.86), rgba(255, 255, 255, 0.58)),
+    linear-gradient(135deg, rgba(255, 214, 110, 0.32), rgba(116, 214, 189, 0.24), rgba(132, 200, 255, 0.2));
+}
+
 .category-card strong {
   display: block;
   margin-bottom: 12px;
@@ -658,6 +665,52 @@ h2 {
   height: 3px;
   border-radius: 999px 999px 0 0;
   background: linear-gradient(90deg, var(--mint), var(--sun), var(--coral));
+}
+
+.strategy-card {
+  position: relative;
+  min-height: 184px;
+  padding: 18px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  background:
+    linear-gradient(145deg, rgba(255, 255, 255, 0.84), rgba(255, 255, 255, 0.56)),
+    linear-gradient(135deg, rgba(255, 214, 110, 0.2), rgba(116, 214, 189, 0.16));
+  box-shadow: 0 12px 30px rgba(35, 50, 56, 0.08);
+  backdrop-filter: blur(14px);
+}
+
+.strategy-card::after {
+  content: "";
+  position: absolute;
+  inset: auto 14px 0;
+  height: 3px;
+  border-radius: 999px 999px 0 0;
+  background: linear-gradient(90deg, var(--sun), var(--mint), var(--sky));
+}
+
+.strategy-card span {
+  display: block;
+  margin-bottom: 12px;
+  color: #3c7a72;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.strategy-card h3 {
+  margin: 0 0 12px;
+  font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+  font-size: 1.45rem;
+  line-height: 1.12;
+}
+
+.strategy-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.92rem;
+  line-height: 1.62;
 }
 
 .quote-body {

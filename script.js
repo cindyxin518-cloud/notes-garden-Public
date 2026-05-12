@@ -170,6 +170,7 @@ const newSource = document.querySelector("#newSource");
 const searchInput = document.querySelector("#searchInput");
 const resultCount = document.querySelector("#resultCount");
 const emptyState = document.querySelector("#emptyState");
+const collectionNote = document.querySelector("#collectionNote");
 const totalCount = document.querySelector("#totalCount");
 const categoryCount = document.querySelector("#categoryCount");
 const mostPopularCount = document.querySelector("#favoriteCount");
@@ -240,7 +241,9 @@ Object.entries(reactions).forEach(([index, reaction]) => {
 });
 
 const allCategory = "All";
+const artOfWarThemeId = "The Art of War";
 const themeGroups = [
+  { id: artOfWarThemeId, label: "The Art of War" },
   { id: "Wisdom", label: "Wisdom" },
   { id: "Self", label: "Self" },
   { id: "Growth", label: "Growth" },
@@ -250,6 +253,32 @@ const themeGroups = [
   { id: "Others", label: "Others" }
 ];
 const groupIds = themeGroups.map((group) => group.id);
+const artOfWarSections = [
+  {
+    title: "Strategic Thinking",
+    detail: "Long-range judgment, positioning, timing, and choosing when not to fight."
+  },
+  {
+    title: "Human Judgment",
+    detail: "Reading people, incentives, fear, morale, and the hidden motives behind action."
+  },
+  {
+    title: "Resource Allocation",
+    detail: "Using limited energy, attention, people, money, and time where they matter most."
+  },
+  {
+    title: "Information & Game Theory",
+    detail: "Signals, uncertainty, asymmetry, intelligence, and moves made under incomplete knowledge."
+  },
+  {
+    title: "Organizational Leadership",
+    detail: "Command, discipline, trust, coordination, and building a team that can execute."
+  },
+  {
+    title: "Psychological Warfare & Decisions",
+    detail: "Pressure, perception, deception, restraint, and making clear choices under tension."
+  }
+];
 const categoryGroups = {
   短句: "Wisdom",
   认知: "Wisdom",
@@ -311,7 +340,7 @@ function updateStats() {
   totalCount.textContent = quotes.length;
   categoryCount.textContent = themeGroups.length;
   mostPopularCount.textContent = getTotalPopularityScore();
-  readerAddedCount.textContent = userQuotes.length;
+  readerAddedCount.textContent = publicVisitorQuotes.length + userQuotes.length;
   saveFavorites();
 }
 
@@ -409,13 +438,25 @@ async function addPublicVisitorNote(quote) {
 
 function renderFilters() {
   filters.innerHTML = themeGroups
-    .map((group) => `<a class="filter-chip ${group.id === activeCategory ? "is-active" : ""}" href="#category/${encodeURIComponent(group.id)}">${escapeHtml(group.label)}</a>`)
+    .map((group) => {
+      const href = group.id === artOfWarThemeId ? "#collection/art-of-war" : `#category/${encodeURIComponent(group.id)}`;
+      return `<a class="filter-chip ${group.id === activeCategory ? "is-active" : ""}" href="${href}">${escapeHtml(group.label)}</a>`;
+    })
     .join("");
 }
 
 function renderCategoryCards() {
   categoryGrid.innerHTML = themeGroups
     .map((group) => {
+      if (group.id === artOfWarThemeId) {
+        return `
+          <a class="category-card category-card-special" href="#collection/art-of-war">
+            <strong>${escapeHtml(group.label)}</strong>
+            <span>Special notes on strategy, judgment, resources, information, leadership, and decisions.</span>
+            <em>Open</em>
+          </a>
+        `;
+      }
       const groupQuotes = quotes.filter((quote) => groupForQuote(quote) === group.id);
       const sample = groupQuotes[0];
       return `
@@ -547,6 +588,22 @@ function renderQuotes() {
   focusQuoteFromHash();
 }
 
+function artOfWarSectionCard(section) {
+  return `
+    <article class="strategy-card">
+      <span>Special Notes · The Art of War</span>
+      <h3>${escapeHtml(section.title)}</h3>
+      <p>${escapeHtml(section.detail)}</p>
+    </article>
+  `;
+}
+
+function renderArtOfWarSections() {
+  quoteGrid.innerHTML = artOfWarSections.map(artOfWarSectionCard).join("");
+  resultCount.textContent = `${artOfWarSections.length} strategy sections`;
+  emptyState.classList.remove("is-visible");
+}
+
 quoteGrid.addEventListener("click", async (event) => {
   const proofreadButton = event.target.closest("[data-proofread]");
   if (proofreadButton) {
@@ -621,6 +678,11 @@ document.querySelector(".stats-band").addEventListener("click", (event) => {
   const button = event.target.closest("[data-stat-link]");
   if (!button) return;
 
+  if (button.dataset.statLink === "art-of-war") {
+    window.location.hash = "#collection/art-of-war";
+    return;
+  }
+
   if (button.dataset.statLink === "all") {
     window.location.hash = `#category/${allCategory}`;
     return;
@@ -687,11 +749,16 @@ function showHome() {
 
 function showCategory(category) {
   activeCategory = resolveGroup(category);
+  if (activeCategory === artOfWarThemeId) {
+    showArtOfWarCollection();
+    return;
+  }
   collectionMode = "category";
   categoryHome.hidden = true;
   collection.hidden = false;
   collectionTitle.textContent = activeCategory === allCategory ? "Search Results" : `${categoryLabel(activeCategory)} Notes`;
   document.title = `${collectionTitle.textContent} | Notes Garden`;
+  collectionNote.textContent = "Collected reading notes. AI translations may be imperfect; corrections and reflections are welcome.";
   updateStats();
   filters.hidden = false;
   renderFilters();
@@ -705,10 +772,27 @@ function showSpecialCollection(mode) {
   collection.hidden = false;
   collectionTitle.textContent = mode === "popular" ? "Most Popular Notes" : "Added by Visitor";
   document.title = `${collectionTitle.textContent} | Notes Garden`;
+  collectionNote.textContent = mode === "popular"
+    ? "Public likes help visitors discover notes that others found meaningful."
+    : "Notes shared by visitors. New entries appear here after they are added.";
   resultCount.textContent = "";
   updateStats();
   filters.hidden = true;
   renderQuotes();
+}
+
+function showArtOfWarCollection() {
+  collectionMode = "art-of-war";
+  activeCategory = artOfWarThemeId;
+  categoryHome.hidden = true;
+  collection.hidden = false;
+  collectionTitle.textContent = "Special Notes: The Art of War";
+  document.title = "Special Notes: The Art of War | Notes Garden";
+  collectionNote.textContent = "A strategy notebook inspired by The Art of War, organized around judgment, resources, information, leadership, and decision-making.";
+  updateStats();
+  filters.hidden = false;
+  renderFilters();
+  renderArtOfWarSections();
 }
 
 function route() {
@@ -719,6 +803,10 @@ function route() {
   }
   if (hash === "#collection/visitor-added") {
     showSpecialCollection("visitor");
+    return;
+  }
+  if (hash === "#collection/art-of-war") {
+    showArtOfWarCollection();
     return;
   }
   if (hash.startsWith("#category/")) {
@@ -744,6 +832,10 @@ function focusQuoteFromHash() {
 searchInput.addEventListener("input", () => {
   if (collection.hidden) {
     window.location.hash = `#category/${allCategory}`;
+    return;
+  }
+  if (collectionMode === "art-of-war") {
+    renderArtOfWarSections();
     return;
   }
   renderQuotes();

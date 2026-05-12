@@ -61,21 +61,25 @@
       <main>
         <section class="category-home" id="categories">
           <section class="stats-band" aria-label="Quote statistics">
+            <button type="button" data-stat-link="art-of-war">
+              <strong>Special</strong>
+              <span>The Art of War</span>
+            </button>
             <button type="button" data-stat-link="all">
               <strong id="totalCount">0</strong>
-              <span>notes</span>
+              <span>Reflection Notes</span>
             </button>
             <button type="button" data-stat-link="themes">
               <strong id="categoryCount">0</strong>
-              <span>themes</span>
+              <span>Themes</span>
             </button>
             <button type="button" data-stat-link="popular">
               <strong id="favoriteCount">0</strong>
-              <span>most popular</span>
+              <span>Popular with Visitors</span>
             </button>
             <button type="button" data-stat-link="reader-added">
               <strong id="readerAddedCount">0</strong>
-              <span>added by visitor</span>
+              <span>Visitor Contributions</span>
             </button>
           </section>
 
@@ -86,7 +90,7 @@
             </div>
             <p>Choose a theme to open its notes page.</p>
           </div>
-          <p class="source-note">Collected reading notes. AI translations may be imperfect; corrections and reflections are welcome.</p>
+          <p class="source-note" id="collectionNote">Collected reading notes. AI translations may be imperfect; corrections and reflections are welcome.</p>
           <div class="category-grid" id="categoryGrid"></div>
         </section>
 
