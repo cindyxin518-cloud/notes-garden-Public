@@ -256,27 +256,111 @@ const groupIds = themeGroups.map((group) => group.id);
 const artOfWarSections = [
   {
     title: "Strategic Thinking",
-    detail: "Long-range judgment, positioning, timing, and choosing when not to fight."
+    detail: "Long-range judgment, positioning, timing, and choosing when not to fight.",
+    notes: [
+      {
+        zh: "上兵伐谋，其次伐交，其次伐兵",
+        en: "The highest form of warfare is to attack strategy; next is to disrupt alliances; only then comes direct military confrontation."
+      },
+      {
+        zh: "胜兵先胜而后求战",
+        en: "Victorious warriors win first and then go to war."
+      },
+      {
+        zh: "兵无常势，水无常形",
+        en: "There are no constant conditions in warfare, just as water has no constant shape."
+      }
+    ]
   },
   {
-    title: "Human Judgment",
-    detail: "Reading people, incentives, fear, morale, and the hidden motives behind action."
+    title: "Human Nature & Leadership",
+    detail: "Reading people, incentives, morale, trust, and the qualities of command.",
+    notes: [
+      {
+        zh: "知彼知己，百战不殆",
+        en: "If you know the enemy and know yourself, you need not fear the result of a hundred battles."
+      },
+      {
+        zh: "将者，智、信、仁、勇、严也",
+        en: "A true commander possesses wisdom, trustworthiness, benevolence, courage, and discipline."
+      },
+      {
+        zh: "上下同欲者胜",
+        en: "Those whose people share the same purpose will prevail."
+      }
+    ]
   },
   {
     title: "Resource Allocation",
-    detail: "Using limited energy, attention, people, money, and time where they matter most."
+    detail: "Using limited energy, attention, people, money, and time where they matter most.",
+    notes: [
+      {
+        zh: "兵贵胜，不贵久",
+        en: "In warfare, victory matters more than prolonged campaigns."
+      },
+      {
+        zh: "以正合，以奇胜",
+        en: "Engage with orthodox methods, but win through unconventional strategies."
+      },
+      {
+        zh: "善战者，致人而不致于人",
+        en: "Those skilled in warfare make others respond to them, rather than being controlled by others."
+      }
+    ]
   },
   {
     title: "Information & Game Theory",
-    detail: "Signals, uncertainty, asymmetry, intelligence, and moves made under incomplete knowledge."
+    detail: "Signals, uncertainty, asymmetry, intelligence, and moves made under incomplete knowledge.",
+    notes: [
+      {
+        zh: "兵者，诡道也",
+        en: "All warfare is based on deception."
+      },
+      {
+        zh: "知彼之情者，能用兵矣",
+        en: "He who understands the enemy's conditions is capable of directing warfare."
+      },
+      {
+        zh: "兵贵神速",
+        en: "Speed is the essence of warfare."
+      }
+    ]
   },
   {
-    title: "Organizational Leadership",
-    detail: "Command, discipline, trust, coordination, and building a team that can execute."
+    title: "Organization & Coordination",
+    detail: "Command, discipline, trust, coordination, and building a system that can execute.",
+    notes: [
+      {
+        zh: "治众如治寡",
+        en: "Managing a large force is the same as managing a small one."
+      },
+      {
+        zh: "令素行以教其民，则民服",
+        en: "When discipline is consistently practiced, people will follow willingly."
+      },
+      {
+        zh: "将能而君不御者胜",
+        en: "When capable generals are trusted without excessive interference, victory follows."
+      }
+    ]
   },
   {
-    title: "Psychological Warfare & Decisions",
-    detail: "Pressure, perception, deception, restraint, and making clear choices under tension."
+    title: "Psychology & Decision-Making",
+    detail: "Pressure, perception, deception, restraint, and making clear choices under tension.",
+    notes: [
+      {
+        zh: "能而示之不能",
+        en: "When capable, appear incapable."
+      },
+      {
+        zh: "乱生于治，怯生于勇",
+        en: "Disorder may arise from order, and fear may arise from courage."
+      },
+      {
+        zh: "投之亡地然后存，陷之死地然后生",
+        en: "Place people in desperate situations, and they will survive; place them in deadly ground, and they will fight to live."
+      }
+    ]
   }
 ];
 const categoryGroups = {
@@ -337,7 +421,7 @@ function resolveGroup(value) {
 }
 
 function updateStats() {
-  totalCount.textContent = quotes.length;
+  if (totalCount) totalCount.textContent = quotes.length;
   categoryCount.textContent = themeGroups.length;
   mostPopularCount.textContent = getTotalPopularityScore();
   readerAddedCount.textContent = publicVisitorQuotes.length + userQuotes.length;
@@ -589,11 +673,23 @@ function renderQuotes() {
 }
 
 function artOfWarSectionCard(section) {
+  const notes = section.notes
+    .map((note) => `
+      <li>
+        <strong>${escapeHtml(note.zh)}</strong>
+        <em>${escapeHtml(note.en)}</em>
+      </li>
+    `)
+    .join("");
+
   return `
     <article class="strategy-card">
       <span>Special Notes · The Art of War</span>
       <h3>${escapeHtml(section.title)}</h3>
       <p>${escapeHtml(section.detail)}</p>
+      <ul class="strategy-notes">
+        ${notes}
+      </ul>
     </article>
   `;
 }
