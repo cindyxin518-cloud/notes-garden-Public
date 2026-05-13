@@ -422,9 +422,10 @@ h2 {
   inset: 0;
   z-index: 1;
   border-radius: inherit;
-  background-image: url("assets/stats-card-backgrounds.png");
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.42;
+  opacity: 0.88;
   pointer-events: none;
 }
 
@@ -435,15 +436,14 @@ h2 {
   z-index: 2;
   border-radius: inherit;
   background:
-    linear-gradient(90deg, rgba(255, 255, 255, 0.86) 0%, rgba(255, 255, 255, 0.72) 43%, rgba(255, 255, 255, 0.2) 76%, rgba(255, 255, 255, 0.05) 100%),
-    linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(35, 50, 56, 0.03));
+    linear-gradient(90deg, rgba(255, 255, 255, 0.9) 0%, rgba(255, 255, 255, 0.72) 43%, rgba(255, 255, 255, 0.22) 78%, rgba(255, 255, 255, 0.06) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.18), rgba(35, 50, 56, 0.03));
   pointer-events: none;
 }
 
 .stats-band button[data-stat-link="art-of-war"]::before {
-  background-size: 232% auto;
-  background-position: 10% 2%;
-  opacity: 0.46;
+  background-image: url("assets/card-art-of-war-crop.png");
+  background-position: center right;
 }
 
 .stats-band button[data-stat-link="art-of-war"] strong::after {
@@ -467,9 +467,8 @@ h2 {
 }
 
 .stats-band button[data-stat-link="all"]::before {
-  background-size: 236% auto;
-  background-position: 92% 2%;
-  opacity: 0.44;
+  background-image: url("assets/card-reflection-notes-crop.png");
+  background-position: center right;
 }
 
 .stats-band button[data-stat-link="themes"] {
@@ -478,9 +477,8 @@ h2 {
 }
 
 .stats-band button[data-stat-link="themes"]::before {
-  background-size: 232% auto;
-  background-position: 8% 52%;
-  opacity: 0.43;
+  background-image: url("assets/card-themes-crop.png");
+  background-position: center right;
 }
 
 .stats-band button[data-stat-link="popular"] {
@@ -489,9 +487,8 @@ h2 {
 }
 
 .stats-band button[data-stat-link="popular"]::before {
-  background-size: 232% auto;
-  background-position: 92% 52%;
-  opacity: 0.43;
+  background-image: url("assets/card-popularity-crop.png");
+  background-position: center right;
 }
 
 .stats-band button[data-stat-link="reader-added"] {
@@ -500,9 +497,8 @@ h2 {
 }
 
 .stats-band button[data-stat-link="reader-added"]::before {
-  background-size: 232% auto;
-  background-position: 9% 98%;
-  opacity: 0.42;
+  background-image: url("assets/card-visitor-contributions-crop.png");
+  background-position: center right;
 }
 
 .stats-band button:hover {
@@ -1177,10 +1173,6 @@ h2 {
     flex-direction: column;
     gap: 4px;
     padding: 11px 10px;
-  }
-
-  .stats-band button::before {
-    background-size: 260% auto;
   }
 
   .stats-band span {
