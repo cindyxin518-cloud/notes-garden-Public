@@ -311,6 +311,26 @@ h2 {
   }
 }
 
+@keyframes new-card-wiggle {
+  0%,
+  88%,
+  100% {
+    transform: rotate(0deg) translateY(0);
+  }
+
+  91% {
+    transform: rotate(-0.8deg) translateY(-1px);
+  }
+
+  94% {
+    transform: rotate(0.8deg) translateY(-1px);
+  }
+
+  97% {
+    transform: rotate(-0.35deg) translateY(0);
+  }
+}
+
 .hero-tools {
   display: flex;
   align-items: center;
@@ -375,10 +395,12 @@ h2 {
   border: 1px solid var(--line);
   border-radius: var(--radius);
   text-align: left;
-  background: rgba(255, 255, 255, 0.76);
+  background-color: rgba(255, 255, 255, 0.76);
+  background-repeat: no-repeat;
   box-shadow: 0 12px 26px rgba(35, 50, 56, 0.08);
   backdrop-filter: blur(16px);
   cursor: pointer;
+  transition: transform 180ms ease, box-shadow 180ms ease;
 }
 
 .stats-band button > * {
@@ -388,22 +410,23 @@ h2 {
 
 .stats-band button[data-stat-link="art-of-war"] {
   border-color: rgba(115, 86, 43, 0.22);
-  background:
-    linear-gradient(135deg, rgba(251, 236, 184, 0.88), rgba(222, 196, 135, 0.7)),
-    repeating-linear-gradient(90deg, rgba(89, 66, 35, 0.08) 0 1px, transparent 1px 30px);
+  background-image:
+    linear-gradient(90deg, rgba(250, 230, 178, 0.96) 0 47%, rgba(250, 230, 178, 0.68) 68%, rgba(250, 230, 178, 0.38) 100%),
+    url("assets/stats-card-backgrounds.png");
+  background-size: auto, 210% auto;
+  background-position: center, 0% 0%;
   color: #243128;
+  animation: new-card-wiggle 5.5s ease-in-out infinite;
 }
 
 .stats-band button[data-stat-link="art-of-war"]::before {
-  content: "兵";
+  content: "";
   position: absolute;
-  right: 18px;
-  bottom: -28px;
+  inset: 8px;
   z-index: 0;
-  color: rgba(74, 50, 26, 0.13);
-  font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
-  font-size: 6rem;
-  line-height: 1;
+  border: 1px solid rgba(141, 96, 36, 0.16);
+  border-radius: 6px;
+  pointer-events: none;
 }
 
 .stats-band button[data-stat-link="art-of-war"]::after {
@@ -412,9 +435,60 @@ h2 {
   inset: 0;
   z-index: 0;
   background:
-    linear-gradient(90deg, rgba(94, 66, 31, 0.12), transparent 16%, transparent 84%, rgba(94, 66, 31, 0.1)),
-    radial-gradient(circle at 12% 18%, rgba(255, 255, 255, 0.42), transparent 32%);
+    linear-gradient(90deg, rgba(94, 66, 31, 0.1), transparent 18%, transparent 84%, rgba(94, 66, 31, 0.08)),
+    radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.48), transparent 32%);
   pointer-events: none;
+}
+
+.stats-band button[data-stat-link="art-of-war"] strong::after {
+  content: "✨ New";
+  display: inline-flex;
+  align-items: center;
+  margin-left: 8px;
+  padding: 3px 9px;
+  border: 1px solid rgba(112, 74, 30, 0.18);
+  border-radius: 999px;
+  color: #7a5428;
+  font-size: 0.64rem;
+  font-weight: 850;
+  vertical-align: middle;
+  background: rgba(255, 255, 255, 0.52);
+}
+
+.stats-band button[data-stat-link="all"] {
+  border-color: rgba(87, 128, 159, 0.18);
+  background-image:
+    linear-gradient(90deg, rgba(242, 248, 255, 0.96) 0 48%, rgba(242, 248, 255, 0.7) 70%, rgba(242, 248, 255, 0.36) 100%),
+    url("assets/stats-card-backgrounds.png");
+  background-size: auto, 215% auto;
+  background-position: center, 100% 0%;
+}
+
+.stats-band button[data-stat-link="themes"] {
+  border-color: rgba(90, 125, 99, 0.18);
+  background-image:
+    linear-gradient(90deg, rgba(238, 247, 239, 0.96) 0 45%, rgba(238, 247, 239, 0.68) 68%, rgba(238, 247, 239, 0.34) 100%),
+    url("assets/stats-card-backgrounds.png");
+  background-size: auto, 215% auto;
+  background-position: center, 0% 50%;
+}
+
+.stats-band button[data-stat-link="popular"] {
+  border-color: rgba(196, 111, 81, 0.18);
+  background-image:
+    linear-gradient(90deg, rgba(255, 242, 235, 0.96) 0 45%, rgba(255, 242, 235, 0.68) 66%, rgba(255, 242, 235, 0.34) 100%),
+    url("assets/stats-card-backgrounds.png");
+  background-size: auto, 215% auto;
+  background-position: center, 100% 50%;
+}
+
+.stats-band button[data-stat-link="reader-added"] {
+  border-color: rgba(127, 109, 161, 0.18);
+  background-image:
+    linear-gradient(90deg, rgba(247, 242, 255, 0.96) 0 45%, rgba(247, 242, 255, 0.68) 67%, rgba(247, 242, 255, 0.34) 100%),
+    url("assets/stats-card-backgrounds.png");
+  background-size: auto, 215% auto;
+  background-position: center, 0% 100%;
 }
 
 .stats-band button:hover {
@@ -1021,6 +1095,12 @@ h2 {
   }
 }
 
+@media (prefers-reduced-motion: reduce) {
+  .stats-band button[data-stat-link="art-of-war"] {
+    animation: none;
+  }
+}
+
 @media (max-width: 640px) {
   .hero {
     padding-top: 18px;
@@ -1081,7 +1161,7 @@ h2 {
     min-height: 62px;
     flex-direction: column;
     gap: 4px;
-    padding: 10px 6px;
+    padding: 11px 10px;
   }
 
   .stats-band span {
