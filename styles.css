@@ -395,6 +395,8 @@ h2 {
   border: 1px solid var(--line);
   border-radius: 12px;
   text-align: left;
+  color: var(--ink);
+  font-family: inherit;
   background-color: rgba(255, 255, 255, 0.82);
   background-repeat: no-repeat;
   box-shadow: 0 14px 30px rgba(35, 50, 56, 0.1);
@@ -412,7 +414,6 @@ h2 {
   border-color: rgba(115, 86, 43, 0.22);
   background:
     linear-gradient(135deg, #f5dfad 0%, #f2d697 46%, #ead1a8 100%);
-  color: #243128;
   animation: new-card-wiggle 5.5s ease-in-out infinite;
 }
 
@@ -456,7 +457,7 @@ h2 {
   border-radius: 999px;
   color: #7a5428;
   font-size: 0.64rem;
-  font-weight: 850;
+  font-weight: 750;
   vertical-align: middle;
   background: rgba(255, 255, 255, 0.52);
 }
@@ -508,21 +509,27 @@ h2 {
 }
 
 .stats-band strong {
-  font-size: clamp(1.06rem, 2vw, 1.25rem);
-  font-weight: 850;
-  line-height: 1.18;
+  color: #203238;
+  font-family: inherit;
+  font-size: clamp(1rem, 1.75vw, 1.16rem);
+  font-weight: 760;
+  letter-spacing: 0;
+  line-height: 1.22;
 }
 
 .stats-band span {
   color: var(--muted);
-  font-size: 0.8rem;
-  font-weight: 750;
+  font-family: inherit;
+  font-size: 0.79rem;
+  font-weight: 650;
+  letter-spacing: 0;
   line-height: 1.35;
 }
 
 .stats-band span b {
   color: var(--ink);
-  font-size: 0.98rem;
+  font-size: 0.88rem;
+  font-weight: 740;
   margin-right: 3px;
 }
 
