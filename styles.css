@@ -629,6 +629,34 @@ h2 {
   font-size: 0.86rem;
 }
 
+.site-footer {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 8px clamp(18px, 4vw, 58px) 42px;
+  color: rgba(35, 50, 56, 0.62);
+  font-size: 0.78rem;
+  line-height: 1.7;
+}
+
+.site-footer::before {
+  content: "";
+  display: block;
+  width: 100%;
+  height: 1px;
+  margin-bottom: 18px;
+  background: linear-gradient(90deg, rgba(35, 50, 56, 0.12), transparent);
+}
+
+.site-footer p {
+  max-width: 860px;
+  margin: 0 0 6px;
+}
+
+.site-footer p:first-child {
+  color: #3f5f68;
+  font-weight: 750;
+}
+
 .collection[hidden],
 .category-home[hidden] {
   display: none;
