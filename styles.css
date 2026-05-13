@@ -393,51 +393,57 @@ h2 {
   gap: 7px;
   padding: 16px 18px;
   border: 1px solid var(--line);
-  border-radius: var(--radius);
+  border-radius: 12px;
   text-align: left;
-  background-color: rgba(255, 255, 255, 0.76);
+  background-color: rgba(255, 255, 255, 0.82);
   background-repeat: no-repeat;
-  box-shadow: 0 12px 26px rgba(35, 50, 56, 0.08);
+  box-shadow: 0 14px 30px rgba(35, 50, 56, 0.1);
   backdrop-filter: blur(16px);
   cursor: pointer;
-  transition: transform 180ms ease, box-shadow 180ms ease;
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
 }
 
 .stats-band button > * {
   position: relative;
-  z-index: 1;
+  z-index: 3;
 }
 
 .stats-band button[data-stat-link="art-of-war"] {
   border-color: rgba(115, 86, 43, 0.22);
-  background-image:
-    linear-gradient(90deg, rgba(250, 230, 178, 0.96) 0 47%, rgba(250, 230, 178, 0.68) 68%, rgba(250, 230, 178, 0.38) 100%),
-    url("assets/stats-card-backgrounds.png");
-  background-size: auto, 210% auto;
-  background-position: center, 0% 0%;
+  background:
+    linear-gradient(135deg, #f5dfad 0%, #f2d697 46%, #ead1a8 100%);
   color: #243128;
   animation: new-card-wiggle 5.5s ease-in-out infinite;
 }
 
-.stats-band button[data-stat-link="art-of-war"]::before {
-  content: "";
-  position: absolute;
-  inset: 8px;
-  z-index: 0;
-  border: 1px solid rgba(141, 96, 36, 0.16);
-  border-radius: 6px;
-  pointer-events: none;
-}
-
-.stats-band button[data-stat-link="art-of-war"]::after {
+.stats-band button::before {
   content: "";
   position: absolute;
   inset: 0;
-  z-index: 0;
-  background:
-    linear-gradient(90deg, rgba(94, 66, 31, 0.1), transparent 18%, transparent 84%, rgba(94, 66, 31, 0.08)),
-    radial-gradient(circle at 14% 20%, rgba(255, 255, 255, 0.48), transparent 32%);
+  z-index: 1;
+  border-radius: inherit;
+  background-image: url("assets/stats-card-backgrounds.png");
+  background-repeat: no-repeat;
+  opacity: 0.42;
   pointer-events: none;
+}
+
+.stats-band button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  border-radius: inherit;
+  background:
+    linear-gradient(90deg, rgba(255, 255, 255, 0.86) 0%, rgba(255, 255, 255, 0.72) 43%, rgba(255, 255, 255, 0.2) 76%, rgba(255, 255, 255, 0.05) 100%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(35, 50, 56, 0.03));
+  pointer-events: none;
+}
+
+.stats-band button[data-stat-link="art-of-war"]::before {
+  background-size: 232% auto;
+  background-position: 10% 2%;
+  opacity: 0.46;
 }
 
 .stats-band button[data-stat-link="art-of-war"] strong::after {
@@ -457,43 +463,52 @@ h2 {
 
 .stats-band button[data-stat-link="all"] {
   border-color: rgba(87, 128, 159, 0.18);
-  background-image:
-    linear-gradient(90deg, rgba(242, 248, 255, 0.96) 0 48%, rgba(242, 248, 255, 0.7) 70%, rgba(242, 248, 255, 0.36) 100%),
-    url("assets/stats-card-backgrounds.png");
-  background-size: auto, 215% auto;
-  background-position: center, 100% 0%;
+  background: linear-gradient(135deg, #ecf6ff 0%, #d9ebfb 52%, #eaf3fb 100%);
+}
+
+.stats-band button[data-stat-link="all"]::before {
+  background-size: 236% auto;
+  background-position: 92% 2%;
+  opacity: 0.44;
 }
 
 .stats-band button[data-stat-link="themes"] {
   border-color: rgba(90, 125, 99, 0.18);
-  background-image:
-    linear-gradient(90deg, rgba(238, 247, 239, 0.96) 0 45%, rgba(238, 247, 239, 0.68) 68%, rgba(238, 247, 239, 0.34) 100%),
-    url("assets/stats-card-backgrounds.png");
-  background-size: auto, 215% auto;
-  background-position: center, 0% 50%;
+  background: linear-gradient(135deg, #eff8ed 0%, #dfeee3 52%, #edf5ec 100%);
+}
+
+.stats-band button[data-stat-link="themes"]::before {
+  background-size: 232% auto;
+  background-position: 8% 52%;
+  opacity: 0.43;
 }
 
 .stats-band button[data-stat-link="popular"] {
   border-color: rgba(196, 111, 81, 0.18);
-  background-image:
-    linear-gradient(90deg, rgba(255, 242, 235, 0.96) 0 45%, rgba(255, 242, 235, 0.68) 66%, rgba(255, 242, 235, 0.34) 100%),
-    url("assets/stats-card-backgrounds.png");
-  background-size: auto, 215% auto;
-  background-position: center, 100% 50%;
+  background: linear-gradient(135deg, #fff0e8 0%, #fbd9cb 52%, #fff1ea 100%);
+}
+
+.stats-band button[data-stat-link="popular"]::before {
+  background-size: 232% auto;
+  background-position: 92% 52%;
+  opacity: 0.43;
 }
 
 .stats-band button[data-stat-link="reader-added"] {
   border-color: rgba(127, 109, 161, 0.18);
-  background-image:
-    linear-gradient(90deg, rgba(247, 242, 255, 0.96) 0 45%, rgba(247, 242, 255, 0.68) 67%, rgba(247, 242, 255, 0.34) 100%),
-    url("assets/stats-card-backgrounds.png");
-  background-size: auto, 215% auto;
-  background-position: center, 0% 100%;
+  background: linear-gradient(135deg, #f5efff 0%, #e6def6 52%, #f7f2ff 100%);
+}
+
+.stats-band button[data-stat-link="reader-added"]::before {
+  background-size: 232% auto;
+  background-position: 9% 98%;
+  opacity: 0.42;
 }
 
 .stats-band button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 16px 32px rgba(35, 50, 56, 0.11);
+  border-color: rgba(35, 50, 56, 0.18);
+  box-shadow: 0 18px 36px rgba(35, 50, 56, 0.13);
 }
 
 .stats-band strong {
@@ -1162,6 +1177,10 @@ h2 {
     flex-direction: column;
     gap: 4px;
     padding: 11px 10px;
+  }
+
+  .stats-band button::before {
+    background-size: 260% auto;
   }
 
   .stats-band span {
