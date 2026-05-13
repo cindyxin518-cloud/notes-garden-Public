@@ -420,13 +420,13 @@ h2 {
 .stats-band button::before {
   content: "";
   position: absolute;
-  inset: 0;
+  inset: -10px;
   z-index: 1;
-  border-radius: inherit;
-  background-size: cover;
+  border-radius: 18px;
+  background-size: 112% auto;
   background-position: center;
   background-repeat: no-repeat;
-  opacity: 0.88;
+  opacity: 0.92;
   pointer-events: none;
 }
 
@@ -444,7 +444,7 @@ h2 {
 
 .stats-band button[data-stat-link="art-of-war"]::before {
   background-image: url("assets/card-art-of-war-crop.png");
-  background-position: center right;
+  background-position: 58% center;
 }
 
 .stats-band button[data-stat-link="art-of-war"] strong::after {
@@ -469,7 +469,7 @@ h2 {
 
 .stats-band button[data-stat-link="all"]::before {
   background-image: url("assets/card-reflection-notes-crop.png");
-  background-position: center right;
+  background-position: 58% center;
 }
 
 .stats-band button[data-stat-link="themes"] {
@@ -479,7 +479,7 @@ h2 {
 
 .stats-band button[data-stat-link="themes"]::before {
   background-image: url("assets/card-themes-crop.png");
-  background-position: center right;
+  background-position: 58% center;
 }
 
 .stats-band button[data-stat-link="popular"] {
@@ -489,7 +489,7 @@ h2 {
 
 .stats-band button[data-stat-link="popular"]::before {
   background-image: url("assets/card-popularity-crop.png");
-  background-position: center right;
+  background-position: 58% center;
 }
 
 .stats-band button[data-stat-link="reader-added"] {
@@ -499,7 +499,7 @@ h2 {
 
 .stats-band button[data-stat-link="reader-added"]::before {
   background-image: url("assets/card-visitor-contributions-crop.png");
-  background-position: center right;
+  background-position: 58% center;
 }
 
 .stats-band button:hover {
