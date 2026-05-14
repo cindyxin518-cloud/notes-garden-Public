@@ -708,25 +708,27 @@ function renderQuotes() {
   focusQuoteFromHash();
 }
 
-function artOfWarSectionCard(section) {
+const artDetailLabels = {
+  background: "Background",
+  reality: "Reality Link"
+};
+
+function getArtOfWarNote(sectionIndex, noteIndex) {
+  const section = artOfWarSections[Number(sectionIndex)];
+  const note = section?.notes[Number(noteIndex)];
+  if (!section || !note) return null;
+  return { section, note, sectionIndex: Number(sectionIndex), noteIndex: Number(noteIndex) };
+}
+
+function artOfWarSectionCard(section, sectionIndex) {
   const notes = section.notes
-    .map((note) => `
+    .map((note, noteIndex) => `
       <li class="strategy-note">
         <strong>${escapeHtml(note.zh)}</strong>
         <em>${escapeHtml(note.en)}</em>
         <div class="strategy-note-actions" aria-label="The Art of War note details">
-          <button class="strategy-detail-btn" type="button" data-war-panel="background" aria-expanded="false">Background</button>
-          <button class="strategy-detail-btn" type="button" data-war-panel="reality" aria-expanded="false">Reality Link</button>
-        </div>
-        <div class="strategy-note-panels">
-          <div class="strategy-note-panel" data-war-panel-content="background" hidden>
-            <h4>Background</h4>
-            <p>${escapeHtml(note.background)}</p>
-          </div>
-          <div class="strategy-note-panel" data-war-panel-content="reality" hidden>
-            <h4>Reality Link</h4>
-            <p>${escapeHtml(note.reality)}</p>
-          </div>
+          <a class="strategy-detail-btn" href="#collection/art-of-war/${sectionIndex}/${noteIndex}/background">Background</a>
+          <a class="strategy-detail-btn" href="#collection/art-of-war/${sectionIndex}/${noteIndex}/reality">Reality Link</a>
         </div>
       </li>
     `)
@@ -750,27 +752,38 @@ function renderArtOfWarSections() {
   emptyState.classList.remove("is-visible");
 }
 
-quoteGrid.addEventListener("click", async (event) => {
-  const warPanelButton = event.target.closest("[data-war-panel]");
-  if (warPanelButton) {
-    const note = warPanelButton.closest(".strategy-note");
-    const panelName = warPanelButton.dataset.warPanel;
-    const buttons = note.querySelectorAll("[data-war-panel]");
-    const panels = note.querySelectorAll("[data-war-panel-content]");
-    const targetPanel = note.querySelector(`[data-war-panel-content="${panelName}"]`);
-    const shouldOpen = targetPanel.hidden;
-
-    buttons.forEach((button) => {
-      button.classList.toggle("is-active", shouldOpen && button === warPanelButton);
-      button.setAttribute("aria-expanded", shouldOpen && button === warPanelButton ? "true" : "false");
-    });
-    panels.forEach((panel) => {
-      panel.hidden = true;
-    });
-    if (shouldOpen) targetPanel.hidden = false;
+function renderArtOfWarDetail(sectionIndex, noteIndex, detailType) {
+  const item = getArtOfWarNote(sectionIndex, noteIndex);
+  if (!item || !artDetailLabels[detailType]) {
+    showArtOfWarCollection();
     return;
   }
+  const { section, note } = item;
+  const detailText = detailType === "background" ? note.background : note.reality;
+  const backgroundHref = `#collection/art-of-war/${sectionIndex}/${noteIndex}/background`;
+  const realityHref = `#collection/art-of-war/${sectionIndex}/${noteIndex}/reality`;
 
+  quoteGrid.innerHTML = `
+    <article class="strategy-detail-page">
+      <a class="back-link strategy-back-link" href="#collection/art-of-war">Back to The Art of War</a>
+      <p class="eyebrow">${escapeHtml(section.title)}</p>
+      <h3>${escapeHtml(note.zh)}</h3>
+      <p class="strategy-detail-translation">${escapeHtml(note.en)}</p>
+      <div class="strategy-note-actions strategy-detail-tabs" aria-label="Switch The Art of War detail">
+        <a class="strategy-detail-btn ${detailType === "background" ? "is-active" : ""}" href="${backgroundHref}">Background</a>
+        <a class="strategy-detail-btn ${detailType === "reality" ? "is-active" : ""}" href="${realityHref}">Reality Link</a>
+      </div>
+      <section class="strategy-detail-copy" aria-label="${escapeHtml(artDetailLabels[detailType])}">
+        <h4>${escapeHtml(artDetailLabels[detailType])}</h4>
+        <p>${escapeHtml(detailText)}</p>
+      </section>
+    </article>
+  `;
+  resultCount.textContent = "";
+  emptyState.classList.remove("is-visible");
+}
+
+quoteGrid.addEventListener("click", async (event) => {
   const proofreadButton = event.target.closest("[data-proofread]");
   if (proofreadButton) {
     activeProofreadIndex = proofreadButton.dataset.proofread;
@@ -961,6 +974,19 @@ function showArtOfWarCollection() {
   renderArtOfWarSections();
 }
 
+function showArtOfWarDetail(sectionIndex, noteIndex, detailType) {
+  collectionMode = "art-of-war-detail";
+  activeCategory = artOfWarThemeId;
+  categoryHome.hidden = true;
+  collection.hidden = false;
+  collectionTitle.textContent = artDetailLabels[detailType] || "The Art of War";
+  document.title = `${collectionTitle.textContent} | The Art of War | Notes Garden`;
+  collectionNote.textContent = "A closer reading of one strategy note from The Art of War.";
+  updateStats();
+  filters.hidden = true;
+  renderArtOfWarDetail(sectionIndex, noteIndex, detailType);
+}
+
 function route() {
   const hash = window.location.hash;
   if (hash === "#collection/most-popular") {
@@ -969,6 +995,11 @@ function route() {
   }
   if (hash === "#collection/visitor-added") {
     showSpecialCollection("visitor");
+    return;
+  }
+  const artDetailMatch = hash.match(/^#collection\/art-of-war\/(\d+)\/(\d+)\/(background|reality)$/);
+  if (artDetailMatch) {
+    showArtOfWarDetail(artDetailMatch[1], artDetailMatch[2], artDetailMatch[3]);
     return;
   }
   if (hash === "#collection/art-of-war") {

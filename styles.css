@@ -932,6 +932,7 @@ h2 {
   font: inherit;
   font-size: 0.76rem;
   font-weight: 800;
+  text-decoration: none;
   cursor: pointer;
   transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
 }
@@ -947,6 +948,76 @@ h2 {
   border-color: rgba(255, 126, 101, 0.38);
   background: rgba(255, 236, 197, 0.92);
   color: #7c5130;
+}
+
+.strategy-detail-page {
+  grid-column: 1 / -1;
+  width: min(860px, 100%);
+  margin: 0 auto;
+  padding: clamp(22px, 4vw, 38px);
+  border: 1px solid rgba(35, 50, 56, 0.1);
+  border-radius: 18px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.92), rgba(244, 252, 249, 0.72)),
+    linear-gradient(135deg, rgba(255, 214, 110, 0.2), rgba(116, 214, 189, 0.14));
+  box-shadow: 0 18px 44px rgba(35, 50, 56, 0.12);
+  backdrop-filter: blur(16px);
+}
+
+.strategy-back-link {
+  width: fit-content;
+  margin-bottom: 18px;
+}
+
+.strategy-detail-page .eyebrow {
+  margin: 0 0 10px;
+}
+
+.strategy-detail-page h3 {
+  margin: 0;
+  color: var(--ink);
+  font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
+  font-size: clamp(1.55rem, 4vw, 2.25rem);
+  line-height: 1.28;
+}
+
+.strategy-detail-translation {
+  margin: 14px 0 0;
+  max-width: 760px;
+  color: #536a72;
+  font-size: clamp(0.98rem, 2vw, 1.12rem);
+  font-weight: 650;
+  line-height: 1.65;
+}
+
+.strategy-detail-tabs {
+  margin-top: 20px;
+}
+
+.strategy-detail-copy {
+  margin-top: 18px;
+  padding: clamp(16px, 3vw, 24px);
+  border: 1px solid rgba(64, 122, 114, 0.14);
+  border-radius: 16px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.86), rgba(250, 248, 239, 0.68)),
+    rgba(255, 255, 255, 0.72);
+}
+
+.strategy-detail-copy h4 {
+  margin: 0 0 9px;
+  color: #3c7a72;
+  font-size: 0.82rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.strategy-detail-copy p {
+  margin: 0;
+  color: #4d6268;
+  font-size: clamp(0.96rem, 1.8vw, 1.06rem);
+  line-height: 1.78;
 }
 
 .strategy-note-panels {
