@@ -884,10 +884,11 @@ h2 {
 }
 
 .strategy-notes li {
-  padding: 10px 11px;
+  padding: 12px;
   border: 1px solid rgba(35, 50, 56, 0.09);
-  border-radius: 7px;
-  background: rgba(255, 255, 255, 0.46);
+  border-radius: 12px;
+  background: rgba(255, 255, 255, 0.52);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.72);
 }
 
 .strategy-notes strong,
@@ -908,6 +909,75 @@ h2 {
   font-size: 0.82rem;
   font-style: normal;
   line-height: 1.52;
+}
+
+.strategy-note-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 7px;
+  margin-top: 11px;
+}
+
+.strategy-detail-btn {
+  appearance: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30px;
+  padding: 6px 12px;
+  border: 1px solid rgba(64, 122, 114, 0.24);
+  border-radius: 999px;
+  background: rgba(230, 248, 243, 0.76);
+  color: #315f5b;
+  font: inherit;
+  font-size: 0.76rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: transform 180ms ease, background 180ms ease, border-color 180ms ease, box-shadow 180ms ease;
+}
+
+.strategy-detail-btn:hover {
+  transform: translateY(-1px);
+  border-color: rgba(64, 122, 114, 0.38);
+  background: rgba(211, 242, 235, 0.9);
+  box-shadow: 0 8px 16px rgba(35, 50, 56, 0.08);
+}
+
+.strategy-detail-btn.is-active {
+  border-color: rgba(255, 126, 101, 0.38);
+  background: rgba(255, 236, 197, 0.92);
+  color: #7c5130;
+}
+
+.strategy-note-panels {
+  display: grid;
+  gap: 9px;
+}
+
+.strategy-note-panel {
+  margin-top: 10px;
+  padding: 12px 13px;
+  border: 1px solid rgba(35, 50, 56, 0.1);
+  border-radius: 12px;
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.82), rgba(244, 252, 249, 0.66)),
+    rgba(255, 255, 255, 0.64);
+}
+
+.strategy-note-panel h4 {
+  margin: 0 0 6px;
+  color: #3c7a72;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.strategy-note-panel p {
+  margin: 0;
+  color: #536a72;
+  font-size: 0.8rem;
+  line-height: 1.62;
 }
 
 .quote-body {

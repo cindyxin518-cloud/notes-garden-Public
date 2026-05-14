@@ -260,15 +260,21 @@ const artOfWarSections = [
     notes: [
       {
         zh: "上兵伐谋，其次伐交，其次伐兵",
-        en: "The highest form of warfare is to attack strategy; next is to disrupt alliances; only then comes direct military confrontation."
+        en: "The highest form of warfare is to attack strategy; next is to disrupt alliances; only then comes direct military confrontation.",
+        background: "This line reflects Sun Tzu's belief that the best victory happens before open conflict begins. Attacking strategy means understanding the opponent's plan, weakening its logic, and changing the conditions of competition. Direct confrontation is not the first option, but the last visible stage of a deeper strategic process.",
+        reality: "In business and life, the strongest move is often not to fight harder, but to change the game. A company may win by shaping customer habits, building stronger partnerships, or making a competitor's original plan less effective. For individuals, it means solving the root logic of a problem instead of only reacting to visible conflict."
       },
       {
         zh: "胜兵先胜而后求战",
-        en: "Victorious warriors win first and then go to war."
+        en: "Victorious warriors win first and then go to war.",
+        background: "Sun Tzu argues that real victory is created through preparation, positioning, timing, and discipline before the battle starts. A strong army does not rely on luck during the fight; it enters the fight only after the conditions for success have already been built.",
+        reality: "This is very relevant to modern work. Good outcomes rarely come only from last-minute effort. They come from preparation, clear positioning, strong resources, and good timing. In business, a successful product launch often wins before launch day through research, customer understanding, team alignment, and execution readiness."
       },
       {
         zh: "兵无常势，水无常形",
-        en: "There are no constant conditions in warfare, just as water has no constant shape."
+        en: "There are no constant conditions in warfare, just as water has no constant shape.",
+        background: "Sun Tzu compares warfare to water because water changes shape according to the terrain. Strategy should not be fixed or mechanical. A wise commander adapts to the environment, the opponent, resources, timing, and unexpected changes.",
+        reality: "This idea connects strongly with today's uncertain business world. Markets change, customers change, technology changes, and competitors move quickly. A fixed plan can become a weakness. The real capability is not only having a strategy, but knowing when to adjust it without losing direction."
       }
     ]
   },
@@ -278,15 +284,21 @@ const artOfWarSections = [
     notes: [
       {
         zh: "知彼知己，百战不殆",
-        en: "If you know the enemy and know yourself, you need not fear the result of a hundred battles."
+        en: "If you know the enemy and know yourself, you need not fear the result of a hundred battles.",
+        background: "This is one of the most famous ideas in The Art of War. Sun Tzu emphasizes that success depends on understanding both sides: the opponent's strengths, weaknesses, motives, and context, as well as one's own limits, resources, and blind spots.",
+        reality: "In real life, many mistakes come from knowing only one side. A company may understand its product but not its customers. A person may understand others' weaknesses but not their own habits. Better decisions come from double awareness: external reality and internal self-knowledge."
       },
       {
         zh: "将者，智、信、仁、勇、严也",
-        en: "A true commander possesses wisdom, trustworthiness, benevolence, courage, and discipline."
+        en: "A true commander possesses wisdom, trustworthiness, benevolence, courage, and discipline.",
+        background: "Sun Tzu describes the qualities of a good commander: wisdom, trustworthiness, benevolence, courage, and discipline. Leadership is not based only on power or authority. It requires judgment, credibility, care for people, courage under pressure, and the ability to maintain order.",
+        reality: "This is still a useful leadership model today. A good leader needs intelligence, but also trust. They need kindness, but also standards. They need courage, but not recklessness. In organizations, leadership becomes stronger when people feel both supported and clearly guided."
       },
       {
         zh: "上下同欲者胜",
-        en: "Those whose people share the same purpose will prevail."
+        en: "Those whose people share the same purpose will prevail.",
+        background: "This line means that victory comes when leaders and people share the same purpose. Sun Tzu understood that alignment is a strategic force. Even with good resources, a group becomes weak if people move in different directions or do not believe in the goal.",
+        reality: "In modern organizations, alignment is often more powerful than control. A team works better when people understand the purpose, not just the task. In business transformation, especially digital transformation, people are more willing to change when they see why the change matters and how they are part of it."
       }
     ]
   },
@@ -296,15 +308,21 @@ const artOfWarSections = [
     notes: [
       {
         zh: "兵贵胜，不贵久",
-        en: "In warfare, victory matters more than prolonged campaigns."
+        en: "In warfare, victory matters more than prolonged campaigns.",
+        background: "Sun Tzu warns against long and exhausting campaigns. War consumes resources, energy, morale, and time. The goal is not to stay in conflict for as long as possible, but to reach a meaningful result before costs become too heavy.",
+        reality: "This applies directly to business and personal projects. Long projects without clear progress can drain teams and resources. A good strategy is not only ambitious, but also efficient. The question is not how long we can continue, but how to create real results before momentum is lost."
       },
       {
         zh: "以正合，以奇胜",
-        en: "Engage with orthodox methods, but win through unconventional strategies."
+        en: "Engage with orthodox methods, but win through unconventional strategies.",
+        background: "Sun Tzu suggests that ordinary or direct methods can be used to engage, but unexpected methods create victory. The regular approach builds stability, while the unconventional approach creates surprise, differentiation, and advantage.",
+        reality: "In business, companies often need both. Standard processes keep the organization reliable, but innovation creates advantage. A brand may compete with normal products, but win through a surprising business model, customer experience, channel strategy, or emotional connection."
       },
       {
         zh: "善战者，致人而不致于人",
-        en: "Those skilled in warfare make others respond to them, rather than being controlled by others."
+        en: "Those skilled in warfare make others respond to them, rather than being controlled by others.",
+        background: "This line means skilled strategists shape the situation so that others have to respond to them. They do not passively follow the opponent's rhythm. They create pressure, choices, and conditions that make others react.",
+        reality: "In real life, this means moving from reactive to proactive. A strong company does not only respond to market changes; it shapes customer expectations, sets industry standards, or creates new categories. For individuals, it means designing your path instead of only reacting to other people's decisions."
       }
     ]
   },
@@ -314,15 +332,21 @@ const artOfWarSections = [
     notes: [
       {
         zh: "兵者，诡道也",
-        en: "All warfare is based on deception."
+        en: "All warfare is based on deception.",
+        background: "Sun Tzu's idea of deception is not simply about lying. It is about information asymmetry, misdirection, timing, and controlling what the opponent can see. In conflict, what people believe can be as important as what is actually happening.",
+        reality: "In modern life, this idea should be used carefully and ethically. It reminds us that information shapes decisions. In business, brands manage signals, timing, positioning, and expectations. In personal life, it also reminds us not to judge too quickly based only on what is visible."
       },
       {
         zh: "知彼之情者，能用兵矣",
-        en: "He who understands the enemy's conditions is capable of directing warfare."
+        en: "He who understands the enemy's conditions is capable of directing warfare.",
+        background: "This line highlights the importance of understanding the opponent's real condition: their emotions, resources, pressures, intentions, and constraints. Strategy is not only about numbers or visible strength. It is also about reading the deeper situation behind behavior.",
+        reality: "In business, good decisions often come from understanding what customers, competitors, partners, or employees are really experiencing. Data is useful, but context gives data meaning. A manager who understands people's real concerns can make better decisions than one who only looks at surface indicators."
       },
       {
         zh: "兵贵神速",
-        en: "Speed is the essence of warfare."
+        en: "Speed is the essence of warfare.",
+        background: "Sun Tzu values speed because opportunities in conflict are often temporary. When timing is right, delay can turn advantage into weakness. Speed does not mean rushing blindly; it means acting quickly when preparation and timing come together.",
+        reality: "In modern business, speed can be a competitive advantage. Companies that learn faster, test faster, and respond faster often gain momentum before others react. For individuals, it means not waiting for perfect certainty. Sometimes a good decision at the right time is better than a perfect decision made too late."
       }
     ]
   },
@@ -332,15 +356,21 @@ const artOfWarSections = [
     notes: [
       {
         zh: "治众如治寡",
-        en: "Managing a large force is the same as managing a small one."
+        en: "Managing a large force is the same as managing a small one.",
+        background: "Sun Tzu says that managing many people is like managing a few when there is good structure, clear communication, and proper coordination. Scale itself is not the main problem. The real challenge is whether the system can organize complexity.",
+        reality: "This is highly relevant to modern organizations. A large company can still move effectively if roles, processes, information flows, and decision rights are clear. Without structure, even a small team can feel chaotic. Good organization turns complexity into manageable coordination."
       },
       {
         zh: "令素行以教其民，则民服",
-        en: "When discipline is consistently practiced, people will follow willingly."
+        en: "When discipline is consistently practiced, people will follow willingly.",
+        background: "This line emphasizes consistency in discipline and instruction. People follow more willingly when rules are practiced regularly, not suddenly imposed during crisis. Trust in leadership is built through repeated, predictable behavior.",
+        reality: "In organizations, culture is not created by slogans. It is created by consistent habits, routines, and standards. If a company only demands discipline when problems appear, people may resist. But when expectations are clear and practiced over time, coordination becomes more natural."
       },
       {
         zh: "将能而君不御者胜",
-        en: "When capable generals are trusted without excessive interference, victory follows."
+        en: "When capable generals are trusted without excessive interference, victory follows.",
+        background: "Sun Tzu argues that capable generals need trust and autonomy. If the ruler interferes too much, even a skilled commander cannot respond effectively to real conditions. Good leadership means knowing when to guide and when to step back.",
+        reality: "This is very relevant to modern management. When capable teams are micromanaged, speed and judgment suffer. Senior leaders should set direction, provide resources, and clarify goals, but allow local teams or experts to make decisions close to the real situation."
       }
     ]
   },
@@ -350,15 +380,21 @@ const artOfWarSections = [
     notes: [
       {
         zh: "能而示之不能",
-        en: "When capable, appear incapable."
+        en: "When capable, appear incapable.",
+        background: "This line reflects Sun Tzu's use of perception as a strategic tool. When strength is hidden, the opponent may misjudge the situation. The point is not strength alone, but how strength is revealed, concealed, or timed.",
+        reality: "In modern life, this can be understood as strategic modesty and timing. Not every capability needs to be shown immediately. In business, a company may quietly build technology, partnerships, or market knowledge before making a visible move. Sometimes patience protects advantage."
       },
       {
         zh: "乱生于治，怯生于勇",
-        en: "Disorder may arise from order, and fear may arise from courage."
+        en: "Disorder may arise from order, and fear may arise from courage.",
+        background: "Sun Tzu reminds us that appearances can be misleading. Disorder may hide an underlying order, and fear may appear even where courage exists. What looks weak or chaotic from the outside may actually be part of a deeper pattern.",
+        reality: "This idea helps us avoid shallow judgment. In business, a competitor may look quiet but be preparing carefully. A team may look uncertain but still have strong capability. In personal decisions, it reminds us to look beneath appearances and ask what structure, pressure, or intention may be hidden behind behavior."
       },
       {
         zh: "投之亡地然后存，陷之死地然后生",
-        en: "Place people in desperate situations, and they will survive; place them in deadly ground, and they will fight to live."
+        en: "Place people in desperate situations, and they will survive; place them in deadly ground, and they will fight to live.",
+        background: "Sun Tzu describes how extreme pressure can sometimes awaken survival energy and unity. When retreat is no longer possible, people may become more focused, courageous, and committed. This idea comes from battlefield psychology and the human response to urgent stakes.",
+        reality: "In modern life, this should not mean intentionally harming people or creating unnecessary crisis. A healthier interpretation is that clear stakes can increase focus. When teams understand that a challenge truly matters, they often become more creative, united, and determined. Pressure can reveal hidden strength, but it must be handled responsibly."
       }
     ]
   }
@@ -675,9 +711,23 @@ function renderQuotes() {
 function artOfWarSectionCard(section) {
   const notes = section.notes
     .map((note) => `
-      <li>
+      <li class="strategy-note">
         <strong>${escapeHtml(note.zh)}</strong>
         <em>${escapeHtml(note.en)}</em>
+        <div class="strategy-note-actions" aria-label="The Art of War note details">
+          <button class="strategy-detail-btn" type="button" data-war-panel="background" aria-expanded="false">Background</button>
+          <button class="strategy-detail-btn" type="button" data-war-panel="reality" aria-expanded="false">Reality Link</button>
+        </div>
+        <div class="strategy-note-panels">
+          <div class="strategy-note-panel" data-war-panel-content="background" hidden>
+            <h4>Background</h4>
+            <p>${escapeHtml(note.background)}</p>
+          </div>
+          <div class="strategy-note-panel" data-war-panel-content="reality" hidden>
+            <h4>Reality Link</h4>
+            <p>${escapeHtml(note.reality)}</p>
+          </div>
+        </div>
       </li>
     `)
     .join("");
@@ -701,6 +751,26 @@ function renderArtOfWarSections() {
 }
 
 quoteGrid.addEventListener("click", async (event) => {
+  const warPanelButton = event.target.closest("[data-war-panel]");
+  if (warPanelButton) {
+    const note = warPanelButton.closest(".strategy-note");
+    const panelName = warPanelButton.dataset.warPanel;
+    const buttons = note.querySelectorAll("[data-war-panel]");
+    const panels = note.querySelectorAll("[data-war-panel-content]");
+    const targetPanel = note.querySelector(`[data-war-panel-content="${panelName}"]`);
+    const shouldOpen = targetPanel.hidden;
+
+    buttons.forEach((button) => {
+      button.classList.toggle("is-active", shouldOpen && button === warPanelButton);
+      button.setAttribute("aria-expanded", shouldOpen && button === warPanelButton ? "true" : "false");
+    });
+    panels.forEach((panel) => {
+      panel.hidden = true;
+    });
+    if (shouldOpen) targetPanel.hidden = false;
+    return;
+  }
+
   const proofreadButton = event.target.closest("[data-proofread]");
   if (proofreadButton) {
     activeProofreadIndex = proofreadButton.dataset.proofread;
