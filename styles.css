@@ -851,7 +851,7 @@ h2 {
   background: linear-gradient(90deg, var(--sun), var(--mint), var(--sky));
 }
 
-.strategy-card span {
+.strategy-card > span {
   display: block;
   margin-bottom: 12px;
   color: #3c7a72;
