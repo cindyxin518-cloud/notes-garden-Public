@@ -243,7 +243,7 @@ Object.entries(reactions).forEach(([index, reaction]) => {
 const allCategory = "All";
 const artOfWarThemeId = "The Art of War";
 const themeGroups = [
-  { id: artOfWarThemeId, label: "The Art of War" },
+  { id: artOfWarThemeId, label: "Sun Tzu’s Strategy" },
   { id: "Wisdom", label: "Wisdom" },
   { id: "Self", label: "Self" },
   { id: "Growth", label: "Growth" },
@@ -726,7 +726,7 @@ function artPopularCard(entry) {
       <div class="quote-body">
         <p class="quote-text quote-zh">${escapeHtml(note.zh)}</p>
         <p class="quote-text quote-en">${escapeHtml(note.en)}</p>
-        <p class="quote-nl"><span>The Art of War</span>${escapeHtml(section.title)}</p>
+        <p class="quote-nl"><span>Sun Tzu’s Strategy</span>${escapeHtml(section.title)}</p>
       </div>
       <div class="reader-actions" aria-label="Reader actions">
         ${reactionButtonForId(id, "like", "Like", likeIconPath)}
@@ -796,7 +796,7 @@ function artOfWarSectionCard(section, sectionIndex) {
       <li class="strategy-note">
         <strong>${escapeHtml(note.zh)}</strong>
         <em>${escapeHtml(note.en)}</em>
-        <div class="strategy-note-actions" aria-label="The Art of War note details">
+        <div class="strategy-note-actions" aria-label="Sun Tzu’s Strategy note details">
           ${reactionButtonForId(artNoteKey(sectionIndex, noteIndex), "like", "Like", likeIconPath)}
           <a class="strategy-detail-btn" href="#collection/art-of-war/${sectionIndex}/${noteIndex}/background">Background</a>
           <a class="strategy-detail-btn" href="#collection/art-of-war/${sectionIndex}/${noteIndex}/reality">Reality Link</a>
@@ -807,7 +807,7 @@ function artOfWarSectionCard(section, sectionIndex) {
 
   return `
     <article class="strategy-card">
-      <span>Special Notes · The Art of War</span>
+      <span>Sun Tzu’s Strategy</span>
       <h3>${escapeHtml(section.title)}</h3>
       <p>${escapeHtml(section.detail)}</p>
       <ul class="strategy-notes">
@@ -836,14 +836,14 @@ function renderArtOfWarDetail(sectionIndex, noteIndex, detailType) {
 
   quoteGrid.innerHTML = `
     <article class="strategy-detail-page">
-      <a class="back-link strategy-back-link" href="#collection/art-of-war">Back to The Art of War</a>
+      <a class="back-link strategy-back-link" href="#collection/art-of-war">Back to Sun Tzu’s Strategy</a>
       <p class="eyebrow">${escapeHtml(section.title)}</p>
       <h3>${escapeHtml(note.zh)}</h3>
       <p class="strategy-detail-translation">${escapeHtml(note.en)}</p>
       <div class="reader-actions strategy-detail-reactions" aria-label="Reader actions">
         ${reactionButtonForId(artNoteKey(sectionIndex, noteIndex), "like", "Like", likeIconPath)}
       </div>
-      <div class="strategy-note-actions strategy-detail-tabs" aria-label="Switch The Art of War detail">
+      <div class="strategy-note-actions strategy-detail-tabs" aria-label="Switch Sun Tzu’s Strategy detail">
         <a class="strategy-detail-btn ${detailType === "background" ? "is-active" : ""}" href="${backgroundHref}">Background</a>
         <a class="strategy-detail-btn ${detailType === "reality" ? "is-active" : ""}" href="${realityHref}">Reality Link</a>
       </div>
@@ -1039,9 +1039,9 @@ function showArtOfWarCollection() {
   activeCategory = artOfWarThemeId;
   categoryHome.hidden = true;
   collection.hidden = false;
-  collectionTitle.textContent = "Special Notes: The Art of War";
-  document.title = "Special Notes: The Art of War | Notes Garden";
-  collectionNote.textContent = "A strategy notebook inspired by The Art of War, organized around judgment, resources, information, leadership, and decision-making.";
+  collectionTitle.textContent = "Sun Tzu’s Strategy";
+  document.title = "Sun Tzu’s Strategy | Notes Garden";
+  collectionNote.innerHTML = "<strong>Inspired by The Art of War</strong><span>Explore timeless strategic thinking: how to read situations, make better decisions, and solve conflicts with wisdom rather than force.</span>";
   updateStats();
   filters.hidden = false;
   renderFilters();
@@ -1053,9 +1053,9 @@ function showArtOfWarDetail(sectionIndex, noteIndex, detailType) {
   activeCategory = artOfWarThemeId;
   categoryHome.hidden = true;
   collection.hidden = false;
-  collectionTitle.textContent = artDetailLabels[detailType] || "The Art of War";
-  document.title = `${collectionTitle.textContent} | The Art of War | Notes Garden`;
-  collectionNote.textContent = "A closer reading of one strategy note from The Art of War.";
+  collectionTitle.textContent = artDetailLabels[detailType] || "Sun Tzu’s Strategy";
+  document.title = `${collectionTitle.textContent} | Sun Tzu’s Strategy | Notes Garden`;
+  collectionNote.textContent = "Inspired by The Art of War. A closer reading of one strategy note.";
   updateStats();
   filters.hidden = true;
   renderArtOfWarDetail(sectionIndex, noteIndex, detailType);
