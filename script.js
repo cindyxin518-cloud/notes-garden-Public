@@ -996,7 +996,7 @@ function showHome() {
   collection.hidden = true;
   activeCategory = "";
   collectionMode = "category";
-  document.title = "Notes Garden | I am rooted but I flow";
+  document.title = "MiniGrowLab - Notes Garden";
   updateStats();
 }
 
