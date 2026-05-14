@@ -518,8 +518,7 @@ async function loadPublicState() {
   }
 }
 
-async function togglePublicLike(index, liked) {
-  const id = quoteKey(index);
+async function togglePublicLikeById(id, liked) {
   const response = await fetch(`${visitorCounterEndpoint}/reaction`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
@@ -530,6 +529,10 @@ async function togglePublicLike(index, liked) {
   reactions[id] = { ...(reactions[id] || {}), like: Boolean(data.liked) };
   reactionCounts[id] = { ...(reactionCounts[id] || {}), like: Number(data.count || 0) };
   saveFavorites();
+}
+
+async function togglePublicLike(index, liked) {
+  return togglePublicLikeById(quoteKey(index), liked);
 }
 
 async function addPublicComment(index, text) {
@@ -604,6 +607,14 @@ function getReactionCount(index, key) {
   return reactionCounts[quoteKey(index)]?.[key] || 0;
 }
 
+function getReactionById(id, key) {
+  return Boolean(reactions[id]?.[key]);
+}
+
+function getReactionCountById(id, key) {
+  return reactionCounts[id]?.[key] || 0;
+}
+
 function getMostPopularScore() {
   return Object.values(reactionCounts).reduce((max, counts) => {
     const score = counts.like || 0;
@@ -613,6 +624,11 @@ function getMostPopularScore() {
 
 function getPopularityScore(index) {
   const counts = reactionCounts[quoteKey(index)] || {};
+  return counts.like || 0;
+}
+
+function getPopularityScoreById(id) {
+  const counts = reactionCounts[id] || {};
   return counts.like || 0;
 }
 
@@ -636,16 +652,22 @@ function getMostPopularIndex() {
   return bestIndex;
 }
 
-function reactionButton(index, key, label, iconPath) {
-  const active = getReaction(index, key);
-  const count = getReactionCount(index, key);
+const likeIconPath = '<path d="M7 10v11M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h3l3.7-6.6A2 2 0 0 1 14.42 4a2 2 0 0 1 .58 1.88Z" />';
+
+function reactionButtonForId(id, key, label, iconPath) {
+  const active = getReactionById(id, key);
+  const count = getReactionCountById(id, key);
   return `
-    <button class="reaction-btn ${active ? "is-active" : ""}" type="button" data-reaction="${key}" data-index="${index}" aria-label="${label}">
+    <button class="reaction-btn ${active ? "is-active" : ""}" type="button" data-reaction="${key}" data-reaction-id="${escapeHtml(id)}" aria-label="${label}">
       <svg viewBox="0 0 24 24" aria-hidden="true">${iconPath}</svg>
       <span>${label}</span>
       <span>${count}</span>
     </button>
   `;
+}
+
+function reactionButton(index, key, label, iconPath) {
+  return reactionButtonForId(quoteKey(index), key, label, iconPath);
 }
 
 function commentBoard(index) {
@@ -674,7 +696,7 @@ function quoteCard(quote, index) {
         ${body}
       </div>
       <div class="reader-actions" aria-label="Reader actions">
-        ${reactionButton(index, "like", "Like", '<path d="M7 10v11M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h3l3.7-6.6A2 2 0 0 1 14.42 4a2 2 0 0 1 .58 1.88Z" />')}
+        ${reactionButton(index, "like", "Like", likeIconPath)}
         <button class="reaction-btn note-action" type="button" data-proofread="${index}">Refine</button>
       </div>
       ${commentBoard(index)}
@@ -697,10 +719,42 @@ function getVisibleQuotes() {
     });
 }
 
+function artPopularCard(entry) {
+  const { section, note, sectionIndex, noteIndex, id } = entry;
+  return `
+    <article class="quote-card strategy-popular-card">
+      <div class="quote-body">
+        <p class="quote-text quote-zh">${escapeHtml(note.zh)}</p>
+        <p class="quote-text quote-en">${escapeHtml(note.en)}</p>
+        <p class="quote-nl"><span>The Art of War</span>${escapeHtml(section.title)}</p>
+      </div>
+      <div class="reader-actions" aria-label="Reader actions">
+        ${reactionButtonForId(id, "like", "Like", likeIconPath)}
+        <a class="strategy-detail-btn" href="#collection/art-of-war/${sectionIndex}/${noteIndex}/background">Background</a>
+        <a class="strategy-detail-btn" href="#collection/art-of-war/${sectionIndex}/${noteIndex}/reality">Reality Link</a>
+      </div>
+    </article>
+  `;
+}
+
 function renderQuotes() {
   const visibleQuotes = getVisibleQuotes();
   if (collectionMode === "popular") {
-    visibleQuotes.sort((a, b) => getPopularityScore(b.index) - getPopularityScore(a.index));
+    const quoteItems = visibleQuotes.map(({ quote, index }) => ({
+      score: getPopularityScore(index),
+      html: quoteCard(quote, index)
+    }));
+    const artItems = getArtOfWarNoteEntries()
+      .filter((entry) => getPopularityScoreById(entry.id) > 0)
+      .map((entry) => ({
+        score: getPopularityScoreById(entry.id),
+        html: artPopularCard(entry)
+      }));
+    const items = [...quoteItems, ...artItems].sort((a, b) => b.score - a.score);
+    quoteGrid.innerHTML = items.map((item) => item.html).join("");
+    resultCount.textContent = `Showing ${items.length} notes`;
+    emptyState.classList.toggle("is-visible", items.length === 0);
+    return;
   }
   quoteGrid.innerHTML = visibleQuotes.map(({ quote, index }) => quoteCard(quote, index)).join("");
   resultCount.textContent = `Showing ${visibleQuotes.length} notes`;
@@ -713,11 +767,27 @@ const artDetailLabels = {
   reality: "Reality Link"
 };
 
+function artNoteKey(sectionIndex, noteIndex) {
+  return `art-${sectionIndex}-${noteIndex}`;
+}
+
 function getArtOfWarNote(sectionIndex, noteIndex) {
   const section = artOfWarSections[Number(sectionIndex)];
   const note = section?.notes[Number(noteIndex)];
   if (!section || !note) return null;
   return { section, note, sectionIndex: Number(sectionIndex), noteIndex: Number(noteIndex) };
+}
+
+function getArtOfWarNoteEntries() {
+  return artOfWarSections.flatMap((section, sectionIndex) => {
+    return section.notes.map((note, noteIndex) => ({
+      section,
+      note,
+      sectionIndex,
+      noteIndex,
+      id: artNoteKey(sectionIndex, noteIndex)
+    }));
+  });
 }
 
 function artOfWarSectionCard(section, sectionIndex) {
@@ -727,6 +797,7 @@ function artOfWarSectionCard(section, sectionIndex) {
         <strong>${escapeHtml(note.zh)}</strong>
         <em>${escapeHtml(note.en)}</em>
         <div class="strategy-note-actions" aria-label="The Art of War note details">
+          ${reactionButtonForId(artNoteKey(sectionIndex, noteIndex), "like", "Like", likeIconPath)}
           <a class="strategy-detail-btn" href="#collection/art-of-war/${sectionIndex}/${noteIndex}/background">Background</a>
           <a class="strategy-detail-btn" href="#collection/art-of-war/${sectionIndex}/${noteIndex}/reality">Reality Link</a>
         </div>
@@ -769,6 +840,9 @@ function renderArtOfWarDetail(sectionIndex, noteIndex, detailType) {
       <p class="eyebrow">${escapeHtml(section.title)}</p>
       <h3>${escapeHtml(note.zh)}</h3>
       <p class="strategy-detail-translation">${escapeHtml(note.en)}</p>
+      <div class="reader-actions strategy-detail-reactions" aria-label="Reader actions">
+        ${reactionButtonForId(artNoteKey(sectionIndex, noteIndex), "like", "Like", likeIconPath)}
+      </div>
       <div class="strategy-note-actions strategy-detail-tabs" aria-label="Switch The Art of War detail">
         <a class="strategy-detail-btn ${detailType === "background" ? "is-active" : ""}" href="${backgroundHref}">Background</a>
         <a class="strategy-detail-btn ${detailType === "reality" ? "is-active" : ""}" href="${realityHref}">Reality Link</a>
@@ -795,16 +869,16 @@ quoteGrid.addEventListener("click", async (event) => {
 
   const button = event.target.closest("[data-reaction]");
   if (!button) return;
-  const index = button.dataset.index;
   const key = button.dataset.reaction;
-  const id = quoteKey(index);
+  const index = button.dataset.index;
+  const id = button.dataset.reactionId || quoteKey(index);
   const nextValue = !reactions[id]?.[key];
   try {
-    await togglePublicLike(index, nextValue);
+    await togglePublicLikeById(id, nextValue);
   } catch (error) {
     const nextCount = nextValue
-      ? getReactionCount(index, key) + 1
-      : Math.max(0, getReactionCount(index, key) - 1);
+      ? getReactionCountById(id, key) + 1
+      : Math.max(0, getReactionCountById(id, key) - 1);
     reactions[id] = { ...(reactions[id] || {}), [key]: nextValue };
     reactionCounts[id] = {
       ...(reactionCounts[id] || {}),
@@ -813,7 +887,7 @@ quoteGrid.addEventListener("click", async (event) => {
   }
   saveFavorites();
   updateStats();
-  renderQuotes();
+  route();
 });
 
 function closeProofreadDialog() {
