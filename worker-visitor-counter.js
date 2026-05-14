@@ -33,16 +33,26 @@ async function readJsonKey(env, key, fallback) {
 }
 
 async function handleVisit(request, env) {
-  const today = new Date().toLocaleDateString("en-CA", { timeZone: "Europe/Amsterdam" });
-  const totalKey = `dailyVisitors:${today}`;
-  const currentCount = await env.VISITORS.get(totalKey);
-  const visitorNumber = Number(currentCount || 0) + 1;
-  await env.VISITORS.put(totalKey, String(visitorNumber));
+  const body = await readJson(request);
+  const visitorId = String(body.visitorId || "").trim();
+  const currentTotal = await env.VISITORS.get("totalVisits");
+  const visitorNumber = Number(currentTotal || 0) + 1;
+  await env.VISITORS.put("totalVisits", String(visitorNumber));
+
+  if (visitorId) {
+    const uniqueKey = `uniqueVisitor:${visitorId}`;
+    const hasVisited = await env.VISITORS.get(uniqueKey);
+    if (!hasVisited) {
+      const currentUnique = await env.VISITORS.get("uniqueVisitors");
+      const uniqueVisitors = Number(currentUnique || 0) + 1;
+      await env.VISITORS.put(uniqueKey, "1");
+      await env.VISITORS.put("uniqueVisitors", String(uniqueVisitors));
+    }
+  }
 
   return json({
     visitorNumber,
-    today,
-    todayVisitors: visitorNumber
+    totalVisits: visitorNumber
   });
 }
 
