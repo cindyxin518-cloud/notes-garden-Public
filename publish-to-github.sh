@@ -11,12 +11,14 @@ git clone "$REPO_URL" "$PUBLISH_DIR"
 git -C "$PUBLISH_DIR" config user.name "cindyxin518-cloud"
 git -C "$PUBLISH_DIR" config user.email "cindyxin518-cloud@users.noreply.github.com"
 
-cp "$SITE_DIR/index.html" "$SITE_DIR/styles.css" "$SITE_DIR/script.js" "$SITE_DIR/CNAME" "$SITE_DIR/worker-visitor-counter.js" "$PUBLISH_DIR/"
+cp "$SITE_DIR/index.html" "$SITE_DIR/styles.css" "$SITE_DIR/script.js" "$SITE_DIR/CNAME" "$SITE_DIR/worker-visitor-counter.js" "$SITE_DIR/worker-job-agent.js" "$PUBLISH_DIR/"
 mkdir -p "$PUBLISH_DIR/assets"
 cp "$SITE_DIR"/assets/* "$PUBLISH_DIR/assets/"
+mkdir -p "$PUBLISH_DIR/admin"
+cp "$SITE_DIR"/admin/* "$PUBLISH_DIR/admin/"
 cp "$SITE_DIR/publish-to-github.sh" "$PUBLISH_DIR/"
 
-git -C "$PUBLISH_DIR" add index.html styles.css script.js CNAME worker-visitor-counter.js publish-to-github.sh assets
+git -C "$PUBLISH_DIR" add index.html styles.css script.js CNAME worker-visitor-counter.js worker-job-agent.js publish-to-github.sh assets admin
 
 if git -C "$PUBLISH_DIR" diff --cached --quiet; then
   echo "No website changes to publish."

@@ -1,0 +1,151 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Founder Job Agent | MiniGrowLab</title>
+    <link rel="stylesheet" href="job-agent.css" />
+  </head>
+  <body>
+    <main class="agent-shell">
+      <nav class="topbar" aria-label="Admin navigation">
+        <a class="brand" href="../index.html#home" aria-label="Back to MiniGrowLab">
+          <span class="brand-mark"><img src="../assets/minigrowlab-logo.png" alt="" /></span>
+          <span>MiniGrowLab</span>
+        </a>
+        <div class="mode-pill" aria-label="Active mode">Founder Mode</div>
+      </nav>
+
+      <section class="agent-hero">
+        <div>
+          <p class="eyebrow">Job Search Agent</p>
+          <h1>Founder Mode Control Room</h1>
+          <p class="hero-copy">Search opportunities, score the useful ones, and generate founder-style application material only when you choose a role.</p>
+        </div>
+        <div class="run-panel" aria-label="Agent actions">
+          <button class="primary-button" id="searchNow" type="button">Search Jobs</button>
+          <button class="secondary-button" id="analyzeJobs" type="button">Analyze New Jobs</button>
+          <button class="secondary-button" id="generateApplication" type="button">Generate Application</button>
+          <p id="runStatus" role="status">Ready. Settings are saved in this browser until the API is connected.</p>
+        </div>
+      </section>
+
+      <section class="dashboard-grid">
+        <form class="settings-panel" id="settingsForm">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Settings</p>
+              <h2>Search Scope</h2>
+            </div>
+            <button class="text-button" id="resetSettings" type="button">Reset</button>
+          </div>
+
+          <label>
+            <span>Keywords</span>
+            <textarea id="keywords" rows="5"></textarea>
+          </label>
+
+          <label>
+            <span>Locations</span>
+            <textarea id="locations" rows="3"></textarea>
+          </label>
+
+          <label>
+            <span>Exclude Words</span>
+            <textarea id="excludeWords" rows="4"></textarea>
+          </label>
+
+          <div class="form-row">
+            <label>
+              <span>Job Types</span>
+              <select id="jobTypes" multiple size="4">
+                <option>Full-time</option>
+                <option>Contract</option>
+                <option>Freelance</option>
+                <option>Part-time</option>
+              </select>
+            </label>
+            <label>
+              <span>Work Mode</span>
+              <select id="workModes" multiple size="4">
+                <option>Remote</option>
+                <option>Hybrid</option>
+                <option>Onsite</option>
+                <option>Europe Remote</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              <span>Search Interval</span>
+              <select id="searchInterval">
+                <option value="manual">Manual only</option>
+                <option value="hourly">Every hour</option>
+                <option value="2h">Every 2 hours</option>
+                <option value="daily">Daily</option>
+              </select>
+            </label>
+            <label>
+              <span>Max New Jobs Per Run</span>
+              <input id="maxJobsPerRun" type="number" min="1" max="100" />
+            </label>
+          </div>
+
+          <div class="form-row">
+            <label>
+              <span>Daily AI Analysis Limit</span>
+              <input id="dailyAnalysisLimit" type="number" min="1" max="200" />
+            </label>
+            <label>
+              <span>Minimum Match Score</span>
+              <input id="minimumMatchScore" type="number" min="0" max="100" />
+            </label>
+          </div>
+
+          <label>
+            <span>Founder Profile</span>
+            <textarea id="founderProfile" rows="6"></textarea>
+          </label>
+
+          <label>
+            <span>API Endpoint</span>
+            <input id="apiEndpoint" type="url" placeholder="https://your-worker.workers.dev" />
+          </label>
+
+          <button class="primary-button" type="submit">Save Founder Mode</button>
+        </form>
+
+        <section class="jobs-panel" aria-label="Founder mode jobs">
+          <div class="section-heading">
+            <div>
+              <p class="eyebrow">Pipeline</p>
+              <h2>Recommended Jobs</h2>
+            </div>
+            <span class="count-pill" id="jobCount">0 jobs</span>
+          </div>
+
+          <div class="metric-row" aria-label="Agent metrics">
+            <div>
+              <strong id="newJobCount">0</strong>
+              <span>New</span>
+            </div>
+            <div>
+              <strong id="analyzedJobCount">0</strong>
+              <span>Analyzed</span>
+            </div>
+            <div>
+              <strong id="readyJobCount">0</strong>
+              <span>Ready</span>
+            </div>
+          </div>
+
+          <div class="job-list" id="jobList"></div>
+          <p class="empty-state" id="emptyState">No jobs yet. Run Search Jobs to seed Founder Mode.</p>
+        </section>
+      </section>
+    </main>
+
+    <script src="job-agent.js"></script>
+  </body>
+</html>
