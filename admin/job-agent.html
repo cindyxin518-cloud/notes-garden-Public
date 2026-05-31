@@ -7,6 +7,20 @@
     <link rel="stylesheet" href="job-agent.css" />
   </head>
   <body>
+    <section class="auth-gate" id="authGate" aria-label="Founder mode sign in">
+      <form class="auth-card" id="authForm">
+        <p class="eyebrow">Private Admin</p>
+        <h1>Founder Mode</h1>
+        <p>Enter the admin password to open the job agent control room.</p>
+        <label>
+          <span>Password</span>
+          <input id="adminPassword" type="password" autocomplete="current-password" required />
+        </label>
+        <button class="primary-button" type="submit">Unlock</button>
+        <p class="auth-error" id="authError" role="status"></p>
+      </form>
+    </section>
+
     <main class="agent-shell">
       <nav class="topbar" aria-label="Admin navigation">
         <a class="brand" href="../index.html#home" aria-label="Back to MiniGrowLab">

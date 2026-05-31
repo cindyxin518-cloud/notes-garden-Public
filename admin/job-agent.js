@@ -21,6 +21,9 @@ const defaultSettings = {
   apiEndpoint: ""
 };
 
+const adminPasswordHash = "4e7c110eb3716c38a03a7833ac02ada05eb8c7bcfed67b191b4215d50f56f9a3";
+const authStorageKey = "founderJobAgentUnlocked";
+
 const sampleJobs = [
   {
     company: "Northstar AI",
@@ -74,9 +77,37 @@ const jobCount = document.querySelector("#jobCount");
 const newJobCount = document.querySelector("#newJobCount");
 const analyzedJobCount = document.querySelector("#analyzedJobCount");
 const readyJobCount = document.querySelector("#readyJobCount");
+const authGate = document.querySelector("#authGate");
+const authForm = document.querySelector("#authForm");
+const adminPassword = document.querySelector("#adminPassword");
+const authError = document.querySelector("#authError");
 
 let settings = loadSettings();
 let jobs = loadJobs();
+
+document.body.classList.add("is-locked");
+
+async function sha256(value) {
+  const data = new TextEncoder().encode(value);
+  const hash = await crypto.subtle.digest("SHA-256", data);
+  return Array.from(new Uint8Array(hash))
+    .map((byte) => byte.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+function unlockAdmin() {
+  document.body.classList.remove("is-locked");
+  authGate.hidden = true;
+}
+
+async function initAuth() {
+  if (localStorage.getItem(authStorageKey) === adminPasswordHash) {
+    unlockAdmin();
+    return;
+  }
+  authGate.hidden = false;
+  adminPassword.focus();
+}
 
 function loadSettings() {
   try {
@@ -361,6 +392,20 @@ document.querySelector("#searchNow").addEventListener("click", searchJobs);
 document.querySelector("#analyzeJobs").addEventListener("click", analyzeJobs);
 document.querySelector("#generateApplication").addEventListener("click", generateApplication);
 
+authForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const inputHash = await sha256(adminPassword.value);
+  if (inputHash !== adminPasswordHash) {
+    authError.textContent = "Incorrect password.";
+    adminPassword.value = "";
+    adminPassword.focus();
+    return;
+  }
+  localStorage.setItem(authStorageKey, inputHash);
+  authError.textContent = "";
+  unlockAdmin();
+});
+
 jobList.addEventListener("click", (event) => {
   const button = event.target.closest("button[data-action]");
   if (!button) return;
@@ -371,3 +416,4 @@ jobList.addEventListener("click", (event) => {
 
 renderSettings();
 renderJobs();
+initAuth();
