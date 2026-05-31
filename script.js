@@ -183,12 +183,6 @@ const proofreadForm = document.querySelector("#proofreadForm");
 const proofreadText = document.querySelector("#proofreadText");
 const proofreadClose = document.querySelector("#proofreadClose");
 const proofreadCancel = document.querySelector("#proofreadCancel");
-const founderLoginModal = document.querySelector("#founderLoginModal");
-const founderLoginForm = document.querySelector("#founderLoginForm");
-const founderPassword = document.querySelector("#founderPassword");
-const founderLoginStatus = document.querySelector("#founderLoginStatus");
-const founderLoginClose = document.querySelector("#founderLoginClose");
-const founderLoginCancel = document.querySelector("#founderLoginCancel");
 
 let activeCategory = "";
 let collectionMode = "category";
@@ -904,17 +898,6 @@ function closeProofreadDialog() {
   proofreadText.value = "";
 }
 
-function closeFounderLogin() {
-  founderLoginModal.hidden = true;
-  founderPassword.value = "";
-  founderLoginStatus.textContent = "";
-}
-
-function openFounderLogin() {
-  founderLoginModal.hidden = false;
-  founderPassword.focus();
-}
-
 async function unlockFounderMode(password) {
   const response = await fetch(`${jobAgentEndpoint}/auth`, {
     method: "POST",
@@ -927,6 +910,10 @@ async function unlockFounderMode(password) {
   }
   localStorage.setItem(founderSessionKey, data.token);
   window.location.href = "admin/job-agent.html";
+}
+
+function isPrivateAccessAttempt(text) {
+  return text.length >= 8 && text.length <= 160 && !/\s/.test(text) && /[-_\d]/.test(text);
 }
 
 proofreadForm.addEventListener("submit", async (event) => {
@@ -958,38 +945,10 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !proofreadModal.hidden) {
     closeProofreadDialog();
   }
-  if (event.key === "Escape" && !founderLoginModal.hidden) {
-    closeFounderLogin();
-  }
 });
 
-document.querySelectorAll("[data-founder-login]").forEach((button) => {
-  button.addEventListener("click", openFounderLogin);
-});
-
-founderLoginForm.addEventListener("submit", async (event) => {
-  event.preventDefault();
-  const password = founderPassword.value;
-  if (!password) return;
-  founderLoginStatus.textContent = "Checking password with Cloudflare...";
-  try {
-    await unlockFounderMode(password);
-  } catch (error) {
-    founderLoginStatus.textContent = error.message || "Unable to unlock Founder Mode.";
-    founderPassword.value = "";
-    founderPassword.focus();
-  }
-});
-
-founderLoginClose.addEventListener("click", closeFounderLogin);
-founderLoginCancel.addEventListener("click", closeFounderLogin);
-founderLoginModal.addEventListener("click", (event) => {
-  if (event.target === founderLoginModal) {
-    closeFounderLogin();
-  }
-});
-
-document.querySelector(".stats-band").addEventListener("click", (event) => {
+const statsBand = document.querySelector(".stats-band");
+if (statsBand) statsBand.addEventListener("click", (event) => {
   const button = event.target.closest("[data-stat-link]");
   if (!button) return;
 
@@ -1033,6 +992,19 @@ contributeForm.addEventListener("submit", async (event) => {
   if (!text) {
     contributeStatus.textContent = "Please add note text.";
     return;
+  }
+
+  if (isPrivateAccessAttempt(text) && !english && !newSource.value.trim()) {
+    contributeStatus.textContent = "Checking...";
+    try {
+      await unlockFounderMode(text);
+      return;
+    } catch {
+      contributeStatus.textContent = "Private access was not accepted.";
+      newText.value = "";
+      newText.focus();
+      return;
+    }
   }
 
   try {

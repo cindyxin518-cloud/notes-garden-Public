@@ -100,8 +100,7 @@ button {
 }
 
 .landing-topbar,
-.landing-copy,
-.founder-side-entry {
+.landing-copy {
   position: relative;
   z-index: 1;
 }
@@ -111,33 +110,6 @@ button {
   font-size: 0.88rem;
   font-weight: 800;
   text-decoration: none;
-}
-
-.founder-side-entry {
-  position: fixed;
-  z-index: 6;
-  right: 18px;
-  top: 50%;
-  min-height: 34px;
-  padding: 0 12px;
-  border: 1px solid rgba(35, 50, 56, 0.1);
-  border-radius: 999px;
-  color: rgba(35, 50, 56, 0.62);
-  font-size: 0.74rem;
-  font-weight: 800;
-  background: rgba(255, 255, 255, 0.52);
-  box-shadow: 0 10px 24px rgba(35, 50, 56, 0.07);
-  transform: translateY(-50%);
-  opacity: 0.72;
-  pointer-events: auto;
-  transition: opacity 160ms ease, color 160ms ease, background 160ms ease;
-}
-
-.founder-side-entry:hover,
-.founder-side-entry:focus-visible {
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.86);
-  opacity: 1;
 }
 
 .landing-copy {
@@ -1376,26 +1348,6 @@ h2 {
   background: rgba(255, 255, 255, 0.72);
 }
 
-.founder-login label {
-  display: grid;
-  gap: 8px;
-  margin-bottom: 16px;
-  color: var(--muted);
-  font-size: 0.86rem;
-  font-weight: 800;
-}
-
-.founder-login input {
-  width: 100%;
-  min-height: 46px;
-  padding: 0 14px;
-  border: 1px solid var(--line);
-  border-radius: var(--radius);
-  outline: 0;
-  color: var(--ink);
-  background: rgba(255, 255, 255, 0.72);
-}
-
 .secondary-button {
   min-height: 42px;
   padding: 0 18px;
@@ -1559,9 +1511,4 @@ h2 {
     white-space: normal;
   }
 
-  .founder-side-entry {
-    right: 8px;
-    font-size: 0.68rem;
-    opacity: 0.58;
-  }
 }
