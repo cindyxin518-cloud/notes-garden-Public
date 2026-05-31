@@ -183,11 +183,19 @@ const proofreadForm = document.querySelector("#proofreadForm");
 const proofreadText = document.querySelector("#proofreadText");
 const proofreadClose = document.querySelector("#proofreadClose");
 const proofreadCancel = document.querySelector("#proofreadCancel");
+const founderLoginModal = document.querySelector("#founderLoginModal");
+const founderLoginForm = document.querySelector("#founderLoginForm");
+const founderPassword = document.querySelector("#founderPassword");
+const founderLoginStatus = document.querySelector("#founderLoginStatus");
+const founderLoginClose = document.querySelector("#founderLoginClose");
+const founderLoginCancel = document.querySelector("#founderLoginCancel");
 
 let activeCategory = "";
 let collectionMode = "category";
 let activeProofreadIndex = null;
 const visitorCounterEndpoint = "https://notes-garden-counter.cindyxin518.workers.dev";
+const jobAgentEndpoint = "https://minigrow-job-agent.cindyxin518.workers.dev";
+const founderSessionKey = "founderJobAgentSession";
 
 function prepareStoredQuote(quote, index, prefix) {
   return {
@@ -896,6 +904,31 @@ function closeProofreadDialog() {
   proofreadText.value = "";
 }
 
+function closeFounderLogin() {
+  founderLoginModal.hidden = true;
+  founderPassword.value = "";
+  founderLoginStatus.textContent = "";
+}
+
+function openFounderLogin() {
+  founderLoginModal.hidden = false;
+  founderPassword.focus();
+}
+
+async function unlockFounderMode(password) {
+  const response = await fetch(`${jobAgentEndpoint}/auth`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ password })
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok || !data.token) {
+    throw new Error(data.error || "Password was not accepted.");
+  }
+  localStorage.setItem(founderSessionKey, data.token);
+  window.location.href = "admin/job-agent.html";
+}
+
 proofreadForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const text = proofreadText.value.trim();
@@ -924,6 +957,35 @@ proofreadModal.addEventListener("click", (event) => {
 document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !proofreadModal.hidden) {
     closeProofreadDialog();
+  }
+  if (event.key === "Escape" && !founderLoginModal.hidden) {
+    closeFounderLogin();
+  }
+});
+
+document.querySelectorAll("[data-founder-login]").forEach((button) => {
+  button.addEventListener("click", openFounderLogin);
+});
+
+founderLoginForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const password = founderPassword.value;
+  if (!password) return;
+  founderLoginStatus.textContent = "Checking password with Cloudflare...";
+  try {
+    await unlockFounderMode(password);
+  } catch (error) {
+    founderLoginStatus.textContent = error.message || "Unable to unlock Founder Mode.";
+    founderPassword.value = "";
+    founderPassword.focus();
+  }
+});
+
+founderLoginClose.addEventListener("click", closeFounderLogin);
+founderLoginCancel.addEventListener("click", closeFounderLogin);
+founderLoginModal.addEventListener("click", (event) => {
+  if (event.target === founderLoginModal) {
+    closeFounderLogin();
   }
 });
 

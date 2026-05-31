@@ -112,6 +112,23 @@ button {
   text-decoration: none;
 }
 
+.landing-actions {
+  display: inline-flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.admin-entry {
+  min-height: 36px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ink);
+  font-size: 0.82rem;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.66);
+}
+
 .landing-copy {
   align-self: center;
   width: min(100%, 1180px);
@@ -1348,6 +1365,26 @@ h2 {
   background: rgba(255, 255, 255, 0.72);
 }
 
+.founder-login label {
+  display: grid;
+  gap: 8px;
+  margin-bottom: 16px;
+  color: var(--muted);
+  font-size: 0.86rem;
+  font-weight: 800;
+}
+
+.founder-login input {
+  width: 100%;
+  min-height: 46px;
+  padding: 0 14px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  outline: 0;
+  color: var(--ink);
+  background: rgba(255, 255, 255, 0.72);
+}
+
 .secondary-button {
   min-height: 42px;
   padding: 0 18px;
@@ -1426,6 +1463,10 @@ h2 {
 
   .landing-nav-link {
     display: none;
+  }
+
+  .landing-actions {
+    gap: 8px;
   }
 
   .hero {

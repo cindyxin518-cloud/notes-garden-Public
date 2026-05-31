@@ -19,7 +19,10 @@
             <span class="brand-mark"><img src="assets/minigrowlab-logo.png" alt="" /></span>
             <span>MiniGrowLab</span>
           </a>
-          <a class="landing-nav-link" href="#top">Enter</a>
+          <div class="landing-actions">
+            <button class="admin-entry" data-founder-login type="button">Founder Mode</button>
+            <a class="landing-nav-link" href="#top">Enter</a>
+          </div>
         </nav>
         <div class="landing-copy">
           <p class="eyebrow landing-brandline">MiniGrowLab</p>
@@ -41,6 +44,9 @@
             <span>MiniGrowLab</span>
           </a>
           <div class="nav-actions">
+            <button class="icon-button" data-founder-login type="button" aria-label="Founder Mode" title="Founder Mode">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3 4 7v6c0 4.5 3.4 7.3 8 8 4.6-.7 8-3.5 8-8V7l-8-4Z" /><path d="M9.5 12.5 11 14l3.5-4" /></svg>
+            </button>
             <a class="icon-button" href="#categories" aria-label="Browse themes" title="Browse themes">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5M4 20l17-17M21 16v5h-5M15 15l6 6M4 4l5.5 5.5" /></svg>
             </a>
@@ -180,6 +186,27 @@
           <button class="secondary-button" id="proofreadCancel" type="button">Cancel</button>
           <button class="primary-link" type="submit">Send</button>
         </div>
+      </form>
+    </div>
+
+    <div class="modal-backdrop" id="founderLoginModal" hidden>
+      <form class="proofread-dialog founder-login" id="founderLoginForm" aria-labelledby="founderLoginTitle">
+        <div class="dialog-head">
+          <div>
+            <p class="eyebrow">Private Admin</p>
+            <h2 id="founderLoginTitle">Founder Mode</h2>
+          </div>
+          <button class="icon-button dialog-close" id="founderLoginClose" type="button" aria-label="Close founder mode login">×</button>
+        </div>
+        <label>
+          <span>Admin password</span>
+          <input id="founderPassword" type="password" autocomplete="current-password" required />
+        </label>
+        <div class="dialog-actions">
+          <button class="secondary-button" id="founderLoginCancel" type="button">Cancel</button>
+          <button class="primary-link" type="submit">Unlock</button>
+        </div>
+        <p class="form-status" id="founderLoginStatus" role="status"></p>
       </form>
     </div>
 

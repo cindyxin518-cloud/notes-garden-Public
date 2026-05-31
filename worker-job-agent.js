@@ -1,7 +1,7 @@
 const corsHeaders = {
   "Access-Control-Allow-Origin": "*",
   "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
-  "Access-Control-Allow-Headers": "Content-Type, X-Admin-Key"
+  "Access-Control-Allow-Headers": "Authorization, Content-Type, X-Admin-Key"
 };
 
 const defaultSettings = {
@@ -35,9 +35,100 @@ async function readJson(request) {
   }
 }
 
-function assertAdmin(request, env) {
-  if (!env.ADMIN_KEY) return true;
-  return request.headers.get("X-Admin-Key") === env.ADMIN_KEY;
+function base64UrlEncode(value) {
+  const bytes = typeof value === "string" ? new TextEncoder().encode(value) : value;
+  let binary = "";
+  bytes.forEach((byte) => {
+    binary += String.fromCharCode(byte);
+  });
+  return btoa(binary).replace(/\+/g, "-").replace(/\//g, "_").replace(/=+$/g, "");
+}
+
+function base64UrlDecode(value) {
+  const padded = `${value}${"=".repeat((4 - value.length % 4) % 4)}`;
+  const binary = atob(padded.replace(/-/g, "+").replace(/_/g, "/"));
+  return Uint8Array.from(binary, (char) => char.charCodeAt(0));
+}
+
+async function sha256Hex(value) {
+  const hash = await crypto.subtle.digest("SHA-256", new TextEncoder().encode(value));
+  return Array.from(new Uint8Array(hash))
+    .map((byte) => byte.toString(16).padStart(2, "0"))
+    .join("");
+}
+
+async function hmacSha256(value, secret) {
+  const key = await crypto.subtle.importKey(
+    "raw",
+    new TextEncoder().encode(secret),
+    { name: "HMAC", hash: "SHA-256" },
+    false,
+    ["sign"]
+  );
+  const signature = await crypto.subtle.sign("HMAC", key, new TextEncoder().encode(value));
+  return base64UrlEncode(new Uint8Array(signature));
+}
+
+function timingSafeEqual(left, right) {
+  if (!left || !right || left.length !== right.length) return false;
+  let result = 0;
+  for (let index = 0; index < left.length; index += 1) {
+    result |= left.charCodeAt(index) ^ right.charCodeAt(index);
+  }
+  return result === 0;
+}
+
+async function createSessionToken(env) {
+  const sessionSecret = env.ADMIN_SESSION_SECRET;
+  if (!sessionSecret) {
+    throw new Error("Missing ADMIN_SESSION_SECRET");
+  }
+  const expiresAt = Date.now() + 1000 * 60 * 60 * 12;
+  const nonce = crypto.randomUUID();
+  const payload = base64UrlEncode(JSON.stringify({ expiresAt, nonce }));
+  const signature = await hmacSha256(payload, sessionSecret);
+  return `${payload}.${signature}`;
+}
+
+async function verifySessionToken(token, env) {
+  const sessionSecret = env.ADMIN_SESSION_SECRET;
+  if (!sessionSecret || !token || !token.includes(".")) return false;
+  const [payload, signature] = token.split(".");
+  const expected = await hmacSha256(payload, sessionSecret);
+  if (!timingSafeEqual(signature, expected)) return false;
+  try {
+    const decoded = new TextDecoder().decode(base64UrlDecode(payload));
+    const data = JSON.parse(decoded);
+    return Number(data.expiresAt || 0) > Date.now();
+  } catch {
+    return false;
+  }
+}
+
+async function assertAdmin(request, env) {
+  if (env.ADMIN_KEY && request.headers.get("X-Admin-Key") === env.ADMIN_KEY) return true;
+  const auth = request.headers.get("Authorization") || "";
+  const token = auth.startsWith("Bearer ") ? auth.slice(7) : "";
+  return verifySessionToken(token, env);
+}
+
+async function login(request, env) {
+  if (!env.ADMIN_PASSWORD_HASH) {
+    return json({ error: "ADMIN_PASSWORD_HASH is not configured." }, { status: 503 });
+  }
+  const body = await readJson(request);
+  const password = String(body.password || "");
+  const passwordHash = await sha256Hex(password);
+  if (!timingSafeEqual(passwordHash, env.ADMIN_PASSWORD_HASH)) {
+    return json({ error: "Incorrect password." }, { status: 401 });
+  }
+  const token = await createSessionToken(env);
+  return json({ ok: true, token, expiresIn: 60 * 60 * 12 });
+}
+
+async function session(request, env) {
+  const isValid = await assertAdmin(request, env);
+  return isValid ? json({ ok: true }) : json({ error: "Unauthorized" }, { status: 401 });
 }
 
 async function readStore(env, key, fallback) {
@@ -152,11 +243,19 @@ export default {
       return new Response(null, { headers: corsHeaders });
     }
 
-    if (!assertAdmin(request, env)) {
-      return json({ error: "Unauthorized" }, { status: 401 });
+    const url = new URL(request.url);
+
+    if (request.method === "POST" && url.pathname === "/auth") {
+      return login(request, env);
     }
 
-    const url = new URL(request.url);
+    if (request.method === "GET" && url.pathname === "/session") {
+      return session(request, env);
+    }
+
+    if (!await assertAdmin(request, env)) {
+      return json({ error: "Unauthorized" }, { status: 401 });
+    }
 
     if (request.method === "GET" && url.pathname === "/settings") {
       return json({ settings: await readStore(env, "settings", defaultSettings) });

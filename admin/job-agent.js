@@ -18,11 +18,10 @@ const defaultSettings = {
   dailyAnalysisLimit: 30,
   minimumMatchScore: 60,
   founderProfile: "Founder profile: building MiniGrowLab, AI workflows, websites, automation, growth experiments, content systems, and practical AI agent products. Preference: AI agent, automation, growth, product, and founder/operator roles. Avoid pure sales and very coding-heavy roles unless they strongly match AI agents.",
-  apiEndpoint: ""
+  apiEndpoint: "https://minigrow-job-agent.cindyxin518.workers.dev"
 };
 
-const adminPasswordHash = "4e7c110eb3716c38a03a7833ac02ada05eb8c7bcfed67b191b4215d50f56f9a3";
-const authStorageKey = "founderJobAgentUnlocked";
+const founderSessionKey = "founderJobAgentSession";
 
 const sampleJobs = [
   {
@@ -87,22 +86,16 @@ let jobs = loadJobs();
 
 document.body.classList.add("is-locked");
 
-async function sha256(value) {
-  const data = new TextEncoder().encode(value);
-  const hash = await crypto.subtle.digest("SHA-256", data);
-  return Array.from(new Uint8Array(hash))
-    .map((byte) => byte.toString(16).padStart(2, "0"))
-    .join("");
-}
-
 function unlockAdmin() {
   document.body.classList.remove("is-locked");
   authGate.hidden = true;
 }
 
 async function initAuth() {
-  if (localStorage.getItem(authStorageKey) === adminPasswordHash) {
+  const token = localStorage.getItem(founderSessionKey);
+  if (token && await verifySession(token)) {
     unlockAdmin();
+    await loadRemoteState();
     return;
   }
   authGate.hidden = false;
@@ -187,20 +180,69 @@ function collectSettings() {
 }
 
 function normalizeEndpoint() {
-  return settings.apiEndpoint.replace(/\/$/, "");
+  return (settings.apiEndpoint || defaultSettings.apiEndpoint).replace(/\/$/, "");
 }
 
 async function callApi(path, options = {}) {
   const endpoint = normalizeEndpoint();
   if (!endpoint) return null;
+  const token = localStorage.getItem(founderSessionKey);
   const response = await fetch(`${endpoint}${path}`, {
-    headers: { "Content-Type": "application/json" },
-    ...options
+    ...options,
+    headers: {
+      "Content-Type": "application/json",
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      ...(options.headers || {})
+    }
   });
   if (!response.ok) {
     throw new Error(`API ${response.status}`);
   }
   return response.json();
+}
+
+async function verifySession(token) {
+  try {
+    const response = await fetch(`${normalizeEndpoint()}/session`, {
+      headers: { Authorization: `Bearer ${token}` }
+    });
+    return response.ok;
+  } catch {
+    return false;
+  }
+}
+
+async function requestSession(password) {
+  const response = await fetch(`${normalizeEndpoint()}/auth`, {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({ password })
+  });
+  const data = await response.json().catch(() => ({}));
+  if (!response.ok || !data.token) {
+    throw new Error(data.error || "Password was not accepted.");
+  }
+  localStorage.setItem(founderSessionKey, data.token);
+}
+
+async function loadRemoteState() {
+  try {
+    const remoteJobs = await callApi("/jobs", { method: "GET" });
+    if (Array.isArray(remoteJobs?.jobs)) {
+      jobs = remoteJobs.jobs;
+      saveJobs();
+    }
+    const remoteSettings = await callApi("/settings", { method: "GET" });
+    if (remoteSettings?.settings) {
+      settings = { ...settings, ...remoteSettings.settings, apiEndpoint: settings.apiEndpoint || defaultSettings.apiEndpoint };
+      saveSettings();
+      renderSettings();
+    }
+    runStatus.textContent = "Connected to Cloudflare job agent.";
+  } catch {
+    runStatus.textContent = "Unlocked locally. Connect or deploy the Cloudflare job agent API to sync live jobs.";
+  }
+  renderJobs();
 }
 
 function makeJobId(job) {
@@ -394,16 +436,18 @@ document.querySelector("#generateApplication").addEventListener("click", generat
 
 authForm.addEventListener("submit", async (event) => {
   event.preventDefault();
-  const inputHash = await sha256(adminPassword.value);
-  if (inputHash !== adminPasswordHash) {
-    authError.textContent = "Incorrect password.";
+  authError.textContent = "Checking password with Cloudflare...";
+  try {
+    await requestSession(adminPassword.value);
+    authError.textContent = "";
+    adminPassword.value = "";
+    unlockAdmin();
+    await loadRemoteState();
+  } catch (error) {
+    authError.textContent = error.message || "Incorrect password.";
     adminPassword.value = "";
     adminPassword.focus();
-    return;
   }
-  localStorage.setItem(authStorageKey, inputHash);
-  authError.textContent = "";
-  unlockAdmin();
 });
 
 jobList.addEventListener("click", (event) => {
