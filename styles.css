@@ -100,7 +100,8 @@ button {
 }
 
 .landing-topbar,
-.landing-copy {
+.landing-copy,
+.founder-side-entry {
   position: relative;
   z-index: 1;
 }
@@ -112,21 +113,31 @@ button {
   text-decoration: none;
 }
 
-.landing-actions {
-  display: inline-flex;
-  align-items: center;
-  gap: 14px;
+.founder-side-entry {
+  position: fixed;
+  z-index: 6;
+  right: 18px;
+  top: 50%;
+  min-height: 34px;
+  padding: 0 12px;
+  border: 1px solid rgba(35, 50, 56, 0.1);
+  border-radius: 999px;
+  color: rgba(35, 50, 56, 0.62);
+  font-size: 0.74rem;
+  font-weight: 800;
+  background: rgba(255, 255, 255, 0.52);
+  box-shadow: 0 10px 24px rgba(35, 50, 56, 0.07);
+  transform: translateY(-50%);
+  opacity: 0.72;
+  pointer-events: auto;
+  transition: opacity 160ms ease, color 160ms ease, background 160ms ease;
 }
 
-.admin-entry {
-  min-height: 36px;
-  padding: 0 14px;
-  border: 1px solid var(--line);
-  border-radius: 999px;
+.founder-side-entry:hover,
+.founder-side-entry:focus-visible {
   color: var(--ink);
-  font-size: 0.82rem;
-  font-weight: 800;
-  background: rgba(255, 255, 255, 0.66);
+  background: rgba(255, 255, 255, 0.86);
+  opacity: 1;
 }
 
 .landing-copy {
@@ -1465,10 +1476,6 @@ h2 {
     display: none;
   }
 
-  .landing-actions {
-    gap: 8px;
-  }
-
   .hero {
     padding-top: 18px;
   }
@@ -1550,5 +1557,11 @@ h2 {
 
   #resultCount {
     white-space: normal;
+  }
+
+  .founder-side-entry {
+    right: 8px;
+    font-size: 0.68rem;
+    opacity: 0.58;
   }
 }
