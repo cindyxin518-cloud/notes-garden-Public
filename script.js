@@ -496,7 +496,7 @@ async function initVisitorCounter() {
     if (visitorNumber && data.visitorNumber) {
       visitorNumber.textContent = Number(data.visitorNumber).toLocaleString();
     }
-    if (visitorWelcome) visitorWelcome.hidden = true;
+    if (visitorWelcome) visitorWelcome.hidden = false;
   } catch (error) {
     if (visitorWelcome) visitorWelcome.hidden = true;
   }
