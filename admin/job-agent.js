@@ -320,8 +320,14 @@ async function searchJobs() {
       method: "POST",
       body: JSON.stringify({ settings, task: "search" })
     });
-    const found = addJobs(result?.jobs || localSearchJobs());
-    runStatus.textContent = `Search complete. ${found} new jobs saved.`;
+    if (Array.isArray(result?.allJobs)) {
+      jobs = result.allJobs;
+      saveJobs();
+      runStatus.textContent = `Search complete. ${result.added || 0} new jobs saved from ${result.source || "job sources"}.`;
+    } else {
+      const found = addJobs(result?.jobs || localSearchJobs());
+      runStatus.textContent = `Search complete. ${found} new jobs saved.`;
+    }
   } catch (error) {
     const found = addJobs(localSearchJobs());
     runStatus.textContent = `API unavailable, used local founder-mode demo search. ${found} jobs saved.`;
@@ -384,6 +390,15 @@ function statusLabel(status) {
   }[status] || "New";
 }
 
+function escapeHtml(value = "") {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;")
+    .replace(/'/g, "&#39;");
+}
+
 function renderJobs() {
   const counts = {
     new: jobs.filter((job) => job.status === "new").length,
@@ -399,19 +414,22 @@ function renderJobs() {
     <article class="job-card">
       <div class="job-head">
         <div class="job-title">
-          <strong>${job.title}</strong>
-          <span>${job.company}</span>
+          <strong>${escapeHtml(job.title)}</strong>
+          <span>${escapeHtml(job.company)}</span>
         </div>
-        <div class="score">${job.score || "--"}</div>
+        <div class="score">${escapeHtml(job.score || "--")}</div>
       </div>
-      <p class="job-meta">${job.location || "Location unknown"} · ${job.type || "Type unknown"} · <span class="status-pill">${statusLabel(job.status)}</span></p>
-      <p class="job-note">${job.summary || job.description || "Saved for founder-mode review."}</p>
-      ${job.application ? `<p class="job-note">${job.application.join(" ")}</p>` : ""}
+      <p class="job-meta">${escapeHtml(job.location || "Location unknown")} · ${escapeHtml(job.type || "Type unknown")} · ${escapeHtml(job.source || "Source unknown")} · <span class="status-pill">${escapeHtml(statusLabel(job.status))}</span></p>
+      <p class="job-note">${escapeHtml(job.summary || job.description || "Saved for founder-mode review.")}</p>
+      ${job.locationRisk ? `<p class="job-note">Location note: ${escapeHtml(job.locationRisk)}</p>` : ""}
+      ${job.salary ? `<p class="job-note">Salary: ${escapeHtml(job.salary)}</p>` : ""}
+      ${Array.isArray(job.tags) && job.tags.length ? `<p class="job-note">Tags: ${escapeHtml(job.tags.slice(0, 8).join(", "))}</p>` : ""}
+      ${job.application ? `<p class="job-note">${escapeHtml(job.application.join(" "))}</p>` : ""}
       <div class="job-actions">
-        <a href="${job.url}" target="_blank" rel="noreferrer">Open</a>
-        <button type="button" data-action="ready" data-id="${job.id}">Ready</button>
-        <button type="button" data-action="applied" data-id="${job.id}">Applied</button>
-        <button type="button" data-action="rejected" data-id="${job.id}">Reject</button>
+        <a href="${escapeHtml(job.url)}" target="_blank" rel="noreferrer">Open</a>
+        <button type="button" data-action="ready" data-id="${escapeHtml(job.id)}">Ready</button>
+        <button type="button" data-action="applied" data-id="${escapeHtml(job.id)}">Applied</button>
+        <button type="button" data-action="rejected" data-id="${escapeHtml(job.id)}">Reject</button>
       </div>
     </article>
   `).join("");

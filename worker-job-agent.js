@@ -146,7 +146,214 @@ async function writeStore(env, key, value) {
 }
 
 function makeJobId(job) {
+  if (job.sourceId) return `${job.source}-${job.sourceId}`.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+  if (job.url) return `${job.source || "job"}-${job.url}`.toLowerCase().replace(/[^a-z0-9]+/g, "-");
   return `${job.company}-${job.title}-${job.location}`.toLowerCase().replace(/[^a-z0-9]+/g, "-");
+}
+
+function stripHtml(value = "") {
+  return String(value)
+    .replace(/<script[\s\S]*?<\/script>/gi, " ")
+    .replace(/<style[\s\S]*?<\/style>/gi, " ")
+    .replace(/<[^>]+>/g, " ")
+    .replace(/&nbsp;/g, " ")
+    .replace(/&amp;/g, "&")
+    .replace(/&quot;/g, "\"")
+    .replace(/&#39;/g, "'")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
+function normalizeText(value = "") {
+  return stripHtml(value).toLowerCase();
+}
+
+function uniqueList(items = []) {
+  return Array.from(new Set(items.map((item) => String(item || "").trim()).filter(Boolean)));
+}
+
+function textMatchesAny(text, items = []) {
+  const normalized = normalizeText(text);
+  return items.some((item) => normalized.includes(normalizeText(item)));
+}
+
+function keywordMatches(job, settings) {
+  const keywords = uniqueList(settings.keywords);
+  if (!keywords.length) return true;
+  const titleText = [
+    job.title,
+    job.company,
+    ...(job.tags || [])
+  ].join(" ");
+  const bodyText = [
+    titleText,
+    job.location,
+    job.type,
+    job.description
+  ].join(" ");
+  return keywords.some((keyword) => {
+    const parts = normalizeText(keyword).split(/\s+/).filter((part) => part.length > 2);
+    if (!parts.length) return false;
+    const normalizedKeyword = normalizeText(keyword);
+    const title = normalizeText(titleText);
+    const body = normalizeText(bodyText);
+    if (body.includes(normalizedKeyword)) return true;
+    if (parts.length === 1) return new RegExp(`\\b${parts[0]}\\b`).test(body);
+    if (parts.every((part) => new RegExp(`\\b${part}\\b`).test(title))) return true;
+    if (normalizedKeyword.includes("agent") && /\b(ai|llm|agentic)\s+agents?\b|\bagentic\b|\bllm\s+agents?\b/.test(body)) return true;
+    if (normalizedKeyword.includes("automation") && /\b(ai|growth|workflow|business)\s+automation\b/.test(body)) return true;
+    return false;
+  });
+}
+
+function locationMatches(job, settings) {
+  const locations = uniqueList(settings.locations);
+  if (!locations.length) return true;
+  const location = normalizeText(`${job.location || ""} ${job.description || ""}`);
+  return locations.some((item) => {
+    const target = normalizeText(item);
+    if ((target.includes("remote") && target.includes("europe")) || (target.includes("europe") && target.includes("remote"))) {
+      return location.includes("remote") && /europe|emea|eu\b|worldwide|global|anywhere/.test(location);
+    }
+    if (target === "remote" && location.includes("remote")) return true;
+    if (target.includes("europe")) return /europe|emea|eu\b|worldwide|global|anywhere/.test(location);
+    if (target.includes("netherlands") && /netherlands|nederland|amsterdam|rotterdam|utrecht/.test(location)) return true;
+    return location.includes(target);
+  });
+}
+
+function isExcluded(job, settings) {
+  const searchable = [
+    job.title,
+    job.company,
+    job.location,
+    job.type,
+    job.description,
+    ...(job.tags || [])
+  ].join(" ");
+  return textMatchesAny(searchable, settings.excludeWords);
+}
+
+function typeMatches(job, settings) {
+  const types = uniqueList(settings.jobTypes);
+  if (!types.length) return true;
+  const text = normalizeText(`${job.type || ""} ${job.description || ""}`);
+  return types.some((type) => {
+    const normalized = normalizeText(type).replace("-", "_");
+    if (normalized.includes("full") && /full.?time|full_time|permanent/.test(text)) return true;
+    if (normalized.includes("contract") && /contract|temporary/.test(text)) return true;
+    if (normalized.includes("freelance") && /freelance|contractor/.test(text)) return true;
+    if (normalized.includes("part") && /part.?time|part_time/.test(text)) return true;
+    return text.includes(normalizeText(type));
+  });
+}
+
+function workModeMatches(job, settings) {
+  const modes = uniqueList(settings.workModes);
+  if (!modes.length) return true;
+  const text = normalizeText(`${job.location || ""} ${job.description || ""}`);
+  return modes.some((mode) => {
+    const normalized = normalizeText(mode);
+    if (normalized.includes("remote")) return text.includes("remote");
+    if (normalized.includes("hybrid")) return text.includes("hybrid");
+    if (normalized.includes("onsite")) return /onsite|on-site|office/.test(text);
+    return text.includes(normalized);
+  });
+}
+
+function matchesSettings(job, settings) {
+  return keywordMatches(job, settings)
+    && locationMatches(job, settings)
+    && typeMatches(job, settings)
+    && workModeMatches(job, settings)
+    && !isExcluded(job, settings);
+}
+
+function normalizeJob(job) {
+  return {
+    ...job,
+    description: stripHtml(job.description || "").slice(0, 1400),
+    tags: uniqueList(job.tags || []).slice(0, 12)
+  };
+}
+
+async function fetchJson(url) {
+  const response = await fetch(url, {
+    headers: {
+      Accept: "application/json"
+    }
+  });
+  if (!response.ok) throw new Error(`Fetch failed: ${response.status}`);
+  return response.json();
+}
+
+async function searchRemotive(settings) {
+  const keywords = uniqueList(settings.keywords).slice(0, 5);
+  const queries = keywords.length ? keywords : ["AI"];
+  const batches = await Promise.allSettled(queries.map(async (keyword) => {
+    const data = await fetchJson(`https://remotive.com/api/remote-jobs?search=${encodeURIComponent(keyword)}`);
+    return (data.jobs || []).map((job) => normalizeJob({
+      source: "Remotive",
+      sourceId: String(job.id),
+      company: job.company_name || "Unknown company",
+      title: job.title || "Untitled role",
+      location: job.candidate_required_location || "Remote",
+      type: String(job.job_type || "").replace(/_/g, "-") || "Remote",
+      url: job.url,
+      description: job.description,
+      tags: job.tags || [],
+      salary: job.salary || "",
+      publishedAt: job.publication_date || ""
+    }));
+  }));
+  return batches.flatMap((batch) => batch.status === "fulfilled" ? batch.value : []);
+}
+
+async function searchArbeitnow(settings) {
+  const data = await fetchJson("https://www.arbeitnow.com/api/job-board-api");
+  return (data.data || []).map((job) => normalizeJob({
+    source: "Arbeitnow",
+    sourceId: job.slug || job.url,
+    company: job.company_name || "Unknown company",
+    title: job.title || "Untitled role",
+    location: job.location || (job.remote ? "Remote" : "Location unknown"),
+    type: (job.job_types || []).join(", ") || (job.remote ? "Remote" : "Job"),
+    url: job.url,
+    description: job.description,
+    tags: job.tags || [],
+    publishedAt: job.created_at ? new Date(Number(job.created_at) * 1000).toISOString() : ""
+  }));
+}
+
+async function searchRealJobs(settings) {
+  const batches = await Promise.allSettled([
+    searchRemotive(settings),
+    searchArbeitnow(settings)
+  ]);
+  const jobs = batches.flatMap((batch) => batch.status === "fulfilled" ? batch.value : []);
+  const seen = new Set();
+  const strictMatches = jobs.filter((job) => job.url && matchesSettings(job, settings));
+  const candidateJobs = strictMatches.length
+    ? strictMatches
+    : jobs
+      .filter((job) => job.url && keywordMatches(job, settings) && typeMatches(job, settings) && workModeMatches(job, settings) && !isExcluded(job, settings))
+      .map((job) => ({ ...job, locationRisk: "Outside selected location" }));
+  const seenSignatures = new Set();
+  return candidateJobs
+    .filter((job) => {
+      const title = normalizeText(job.title).replace(/\([^)]*\)/g, "").trim();
+      const signature = `${normalizeText(job.company)}-${title}`;
+      if (seenSignatures.has(signature)) return false;
+      seenSignatures.add(signature);
+      return true;
+    })
+    .filter((job) => {
+      const id = makeJobId(job);
+      if (seen.has(id)) return false;
+      seen.add(id);
+      return true;
+    })
+    .slice(0, Math.max(1, Number(settings.maxJobsPerRun || defaultSettings.maxJobsPerRun)));
 }
 
 function localSearch(settings) {
@@ -177,7 +384,13 @@ async function runSearch(request, env) {
   const body = await readJson(request);
   const settings = { ...defaultSettings, ...(body.settings || await readStore(env, "settings", {})) };
   const currentJobs = await readStore(env, "jobs", []);
-  const foundJobs = localSearch(settings).map((job) => ({
+  let source = "public-job-apis";
+  let foundJobs = await searchRealJobs(settings);
+  if (!foundJobs.length) {
+    source = "fallback";
+    foundJobs = localSearch(settings);
+  }
+  foundJobs = foundJobs.map((job) => ({
     ...job,
     id: job.id || makeJobId(job),
     status: "new",
@@ -188,8 +401,8 @@ async function runSearch(request, env) {
   const nextJobs = [...freshJobs, ...currentJobs].slice(0, 500);
   await writeStore(env, "settings", settings);
   await writeStore(env, "jobs", nextJobs);
-  await writeStore(env, "lastRun", { at: new Date().toISOString(), added: freshJobs.length });
-  return json({ ok: true, added: freshJobs.length, jobs: freshJobs, total: nextJobs.length });
+  await writeStore(env, "lastRun", { at: new Date().toISOString(), added: freshJobs.length, found: foundJobs.length, source });
+  return json({ ok: true, added: freshJobs.length, found: foundJobs.length, source, jobs: freshJobs, allJobs: nextJobs, total: nextJobs.length });
 }
 
 async function analyzeJobs(request, env) {
