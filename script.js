@@ -200,7 +200,29 @@ function prepareStoredQuote(quote, index, prefix) {
   };
 }
 
+function isPrivateAccessAttempt(text) {
+  return text.length >= 8 && text.length <= 160 && !/\s/.test(text) && /[-_\d]/.test(text);
+}
+
+function isPrivateAccessDraft(text) {
+  return text.length >= 3 && text.length <= 160 && !/\s/.test(text) && (/[-_\d]/.test(text) || /^mini/i.test(text));
+}
+
+function isPrivateVisitorNote(quote) {
+  const text = String(quote?.zh || "").trim();
+  const english = String(quote?.en || "").trim();
+  const source = String(quote?.source || "").trim();
+  return Boolean(text) && isPrivateAccessAttempt(text) && !english && (!source || source === "Visitor submission");
+}
+
+function cleanVisitorQuotes(items) {
+  return Array.isArray(items) ? items.filter((quote) => !isPrivateVisitorNote(quote)) : [];
+}
+
 function rebuildQuotes() {
+  userQuotes = cleanVisitorQuotes(userQuotes);
+  publicVisitorQuotes = cleanVisitorQuotes(publicVisitorQuotes);
+  localStorage.setItem("userQuotes", JSON.stringify(userQuotes));
   userQuotes = userQuotes.map((quote, index) => prepareStoredQuote(quote, index, "local"));
   publicVisitorQuotes = publicVisitorQuotes.map((quote, index) => prepareStoredQuote(quote, index, "visitor"));
   quotes = [...baseQuotes, ...publicVisitorQuotes, ...userQuotes];
@@ -910,14 +932,6 @@ async function unlockFounderMode(password) {
   }
   localStorage.setItem(founderSessionKey, data.token);
   window.location.href = "admin/job-agent.html";
-}
-
-function isPrivateAccessAttempt(text) {
-  return text.length >= 8 && text.length <= 160 && !/\s/.test(text) && /[-_\d]/.test(text);
-}
-
-function isPrivateAccessDraft(text) {
-  return text.length >= 3 && text.length <= 160 && !/\s/.test(text) && (/[-_\d]/.test(text) || /^mini/i.test(text));
 }
 
 function clearContributionEntryFields() {
