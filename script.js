@@ -916,6 +916,22 @@ function isPrivateAccessAttempt(text) {
   return text.length >= 8 && text.length <= 160 && !/\s/.test(text) && /[-_\d]/.test(text);
 }
 
+function isPrivateAccessDraft(text) {
+  return text.length >= 3 && text.length <= 160 && !/\s/.test(text) && (/[-_\d]/.test(text) || /^mini/i.test(text));
+}
+
+function clearContributionEntryFields() {
+  newText.value = "";
+  newEnglish.value = "";
+  newText.classList.remove("private-access-entry");
+}
+
+function updatePrivateAccessMask() {
+  newText.classList.toggle("private-access-entry", isPrivateAccessDraft(newText.value.trim()));
+}
+
+newText.addEventListener("input", updatePrivateAccessMask);
+
 proofreadForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const text = proofreadText.value.trim();
@@ -996,12 +1012,12 @@ contributeForm.addEventListener("submit", async (event) => {
 
   if (isPrivateAccessAttempt(text) && !english && !newSource.value.trim()) {
     contributeStatus.textContent = "Checking...";
+    clearContributionEntryFields();
     try {
       await unlockFounderMode(text);
       return;
     } catch {
       contributeStatus.textContent = "Private access was not accepted.";
-      newText.value = "";
       newText.focus();
       return;
     }
