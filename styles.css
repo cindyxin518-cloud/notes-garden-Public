@@ -148,11 +148,11 @@ button {
 }
 
 .landing-welcome {
-  position: absolute;
-  right: clamp(18px, 6vw, 92px);
-  top: clamp(118px, 16vw, 188px);
+  position: fixed;
+  right: clamp(18px, 3vw, 42px);
+  top: clamp(78px, 8vw, 104px);
   width: fit-content;
-  max-width: min(34vw, 430px);
+  max-width: min(34vw, 410px);
   margin-top: 0;
 }
 
@@ -366,8 +366,8 @@ h2 {
 }
 
 .visitor-welcome.landing-welcome {
-  right: clamp(18px, 6vw, 92px);
-  top: clamp(118px, 16vw, 188px);
+  right: clamp(18px, 3vw, 42px);
+  top: clamp(78px, 8vw, 104px);
 }
 
 .visitor-welcome strong {
