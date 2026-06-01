@@ -520,7 +520,7 @@ async function initVisitorCounter() {
     }
     if (visitorWelcome) visitorWelcome.hidden = false;
   } catch (error) {
-    if (visitorWelcome) visitorWelcome.hidden = true;
+    if (visitorWelcome) visitorWelcome.hidden = false;
   }
 }
 
@@ -1175,9 +1175,11 @@ searchInput.addEventListener("input", () => {
   }
   renderQuotes();
 });
-themeBtn.addEventListener("click", () => {
-  document.body.dataset.theme = document.body.dataset.theme === "evening" ? "" : "evening";
-});
+if (themeBtn) {
+  themeBtn.addEventListener("click", () => {
+    document.body.dataset.theme = document.body.dataset.theme === "evening" ? "" : "evening";
+  });
+}
 window.addEventListener("hashchange", route);
 
 updateStats();

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MiniGrowLab - Notes Garden</title>
-    <link rel="stylesheet" href="styles.css?v=20260601-clean-visitor-v1" />
+    <link rel="stylesheet" href="styles.css?v=20260601-garden-home-v1" />
     <script
       defer
       src="https://static.cloudflareinsights.com/beacon.min.js"
@@ -19,73 +19,34 @@
             <span class="brand-mark"><img src="assets/minigrowlab-logo.png" alt="" /></span>
             <span>MiniGrowLab</span>
           </a>
-          <a class="landing-nav-link" href="#top">Enter</a>
+          <a class="landing-nav-link" href="#categories">Enter</a>
         </nav>
-        <div class="landing-stage">
+        <div class="landing-stage" id="top">
           <div class="landing-copy">
-            <p class="eyebrow landing-brandline">MiniGrowLab</p>
-            <h1>A quiet space for small thoughts to grow</h1>
-            <p>Drawn from reflections, books, articles, conversations, and the wisdom of others. Kept here not as final answers, but as seeds of thinking, and ideas that may grow differently each time they are read.</p>
-            <p>Explore notes, reflections, and small ideas for everyday growth.</p>
-            <a class="primary-link landing-cta" href="#top">Explore MiniGrowLab</a>
+            <p class="eyebrow landing-brandline">MiniGrowLab · Notes Garden</p>
+            <h1>A quiet garden for small thoughts to grow.</h1>
+            <p>Collected from books, reflections, conversations, and everyday moments. Not final answers, but seeds of thinking to revisit, reshape, and grow.</p>
+            <div class="landing-actions">
+              <a class="primary-link landing-cta" href="#categories">Browse themes</a>
+              <a class="secondary-link landing-cta" href="#contribute">Share a note</a>
+            </div>
           </div>
 
           <div class="bubble-area" aria-label="MiniGrowLab thought garden">
-            <div class="thought-bubble welcome-bubble landing-welcome" id="visitorWelcome" hidden>
+            <div class="thought-bubble welcome-bubble landing-welcome" id="visitorWelcome">
               <span class="visitor-emoji" aria-hidden="true">👋</span>
               <span><b>Warm welcome</b><span>Step in and let small thoughts grow.</span></span>
               <strong id="visitorNumber" hidden>...</strong>
             </div>
             <div class="thought-bubble bubble-small bubble-one">Small thought</div>
             <div class="thought-bubble bubble-medium bubble-two">Reflection</div>
-            <div class="thought-bubble bubble-small bubble-three">Seed of growth</div>
+            <div class="thought-bubble bubble-small bubble-three">Book note</div>
             <div class="thought-bubble bubble-medium bubble-four">Read again later</div>
-            <div class="thought-bubble bubble-small bubble-five">Gentle ideas</div>
-            <div class="thought-bubble bubble-medium bubble-six">Notes garden</div>
+            <div class="thought-bubble bubble-small bubble-five">Seed of growth</div>
+            <div class="thought-bubble bubble-medium bubble-six">A line worth keeping</div>
           </div>
         </div>
       </section>
-
-      <header class="hero">
-        <nav class="topbar" aria-label="Main navigation">
-          <a class="brand" href="#home" aria-label="MiniGrowLab home">
-            <span class="brand-mark"><img src="assets/minigrowlab-logo.png" alt="" /></span>
-            <span>MiniGrowLab</span>
-          </a>
-          <div class="nav-actions">
-            <a class="icon-button" href="#categories" aria-label="Browse themes" title="Browse themes">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5M4 20l17-17M21 16v5h-5M15 15l6 6M4 4l5.5 5.5" /></svg>
-            </a>
-            <button class="icon-button" id="themeBtn" type="button" aria-label="Switch theme" title="Switch theme">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2M12 19v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M3 12h2M19 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" /><circle cx="12" cy="12" r="4" /></svg>
-            </button>
-          </div>
-        </nav>
-
-        <section class="hero-grid" id="top">
-          <div class="hero-copy">
-            <p class="eyebrow">Notes, thoughts, and little lights</p>
-            <h1>Live freely and truthfully as who you really are.</h1>
-            <div class="hero-quotes" aria-label="Writing quotes">
-              <blockquote>
-                <p>“We write to taste life twice, in the moment and in retrospection.”</p>
-                <cite>Anaïs Nin</cite>
-              </blockquote>
-              <blockquote>
-                <p>“Arrange whatever pieces come your way.”</p>
-                <cite>Virginia Woolf</cite>
-              </blockquote>
-            </div>
-            <div class="hero-tools">
-              <label class="search-box">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m16.5 16.5 4 4" /></svg>
-                <input id="searchInput" type="search" placeholder="Search" autocomplete="off" />
-              </label>
-              <a class="primary-link" href="#categories">Browse themes</a>
-            </div>
-          </div>
-        </section>
-      </header>
 
       <main>
         <section class="category-home" id="categories">
@@ -117,9 +78,13 @@
               <p class="eyebrow">Themes</p>
               <h2>Read by Theme</h2>
             </div>
-            <p>Choose a theme to open its notes page.</p>
+            <p>Choose a theme and open a small path of notes.</p>
           </div>
           <p class="source-note">A small garden of thoughts collected, reshaped, and revisited over time. Kept here not as final answers, but as seeds of thinking, and ideas that may grow differently each time they are read.</p>
+          <label class="search-box theme-search">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m16.5 16.5 4 4" /></svg>
+            <input id="searchInput" type="search" placeholder="Search notes" autocomplete="off" />
+          </label>
           <div class="category-grid" id="categoryGrid"></div>
         </section>
 
@@ -140,11 +105,11 @@
           <p class="empty-state" id="emptyState">No matching notes found. Try another keyword.</p>
         </section>
 
-        <section class="contribute-panel" aria-label="Open contributions">
+        <section class="contribute-panel" id="contribute" aria-label="Open contributions">
           <div class="contribute-copy">
             <p class="eyebrow">Open Contributions</p>
             <h2>Share a Favorite Note</h2>
-            <p>Share a line, passage, or thought you love. Leave something meaningful for other visitors to discover.</p>
+            <p>Leave a line, passage, or thought for another visitor to discover.</p>
           </div>
             <form class="contribute-form" id="contributeForm">
               <label>
@@ -165,14 +130,14 @@
                 <input id="newSource" type="text" placeholder="Please add the source, if any" />
               </label>
             </div>
-            <button class="primary-link" type="submit">Add note</button>
+            <button class="primary-link" type="submit">Add a note</button>
             <p class="form-status" id="contributeStatus" role="status"></p>
           </form>
         </section>
 
         <footer class="site-footer" aria-label="Copyright notice">
-          <p>Thanks for visiting MiniGrowLab - Notes Garden.</p>
-          <p>© 2026 MiniGrowLab. All rights reserved.</p>
+          <p>Thanks for visiting Notes Garden.</p>
+          <p>© 2026 Notes Garden. All rights reserved.</p>
           <p>Unauthorized copying, reproduction, redistribution, adaptation, or commercial use of MiniGrowLab content, structure, design, or visual materials is not permitted without prior written permission.</p>
         </footer>
       </main>
@@ -195,6 +160,6 @@
       </form>
     </div>
 
-    <script src="script.js?v=20260601-clean-visitor-v1"></script>
+    <script src="script.js?v=20260601-garden-home-v1"></script>
   </body>
 </html>
