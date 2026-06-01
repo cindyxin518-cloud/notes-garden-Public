@@ -401,6 +401,31 @@ textarea {
   margin-top: 10px;
 }
 
+.salary-line {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.salary-line strong {
+  color: var(--ink);
+}
+
+.salary-line a {
+  display: inline-flex;
+  min-height: 30px;
+  align-items: center;
+  padding: 0 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: #326b62;
+  font-size: 0.8rem;
+  font-weight: 850;
+  text-decoration: none;
+  background: rgba(255, 255, 255, 0.62);
+}
+
 .job-actions {
   flex-wrap: wrap;
   gap: 8px;

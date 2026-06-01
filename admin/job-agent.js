@@ -421,6 +421,12 @@ function escapeHtml(value = "") {
     .replace(/'/g, "&#39;");
 }
 
+function salarySearchUrl(job) {
+  const locationHint = settings.locations?.[0] || job.location || "Netherlands remote";
+  const query = `${job.company || ""} ${job.title || ""} salary ${locationHint}`.trim();
+  return `https://www.google.com/search?q=${encodeURIComponent(query)}`;
+}
+
 function renderJobs() {
   const counts = {
     new: jobs.filter((job) => job.status === "new").length,
@@ -444,7 +450,7 @@ function renderJobs() {
       <p class="job-meta">${escapeHtml(job.location || "Location unknown")} · ${escapeHtml(job.type || "Type unknown")} · <span class="source-pill">Channel: ${escapeHtml(sourceLabel(job.source))}</span> · <span class="status-pill">${escapeHtml(statusLabel(job.status))}</span></p>
       <p class="job-note">${escapeHtml(job.summary || job.description || "Saved for founder-mode review.")}</p>
       ${job.locationRisk ? `<p class="job-note">Location note: ${escapeHtml(job.locationRisk)}</p>` : ""}
-      ${job.salary ? `<p class="job-note">Salary: ${escapeHtml(job.salary)}</p>` : ""}
+      <p class="job-note salary-line">Salary: <strong>${escapeHtml(job.salary || "Not listed")}</strong> <a href="${escapeHtml(salarySearchUrl(job))}" target="_blank" rel="noreferrer">Research Salary</a></p>
       ${Array.isArray(job.tags) && job.tags.length ? `<p class="job-note">Tags: ${escapeHtml(job.tags.slice(0, 8).join(", "))}</p>` : ""}
       ${job.application ? `<p class="job-note">${escapeHtml(job.application.join(" "))}</p>` : ""}
       <div class="job-actions">
