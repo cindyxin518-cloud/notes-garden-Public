@@ -245,6 +245,20 @@ async function loadRemoteState() {
   renderJobs();
 }
 
+async function saveRemoteSettings() {
+  collectSettings();
+  const result = await callApi("/settings", {
+    method: "POST",
+    body: JSON.stringify({ settings })
+  });
+  if (result?.settings) {
+    settings = { ...settings, ...result.settings, apiEndpoint: settings.apiEndpoint || defaultSettings.apiEndpoint };
+    saveSettings();
+    renderSettings();
+  }
+  return result;
+}
+
 function makeJobId(job) {
   return `${job.company}-${job.title}-${job.location}`.toLowerCase().replace(/[^a-z0-9]+/g, "-");
 }
@@ -390,6 +404,14 @@ function statusLabel(status) {
   }[status] || "New";
 }
 
+function sourceLabel(source) {
+  return {
+    Remotive: "Remotive API",
+    Arbeitnow: "Arbeitnow API",
+    "worker-placeholder": "Fallback LinkedIn search link"
+  }[source] || source || "Unknown source";
+}
+
 function escapeHtml(value = "") {
   return String(value)
     .replace(/&/g, "&amp;")
@@ -419,7 +441,7 @@ function renderJobs() {
         </div>
         <div class="score">${escapeHtml(job.score || "--")}</div>
       </div>
-      <p class="job-meta">${escapeHtml(job.location || "Location unknown")} · ${escapeHtml(job.type || "Type unknown")} · ${escapeHtml(job.source || "Source unknown")} · <span class="status-pill">${escapeHtml(statusLabel(job.status))}</span></p>
+      <p class="job-meta">${escapeHtml(job.location || "Location unknown")} · ${escapeHtml(job.type || "Type unknown")} · <span class="source-pill">Channel: ${escapeHtml(sourceLabel(job.source))}</span> · <span class="status-pill">${escapeHtml(statusLabel(job.status))}</span></p>
       <p class="job-note">${escapeHtml(job.summary || job.description || "Saved for founder-mode review.")}</p>
       ${job.locationRisk ? `<p class="job-note">Location note: ${escapeHtml(job.locationRisk)}</p>` : ""}
       ${job.salary ? `<p class="job-note">Salary: ${escapeHtml(job.salary)}</p>` : ""}
@@ -435,10 +457,16 @@ function renderJobs() {
   `).join("");
 }
 
-form.addEventListener("submit", (event) => {
+form.addEventListener("submit", async (event) => {
   event.preventDefault();
-  collectSettings();
-  runStatus.textContent = "Founder Mode settings saved.";
+  runStatus.textContent = "Saving Founder Mode settings...";
+  try {
+    await saveRemoteSettings();
+    runStatus.textContent = "Founder Mode settings saved to Cloudflare.";
+  } catch (error) {
+    collectSettings();
+    runStatus.textContent = "Saved in this browser, but Cloudflare sync failed. Please check your session and API endpoint.";
+  }
 });
 
 document.querySelector("#resetSettings").addEventListener("click", () => {
