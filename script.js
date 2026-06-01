@@ -485,7 +485,6 @@ function getVisitorId() {
 }
 
 async function initVisitorCounter() {
-  if (!visitorWelcome || !visitorNumber) return;
   try {
     const response = await fetch(visitorCounterEndpoint, {
       method: "POST",
@@ -494,11 +493,12 @@ async function initVisitorCounter() {
     });
     if (!response.ok) throw new Error("Visitor counter unavailable");
     const data = await response.json();
-    if (!data.visitorNumber) return;
-    visitorNumber.textContent = Number(data.visitorNumber).toLocaleString();
-    visitorWelcome.hidden = false;
+    if (visitorNumber && data.visitorNumber) {
+      visitorNumber.textContent = Number(data.visitorNumber).toLocaleString();
+    }
+    if (visitorWelcome) visitorWelcome.hidden = true;
   } catch (error) {
-    visitorWelcome.hidden = true;
+    if (visitorWelcome) visitorWelcome.hidden = true;
   }
 }
 
