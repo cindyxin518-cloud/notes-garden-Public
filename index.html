@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MiniGrowLab - Notes Garden</title>
-    <link rel="stylesheet" href="styles.css?v=20260603-light-editorial-garden-v1" />
+    <link rel="stylesheet" href="styles.css?v=20260603-light-envelope-reference-v1" />
     <script
       defer
       src="https://static.cloudflareinsights.com/beacon.min.js"
@@ -16,7 +16,15 @@
       <section class="landing-home" id="home" aria-label="MiniGrowLab introduction">
         <nav class="topbar landing-topbar" aria-label="Landing navigation">
           <a class="brand" href="#home" aria-label="MiniGrowLab home">
-            <span class="brand-mark"><img src="assets/minigrowlab-logo.png" alt="" /></span>
+            <span class="brand-mark botanical-brand-mark" aria-hidden="true">
+              <svg viewBox="0 0 48 48" focusable="false">
+                <path d="M24 40V9" />
+                <path d="M24 21C15 18 11 12 12 5c8 2 12 8 12 16Z" />
+                <path d="M24 27c9-3 13-9 12-16-8 2-12 8-12 16Z" />
+                <path d="M24 35c-8-2-13-7-14-14 8 1 13 6 14 14Z" />
+                <path d="M24 37c8-1 13-6 15-13-8 0-13 5-15 13Z" />
+              </svg>
+            </span>
             <span>MiniGrowLab | Notes Garden</span>
           </a>
           <div class="landing-nav-links">
@@ -29,15 +37,16 @@
         <div class="landing-stage" id="top">
           <div class="landing-copy">
             <p class="eyebrow landing-brandline">MiniGrowLab · Notes Garden</p>
-            <h1>A quiet garden for small thoughts to grow.</h1>
+            <h1>A quiet garden<br />for small<br />thoughts to grow.</h1>
             <p>Collected from books, reflections, conversations, and everyday moments. Not final answers, but seeds of thinking to revisit, reshape, and grow.</p>
             <div class="landing-actions">
-              <a class="primary-link landing-cta" href="#categories">Browse themes</a>
+              <a class="primary-link landing-cta" href="#categories">Browse themes <span aria-hidden="true">→</span></a>
               <a class="secondary-link landing-cta" href="#contribute">Share a note</a>
             </div>
           </div>
 
           <div class="archive-panel envelope-composition" aria-label="MiniGrowLab welcome envelope">
+            <span class="botanical-sprig" aria-hidden="true"><i></i><i></i><i></i><i></i></span>
             <article class="welcome-envelope welcome-envelope-main">
               <span class="inner-note" aria-hidden="true"></span>
               <span class="envelope-seal">MGL</span>
@@ -223,6 +232,6 @@
       </form>
     </div>
 
-    <script src="script.js?v=20260603-light-editorial-garden-v1"></script>
+    <script src="script.js?v=20260603-light-envelope-reference-v1"></script>
   </body>
 </html>
