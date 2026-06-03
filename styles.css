@@ -342,19 +342,19 @@ h2 {
 .archive-panel::before {
   content: "";
   position: absolute;
-  inset: 70px 36px 64px 56px;
+  inset: 78px 28px 70px 42px;
   border: 1px solid rgba(31, 58, 52, 0.08);
-  border-radius: 28px;
-  transform: rotate(-5deg);
-  opacity: 0.5;
+  border-radius: 30px;
+  transform: rotate(-4deg);
+  opacity: 0.42;
 }
 
 .archive-panel::after {
   content: "";
   position: absolute;
   right: 42px;
-  bottom: 86px;
-  width: 180px;
+  bottom: 80px;
+  width: 160px;
   height: 1px;
   background: linear-gradient(90deg, transparent, rgba(185, 154, 95, 0.32), transparent);
   transform: rotate(-8deg);
@@ -367,38 +367,59 @@ h2 {
 .welcome-envelope {
   position: absolute;
   display: grid;
-  align-content: center;
-  min-height: 118px;
-  padding: 24px 28px;
+  place-items: center;
+  min-height: 250px;
+  padding: 28px 32px;
   border: 1px solid rgba(207, 198, 182, 0.86);
-  border-radius: 16px;
+  border-radius: 20px;
   color: var(--ink);
   background:
     linear-gradient(145deg, rgba(250, 247, 240, 0.92), rgba(237, 241, 232, 0.58)),
     radial-gradient(circle at 86% 18%, rgba(185, 154, 95, 0.1), transparent 34%);
-  box-shadow: 0 24px 58px rgba(54, 52, 43, 0.12);
+  box-shadow: 0 28px 68px rgba(54, 52, 43, 0.14);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
-  animation: archiveFloat var(--duration, 9s) ease-in-out infinite;
-  animation-delay: var(--delay, 0s);
+  animation: archiveFloat 10.8s ease-in-out infinite;
   transform: rotate(var(--tilt, 0deg));
+  overflow: hidden;
+}
+
+.inner-note {
+  position: absolute;
+  top: 28px;
+  left: 50%;
+  width: 62%;
+  height: 82px;
+  border: 1px solid rgba(207, 198, 182, 0.78);
+  border-radius: 14px 14px 8px 8px;
+  background: linear-gradient(145deg, rgba(255, 252, 244, 0.86), rgba(244, 239, 230, 0.64));
+  transform: translateX(-50%) translateY(-30px);
+  box-shadow: 0 12px 28px rgba(54, 52, 43, 0.08);
+}
+
+.envelope-message {
+  position: relative;
+  z-index: 4;
+  display: grid;
+  gap: 7px;
+  place-items: center;
+  text-align: center;
+  transform: translateY(12px);
 }
 
 .welcome-envelope p {
-  position: relative;
-  z-index: 2;
   margin: 0;
-  font-size: clamp(1rem, 1.3vw, 1.22rem);
+  font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", sans-serif;
+  font-size: clamp(1.02rem, 1.4vw, 1.28rem);
   font-weight: 780;
   letter-spacing: 0;
-  line-height: 1.35;
+  line-height: 1.25;
 }
 
 .welcome-envelope p + p {
-  margin-top: 5px;
-  color: var(--muted);
-  font-size: clamp(0.86rem, 1vw, 1rem);
-  font-weight: 700;
+  color: var(--ink);
+  font-size: clamp(0.94rem, 1.1vw, 1.08rem);
+  font-weight: 720;
 }
 
 .envelope-fold {
@@ -416,29 +437,28 @@ h2 {
   left: 0;
   right: 0;
   height: 1px;
-  background: rgba(207, 198, 182, 0.72);
+  background: rgba(207, 198, 182, 0.82);
 }
 
 .envelope-fold::before {
-  top: 50%;
-  transform: rotate(8deg);
+  top: 58%;
+  transform: rotate(13deg);
 }
 
 .envelope-fold::after {
-  top: 50%;
-  transform: rotate(-8deg);
+  top: 58%;
+  transform: rotate(-13deg);
 }
 
 .envelope-seal,
-.envelope-mark,
-.envelope-star {
+.envelope-deco {
   position: absolute;
   z-index: 3;
 }
 
 .envelope-seal {
-  right: 22px;
-  top: 18px;
+  right: 28px;
+  top: 28px;
   display: grid;
   width: 38px;
   height: 38px;
@@ -452,58 +472,48 @@ h2 {
   background: rgba(250, 247, 240, 0.72);
 }
 
-.envelope-mark {
-  right: 24px;
-  bottom: 18px;
-  width: 32px;
-  height: 14px;
-  border: 1px solid rgba(31, 58, 52, 0.25);
-  border-radius: 999px 999px 999px 3px;
-  transform: rotate(-20deg);
+.envelope-deco {
+  animation: archiveFloat var(--duration, 9s) ease-in-out infinite;
+  animation-delay: var(--delay, 0s);
 }
 
-.envelope-star {
-  right: 24px;
-  top: 22px;
+.deco-star {
+  right: 22px;
+  top: 92px;
   color: rgba(185, 154, 95, 0.78);
   font-size: 1rem;
+  --duration: 9.4s;
+  --delay: -1.8s;
 }
 
-.envelope-one {
-  z-index: 3;
-  top: 72px;
-  right: 42px;
-  width: 284px;
-  --tilt: 4deg;
+.deco-dot {
+  left: 46px;
+  top: 118px;
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: rgba(185, 154, 95, 0.6);
+  --duration: 10.2s;
+  --delay: -3.2s;
+}
+
+.deco-leaf {
+  left: 72px;
+  bottom: 92px;
+  width: 42px;
+  height: 16px;
+  border: 1px solid rgba(31, 58, 52, 0.22);
+  border-radius: 999px 999px 999px 4px;
+  transform: rotate(-22deg);
   --duration: 9.8s;
-  --delay: -1.1s;
-}
-
-.envelope-two {
-  z-index: 4;
-  top: 168px;
-  left: 34px;
-  width: 306px;
-  min-height: 132px;
-  background:
-    linear-gradient(145deg, rgba(237, 241, 232, 0.82), rgba(244, 239, 230, 0.72)),
-    radial-gradient(circle at 18% 20%, rgba(185, 154, 95, 0.08), transparent 36%);
-  --tilt: -5deg;
-  --duration: 10.6s;
   --delay: -2.4s;
 }
 
-.envelope-three {
-  z-index: 2;
-  right: 78px;
-  bottom: 58px;
-  width: 232px;
-  min-height: 100px;
-  background:
-    linear-gradient(145deg, rgba(242, 236, 226, 0.86), rgba(250, 247, 240, 0.64));
-  --tilt: 7deg;
-  --duration: 11.2s;
-  --delay: -3.6s;
+.welcome-envelope-main {
+  top: 78px;
+  right: 38px;
+  width: min(82%, 360px);
+  --tilt: 1.5deg;
 }
 
 @keyframes archiveFloat {
@@ -513,7 +523,7 @@ h2 {
   }
 
   50% {
-    transform: translateY(-3px) rotate(var(--tilt, 0deg));
+    transform: translateY(-5px) rotate(calc(var(--tilt, 0deg) + 0.6deg));
   }
 }
 
@@ -1583,7 +1593,7 @@ h2 {
   }
 
   .archive-panel {
-    min-height: 276px;
+    min-height: 286px;
     padding: 6px 0 0;
   }
 
@@ -1598,48 +1608,60 @@ h2 {
   }
 
   .welcome-envelope {
-    padding: 18px 20px;
-    border-radius: 14px;
+    min-height: 190px;
+    padding: 22px 24px;
+    border-radius: 16px;
+  }
+
+  .welcome-envelope-main {
+    top: 40px;
+    right: auto;
+    left: 20px;
+    width: 280px;
+  }
+
+  .inner-note {
+    width: 66%;
+    height: 66px;
+    transform: translateX(-50%) translateY(-24px);
+  }
+
+  .envelope-message {
+    gap: 5px;
+    transform: translateY(10px);
   }
 
   .welcome-envelope p {
-    font-size: 0.95rem;
+    font-size: 1rem;
   }
 
   .welcome-envelope p + p {
-    font-size: 0.8rem;
-  }
-
-  .envelope-one {
-    top: 24px;
-    right: 10px;
-    width: 226px;
-    min-height: 94px;
-  }
-
-  .envelope-two {
-    top: 108px;
-    left: 0;
-    width: 254px;
-    min-height: 116px;
-  }
-
-  .envelope-three {
-    right: 34px;
-    bottom: 16px;
-    width: 196px;
-    min-height: 82px;
+    font-size: 0.88rem;
   }
 
   .envelope-seal {
+    right: 20px;
+    top: 20px;
     width: 32px;
     height: 32px;
     font-size: 0.58rem;
   }
 
-  .envelope-mark {
-    width: 28px;
-    height: 12px;
+  .deco-star {
+    right: 16px;
+    top: 84px;
+  }
+
+  .deco-dot {
+    left: 10px;
+    top: 112px;
+  }
+
+  .deco-leaf {
+    left: 42px;
+    bottom: 46px;
+    width: 34px;
+    height: 13px;
   }
 
   .hero-quotes {
