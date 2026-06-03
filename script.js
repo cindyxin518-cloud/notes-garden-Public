@@ -593,23 +593,36 @@ function renderFilters() {
 }
 
 function renderCategoryCards() {
+  const themeDescriptions = {
+    [artOfWarThemeId]: "Thoughts on strategy, judgment, resources, information, leadership, and decisions.",
+    Wisdom: "Lines and observations that stay useful across seasons.",
+    Self: "Notes on becoming, boundaries, identity, and inner steadiness.",
+    Growth: "Small records of learning, building, changing, and improving.",
+    Life: "Everyday reflections from ordinary days and quiet moments.",
+    Relationships: "Thoughts on distance, care, friendship, and shared life.",
+    Reading: "Thoughts from books that stay with me.",
+    Others: "Open questions, fragments, and words worth keeping."
+  };
+
   categoryGrid.innerHTML = themeGroups
-    .map((group) => {
+    .map((group, index) => {
+      const number = String(index + 1).padStart(2, "0");
       if (group.id === artOfWarThemeId) {
         return `
           <a class="category-card category-card-special" href="#collection/art-of-war">
+            <span class="category-number">${number}</span>
             <strong>${escapeHtml(group.label)}</strong>
-            <span>Special notes on strategy, judgment, resources, information, leadership, and decisions.</span>
+            <span>${escapeHtml(themeDescriptions[group.id])}</span>
             <em>Open</em>
           </a>
         `;
       }
       const groupQuotes = quotes.filter((quote) => groupForQuote(quote) === group.id);
-      const sample = groupQuotes[0];
       return `
         <a class="category-card" href="#category/${encodeURIComponent(group.id)}">
+          <span class="category-number">${number}</span>
           <strong>${escapeHtml(group.label)}</strong>
-          <span>${groupQuotes.length} notes${sample ? ` · ${escapeHtml(sample.en || sample.zh)}` : ""}</span>
+          <span>${escapeHtml(themeDescriptions[group.id] || `${groupQuotes.length} notes collected in this theme.`)}</span>
           <em>Open</em>
         </a>
       `;
@@ -709,6 +722,10 @@ function commentBoard(index) {
 
 function quoteCard(quote, index) {
   const isLong = (quote.zh || "").length + (quote.en || "").length + (quote.nl || "").length > 180;
+  const title = quote.source && quote.source !== "文摘" && quote.source !== "Visitor submission"
+    ? `A sentence from ${quote.source}`
+    : `${categoryLabel(quote.category)} note`;
+  const excerpt = quote.en || quote.zh || "A small thought kept in the garden.";
   const body = [
     quote.zh ? `<p class="quote-text quote-zh">${escapeHtml(quote.zh)}</p>` : "",
     quote.en ? `<p class="quote-text quote-en">${escapeHtml(quote.en)}</p>` : "",
@@ -716,9 +733,16 @@ function quoteCard(quote, index) {
   ].join("");
   return `
     <article class="quote-card ${isLong ? "long" : ""}" id="quote-${index}">
+      <div class="note-row-meta">
+        <span>2026</span>
+        <span>${escapeHtml(categoryLabel(quote.category))}</span>
+      </div>
+      <h3>${escapeHtml(title)}</h3>
+      <p class="note-row-excerpt">${escapeHtml(excerpt)}</p>
       <div class="quote-body">
         ${body}
       </div>
+      <a class="read-note-link" href="#quote-${index}">Read note →</a>
       <div class="reader-actions" aria-label="Reader actions">
         ${reactionButton(index, "like", "Like", likeIconPath)}
         <button class="reaction-btn note-action" type="button" data-proofread="${index}">Refine</button>
@@ -747,6 +771,12 @@ function artPopularCard(entry) {
   const { section, note, sectionIndex, noteIndex, id } = entry;
   return `
     <article class="quote-card strategy-popular-card">
+      <div class="note-row-meta">
+        <span>2026</span>
+        <span>Sun Tzu’s Strategy</span>
+      </div>
+      <h3>${escapeHtml(section.title)}</h3>
+      <p class="note-row-excerpt">${escapeHtml(note.en)}</p>
       <div class="quote-body">
         <p class="quote-text quote-zh">${escapeHtml(note.zh)}</p>
         <p class="quote-text quote-en">${escapeHtml(note.en)}</p>
@@ -1046,7 +1076,7 @@ contributeForm.addEventListener("submit", async (event) => {
   }
   contributeForm.reset();
   newTheme.value = quote.category;
-  contributeStatus.textContent = "Added. Thank you for contributing.";
+  contributeStatus.textContent = "Sent to the garden. Thank you for contributing.";
   updateStats();
   renderCategoryCards();
   window.location.hash = `#category/${encodeURIComponent(quote.category)}`;
@@ -1073,9 +1103,9 @@ function showCategory(category) {
   collectionMode = "category";
   categoryHome.hidden = true;
   collection.hidden = false;
-  collectionTitle.textContent = activeCategory === allCategory ? "Search Results" : `${categoryLabel(activeCategory)} Notes`;
+  collectionTitle.textContent = activeCategory === allCategory ? "Notes" : `${categoryLabel(activeCategory)} Notes`;
   document.title = `${collectionTitle.textContent} | Notes Garden`;
-  collectionNote.textContent = "Collected reading notes. AI translations may be imperfect; corrections and reflections are welcome.";
+  collectionNote.textContent = "A collection of small thoughts and reflections.";
   updateStats();
   filters.hidden = false;
   renderFilters();
@@ -1087,10 +1117,10 @@ function showSpecialCollection(mode) {
   activeCategory = allCategory;
   categoryHome.hidden = true;
   collection.hidden = false;
-  collectionTitle.textContent = mode === "popular" ? "Most Popular Notes" : "Added by Visitor";
+  collectionTitle.textContent = mode === "popular" ? "Notes" : "Visitor Notes";
   document.title = `${collectionTitle.textContent} | Notes Garden`;
   collectionNote.textContent = mode === "popular"
-    ? "Public likes help visitors discover notes that others found meaningful."
+    ? "A collection of small thoughts and reflections."
     : "Notes shared by visitors. New entries appear here after they are added.";
   resultCount.textContent = "";
   updateStats();

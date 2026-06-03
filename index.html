@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MiniGrowLab - Notes Garden</title>
-    <link rel="stylesheet" href="styles.css?v=20260603-deep-green-envelope-v1" />
+    <link rel="stylesheet" href="styles.css?v=20260603-light-editorial-garden-v1" />
     <script
       defer
       src="https://static.cloudflareinsights.com/beacon.min.js"
@@ -17,18 +17,23 @@
         <nav class="topbar landing-topbar" aria-label="Landing navigation">
           <a class="brand" href="#home" aria-label="MiniGrowLab home">
             <span class="brand-mark"><img src="assets/minigrowlab-logo.png" alt="" /></span>
-            <span>MiniGrowLab</span>
+            <span>MiniGrowLab | Notes Garden</span>
           </a>
-          <a class="landing-nav-link" href="#categories">Enter</a>
+          <div class="landing-nav-links">
+            <a class="landing-nav-link" href="#categories">Themes</a>
+            <a class="landing-nav-link" href="#collection/most-popular">Notes</a>
+            <a class="landing-nav-link" href="#contribute">Share</a>
+            <a class="landing-nav-link" href="#about">About</a>
+          </div>
         </nav>
         <div class="landing-stage" id="top">
           <div class="landing-copy">
             <p class="eyebrow landing-brandline">MiniGrowLab · Notes Garden</p>
-            <h1>A quiet archive for thoughts that grow with time.</h1>
-            <p>Collected from books, reflections, conversations, and everyday moments. Not final answers, but small ideas to revisit, reshape, and grow.</p>
+            <h1>A quiet garden for small thoughts to grow.</h1>
+            <p>Collected from books, reflections, conversations, and everyday moments. Not final answers, but seeds of thinking to revisit, reshape, and grow.</p>
             <div class="landing-actions">
-              <a class="primary-link landing-cta" href="#categories">Explore notes</a>
-              <a class="secondary-link landing-cta" href="#contribute">Share a thought</a>
+              <a class="primary-link landing-cta" href="#categories">Browse themes</a>
+              <a class="secondary-link landing-cta" href="#contribute">Share a note</a>
             </div>
           </div>
 
@@ -46,6 +51,7 @@
                 <p>Bienvenido</p>
                 <p>Benvenuto</p>
                 <p>ようこそ</p>
+                <p>환영합니다</p>
               </div>
             </article>
             <span class="envelope-deco deco-star" aria-hidden="true">✦</span>
@@ -83,9 +89,9 @@
           <div class="section-heading">
             <div>
               <p class="eyebrow">Themes</p>
-              <h2>Read by Theme</h2>
+              <h2>Browse the Garden</h2>
             </div>
-            <p>Choose a theme and open a small path of notes.</p>
+            <p>Small themes collected from reading, reflection, and everyday life.</p>
           </div>
           <p class="source-note">A small garden of thoughts collected, reshaped, and revisited over time. Kept here not as final answers, but as seeds of thinking, and ideas that may grow differently each time they are read.</p>
           <label class="search-box theme-search">
@@ -98,8 +104,8 @@
         <section class="collection" id="collection" hidden>
           <div class="section-heading">
             <div>
-              <p class="eyebrow">Collection</p>
-              <h2 id="collectionTitle">My Notes</h2>
+              <p class="eyebrow">Notes</p>
+              <h2 id="collectionTitle">Notes</h2>
             </div>
             <div class="section-actions">
               <a class="back-link" href="#top">Back to home</a>
@@ -114,18 +120,22 @@
 
         <section class="contribute-panel" id="contribute" aria-label="Open contributions">
           <div class="contribute-copy">
-            <p class="eyebrow">Open Contributions</p>
-            <h2>Share a Favorite Note</h2>
-            <p>Leave a line, passage, or thought for another visitor to discover.</p>
+            <p class="eyebrow">Share</p>
+            <h2>Share a Note</h2>
+            <p>Write a small thought and send it to the garden.</p>
           </div>
             <form class="contribute-form" id="contributeForm">
               <label>
-                <span>Share a note in your preferred language</span>
-                <textarea id="newText" rows="3" required placeholder="Share a line, passage, or thought you love"></textarea>
+                <span>Your name (optional)</span>
+                <input id="newName" type="text" placeholder="A quiet visitor" autocomplete="name" />
               </label>
               <label>
-                <span>Translate into English (optional)</span>
-                <textarea id="newEnglish" rows="2" placeholder="Optional English translation"></textarea>
+                <span>Your note</span>
+                <textarea id="newText" rows="3" required placeholder="Write a small thought, line, or passage"></textarea>
+              </label>
+              <label>
+                <span>English reflection (optional)</span>
+                <textarea id="newEnglish" rows="2" placeholder="Optional translation or reflection"></textarea>
               </label>
               <div class="form-row">
               <label>
@@ -133,19 +143,65 @@
                 <select id="newTheme"></select>
               </label>
               <label>
-                <span>Source (optional)</span>
-                <input id="newSource" type="text" placeholder="Please add the source, if any" />
+                <span>Where did this thought come from?</span>
+                <input id="newSource" type="text" placeholder="Book, conversation, moment, or source" />
               </label>
             </div>
-            <button class="primary-link" type="submit">Add a note</button>
+            <button class="primary-link" type="submit">Send to the garden</button>
             <p class="form-status" id="contributeStatus" role="status"></p>
           </form>
         </section>
 
+        <section class="about-panel" id="about" aria-label="About MiniGrowLab">
+          <div class="section-heading about-heading">
+            <div>
+              <p class="eyebrow">About</p>
+              <h2>About MiniGrowLab</h2>
+            </div>
+            <p>A small space for thoughts that are not finished yet.</p>
+          </div>
+          <div class="about-grid">
+            <article>
+              <span>01</span>
+              <h3>Why it exists</h3>
+              <p>To keep small thoughts before they disappear. To give them a place to rest and grow.</p>
+            </article>
+            <article>
+              <span>02</span>
+              <h3>What it collects</h3>
+              <p>Notes from books, conversations, reflections, and everyday moments.</p>
+            </article>
+            <article>
+              <span>03</span>
+              <h3>How to read it</h3>
+              <p>Not as final answers, but as seeds of thinking to revisit, reshape, and grow.</p>
+            </article>
+          </div>
+          <blockquote class="about-quote">“Small thoughts, gently kept.”</blockquote>
+        </section>
+
         <footer class="site-footer" aria-label="Copyright notice">
-          <p>Thanks for visiting Notes Garden.</p>
-          <p>© 2026 Notes Garden. All rights reserved.</p>
-          <p>Unauthorized copying, reproduction, redistribution, adaptation, or commercial use of MiniGrowLab content, structure, design, or visual materials is not permitted without prior written permission.</p>
+          <div class="footer-grid">
+            <div>
+              <h2>MiniGrowLab</h2>
+              <p>A quiet notes garden for small thoughts.</p>
+            </div>
+            <div>
+              <h3>Explore</h3>
+              <a href="#categories">Themes</a>
+              <a href="#collection/most-popular">Notes</a>
+            </div>
+            <div>
+              <h3>Contribute</h3>
+              <a href="#contribute">Share a note</a>
+              <a href="#about">About MiniGrowLab</a>
+            </div>
+            <div>
+              <h3>Small line</h3>
+              <p>Small thoughts, gently kept.</p>
+            </div>
+          </div>
+          <p class="footer-bottom">© 2026 Notes Garden. All rights reserved.</p>
         </footer>
       </main>
     </div>
@@ -167,6 +223,6 @@
       </form>
     </div>
 
-    <script src="script.js?v=20260603-deep-green-envelope-v1"></script>
+    <script src="script.js?v=20260603-light-editorial-garden-v1"></script>
   </body>
 </html>
