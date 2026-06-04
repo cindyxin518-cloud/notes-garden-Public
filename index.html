@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MiniGrowLab - Notes Garden</title>
-    <link rel="stylesheet" href="styles.css?v=20260604-thought-card" />
+    <link rel="stylesheet" href="styles.css?v=20260604-remove-home-hero" />
     <script
       defer
       src="https://static.cloudflareinsights.com/beacon.min.js"
@@ -13,50 +13,9 @@
   </head>
   <body>
     <div class="page-shell">
-      <section class="landing-home" id="home" aria-label="MiniGrowLab introduction">
-        <nav class="topbar landing-topbar" aria-label="Landing navigation">
-          <a class="brand" href="#home" aria-label="MiniGrowLab home">
-            <span class="brand-mark"><img src="assets/minigrowlab-logo.png" alt="" /></span>
-            <span>MiniGrowLab</span>
-          </a>
-          <a class="landing-nav-link" href="#top">Enter</a>
-        </nav>
-        <div class="landing-copy">
-          <div class="landing-text">
-            <p class="eyebrow landing-brandline">MiniGrowLab</p>
-            <h1>A quiet space for small thoughts to grow</h1>
-            <p>Drawn from reflections, books, articles, conversations, and the wisdom of others. Kept here not as final answers, but as seeds of thinking, and ideas that may grow differently each time they are read.</p>
-            <p>Explore notes, reflections, and small ideas for everyday growth.</p>
-            <div class="visitor-welcome landing-welcome" id="visitorWelcome" hidden>
-              <span class="visitor-emoji" aria-hidden="true">👋</span>
-              <span>Warm welcome, you are visitor No. <strong id="visitorNumber">...</strong>.</span>
-            </div>
-            <a class="primary-link landing-cta" href="#top">Explore MiniGrowLab</a>
-          </div>
-          <aside class="landing-visual" aria-label="MiniGrowLab welcome note">
-            <div class="sage-glow" aria-hidden="true"></div>
-            <svg class="botanical-line" viewBox="0 0 160 220" aria-hidden="true">
-              <path d="M48 198C75 150 92 102 93 28" />
-              <path d="M91 65C116 58 133 43 145 21" />
-              <path d="M90 102C65 95 46 78 34 54" />
-              <path d="M84 139C111 133 131 116 145 92" />
-              <path d="M72 166C49 158 31 141 19 118" />
-            </svg>
-            <span class="gold-dot dot-one" aria-hidden="true"></span>
-            <span class="gold-dot dot-two" aria-hidden="true"></span>
-            <span class="gold-dot dot-three" aria-hidden="true"></span>
-            <article class="thought-card">
-              <span class="thought-card-kicker">MiniGrowLab Note</span>
-              <h2>Thanks for stopping by.</h2>
-              <p>Small thoughts grow here.</p>
-            </article>
-          </aside>
-        </div>
-      </section>
-
       <header class="hero">
         <nav class="topbar" aria-label="Main navigation">
-          <a class="brand" href="#home" aria-label="MiniGrowLab home">
+          <a class="brand" href="#top" aria-label="MiniGrowLab home">
             <span class="brand-mark"><img src="assets/minigrowlab-logo.png" alt="" /></span>
             <span>MiniGrowLab</span>
           </a>
@@ -69,34 +28,17 @@
             </button>
           </div>
         </nav>
-
-        <section class="hero-grid" id="top">
-          <div class="hero-copy">
-            <p class="eyebrow">Notes, thoughts, and little lights</p>
-            <h1>Live freely and truthfully as who you really are.</h1>
-            <div class="hero-quotes" aria-label="Writing quotes">
-              <blockquote>
-                <p>“We write to taste life twice, in the moment and in retrospection.”</p>
-                <cite>Anaïs Nin</cite>
-              </blockquote>
-              <blockquote>
-                <p>“Arrange whatever pieces come your way.”</p>
-                <cite>Virginia Woolf</cite>
-              </blockquote>
-            </div>
-            <div class="hero-tools">
-              <label class="search-box">
-                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m16.5 16.5 4 4" /></svg>
-                <input id="searchInput" type="search" placeholder="Search" autocomplete="off" />
-              </label>
-              <a class="primary-link" href="#categories">Browse themes</a>
-            </div>
-          </div>
-        </section>
       </header>
 
       <main>
         <section class="category-home" id="categories">
+          <div class="collection-tools home-tools" id="top">
+            <label class="search-box">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m16.5 16.5 4 4" /></svg>
+              <input id="searchInput" type="search" placeholder="Search notes" autocomplete="off" />
+            </label>
+            <a class="primary-link" href="#categories">Browse themes</a>
+          </div>
           <section class="stats-band" aria-label="Quote statistics">
             <button type="button" data-stat-link="art-of-war">
               <strong>Sun Tzu’s Strategy</strong>
@@ -203,6 +145,6 @@
       </form>
     </div>
 
-    <script src="script.js?v=20260604-thought-card"></script>
+    <script src="script.js?v=20260604-remove-home-hero"></script>
   </body>
 </html>
