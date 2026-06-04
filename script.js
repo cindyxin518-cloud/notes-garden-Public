@@ -187,6 +187,7 @@ const founderEntry = document.querySelector("#founderEntry");
 const founderModal = document.querySelector("#founderModal");
 const founderForm = document.querySelector("#founderForm");
 const founderPassword = document.querySelector("#founderPassword");
+const founderPasswordToggle = document.querySelector("#founderPasswordToggle");
 const founderStatus = document.querySelector("#founderStatus");
 const founderClose = document.querySelector("#founderClose");
 const founderCancel = document.querySelector("#founderCancel");
@@ -945,6 +946,12 @@ function openFounderDialog() {
   if (!founderModal || !founderPassword || !founderStatus) return;
   founderStatus.textContent = "";
   founderPassword.value = "";
+  founderPassword.type = "password";
+  if (founderPasswordToggle) {
+    founderPasswordToggle.classList.remove("is-visible");
+    founderPasswordToggle.setAttribute("aria-label", "Show password");
+    founderPasswordToggle.setAttribute("aria-pressed", "false");
+  }
   founderModal.hidden = false;
   founderPassword.focus();
 }
@@ -953,6 +960,12 @@ function closeFounderDialog() {
   if (!founderModal || !founderPassword || !founderStatus) return;
   founderModal.hidden = true;
   founderPassword.value = "";
+  founderPassword.type = "password";
+  if (founderPasswordToggle) {
+    founderPasswordToggle.classList.remove("is-visible");
+    founderPasswordToggle.setAttribute("aria-label", "Show password");
+    founderPasswordToggle.setAttribute("aria-pressed", "false");
+  }
   founderStatus.textContent = "";
 }
 
@@ -1032,6 +1045,15 @@ if (statsBand) statsBand.addEventListener("click", (event) => {
 });
 
 if (founderEntry) founderEntry.addEventListener("click", openFounderDialog);
+
+if (founderPasswordToggle) founderPasswordToggle.addEventListener("click", () => {
+  const shouldShow = founderPassword.type === "password";
+  founderPassword.type = shouldShow ? "text" : "password";
+  founderPasswordToggle.classList.toggle("is-visible", shouldShow);
+  founderPasswordToggle.setAttribute("aria-label", shouldShow ? "Hide password" : "Show password");
+  founderPasswordToggle.setAttribute("aria-pressed", String(shouldShow));
+  founderPassword.focus();
+});
 
 if (founderForm) founderForm.addEventListener("submit", async (event) => {
   event.preventDefault();
