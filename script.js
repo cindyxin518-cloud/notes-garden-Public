@@ -722,9 +722,7 @@ function commentBoard(index) {
 
 function quoteCard(quote, index) {
   const isLong = (quote.zh || "").length + (quote.en || "").length + (quote.nl || "").length > 180;
-  const title = quote.source && quote.source !== "文摘" && quote.source !== "Visitor submission"
-    ? `A sentence from ${quote.source}`
-    : `${categoryLabel(quote.category)} note`;
+  const title = `${categoryLabel(quote.category)} note`;
   const excerpt = quote.en || quote.zh || "A small thought kept in the garden.";
   const body = [
     quote.zh ? `<p class="quote-text quote-zh">${escapeHtml(quote.zh)}</p>` : "",

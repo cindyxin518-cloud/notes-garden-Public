@@ -4166,3 +4166,271 @@ h2,
     height: 46px;
   }
 }
+
+/* Final premium paper sleeve envelope refinement */
+.archive-panel {
+  width: min(100%, 620px);
+  min-height: 600px;
+  display: grid;
+  place-items: center;
+}
+
+.archive-panel::before {
+  left: 36px;
+  bottom: 30px;
+  width: 440px;
+  height: 440px;
+  border: 1px solid rgba(185, 154, 95, 0.22);
+  border-radius: 50%;
+  opacity: 0.72;
+  background: transparent;
+}
+
+.archive-panel::after {
+  right: 22px;
+  bottom: 52px;
+  width: 340px;
+  height: 150px;
+  border-bottom: 1px solid rgba(185, 154, 95, 0.34);
+  border-radius: 50%;
+  background: transparent;
+}
+
+.welcome-envelope {
+  position: relative;
+  width: min(100%, 500px);
+  height: 430px;
+  min-height: 0;
+  padding: 0;
+  border: 0;
+  border-radius: 0;
+  overflow: visible;
+  background: transparent;
+  box-shadow: none;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+  animation: envelopeFloat 7.2s ease-in-out infinite;
+}
+
+.welcome-envelope::before {
+  display: none;
+}
+
+.welcome-envelope-main {
+  top: auto;
+  right: auto;
+  left: auto;
+  width: min(100%, 500px);
+  --tilt: -0.5deg;
+}
+
+.welcome-card {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 50%;
+  width: min(88%, 420px);
+  height: 252px;
+  padding: 44px 48px;
+  border: 1px solid rgba(23, 61, 51, 0.12);
+  border-radius: 22px;
+  color: #173d33;
+  background:
+    radial-gradient(circle at 14% 10%, rgba(255, 255, 255, 0.82), transparent 34%),
+    linear-gradient(155deg, #fbf7ed 0%, #f7f1e6 100%);
+  box-shadow:
+    0 18px 45px rgba(23, 61, 51, 0.1),
+    0 4px 12px rgba(23, 61, 51, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.74);
+  transform: translateX(-50%) rotate(1.2deg);
+}
+
+.welcome-card::after,
+.envelope-sleeve::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0.22;
+  background-image: radial-gradient(rgba(23, 61, 51, 0.08) 0.6px, transparent 0.7px);
+  background-size: 6px 6px;
+  mix-blend-mode: multiply;
+}
+
+.envelope-sleeve {
+  position: absolute;
+  z-index: 3;
+  left: 50%;
+  bottom: 0;
+  width: min(100%, 480px);
+  height: 250px;
+  border: 1px solid rgba(23, 61, 51, 0.12);
+  border-radius: 28px;
+  background:
+    radial-gradient(circle at 20% 18%, rgba(255, 255, 255, 0.62), transparent 30%),
+    linear-gradient(150deg, #f4efe4 0%, #eee6d7 100%);
+  box-shadow:
+    0 28px 60px rgba(23, 61, 51, 0.14),
+    0 8px 22px rgba(185, 154, 95, 0.1),
+    inset 0 1px 0 rgba(255, 255, 255, 0.68);
+  transform: translateX(-50%);
+  overflow: hidden;
+}
+
+.envelope-sleeve::before {
+  content: "";
+  position: absolute;
+  z-index: 2;
+  left: 50%;
+  top: -132px;
+  width: 112%;
+  height: 240px;
+  border: 1px solid rgba(23, 61, 51, 0.12);
+  border-top: 0;
+  border-radius: 0 0 50% 50%;
+  background:
+    linear-gradient(180deg, rgba(251, 247, 237, 0.86), rgba(244, 239, 228, 0.96));
+  box-shadow:
+    0 12px 24px rgba(23, 61, 51, 0.06),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.58);
+  transform: translateX(-50%);
+}
+
+.envelope-message {
+  position: relative;
+  z-index: 3;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  width: 100%;
+  gap: 11px 36px;
+  transform: none;
+  text-align: left;
+}
+
+.welcome-envelope p,
+.welcome-envelope p + p,
+.welcome-envelope p:first-child {
+  justify-self: start;
+  margin: 0;
+  color: #173d33;
+  font-family: Georgia, "Times New Roman", "Songti SC", "STSong", "Hiragino Mincho ProN", "Yu Mincho", "PingFang SC", "Hiragino Sans GB", "Noto Sans CJK SC", "Noto Sans CJK JP", "Noto Sans CJK KR", serif;
+  font-size: clamp(0.9rem, 1vw, 1.06rem);
+  font-style: italic;
+  font-weight: 520;
+  line-height: 1.16;
+}
+
+.welcome-envelope p:first-child {
+  font-size: clamp(1rem, 1.12vw, 1.16rem);
+  font-weight: 600;
+}
+
+.envelope-seal {
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  right: auto;
+  top: auto;
+  bottom: 44px;
+  display: grid;
+  width: 60px;
+  height: 60px;
+  place-items: center;
+  border: 1px solid rgba(102, 81, 40, 0.18);
+  border-radius: 50%;
+  color: #f6f2e8;
+  background:
+    radial-gradient(circle at 34% 28%, rgba(255, 255, 255, 0.28), transparent 28%),
+    linear-gradient(145deg, #c5a76b, #a98846);
+  box-shadow:
+    0 12px 24px rgba(102, 81, 40, 0.24),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  transform: translateX(-50%);
+  font-size: 0;
+}
+
+.envelope-seal::before {
+  content: "";
+  width: 23px;
+  height: 23px;
+  border-left: 1.4px solid currentColor;
+  border-bottom: 1.4px solid currentColor;
+  border-radius: 0 0 0 18px;
+  transform: rotate(-45deg);
+}
+
+.botanical-sprig {
+  right: -6px;
+  top: 10px;
+  z-index: 1;
+  opacity: 0.48;
+}
+
+.deco-star {
+  right: 18px;
+  top: 142px;
+}
+
+.deco-dot {
+  left: 30px;
+  top: 210px;
+}
+
+.deco-leaf {
+  left: 42px;
+  bottom: 156px;
+}
+
+@media (max-width: 640px) {
+  .archive-panel {
+    width: min(92vw, 360px);
+    min-height: 438px;
+  }
+
+  .welcome-envelope,
+  .welcome-envelope-main {
+    width: min(92vw, 350px);
+    height: 374px;
+  }
+
+  .welcome-card {
+    width: min(84vw, 300px);
+    height: 212px;
+    padding: 34px 30px;
+    border-radius: 20px;
+  }
+
+  .envelope-sleeve {
+    width: min(90vw, 330px);
+    height: 218px;
+    border-radius: 24px;
+  }
+
+  .envelope-sleeve::before {
+    top: -112px;
+    height: 206px;
+  }
+
+  .envelope-message {
+    gap: 8px 18px;
+  }
+
+  .welcome-envelope p,
+  .welcome-envelope p + p,
+  .welcome-envelope p:first-child {
+    font-size: 0.72rem;
+  }
+
+  .envelope-seal {
+    bottom: 34px;
+    width: 48px;
+    height: 48px;
+  }
+
+  .botanical-sprig {
+    right: -42px;
+    opacity: 0.36;
+    transform: scale(0.78) rotate(20deg);
+  }
+}
