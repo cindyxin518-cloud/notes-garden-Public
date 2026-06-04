@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MiniGrowLab - Notes Garden</title>
-    <link rel="stylesheet" href="styles.css?v=20260604-remove-home-hero" />
+    <link rel="stylesheet" href="styles.css?v=20260604-clean-landing" />
     <script
       defer
       src="https://static.cloudflareinsights.com/beacon.min.js"
@@ -32,7 +32,23 @@
 
       <main>
         <section class="category-home" id="categories">
-          <div class="collection-tools home-tools" id="top">
+          <section class="home-landing" id="top" aria-label="MiniGrowLab landing">
+            <div class="home-landing-copy">
+              <p class="eyebrow">MiniGrowLab · Notes Garden</p>
+              <h1>A quiet space for small thoughts to grow</h1>
+              <p>Collected from books, reflections, conversations, and everyday moments. Kept here as small seeds of thinking to revisit, reshape, and grow.</p>
+              <div class="home-landing-actions">
+                <a class="primary-link" href="#categories">Browse themes</a>
+                <a class="secondary-link" href="#share-note">Share a note</a>
+              </div>
+            </div>
+            <aside class="home-note-card" aria-label="MiniGrowLab note preview">
+              <span>MiniGrowLab Note</span>
+              <p>Read slowly. Keep what stays. Let small thoughts become clearer with time.</p>
+            </aside>
+          </section>
+
+          <div class="collection-tools home-tools">
             <label class="search-box">
               <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m16.5 16.5 4 4" /></svg>
               <input id="searchInput" type="search" placeholder="Search notes" autocomplete="off" />
@@ -90,7 +106,7 @@
           <p class="empty-state" id="emptyState">No matching notes found. Try another keyword.</p>
         </section>
 
-        <section class="contribute-panel" aria-label="Open contributions">
+        <section class="contribute-panel" id="share-note" aria-label="Open contributions">
           <div class="contribute-copy">
             <p class="eyebrow">Open Contributions</p>
             <h2>Share a Favorite Note</h2>
@@ -145,6 +161,6 @@
       </form>
     </div>
 
-    <script src="script.js?v=20260604-remove-home-hero"></script>
+    <script src="script.js?v=20260604-clean-landing"></script>
   </body>
 </html>
