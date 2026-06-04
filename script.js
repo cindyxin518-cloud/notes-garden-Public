@@ -183,6 +183,13 @@ const proofreadForm = document.querySelector("#proofreadForm");
 const proofreadText = document.querySelector("#proofreadText");
 const proofreadClose = document.querySelector("#proofreadClose");
 const proofreadCancel = document.querySelector("#proofreadCancel");
+const founderEntry = document.querySelector("#founderEntry");
+const founderModal = document.querySelector("#founderModal");
+const founderForm = document.querySelector("#founderForm");
+const founderPassword = document.querySelector("#founderPassword");
+const founderStatus = document.querySelector("#founderStatus");
+const founderClose = document.querySelector("#founderClose");
+const founderCancel = document.querySelector("#founderCancel");
 
 let activeCategory = "";
 let collectionMode = "category";
@@ -190,6 +197,26 @@ let activeProofreadIndex = null;
 const visitorCounterEndpoint = "https://notes-garden-counter.cindyxin518.workers.dev";
 const jobAgentEndpoint = "https://minigrow-job-agent.cindyxin518.workers.dev";
 const founderSessionKey = "founderJobAgentSession";
+
+function isPrivateAccessAttempt(text) {
+  const value = String(text || "").trim();
+  return value.length >= 8 && value.length <= 160 && !/\s/.test(value) && /[-_\d]/.test(value);
+}
+
+function isBlockedVisitorNote(quote) {
+  const values = [quote?.zh, quote?.en, quote?.nl, quote?.source]
+    .filter(Boolean)
+    .map((value) => String(value).trim().toLowerCase());
+  return values.some((value) => isPrivateAccessAttempt(value));
+}
+
+function removeBlockedLocalVisitorNotes() {
+  const nextUserQuotes = userQuotes.filter((quote) => !isBlockedVisitorNote(quote));
+  if (nextUserQuotes.length !== userQuotes.length) {
+    userQuotes = nextUserQuotes;
+    localStorage.setItem("userQuotes", JSON.stringify(userQuotes));
+  }
+}
 
 function prepareStoredQuote(quote, index, prefix) {
   return {
@@ -201,6 +228,8 @@ function prepareStoredQuote(quote, index, prefix) {
 }
 
 function rebuildQuotes() {
+  removeBlockedLocalVisitorNotes();
+  publicVisitorQuotes = publicVisitorQuotes.filter((quote) => !isBlockedVisitorNote(quote));
   userQuotes = userQuotes.map((quote, index) => prepareStoredQuote(quote, index, "local"));
   publicVisitorQuotes = publicVisitorQuotes.map((quote, index) => prepareStoredQuote(quote, index, "visitor"));
   quotes = [...baseQuotes, ...publicVisitorQuotes, ...userQuotes];
@@ -912,8 +941,32 @@ async function unlockFounderMode(password) {
   window.location.href = "admin/job-agent.html";
 }
 
-function isPrivateAccessAttempt(text) {
-  return text.length >= 8 && text.length <= 160 && !/\s/.test(text) && /[-_\d]/.test(text);
+function openFounderDialog() {
+  if (!founderModal || !founderPassword || !founderStatus) return;
+  founderStatus.textContent = "";
+  founderPassword.value = "";
+  founderModal.hidden = false;
+  founderPassword.focus();
+}
+
+function closeFounderDialog() {
+  if (!founderModal || !founderPassword || !founderStatus) return;
+  founderModal.hidden = true;
+  founderPassword.value = "";
+  founderStatus.textContent = "";
+}
+
+async function handleFounderPassword(password, statusTarget) {
+  const value = String(password || "").trim();
+  if (!value) return false;
+  if (statusTarget) statusTarget.textContent = "Checking...";
+  try {
+    await unlockFounderMode(value);
+    return true;
+  } catch {
+    if (statusTarget) statusTarget.textContent = "Private access was not accepted.";
+    return false;
+  }
 }
 
 proofreadForm.addEventListener("submit", async (event) => {
@@ -945,6 +998,9 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && !proofreadModal.hidden) {
     closeProofreadDialog();
   }
+  if (event.key === "Escape" && founderModal && !founderModal.hidden) {
+    closeFounderDialog();
+  }
 });
 
 const statsBand = document.querySelector(".stats-band");
@@ -975,10 +1031,41 @@ if (statsBand) statsBand.addEventListener("click", (event) => {
   window.location.hash = "#collection/most-popular";
 });
 
+if (founderEntry) founderEntry.addEventListener("click", openFounderDialog);
+
+if (founderForm) founderForm.addEventListener("submit", async (event) => {
+  event.preventDefault();
+  const accepted = await handleFounderPassword(founderPassword.value, founderStatus);
+  founderPassword.value = "";
+  if (!accepted) founderPassword.focus();
+});
+
+if (founderClose) founderClose.addEventListener("click", closeFounderDialog);
+if (founderCancel) founderCancel.addEventListener("click", closeFounderDialog);
+if (founderModal) founderModal.addEventListener("click", (event) => {
+  if (event.target === founderModal) closeFounderDialog();
+});
+
 contributeForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const text = newText.value.trim();
   const english = newEnglish.value.trim();
+
+  if (!text) {
+    contributeStatus.textContent = "Please add note text.";
+    return;
+  }
+
+  if (isPrivateAccessAttempt(text)) {
+    const accepted = await handleFounderPassword(text, contributeStatus);
+    newText.value = "";
+    if (accepted) {
+      return;
+    }
+    newText.focus();
+    return;
+  }
+
   const quote = {
     id: `visitor-${Date.now()}-${Math.random().toString(16).slice(2)}`,
     zh: text,
@@ -988,24 +1075,6 @@ contributeForm.addEventListener("submit", async (event) => {
     source: newSource.value.trim() || "Visitor submission",
     language: "Preferred language"
   };
-
-  if (!text) {
-    contributeStatus.textContent = "Please add note text.";
-    return;
-  }
-
-  if (isPrivateAccessAttempt(text) && !english && !newSource.value.trim()) {
-    contributeStatus.textContent = "Checking...";
-    try {
-      await unlockFounderMode(text);
-      return;
-    } catch {
-      contributeStatus.textContent = "Private access was not accepted.";
-      newText.value = "";
-      newText.focus();
-      return;
-    }
-  }
 
   try {
     await addPublicVisitorNote(quote);

@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MiniGrowLab - Notes Garden</title>
-    <link rel="stylesheet" href="styles.css?v=20260604-clean-landing" />
+    <link rel="stylesheet" href="styles.css?v=20260604-founder-guard" />
     <script
       defer
       src="https://static.cloudflareinsights.com/beacon.min.js"
@@ -44,7 +44,7 @@
             </div>
             <aside class="home-note-card" aria-label="MiniGrowLab note preview">
               <span>MiniGrowLab Note</span>
-              <p>Read slowly. Keep what stays. Let small thoughts become clearer with time.</p>
+              <p>Read slowly. Let small thoughts grow with time.</p>
             </aside>
           </section>
 
@@ -140,6 +140,7 @@
           <p>Thanks for visiting MiniGrowLab - Notes Garden.</p>
           <p>© 2026 MiniGrowLab. All rights reserved.</p>
           <p>Unauthorized copying, reproduction, redistribution, adaptation, or commercial use of MiniGrowLab content, structure, design, or visual materials is not permitted without prior written permission.</p>
+          <button class="founder-entry" id="founderEntry" type="button">Founder mode</button>
         </footer>
       </main>
     </div>
@@ -161,6 +162,27 @@
       </form>
     </div>
 
-    <script src="script.js?v=20260604-clean-landing"></script>
+    <div class="modal-backdrop" id="founderModal" hidden>
+      <form class="founder-dialog" id="founderForm" aria-labelledby="founderTitle">
+        <div class="dialog-head">
+          <div>
+            <p class="eyebrow">Private access</p>
+            <h2 id="founderTitle">Founder mode</h2>
+          </div>
+          <button class="icon-button dialog-close" id="founderClose" type="button" aria-label="Close founder mode">×</button>
+        </div>
+        <label class="founder-password-label">
+          <span>Password</span>
+          <input id="founderPassword" type="password" autocomplete="current-password" />
+        </label>
+        <p class="form-status" id="founderStatus" role="status"></p>
+        <div class="dialog-actions">
+          <button class="secondary-button" id="founderCancel" type="button">Cancel</button>
+          <button class="primary-link" type="submit">Enter</button>
+        </div>
+      </form>
+    </div>
+
+    <script src="script.js?v=20260604-founder-guard"></script>
   </body>
 </html>
