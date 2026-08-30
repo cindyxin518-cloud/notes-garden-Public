@@ -9,7 +9,22 @@
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <link rel="manifest" href="manifest.webmanifest">
   <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <link rel="stylesheet" href="css/style.css?v=20260830-clean">
+  <link rel="stylesheet" href="css/style.css?v=20260830-clean2">
+  <script>
+    // 强制清除历史 Service Worker 缓存，确保立即显示最新单屏版
+    if ('serviceWorker' in navigator) {
+      navigator.serviceWorker.getRegistrations().then(function(registrations) {
+        for (let registration of registrations) {
+          registration.unregister();
+        }
+      });
+    }
+    if ('caches' in window) {
+      caches.keys().then(function(names) {
+        for (let name of names) caches.delete(name);
+      });
+    }
+  </script>
 </head>
 <body>
   <div class="app-container">
