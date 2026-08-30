@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>跑步步频节拍器与测速器 - Cadence Metronome</title>
+  <meta name="description" content="专为跑者打造的高精度步频节拍器与 Tap 步频测量工具，支持音乐混音、屏幕常亮与左右脚律动。">
+  <meta name="theme-color" content="#0a0e17">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="步频节拍器">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="apple-touch-icon" href="icons/icon-192.png">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- 顶部状态栏与导航 -->
+  <header>
+    <div class="logo-area">
+      <div class="logo-icon">🏃‍♂️</div>
+      <div>
+        <h1 class="logo-title" id="webTitle">步频节拍器</h1>
+      </div>
+    </div>
+    <div style="display: flex; gap: 8px; align-items: center;">
+      <button id="webLangToggle" class="wakelock-pill" style="border-color: #0284c7; color: #38bdf8; font-weight: 700;">
+        🌐 English
+      </button>
+      <button id="wakeLockBtn" class="wakelock-pill" title="默认锁屏/熄屏后台打拍省电。若在跑步机需要看屏幕可点击开启常亮">
+        <span class="status-dot"></span>
+        <span id="wakeLockText">锁屏省电: 开</span>
+      </button>
+    </div>
+  </header>
+
+  <main>
+    <!-- 安卓原生 APK 下载推荐横幅 -->
+    <a href="cadence-metronome.apk" download style="text-decoration: none; width: 100%;">
+      <div style="background: linear-gradient(135deg, #10b981, #06b6d4); color: #000; padding: 12px 16px; border-radius: var(--radius-md); display: flex; align-items: center; justify-content: space-between; box-shadow: 0 4px 15px rgba(16, 185, 129, 0.35); font-weight: 800; cursor: pointer; margin-bottom: 4px;">
+        <div style="display: flex; align-items: center; gap: 10px;">
+          <span style="font-size: 1.6rem;">🤖</span>
+          <div>
+            <div style="font-size: 0.95rem; color: #000;">下载安装【安卓原生 App (APK)】</div>
+            <div style="font-size: 0.72rem; color: #044e3f; font-weight: 600; margin-top: 2px;">已解锁底层混音权限 ➔ 绝不中断小宇宙/播客</div>
+          </div>
+        </div>
+        <span style="background: #000; color: #fff; padding: 6px 12px; border-radius: 20px; font-size: 0.75rem;">点击安装</span>
+      </div>
+    </a>
+
+
+    <!-- 🎙️ 播客与音乐伴跑一体化播放模块 (iPhone 锁屏无缝混音神器) -->
+    <section class="podcast-card">
+      <div class="podcast-header">
+        <div class="card-title">
+          <span>🎙️ 播客 / 音频伴跑播放器</span>
+          <span class="podcast-tag">iOS锁屏混音</span>
+        </div>
+      </div>
+
+      <!-- 音频源切换 -->
+      <div class="podcast-source-selector">
+        <button class="podcast-tab-btn active" data-source="preset">📻 精选推荐</button>
+        <button class="podcast-tab-btn" data-source="file">📁 手机本地音频</button>
+        <button class="podcast-tab-btn" data-source="url">🔗 播客音频链接</button>
+      </div>
+
+      <!-- 预设音频列表 -->
+      <div id="podcastPresets" class="podcast-presets">
+        <div class="preset-track-btn selected" data-url="https://actions.google.com/sounds/v1/sports/runners_rhythm.ogg" data-title="🏃‍♂️ 经典跑步呼吸与节奏指引 (示例音频)">
+          <span>🏃‍♂️ 经典跑步呼吸与节奏指引</span>
+          <span style="font-size: 0.7rem; color: var(--secondary);">点此加载</span>
+        </div>
+        <div class="preset-track-btn" data-url="https://actions.google.com/sounds/v1/ambiences/outdoor_ambient.ogg" data-title="🌲 户外晨跑自然白噪音与鸟鸣">
+          <span>🌲 户外晨跑自然白噪音与鸟鸣</span>
+          <span style="font-size: 0.7rem; color: var(--text-dark);">点此加载</span>
+        </div>
+      </div>
+
+      <!-- 本地文件选择器 -->
+      <div id="podcastFileInput" style="display: none;">
+        <label for="localAudioPicker" class="podcast-file-btn">
+          <span>📂 点击从 iPhone/手机中选取任意播客/音频文件 (MP3/M4A)</span>
+        </label>
+        <input type="file" id="localAudioPicker" accept="audio/*" style="display: none;">
+      </div>
+
+      <!-- 网络链接输入 -->
+      <div id="podcastUrlInput" class="podcast-input-group" style="display: none;">
+        <input type="text" id="podcastUrlField" class="podcast-url-input" placeholder="粘贴小宇宙/播客音频 MP3 链接...">
+        <button id="podcastUrlLoadBtn" class="podcast-load-btn">加载</button>
+      </div>
+
+      <!-- 播放器界面 -->
+      <div class="podcast-player-body">
+        <div id="podcastTitle" class="podcast-now-playing">🏃‍♂️ 经典跑步呼吸与节奏指引</div>
+        <div id="podcastStatus" class="podcast-status-sub">已准备就绪 · 播客与 180 步频同流混音</div>
+
+        <!-- 进度条 -->
+        <input type="range" id="podcastProgressBar" class="podcast-progress-bar" min="0" max="100" value="0">
+        <div class="podcast-time-row">
+          <span id="podcastCurrentTime">00:00</span>
+          <span id="podcastDuration">--:--</span>
+        </div>
+
+        <!-- 控制按钮 -->
+        <div class="podcast-controls">
+          <button id="podcastRewindBtn" class="podcast-ctrl-btn" title="快退 15 秒">⏪ 15s</button>
+          <button id="podcastPlayBtn" class="podcast-ctrl-btn podcast-ctrl-play" title="播放/暂停">▶</button>
+          <button id="podcastForwardBtn" class="podcast-ctrl-btn" title="快进 15 秒">15s ⏩</button>
+          <button id="podcastSpeedBtn" class="speed-badge" title="切换播放倍速">1.0x</button>
+        </div>
+
+        <!-- 双通道独立音量混合控制 -->
+        <div class="dual-volume-grid">
+          <div class="dual-vol-item">
+            <label for="podcastVolSlider">🎙️ 播客音量: <span id="podcastVolVal">80%</span></label>
+            <input type="range" id="podcastVolSlider" min="0" max="1" step="0.05" value="0.8">
+          </div>
+          <div class="dual-vol-item">
+            <label for="metronomeMixSlider">⏱️ 节拍打拍音量: <span id="metronomeMixVal">50%</span></label>
+            <input type="range" id="metronomeMixSlider" min="0" max="1" step="0.05" value="0.5">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 核心节拍器卡片 -->
+    <section class="metronome-card">
+      <!-- 左右脚交替指示器 -->
+      <div class="foot-indicator">
+        <div id="leftFootBadge" class="foot-badge">左脚 L</div>
+        <div id="rightFootBadge" class="foot-badge">右脚 R</div>
+      </div>
+
+      <!-- 动态脉冲节奏光环与数字 -->
+      <div class="beat-visual-wrapper">
+        <div id="pulseRing" class="pulse-ring"></div>
+        <div id="spmCircle" class="spm-circle-inner" title="点击或按空格播放/暂停">
+          <div id="spmDisplay" class="spm-value">180</div>
+          <div class="spm-unit">SPM 步频</div>
+        </div>
+      </div>
+
+      <!-- 快速增减调节 -->
+      <div class="bpm-adjuster">
+        <button id="subFiveBtn" class="adjust-btn step-five" title="减少 5 步频">-5</button>
+        <button id="subOneBtn" class="adjust-btn" title="减少 1 步频">-1</button>
+        <button id="addOneBtn" class="adjust-btn" title="增加 1 步频">+1</button>
+        <button id="addFiveBtn" class="adjust-btn step-five" title="增加 5 步频">+5</button>
+      </div>
+
+      <!-- 滑动条范围调节 -->
+      <div class="slider-container">
+        <span>120</span>
+        <input type="range" id="spmSlider" min="120" max="240" step="1" value="180">
+        <span>240</span>
+      </div>
+
+      <!-- 档位预设快捷键 -->
+      <div class="presets-grid">
+        <div class="preset-chip" data-spm="160">
+          <span class="chip-spm">160</span>
+          <span class="chip-label">热身/慢跑</span>
+        </div>
+        <div class="preset-chip" data-spm="170">
+          <span class="chip-spm">170</span>
+          <span class="chip-label">长距离LSD</span>
+        </div>
+        <div class="preset-chip active" data-spm="180">
+          <span class="chip-spm">180</span>
+          <span class="chip-label">黄金步频</span>
+        </div>
+        <div class="preset-chip" data-spm="190">
+          <span class="chip-spm">190</span>
+          <span class="chip-label">间歇/竞速</span>
+        </div>
+      </div>
+
+      <!-- 播放/暂停大按钮 -->
+      <button id="playBtn" class="main-play-btn">
+        <span id="playIcon">▶</span>
+        <span id="playText">开始打拍 (180 SPM)</span>
+      </button>
+
+      <!-- 跑步计时与步数统计 -->
+      <div class="workout-stats-bar">
+        <div class="stat-item">
+          <div id="workoutTimer" class="stat-val">00:00</div>
+          <div class="stat-lbl">打拍时长</div>
+        </div>
+        <div class="stat-item">
+          <div id="workoutSteps" class="stat-val">0</div>
+          <div class="stat-lbl">累计步数</div>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- 音色与高级设置 -->
+    <section class="settings-card">
+      <div class="card-title" style="margin-bottom: 12px;">
+        <span>🔊 音色与声学调节</span>
+      </div>
+
+      <div class="sound-tabs">
+        <button class="sound-tab active" data-sound="woodblock">🪵 清脆木鱼</button>
+        <button class="sound-tab" data-sound="dualtone">👟 左右双音</button>
+        <button class="sound-tab" data-sound="click">⏱️ 机械滴答</button>
+        <button class="sound-tab" data-sound="beep">⚡ 电子蜂鸣</button>
+        <button class="sound-tab" data-sound="cowbell">🔔 运动牛铃</button>
+      </div>
+
+      <div class="control-row">
+        <label for="volumeSlider">音量</label>
+        <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.8">
+      </div>
+
+      <div class="control-row">
+        <label for="pitchSlider">穿透音调</label>
+        <input type="range" id="pitchSlider" min="0.7" max="1.5" step="0.05" value="1.0">
+      </div>
+
+      <div class="control-row" style="margin-top: 14px;">
+        <label for="vibrateToggle">触觉振动</label>
+        <input type="checkbox" id="vibrateToggle" style="accent-color: var(--primary); transform: scale(1.2);">
+      </div>
+    </section>
+
+    <!-- 配速与步幅换算器 -->
+    <section class="calculator-card">
+      <div class="card-title">
+        <span>📐 步频 · 步幅 · 配速换算</span>
+      </div>
+
+      <div class="calc-grid">
+        <div class="calc-box">
+          <label for="runnerHeight">身高估算步幅 (cm)</label>
+          <div class="calc-input-wrapper">
+            <input type="number" id="runnerHeight" class="calc-input" value="175" min="140" max="210">
+            <span style="font-size: 0.8rem; color: var(--text-dark);">cm</span>
+          </div>
+        </div>
+
+        <div class="calc-box">
+          <label for="runnerStride">当前单步步幅 (m)</label>
+          <div class="calc-input-wrapper">
+            <input type="number" id="runnerStride" class="calc-input" value="1.08" step="0.01" min="0.5" max="2.2">
+            <span style="font-size: 0.8rem; color: var(--text-dark);">m</span>
+          </div>
+        </div>
+
+        <div class="calc-result-box">
+          <div class="calc-res-item">
+            <div id="calcPace" class="res-num">5'08"</div>
+            <div class="calc-res-lbl">预估配速 (/km)</div>
+          </div>
+          <div class="calc-res-item">
+            <div id="calcSpeed" class="res-num">11.66</div>
+            <div class="calc-res-lbl">预期时速 (km/h)</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 步频科学指南 -->
+    <section class="info-card">
+      <h4>💡 为什么跑者都在练 180 黄金步频？</h4>
+      <ul>
+        <li><strong>保护膝盖与关节</strong>：高步频（175~185）能够缩短每次着地缓冲时间，减少每一步身体向上起伏（垂直振幅），大幅降低地面冲击。</li>
+        <li><strong>改善着地方式</strong>：步频过慢（如 150~160）容易导致“过度跨步”（Overstriding）和脚后跟着地刹车效应；高步频自然促成重心正下方轻盈着地。</li>
+        <li><strong>循序渐进练习</strong>：如果当前步频较低，建议每次增加 5 SPM（如从 165 提到 170），适应 1~2 周后再逐步提升。</li>
+      </ul>
+    </section>
+  </main>
+
+  <footer>
+    <p>快捷键：<span class="kbd">空格</span> 播放/暂停 &nbsp;|&nbsp; <span class="kbd">T</span> 踩点测频 &nbsp;|&nbsp; <span class="kbd">↑ / ↓</span> 增减步频</p>
+  </footer>
+
+  <!-- 引入脚本 -->
+  <script src="js/audio.js?v=3"></script>
+  <script src="js/tap.js?v=3"></script>
+  <script src="js/calculator.js?v=3"></script>
+  <script src="js/app.js?v=3"></script>
+  <script>
+    if ('serviceWorker' in navigator) {
+      window.addEventListener('load', () => {
+        navigator.serviceWorker.register('sw.js?v=3').then(reg => {
+          reg.update();
+        }).catch(err => console.log('SW error:', err));
+      });
+    }
+  </script>
+</body>
+</html>
