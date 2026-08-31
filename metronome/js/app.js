@@ -1,21 +1,23 @@
 /**
- * 🏃‍♂️ Cadence Metronome - Clean Single-Screen Athletic App (Screenshot 2 Match)
+ * 🏃‍♂️ Cadence Metronome - Controller & Interaction Engine
  */
 
 (function() {
   'use strict';
 
+  // Instantiate Engine
+  const audioEngine = new WebAudioMetronome();
+
   // --- State ---
-  let isEnglish = true; // 默认匹配截图 2 的英文，点击可随时切换
+  let isEnglish = true;
   let isPlaying = false;
   let spm = 180;
   let currentSound = 'woodblock';
   let volume = 0.8;
   let isVibrate = false;
-  let beatCount = 0;
-  let timerInterval = null;
-  let elapsedSeconds = 0;
   let totalSteps = 0;
+  let elapsedSeconds = 0;
+  let timerInterval = null;
 
   // --- DOM Elements ---
   const appTitle = document.getElementById('appTitle');
@@ -116,13 +118,11 @@
     volumeLabel.textContent = lang.volume(Math.round(volume * 100));
     vibrateLabel.textContent = lang.vibrate;
 
-    // Sound chips
     soundChips.forEach(chip => {
       const s = chip.getAttribute('data-sound');
       if (lang[s]) chip.textContent = lang[s];
     });
 
-    // Play button
     if (isPlaying) {
       playText.textContent = isEnglish ? `STOP (${spm} SPM)` : `正在打拍 (${spm} SPM)`;
       playIcon.textContent = '⏸';
@@ -138,17 +138,13 @@
     spmSlider.value = spm;
     updateSliderFill(spmSlider);
 
-    // Update preset highlights
     presetBtns.forEach(btn => {
       const p = parseInt(btn.getAttribute('data-spm'), 10);
       btn.classList.toggle('active', p === spm);
     });
 
     updateLanguage();
-
-    if (isPlaying && window.audioEngine) {
-      window.audioEngine.setBpm(spm);
-    }
+    audioEngine.setBpm(spm);
   }
 
   function togglePlay() {
@@ -157,14 +153,13 @@
     statusBadge.classList.toggle('active', isPlaying);
 
     if (isPlaying) {
-      if (window.audioEngine) {
-        window.audioEngine.start(spm, currentSound, volume, 1.0, onBeat);
-      }
+      audioEngine.setBpm(spm);
+      audioEngine.setSoundType(currentSound);
+      audioEngine.setVolume(volume);
+      audioEngine.start(onBeat);
       startTimer();
     } else {
-      if (window.audioEngine) {
-        window.audioEngine.stop();
-      }
+      audioEngine.stop();
       stopTimer();
       resetBeatVisuals();
     }
@@ -172,13 +167,12 @@
   }
 
   function onBeat(beatIndex) {
-    beatCount++;
     totalSteps++;
     workoutSteps.textContent = totalSteps;
 
     // Beating circle glow
     spmCircle.classList.add('beating');
-    setTimeout(() => spmCircle.classList.remove('beating'), 100);
+    setTimeout(() => spmCircle.classList.remove('beating'), 90);
 
     // Left/Right foot alternation
     if (beatIndex % 2 === 0) {
@@ -190,8 +184,10 @@
     }
 
     // Haptic vibration
-    if (isVibrate && navigator.vibrate) {
-      navigator.vibrate(20);
+    if (isVibrate && 'vibrate' in navigator) {
+      try {
+        navigator.vibrate(30);
+      } catch (e) {}
     }
   }
 
@@ -250,8 +246,11 @@
       soundChips.forEach(c => c.classList.remove('active'));
       chip.classList.add('active');
       currentSound = chip.getAttribute('data-sound');
-      if (window.audioEngine) {
-        window.audioEngine.setSoundType(currentSound);
+      audioEngine.setSoundType(currentSound);
+      // Play a preview click tone
+      if (!isPlaying) {
+        audioEngine.init();
+        audioEngine.playTone(audioEngine.audioCtx.currentTime + 0.01, true);
       }
     });
   });
@@ -261,16 +260,18 @@
     updateSliderFill(volumeSlider);
     const lang = isEnglish ? i18n.en : i18n.zh;
     volumeLabel.textContent = lang.volume(Math.round(volume * 100));
-    if (window.audioEngine) {
-      window.audioEngine.setVolume(volume);
-    }
+    audioEngine.setVolume(volume);
   });
 
   vibrateToggle.addEventListener('change', (e) => {
     isVibrate = e.target.checked;
+    if (isVibrate && 'vibrate' in navigator) {
+      try {
+        navigator.vibrate([40, 40, 40]); // 测试轻微震动
+      } catch (e) {}
+    }
   });
 
-  // Keyboard shortcut: Spacebar to toggle
   window.addEventListener('keydown', (e) => {
     if (e.code === 'Space' && e.target.tagName !== 'INPUT') {
       e.preventDefault();
