@@ -5,8 +5,8 @@
 (function() {
   'use strict';
 
-  // Instantiate Engine
-  const audioEngine = new WebAudioMetronome();
+  // Instantiate Audio Engine
+  const audioEngine = new CadenceAudioEngine();
 
   // --- State ---
   let isEnglish = true;
@@ -247,10 +247,8 @@
       chip.classList.add('active');
       currentSound = chip.getAttribute('data-sound');
       audioEngine.setSoundType(currentSound);
-      // Play a preview click tone
       if (!isPlaying) {
-        audioEngine.init();
-        audioEngine.playTone(audioEngine.audioCtx.currentTime + 0.01, true);
+        audioEngine.playPreviewTone();
       }
     });
   });
@@ -267,7 +265,7 @@
     isVibrate = e.target.checked;
     if (isVibrate && 'vibrate' in navigator) {
       try {
-        navigator.vibrate([40, 40, 40]); // 测试轻微震动
+        navigator.vibrate([40, 40, 40]);
       } catch (e) {}
     }
   });
