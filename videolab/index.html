@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="description" content="Video Lab — Videos worth keeping.">
+  <title>Video Lab — Welcome</title>
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='11' fill='%23191b20'/%3E%3Cpath d='M16 12L29 20L16 28Z' fill='white'/%3E%3C/svg%3E">
+  <style>
+    :root{color-scheme:light;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC",sans-serif;color:#191b20;background:#fcfcfc}*{box-sizing:border-box}body{margin:0}a{color:inherit}.shell{max-width:1224px;margin:auto;padding:0 38px}.header{display:flex;align-items:center;justify-content:space-between;padding:28px 0;border-bottom:1px solid #e4e6e9;gap:20px}.brand{display:flex;align-items:center;gap:11px;font-size:18px;font-weight:750;letter-spacing:.035em}.mark{width:30px;height:30px;border-radius:9px;display:grid;place-items:center;background:#191b20;color:#fff}.mark svg{width:15px;height:15px}.home{font-size:13px;color:#696d76;text-decoration:none}.home:hover{text-decoration:underline}main{min-height:calc(100dvh - 165px);display:grid;place-items:center;padding:70px 0}.welcome{width:100%;max-width:390px}.eyebrow{font-size:12px;color:#696d76;letter-spacing:.12em;text-transform:uppercase;margin:0 0 18px}h1{font-size:clamp(32px,5vw,42px);font-weight:650;letter-spacing:-.045em;line-height:1.15;margin:0 0 16px}.intro{color:#696d76;font-size:15px;line-height:1.75;margin:0 0 35px}label{display:block;font-size:14px;font-weight:600;margin-bottom:9px}input,button{font:inherit}input{display:block;width:100%;min-height:48px;border:1px solid #d6dae1;border-radius:9px;padding:12px 14px;background:#fff;color:#191b20}button{width:100%;min-height:48px;border:1px solid #191b20;border-radius:9px;padding:12px 16px;background:#191b20;color:#fff;font-size:14px;font-weight:600;margin-top:14px;cursor:pointer}button:disabled{opacity:.6;cursor:wait}button:hover:not(:disabled){background:#30333a}input:focus-visible,button:focus-visible,a:focus-visible{outline:3px solid #a8bdf7;outline-offset:4px}.status{min-height:24px;color:#696d76;font-size:13px;line-height:1.7;margin:14px 0 0}.status.error{color:#a32c2c}.note{font-size:12px;color:#81858e;line-height:1.7;margin:22px 0 0}.footer{border-top:1px solid #e4e6e9;padding:23px 0 28px;font-size:12px;color:#696d76;display:flex;justify-content:space-between;gap:18px}@media(max-width:600px){.shell{padding:0 22px}.header{padding:22px 0}.brand{font-size:16px}.home{font-size:12px}main{padding:48px 0;min-height:calc(100dvh - 165px)}.footer{flex-direction:column;gap:7px}}[hidden]{display:none!important}
+  </style>
+</head>
+<body>
+  <div class="shell">
+    <header class="header"><div class="brand"><span class="mark" aria-hidden="true"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M7 4l14 8L7 20z"/></svg></span>VIDEO LAB</div><a class="home" href="https://www.minigrowlab.com/">MiniGrowLab ↗</a></header>
+    <main><section class="welcome" aria-labelledby="welcome-title">
+      <p class="eyebrow">A personal collection</p>
+      <h1 id="welcome-title">Videos worth keeping.</h1>
+      <p class="intro">值得保存，值得再看。<br>输入访问密码，进入精选视频馆。</p>
+      <form id="unlock-form"><label for="password">访问密码 / Password</label><input id="password" name="password" type="password" required maxlength="128" autocomplete="current-password" placeholder="请输入密码"><button id="unlock" type="submit">进入 Video Lab →</button></form>
+      <p class="status" id="status" role="status" aria-live="polite"></p>
+      <p class="note">不需要 GPT 账号。收藏和编辑保存在你当前的浏览器。</p>
+      <noscript><p>请开启浏览器 JavaScript 后访问。</p></noscript>
+    </section></main>
+    <footer class="footer"><span>VIDEO LAB · Keep curious.</span><span>Private access · Shared inspiration.</span></footer>
+  </div>
+  <script>
+  (()=>{
+    const API_ORIGIN='https://cindy-video-lab-oct26.cindyxin518.chatgpt.site';
+    const SESSION_KEY='video-lab:access:v1';
+    const form=document.getElementById('unlock-form'),field=document.getElementById('password'),button=document.getElementById('unlock'),status=document.getElementById('status');
+    let busy=false;
+    function message(text,error=false){status.textContent=text;status.classList.toggle('error',error);}
+    function clearSession(){try{sessionStorage.removeItem(SESSION_KEY);}catch{}}
+    function savedSession(){try{const s=JSON.parse(sessionStorage.getItem(SESSION_KEY)||'null');return s&&typeof s.token==='string'&&s.expiresAt>Date.now()?s:null;}catch{return null;}}
+    async function request(path,options){const controller=new AbortController(),timer=setTimeout(()=>controller.abort(),15000);try{return await fetch(API_ORIGIN+path,{...options,credentials:'omit',cache:'no-store',signal:controller.signal});}finally{clearTimeout(timer);}}
+    function openLibrary(html){if(typeof html!=='string'||!html.startsWith('<!doctype html>')||html.length>200000)throw new Error('内容加载失败，请重试。');field.value='';document.open();document.write(html);document.close();}
+    form.addEventListener('submit',async event=>{
+      event.preventDefault();if(busy)return;busy=true;button.disabled=true;message('正在验证…');
+      try{
+        const response=await request('/api/videolab/unlock',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({password:field.value})});
+        const data=await response.json();
+        if(!response.ok){clearSession();field.value='';field.focus();throw new Error(response.status===401?'密码不正确，请重试。':response.status===429?'尝试次数较多，请稍后再试。':'暂时无法连接，请稍后重试。');}
+        if(typeof data.token!=='string'||!Number.isFinite(data.expiresAt))throw new Error('验证失败，请重试。');
+        try{sessionStorage.setItem(SESSION_KEY,JSON.stringify({token:data.token,expiresAt:data.expiresAt}));}catch{}
+        openLibrary(data.html);
+      }catch(error){message(error.name==='AbortError'?'连接超时，请重试。':error.message==='Failed to fetch'?'无法连接，请检查网络后重试。':error.message,true);}
+      finally{busy=false;button.disabled=false;}
+    });
+    const session=savedSession();
+    if(session){busy=true;button.disabled=true;message('正在打开视频馆…');request('/api/videolab/content',{headers:{Authorization:'Bearer '+session.token}}).then(async response=>{if(!response.ok){clearSession();message(response.status===401?'访问已过期，请重新输入密码。':'暂时无法连接，请重试。',true);return;}openLibrary(await response.text());}).catch(()=>message('无法连接，请检查网络后重试。',true)).finally(()=>{busy=false;button.disabled=false;});}
+    else clearSession();
+  })();
+  </script>
+</body>
+</html>
