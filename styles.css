@@ -320,12 +320,21 @@ body.modal-open {
   gap: 32px;
   align-items: end;
   width: 100%;
-  margin: 0;
-  padding: 78px 0 18px;
-  border-top: 1px solid var(--line-strong);
-  border-radius: 0;
-  background: transparent;
+  min-height: 230px;
+  margin: 0 0 30px;
+  padding: 48px;
+  border: 1px solid rgba(84, 112, 92, 0.2);
+  border-radius: 4px;
+  background:
+    linear-gradient(90deg, rgba(251, 250, 245, 0.94) 0%, rgba(251, 250, 245, 0.76) 46%, rgba(251, 250, 245, 0.14) 78%),
+    url("assets/card-themes-fill.png") center / cover no-repeat;
   box-shadow: none;
+}
+
+body .home-tools {
+  background:
+    linear-gradient(90deg, rgba(251, 250, 245, 0.94) 0%, rgba(251, 250, 245, 0.76) 46%, rgba(251, 250, 245, 0.14) 78%),
+    url("assets/card-themes-fill.png") center / cover no-repeat !important;
 }
 
 .themes-title h2 {
@@ -340,7 +349,8 @@ body.modal-open {
   border: 0;
   border-bottom: 1px solid var(--line-strong);
   border-radius: 0;
-  background: transparent;
+  background: rgba(251, 250, 245, 0.76);
+  backdrop-filter: blur(8px);
 }
 
 .search-box:focus-within {
@@ -476,6 +486,8 @@ body.modal-open {
 }
 
 .stats-band button {
+  position: relative;
+  overflow: hidden;
   align-items: flex-start;
   min-height: 190px;
   padding: 26px 26px 30px;
@@ -483,10 +495,51 @@ body.modal-open {
 }
 
 .stats-band button::before,
-.stats-band button::after,
-.stats-band button strong::after {
-  content: none;
-  display: none;
+.stats-band button::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  display: block;
+  pointer-events: none;
+}
+
+.stats-band button::before {
+  z-index: 0;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.96;
+  transition: transform 320ms ease;
+}
+
+.stats-band button::after {
+  z-index: 1;
+  background: linear-gradient(180deg, rgba(255,255,255,0.9) 0%, rgba(255,255,255,0.62) 56%, rgba(255,255,255,0.36) 100%);
+}
+
+.stats-band button > * {
+  position: relative;
+  z-index: 2;
+}
+
+body .stats-band button[data-stat-link="art-of-war"] strong::after {
+  content: none !important;
+  display: none !important;
+}
+
+.stats-band button[data-stat-link="art-of-war"]::before {
+  background-image: url("assets/card-art-of-war-fill.png");
+}
+
+.stats-band button[data-stat-link="all"]::before {
+  background-image: url("assets/card-reflection-notes-fill.png");
+}
+
+.stats-band button[data-stat-link="popular"]::before {
+  background-image: url("assets/card-popularity-fill.png");
+}
+
+.stats-band button[data-stat-link="reader-added"]::before {
+  background-image: url("assets/card-visitor-contributions-fill.png");
 }
 
 .stats-band button + button {
@@ -495,19 +548,24 @@ body.modal-open {
 
 .stats-band button:hover {
   transform: none;
-  background: var(--paper);
+  background: transparent;
   box-shadow: inset 0 -5px 0 var(--leaf);
+}
+
+.stats-band button:hover::before {
+  transform: scale(1.035);
 }
 
 .stats-band .path-number {
   margin-bottom: 26px;
-  color: var(--muted);
+  color: #51605a;
   font-size: 0.68rem;
   font-weight: 800;
   letter-spacing: 0.16em;
 }
 
 .stats-band strong {
+  color: #17211d;
   font-family: Georgia, "Times New Roman", serif;
   font-size: 1.35rem;
   font-weight: 400;
@@ -516,7 +574,7 @@ body.modal-open {
 
 .stats-band button > span:last-child {
   margin-top: 10px;
-  color: var(--muted);
+  color: #4d5b55;
   font-size: 0.79rem;
   line-height: 1.5;
 }
@@ -834,7 +892,17 @@ body.modal-open {
   .home-tools {
     grid-template-columns: 1fr;
     gap: 30px;
-    padding-top: 62px;
+    min-height: 300px;
+    padding: 34px 28px;
+    background:
+      linear-gradient(180deg, rgba(251, 250, 245, 0.96) 0%, rgba(251, 250, 245, 0.78) 58%, rgba(251, 250, 245, 0.2) 100%),
+      url("assets/card-themes-fill.png") 66% center / cover no-repeat;
+  }
+
+  body .home-tools {
+    background:
+      linear-gradient(180deg, rgba(251, 250, 245, 0.96) 0%, rgba(251, 250, 245, 0.72) 52%, rgba(251, 250, 245, 0.08) 100%),
+      url("assets/card-themes-fill.png") 66% center / cover no-repeat !important;
   }
 
   .search-box {
