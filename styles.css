@@ -2549,3 +2549,82 @@ h2 {
 }
 
 }
+
+/* References accompany newly sourced notes without changing earlier cards. */
+.quote-source {
+  display: grid;
+  gap: 5px;
+  padding-top: 14px;
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 0.875rem;
+  line-height: 1.65;
+  overflow-wrap: anywhere;
+}
+
+.quote-source p {
+  margin: 0;
+}
+
+.quote-source .citation-author {
+  color: var(--ink);
+  font-weight: 600;
+}
+
+.quote-source a {
+  color: var(--moss);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.quote-source a:focus-visible,
+.citation-details summary:focus-visible {
+  outline: 2px solid var(--moss);
+  outline-offset: 4px;
+}
+
+.citation-details {
+  margin-top: 7px;
+}
+
+.citation-details summary {
+  color: var(--muted);
+  cursor: pointer;
+  font-size: 0.875rem;
+}
+
+.citation-copy {
+  padding: 5px 0 2px;
+}
+
+.citation-copy h4,
+.citation-copy dt {
+  margin: 15px 0 5px;
+  color: var(--ink);
+  font-size: 0.875rem;
+  font-weight: 600;
+}
+
+.citation-copy p,
+.citation-copy dd,
+.citation-copy li {
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-style: normal;
+  line-height: 1.75;
+}
+
+.citation-copy dl,
+.citation-copy dd {
+  margin: 0;
+}
+
+.citation-copy ul {
+  margin: 7px 0;
+  padding-left: 18px;
+}
+
+.strategy-note .quote-source,
+.strategy-detail-page .quote-source {
+  margin: 16px 0;
+}

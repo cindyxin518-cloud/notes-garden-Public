@@ -151,6 +151,971 @@ baseQuotes.forEach((quote, index) => {
   quote.nl = dutchTranslations[index] || "";
 });
 
+const sourcedNotes = [
+  {
+    "id": "curated-mgl-001",
+    "zh": "能带给你内心安宁的，只有你自己。",
+    "en": "Nothing can bring you peace but yourself.",
+    "nl": "Alleen jijzelf kunt je innerlijke rust brengen.",
+    "category": "Self",
+    "source": "拉尔夫·沃尔多·爱默生 / Ralph Waldo Emerson · Self-Reliance《论自立》，收于 Essays: First Series · 1841",
+    "reference": {
+      "author": "拉尔夫·沃尔多·爱默生 / Ralph Waldo Emerson",
+      "work": "Self-Reliance《论自立》，收于 Essays: First Series",
+      "date": "1841",
+      "locator": "文章末尾",
+      "url": "https://www.gutenberg.org/cache/epub/2944/pg2944-images.html",
+      "sourceType": "随笔",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "文章把自我信任与外界认可区分开来。这是关于精神独立的主张，不是说人不需要关系与支持。",
+      "question": "我的安宁，有多少交给了别人的评价？",
+      "verification": "已在作品全文核对；初版年份另见弗吉尼亚大学版本说明。",
+      "additionalSources": [
+        {
+          "label": "弗吉尼亚大学：1841 年版本说明",
+          "url": "https://anthologydev.lib.virginia.edu/work/Emerson/emerson-self-reliance"
+        }
+      ]
+    }
+  },
+  {
+    "id": "curated-mgl-002",
+    "zh": "知人者智，自知者明。",
+    "en": "Knowing others is wisdom; knowing yourself is clarity.",
+    "nl": "Wie anderen kent, is wijs; wie zichzelf kent, ziet helder.",
+    "category": "Self",
+    "source": "传统署名老子 / Laozi · 《道德经》 · 先秦；具体成书年份未定",
+    "reference": {
+      "author": "传统署名老子 / Laozi",
+      "work": "《道德经》",
+      "date": "先秦；具体成书年份未定",
+      "locator": "第 33 章",
+      "url": "https://ctext.org/dao-de-jing",
+      "sourceType": "古籍",
+      "originalLanguage": "古汉语",
+      "chineseStatus": "古籍原文，转简体",
+      "englishStatus": "本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "原章同时谈到知人、自知、胜人、自胜。了解自己，与识别人和驾驭外界，是不同的能力。",
+      "question": "我很会判断别人，却是否看清了自己？",
+      "verification": "已核对传世文本；作者归属及成书年代存在学术争议，不标伪精确年份。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-003",
+    "zh": "我辽阔，包容万千。",
+    "en": "I am large . . . . I contain multitudes.",
+    "nl": "Ik ben groot; ik herberg velen.",
+    "category": "Self",
+    "source": "沃尔特·惠特曼 / Walt Whitman · Leaves of Grass《草叶集》；后来题为 Song of Myself《自我之歌》的诗 · 1855",
+    "reference": {
+      "author": "沃尔特·惠特曼 / Walt Whitman",
+      "work": "Leaves of Grass《草叶集》；后来题为 Song of Myself《自我之歌》的诗",
+      "date": "1855",
+      "locator": "1855 年初版；后来的分节版本为第 51 节",
+      "url": "https://whitmanarchive.org/published-writings/leaves-of-grass/1855-variorum/main.html",
+      "sourceType": "诗歌",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "这句紧接对自身矛盾的承认。人的复杂性未必是一种需要立即消除的缺陷。",
+      "question": "我能不能允许自己同时拥有不止一种声音？",
+      "verification": "已核对惠特曼档案的 1855 年初版文本；不把后来的诗题和节号当成初版原有格式。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-004",
+    "zh": "你的学历、你的履历，并不等于你的人生。",
+    "en": "Your qualifications, your CV, are not your life.",
+    "nl": "Je diploma’s en je cv zijn niet je leven.",
+    "category": "Growth",
+    "source": "J. K. 罗琳 / J. K. Rowling · The Fringe Benefits of Failure, and the Importance of Imagination，哈佛毕业演讲 · 2008-06-05",
+    "reference": {
+      "author": "J. K. 罗琳 / J. K. Rowling",
+      "work": "The Fringe Benefits of Failure, and the Importance of Imagination，哈佛毕业演讲",
+      "date": "2008-06-05",
+      "locator": "谈论失败与人生价值的段落",
+      "url": "https://news.harvard.edu/gazette/story/2008/06/text-of-j-k-rowling-speech/",
+      "sourceType": "演讲",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "她在演讲中回顾失败带来的重新认识，提醒毕业生不要把个人价值压缩成成就清单。",
+      "question": "如果删掉履历上的所有称号，我还会怎样介绍自己？",
+      "verification": "已核对哈佛发布的演讲全文；日期为演讲日期。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-005",
+    "zh": "只有回望时，你才能把那些点连起来。",
+    "en": "You can only connect them looking backwards.",
+    "nl": "Je kunt die punten alleen verbinden als je terugkijkt.",
+    "category": "Growth",
+    "source": "史蒂夫·乔布斯 / Steve Jobs · 斯坦福毕业演讲；官方刊题 You’ve got to find what you love · 2005-06-12",
+    "reference": {
+      "author": "史蒂夫·乔布斯 / Steve Jobs",
+      "work": "斯坦福毕业演讲；官方刊题 You’ve got to find what you love",
+      "date": "2005-06-12",
+      "locator": "第一个故事：Connecting the dots",
+      "url": "https://news.stanford.edu/stories/2005/06/youve-got-find-love-jobs-says",
+      "sourceType": "演讲",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "这句话出自他回顾书法课程如何影响 Macintosh 字体设计的故事。它描述回望时才显现的联系，不保证每次绕路都会带来成功。",
+      "question": "有没有一段当时看似无用的经历，后来改变了我？",
+      "verification": "已核对斯坦福发布的演讲全文；短句为连续摘录。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-006",
+    "zh": "当我们懂得如何面对痛苦，痛苦就会少得多。",
+    "en": "When we know how to suffer, we suffer much, much less.",
+    "nl": "Als we leren omgaan met lijden, lijden we veel, veel minder.",
+    "category": "Growth",
+    "source": "一行禅师 / Thich Nhat Hanh · No Mud, No Lotus: The Art of Transforming Suffering · 2014",
+    "reference": {
+      "author": "一行禅师 / Thich Nhat Hanh",
+      "work": "No Mud, No Lotus: The Art of Transforming Suffering",
+      "date": "2014",
+      "locator": "梅村官网的本书介绍引文",
+      "url": "https://plumvillage.org/books/no-mud-no-lotus",
+      "sourceType": "书籍；官方书介摘引",
+      "originalLanguage": "英语版本",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "这本书讨论认识、照顾痛苦，而不是否认痛苦。这里的成长不是要求自己立刻恢复正常。",
+      "question": "我是在照顾痛苦，还是一直试图掩盖它？",
+      "verification": "引文已在作者所属梅村的官方书介核对；出版年份另由出版社资料核对。未核定书内页码。",
+      "additionalSources": [
+        {
+          "label": "梅村书目中的引文",
+          "url": "https://plumvillage.org/mindfulness/books"
+        },
+        {
+          "label": "出版社出版日期",
+          "url": "https://penguinrandomhousehighereducation.com/book/?isbn=9781937006853"
+        }
+      ]
+    }
+  },
+  {
+    "id": "curated-mgl-007",
+    "zh": "但请在你们的相聚中，留一些空间。",
+    "en": "But let there be spaces in your togetherness,",
+    "nl": "Maar laat er ruimte zijn in jullie samenzijn.",
+    "category": "Relationships",
+    "source": "纪伯伦 / Kahlil Gibran · The Prophet《先知》 · 1923",
+    "reference": {
+      "author": "纪伯伦 / Kahlil Gibran",
+      "work": "The Prophet《先知》",
+      "date": "1923",
+      "locator": "On Marriage〈论婚姻〉",
+      "url": "https://www.gutenberg.org/cache/epub/58585/pg58585-images.html",
+      "sourceType": "散文诗",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "这首散文诗把共同生活与各自生长并置，谈的是亲密关系中不被吞没的个体。",
+      "question": "我们靠得很近时，还给彼此留了呼吸的空间吗？",
+      "verification": "已核对作品全文；该书原作即为英语。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-008",
+    "zh": "君子和而不同。",
+    "en": "A noble person lives in harmony without demanding sameness.",
+    "nl": "Een edel mens zoekt harmonie, zonder te eisen dat iedereen hetzelfde is.",
+    "category": "Relationships",
+    "source": "孔子言论，弟子及后学编纂 / Confucius and later compilers · 《论语·子路》 · 先秦；具体编纂年份未定",
+    "reference": {
+      "author": "孔子言论，弟子及后学编纂 / Confucius and later compilers",
+      "work": "《论语·子路》",
+      "date": "先秦；具体编纂年份未定",
+      "locator": "13.23；摘录前半句",
+      "url": "https://ctext.org/analects/zi-lu/ens",
+      "sourceType": "古籍",
+      "originalLanguage": "古汉语",
+      "chineseStatus": "古籍原文，转简体",
+      "englishStatus": "本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "全句把真正的和谐与表面的一致区分开来。相处并不必以相同的判断、喜好或身份为前提。",
+      "question": "我是在寻求理解，还是在要求对方变得和我一样？",
+      "verification": "已核对篇章与原句；英文是本次翻译，不沿用网站中的历史英译。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-009",
+    "zh": "温柔，是爱最谦逊的形式。",
+    "en": "Tenderness is the most modest form of love.",
+    "nl": "Tederheid is de meest bescheiden vorm van liefde.",
+    "category": "Relationships",
+    "source": "奥尔加·托卡尔丘克 / Olga Tokarczuk · The Tender Narrator《温柔的讲述者》，诺贝尔文学奖演讲 · 2019-12-07",
+    "reference": {
+      "author": "奥尔加·托卡尔丘克 / Olga Tokarczuk",
+      "work": "The Tender Narrator《温柔的讲述者》，诺贝尔文学奖演讲",
+      "date": "2019-12-07",
+      "locator": "英文演讲稿后部；PDF 第 24 页",
+      "url": "https://www.nobelprize.org/uploads/2019/12/tokarczuk-lecture-english.pdf",
+      "sourceType": "演讲",
+      "originalLanguage": "波兰语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "诺贝尔官网英译，Jennifer Croft 与 Antonia Lloyd-Jones 译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "她所说的温柔，是认真看见另一种生命的脆弱与独特，而不只是温和的语气。",
+      "question": "我最近一次认真看见别人的脆弱，是什么时候？",
+      "verification": "已核对诺贝尔官网英文译稿；2018 是奖项年度，2019 才是演讲年份。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-010",
+    "zh": "一本书应当是一把斧头，劈开我们内心冰封的海。",
+    "en": "A book must be the axe for the frozen sea within us.",
+    "nl": "Een boek moet de bijl zijn voor de bevroren zee in ons.",
+    "category": "Reading",
+    "source": "弗兰茨·卡夫卡 / Franz Kafka · 致 Oskar Pollak 的信 · 1904-01-27",
+    "reference": {
+      "author": "弗兰茨·卡夫卡 / Franz Kafka",
+      "work": "致 Oskar Pollak 的信",
+      "date": "1904-01-27",
+      "locator": "布拉格，1904 年 1 月 27 日书信",
+      "url": "https://www.literatpro.de/prosa/161116/an-oskar-pollak-prag-27-januar-1904-mittwoch",
+      "sourceType": "书信",
+      "originalLanguage": "德语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "本次据德文翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "ein Buch muß die Axt sein für das gefrorene Meer in uns.",
+      "context": "卡夫卡谈的是能够唤醒、震动读者的书。这里的阅读不仅提供慰藉，也可能打破原有的生活感受。",
+      "question": "最近哪本书，真正动摇了我原先的想法？",
+      "verification": "德文书信转录已核对，并有学术出版交叉印证；该链接不是手稿扫描。中英文均为本次翻译。",
+      "additionalSources": [
+        {
+          "label": "学术出版中的书信引用",
+          "url": "https://www.transcript-verlag.de/media/pdf/13/96/50/oa9783839472088.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "id": "curated-mgl-011",
+    "zh": "写作时，你是在试着发现自己尚不知道的东西。",
+    "en": "you’re trying to find out something which you don’t know.",
+    "nl": "Als je schrijft, probeer je iets te ontdekken dat je nog niet weet.",
+    "category": "Reading",
+    "source": "詹姆斯·鲍德温 / James Baldwin · The Art of Fiction No. 78；Jordan Elgrably 访谈 · 1984 年春",
+    "reference": {
+      "author": "詹姆斯·鲍德温 / James Baldwin",
+      "work": "The Art of Fiction No. 78；Jordan Elgrably 访谈",
+      "date": "1984 年春",
+      "locator": "The Paris Review，第 91 期；谈写作与布道的区别",
+      "url": "https://www.theparisreview.org/interviews/2994/the-art-of-fiction-no-78-james-baldwin",
+      "sourceType": "访谈",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文；补出原句的写作语境",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "访谈把写作与已经掌握答案的说教区分开来。写作也可以是认识过程，而不只是表达已有观点。",
+      "question": "如果写作不为证明我知道什么，我会去探索什么？",
+      "verification": "已核对原刊访谈及期号；日期为发表时间，不推定采访当天。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-012",
+    "zh": "对我来说，它带来的感受是这样的。",
+    "en": "This is the way it feels to me.",
+    "nl": "Zo voelt het voor mij.",
+    "category": "Reading",
+    "source": "石黑一雄 / Kazuo Ishiguro · My Twentieth Century Evening—and Other Small Breakthroughs，诺贝尔文学奖演讲 · 2017-12-07",
+    "reference": {
+      "author": "石黑一雄 / Kazuo Ishiguro",
+      "work": "My Twentieth Century Evening—and Other Small Breakthroughs，诺贝尔文学奖演讲",
+      "date": "2017-12-07",
+      "locator": "谈一位作者与一位读者之间的沟通",
+      "url": "https://www.nobelprize.org/prizes/literature/2017/ishiguro/lecture/",
+      "sourceType": "演讲",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "演讲用这句话模拟作者向读者传达感受：不是强迫对方接受一个结论，而是邀请对方理解一种体验。",
+      "question": "我想分享的，是一个结论，还是一种值得被理解的感受？",
+      "verification": "已核对官方演讲稿；这是一句演讲中的拟想表达，不是另一场访谈的回答。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-013",
+    "zh": "我的经验，取决于我选择把注意力放在哪里。",
+    "en": "My experience is what I agree to attend to.",
+    "nl": "Mijn ervaring is datgene waaraan ik mijn aandacht wil schenken.",
+    "category": "Attention",
+    "source": "威廉·詹姆斯 / William James · The Principles of Psychology《心理学原理》 · 1890",
+    "reference": {
+      "author": "威廉·詹姆斯 / William James",
+      "work": "The Principles of Psychology《心理学原理》",
+      "date": "1890",
+      "locator": "第 XI 章 Attention，开篇",
+      "url": "https://psychclassics.yorku.ca/James/Principles/prin11.htm",
+      "sourceType": "书籍",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "这一章讨论注意的选择性。它并非说外部现实由个人意念创造，而是说我们实际经历到什么，受到注意力的筛选。",
+      "question": "今天占据我注意力的，真是我想经历的生活吗？",
+      "verification": "已核对约克大学心理学经典档案中的原书章节。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-014",
+    "zh": "信息的富足，造成了注意力的贫乏。",
+    "en": "a wealth of information creates a poverty of attention",
+    "nl": "Een overvloed aan informatie schept een tekort aan aandacht.",
+    "category": "Attention",
+    "source": "赫伯特·西蒙 / Herbert A. Simon · Designing Organizations for an Information-Rich World · 1971 年出版；可核对草稿署 1969-09-01",
+    "reference": {
+      "author": "赫伯特·西蒙 / Herbert A. Simon",
+      "work": "Designing Organizations for an Information-Rich World",
+      "date": "1971 年出版；可核对草稿署 1969-09-01",
+      "locator": "草稿论述信息如何消耗接收者注意力的段落",
+      "url": "https://iiif.library.cmu.edu/file/Simon_box00055_fld04178_bdl0002_doc0001/Simon_box00055_fld04178_bdl0002_doc0001.pdf",
+      "sourceType": "论文；作者草稿",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "西蒙从组织的信息分配问题出发指出：信息增加时，接收者的有限注意力会成为稀缺资源。",
+      "question": "我需要更多信息，还是更少、更值得注意的信息？",
+      "verification": "原句在卡内基梅隆大学保存的作者草稿中核对；正式收于 Martin Greenberger 编 Computers, Communications, and the Public Interest，1971。",
+      "additionalSources": [
+        {
+          "label": "卡内基梅隆大学出版相关档案",
+          "url": "https://digitalcollections.library.cmu.edu/node/45427"
+        },
+        {
+          "label": "作者著作目录：1971 年文集收录信息",
+          "url": "https://iiif.library.cmu.edu/file/Simon_box00066_fld05048_bdl0002_doc0001/Simon_box00066_fld05048_bdl0002_doc0001.pdf"
+        }
+      ]
+    }
+  },
+  {
+    "id": "curated-mgl-015",
+    "zh": "自由需要注意、觉察、自律与努力。",
+    "en": "freedom involves attention, and awareness, and discipline, and effort",
+    "nl": "Vrijheid vraagt om aandacht, bewustzijn, discipline en inspanning.",
+    "category": "Attention",
+    "source": "大卫·福斯特·华莱士 / David Foster Wallace · This Is Water，Kenyon College 毕业演讲 · 2005",
+    "reference": {
+      "author": "大卫·福斯特·华莱士 / David Foster Wallace",
+      "work": "This Is Water，Kenyon College 毕业演讲",
+      "date": "2005",
+      "locator": "演讲后部：真正有价值的自由",
+      "url": "https://www.kenyon.edu/news/archive/this-is-water/",
+      "sourceType": "演讲",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "这里的自由包括在平凡而令人烦躁的日常里，仍能主动理解和关心他人。",
+      "question": "当日常让人烦躁时，我有没有选择另一种看待别人的方式？",
+      "verification": "已核对学校保存的演讲全文；英文为句中连续摘录。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-016",
+    "zh": "灵感诞生于不断说出的“我不知道”。",
+    "en": "it’s born from a continuous ‘I don’t know.’",
+    "nl": "Inspiratie ontstaat uit een voortdurend ‘ik weet het niet’.",
+    "category": "Uncertainty",
+    "source": "维斯瓦娃·辛波斯卡 / Wisława Szymborska · The Poet and the World《诗人与世界》，诺贝尔文学奖演讲 · 1996-12-07",
+    "reference": {
+      "author": "维斯瓦娃·辛波斯卡 / Wisława Szymborska",
+      "work": "The Poet and the World《诗人与世界》，诺贝尔文学奖演讲",
+      "date": "1996-12-07",
+      "locator": "谈灵感与持续追问的段落",
+      "url": "https://www.nobelprize.org/prizes/literature/1996/szymborska/lecture/",
+      "sourceType": "演讲",
+      "originalLanguage": "波兰语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "诺贝尔官网英文译稿，连续摘录",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "演讲不仅谈诗人，也谈教师、医生、园丁等人对工作的好奇。不确定性在这里是继续探索的空间。",
+      "question": "什么问题，我已经太快地认定自己知道答案？",
+      "verification": "已核对诺贝尔官网英文译稿；中文补出英文代词所指的 inspiration，未增添新主张。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-017",
+    "zh": "我们必须保持谦逊，允许自己有所不知。",
+    "en": "we must remain modest and allow that we do not know.",
+    "nl": "We moeten bescheiden blijven en erkennen dat we het niet weten.",
+    "category": "Uncertainty",
+    "source": "理查德·费曼 / Richard P. Feynman · The Relation of Science and Religion，Caltech YMCA 午餐论坛演讲 · 1956-05-02",
+    "reference": {
+      "author": "理查德·费曼 / Richard P. Feynman",
+      "work": "The Relation of Science and Religion，Caltech YMCA 午餐论坛演讲",
+      "date": "1956-05-02",
+      "locator": "关于科学与不确定性的讨论",
+      "url": "https://calteches.library.caltech.edu/1640/1/Religion.pdf",
+      "sourceType": "演讲",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "费曼讨论科学认识中的怀疑与开放。承认未知不意味着所有判断同样可靠，而是保留修正判断的可能。",
+      "question": "我有没有把暂时的理解，误当成最终答案？",
+      "verification": "已核对加州理工学院档案中的演讲发表文本与日期。",
+      "additionalSources": [
+        {
+          "label": "加州理工学院档案记录",
+          "url": "https://calteches.library.caltech.edu/1640/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "curated-mgl-018",
+    "zh": "有些事在我们的掌控之中，有些则不在。",
+    "en": "Some things are in our control and others not.",
+    "nl": "Sommige dingen hebben we in de hand, andere niet.",
+    "category": "Uncertainty",
+    "source": "爱比克泰德 / Epictetus；阿里安整理 · Enchiridion《手册》 · 约公元 2 世纪",
+    "reference": {
+      "author": "爱比克泰德 / Epictetus；阿里安整理",
+      "work": "Enchiridion《手册》",
+      "date": "约公元 2 世纪",
+      "locator": "第 1 章，开篇",
+      "url": "https://classics.mit.edu/Epictetus/epicench.html",
+      "sourceType": "古典哲学",
+      "originalLanguage": "古希腊语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "Elizabeth Carter 历史英译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "开篇区分自己的判断与行动，以及名声等外部结果。这种区分可以帮助投入行动，不是放弃责任的借口。",
+      "question": "这件事里，我能负责的部分究竟是什么？",
+      "verification": "已核对 MIT Classics Archive 所载 Elizabeth Carter 英译；作品原语为希腊语，年代只标约数。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-019",
+    "zh": "此刻，先把这些问题活出来。",
+    "en": "Live the questions now.",
+    "nl": "Leef nu de vragen.",
+    "category": "Time",
+    "source": "赖纳·马利亚·里尔克 / Rainer Maria Rilke · 致 Franz Xaver Kappus 的信；后收入《给一个青年诗人的十封信》 · 1903-07-16",
+    "reference": {
+      "author": "赖纳·马利亚·里尔克 / Rainer Maria Rilke",
+      "work": "致 Franz Xaver Kappus 的信；后收入《给一个青年诗人的十封信》",
+      "date": "1903-07-16",
+      "locator": "Worpswede bei Bremen，1903 年 7 月 16 日书信",
+      "url": "https://www.rilke.de/briefe/160703.htm",
+      "sourceType": "书信",
+      "originalLanguage": "德语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "本次据德文翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "Leben Sie jetzt die Fragen.",
+      "context": "里尔克劝青年对尚未解决的问题保持耐心：有些答案需要在生活中逐渐变得可经验，而不是立即得到一句解释。",
+      "question": "我能否让一个重要的问题，多陪伴自己一段时间？",
+      "verification": "已核对德文书信日期与原句；中英文为本次据德文翻译，不冒充既有出版译本。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-020",
+    "zh": "自其不变者而观之，则物与我皆无尽也。",
+    "en": "Viewed through what does not change, both the world and I are without end.",
+    "nl": "Vanuit wat onveranderlijk is bekeken, zijn zowel de wereld als ikzelf zonder einde.",
+    "category": "Time",
+    "source": "苏轼 / Su Shi · 《前赤壁赋》 · 1082；宋神宗元丰五年",
+    "reference": {
+      "author": "苏轼 / Su Shi",
+      "work": "《前赤壁赋》",
+      "date": "1082；宋神宗元丰五年",
+      "locator": "江水、明月与变／不变的对话",
+      "url": "https://ctext.org/wiki.pl?chapter=949408&if=en",
+      "sourceType": "赋",
+      "originalLanguage": "古汉语",
+      "chineseStatus": "古籍原文，转简体",
+      "englishStatus": "本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "这句话与从变化角度观察世界的上一句相对。它尝试改变观看生命的尺度，不是主张个体肉身不会死亡。",
+      "question": "一件事的得失，会不会随着观察的尺度改变？",
+      "verification": "已核对古籍转录中的句子，并用年谱核对写作年份；保留『物与我』，不沿用其他页面的识别错字。",
+      "additionalSources": [
+        {
+          "label": "《东坡先生年谱》：元丰五年",
+          "url": "https://ctext.org/wiki.pl?chapter=506252&if=gb"
+        }
+      ]
+    }
+  },
+  {
+    "id": "curated-mgl-021",
+    "zh": "当我们不断推迟，生命正飞快流逝。",
+    "en": "While we are postponing, life speeds by.",
+    "nl": "Terwijl we uitstellen, snelt het leven voorbij.",
+    "category": "Time",
+    "source": "塞涅卡 / Seneca · Moral Letters to Lucilius《致卢基利乌斯道德书简》 · 公元 1 世纪；所核对英文为 1925 年重印本转录",
+    "reference": {
+      "author": "塞涅卡 / Seneca",
+      "work": "Moral Letters to Lucilius《致卢基利乌斯道德书简》",
+      "date": "公元 1 世纪；所核对英文为 1925 年重印本转录",
+      "locator": "第 1 封信，第 2 节",
+      "url": "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_1",
+      "sourceType": "书信",
+      "originalLanguage": "拉丁语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "Richard Mott Gummere 历史英译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "第一封信劝读者看顾自己的时间：可以补回钱财，却很难取回已经交出去的生命。",
+      "question": "我把什么一直留给一个并不存在的『以后』？",
+      "verification": "已在维基文库对应书信正文核对 Richard Mott Gummere 英译；总目录所载版本为 1925 年重印本，不把译本年份当成原作年份。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-022",
+    "zh": "知道，远不如感受重要。",
+    "en": "It is not half so important to know as to feel.",
+    "nl": "Weten is nog niet half zo belangrijk als voelen.",
+    "category": "Nature",
+    "source": "蕾切尔·卡森 / Rachel Carson · The Sense of Wonder《惊奇之心》；前身为 Help Your Child to Wonder · 1965 年成书；相关文章发表于 1956 年",
+    "reference": {
+      "author": "蕾切尔·卡森 / Rachel Carson",
+      "work": "The Sense of Wonder《惊奇之心》；前身为 Help Your Child to Wonder",
+      "date": "1965 年成书；相关文章发表于 1956 年",
+      "locator": "关于儿童自然教育的段落",
+      "url": "https://www.fws.gov/sites/default/files/documents/Compass_to_Nature_teaching_in_the_outdoor_classroom.pdf",
+      "sourceType": "书籍；机构教学资料摘引",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "卡森在谈儿童如何与自然建立关系。这里的感受，是好奇与喜爱能够成为学习的起点，不是笼统否定事实和知识。",
+      "question": "我最近一次不急着解释、只是感受自然，是什么时候？",
+      "verification": "短句在美国鱼类及野生动物管理局教学资料的书籍摘引中核对；未核定 1965 年版页码，也未把此句首次出现年份断言为 1956。",
+      "additionalSources": [
+        {
+          "label": "1956 年原文扫描与刊期说明",
+          "url": "https://www.fws.gov/media/help-your-child-wonder"
+        }
+      ]
+    }
+  },
+  {
+    "id": "curated-mgl-023",
+    "zh": "那就是这里，就是家，就是我们。",
+    "en": "That’s here. That’s home. That’s us.",
+    "nl": "Dat is hier. Dat is thuis. Dat zijn wij.",
+    "category": "Nature",
+    "source": "卡尔·萨根 / Carl Sagan · Pale Blue Dot: A Vision of the Human Future in Space《暗淡蓝点》 · 1994",
+    "reference": {
+      "author": "卡尔·萨根 / Carl Sagan",
+      "work": "Pale Blue Dot: A Vision of the Human Future in Space《暗淡蓝点》",
+      "date": "1994",
+      "locator": "对 Voyager 1『暗淡蓝点』照片的文字回应",
+      "url": "https://science.nasa.gov/mission/voyager/voyager-1s-pale-blue-dot/",
+      "sourceType": "书籍；NASA 摘录",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "这是从遥远视角观看地球时的提醒：所有人的生活与争执，都发生在这一个极小的共同家园上。",
+      "question": "从更远的地方看，我眼前的争执还会有多大？",
+      "verification": "已核对 NASA 摘录；照片拍于 1990 年，所引书籍出版于 1994 年，二者未混用。",
+      "additionalSources": [
+        {
+          "label": "1994 年出版信息",
+          "url": "https://books.google.com/books/about/Pale_Blue_Dot.html?id=mW_vAAAAMAAJ"
+        }
+      ]
+    }
+  },
+  {
+    "id": "curated-mgl-024",
+    "zh": "是世界之美救了我。",
+    "en": "I got saved by the beauty of the world.",
+    "nl": "De schoonheid van de wereld heeft me gered.",
+    "category": "Nature",
+    "source": "玛丽·奥利弗 / Mary Oliver · On Being，Krista Tippett 访谈 · 2015-02-05 首播",
+    "reference": {
+      "author": "玛丽·奥利弗 / Mary Oliver",
+      "work": "On Being，Krista Tippett 访谈",
+      "date": "2015-02-05 首播",
+      "locator": "谈童年、自然与诗歌的访谈",
+      "url": "https://onbeing.org/programs/mary-oliver-i-got-saved-by-the-beauty-of-the-world/",
+      "sourceType": "访谈",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "奥利弗回顾自己的童年经历，以及走进自然给她的支撑。这是她个人的经验，不是对所有痛苦的一项保证。",
+      "question": "有没有一种微小的美，曾在某个时刻接住了我？",
+      "verification": "已核对官方音频节目页及逐字稿；网页 2022 年更新／再发布不当作首次访谈年份。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-025",
+    "zh": "没有门、锁或门闩，能封住我思想的自由。",
+    "en": "there is no gate, no lock, no bolt that you can set upon the freedom of my mind.",
+    "nl": "Geen poort, slot of grendel kan de vrijheid van mijn geest afsluiten.",
+    "category": "Creativity",
+    "source": "弗吉尼亚·伍尔夫 / Virginia Woolf · A Room of One’s Own《一间自己的房间》 · 1929",
+    "reference": {
+      "author": "弗吉尼亚·伍尔夫 / Virginia Woolf",
+      "work": "A Room of One’s Own《一间自己的房间》",
+      "date": "1929",
+      "locator": "第 4 章；Hogarth 初版印刷页 114",
+      "url": "https://en.wikisource.org/wiki/Page%3AA_Room_of_One%27s_Own_%28Hogarth_1929%29.djvu/118",
+      "sourceType": "随笔",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "伍尔夫讨论女性写作的物质条件与精神自主。这句来自随笔中的叙述声音，不应脱离它所回应的排斥与限制。",
+      "question": "我有没有在别人开口之前，就先限制了自己的表达？",
+      "verification": "已核对 1929 年初版扫描页；同时可与弗吉尼亚大学转录交叉阅读。",
+      "additionalSources": [
+        {
+          "label": "弗吉尼亚大学作品转录与版本说明",
+          "url": "https://anthologydev.lib.virginia.edu/work/Woolf/woolf-room-of-ones-own?section=frontMatter"
+        }
+      ]
+    }
+  },
+  {
+    "id": "curated-mgl-026",
+    "zh": "任何人间的权力，都可以被人抵抗与改变。",
+    "en": "Any human power can be resisted and changed by human beings.",
+    "nl": "Elke menselijke macht kan door mensen worden weerstaan en veranderd.",
+    "category": "Creativity",
+    "source": "厄休拉·勒古恩 / Ursula K. Le Guin · National Book Foundation Medal 获奖致辞 · 2014-11-19",
+    "reference": {
+      "author": "厄休拉·勒古恩 / Ursula K. Le Guin",
+      "work": "National Book Foundation Medal 获奖致辞",
+      "date": "2014-11-19",
+      "locator": "谈艺术、出版商业与改变的可能",
+      "url": "https://www.ursulakleguin.com/nbf-medal",
+      "sourceType": "演讲",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "她在出版行业的颁奖礼上讨论商业权力，并强调艺术与想象能够帮助人看见现状之外的可能。",
+      "question": "我把哪些人为形成的规则，当成了不可改变的自然规律？",
+      "verification": "已核对作者官网保存的致辞全文；日期为颁奖致辞日期。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-027",
+    "zh": "我们终会死去……但我们创造并运用语言。",
+    "en": "We die. … But we do language.",
+    "nl": "We sterven… maar we scheppen en gebruiken taal.",
+    "category": "Creativity",
+    "source": "托妮·莫里森 / Toni Morrison · 诺贝尔文学奖演讲 · 1993-12-07",
+    "reference": {
+      "author": "托妮·莫里森 / Toni Morrison",
+      "work": "诺贝尔文学奖演讲",
+      "date": "1993-12-07",
+      "locator": "谈语言与生命的段落",
+      "url": "https://www.nobelprize.org/prizes/literature/1993/morrison/lecture/",
+      "sourceType": "演讲",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "英语原文，非连续短摘录；省略处已标示",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "演讲讨论语言可以伤害，也可以让经验获得表达。这里关注的不只是作品是否传世，而是我们如何承担使用语言的责任。",
+      "question": "我使用的语言，是打开了别人的世界，还是把它关上？",
+      "verification": "已核对官方全文；省略号明确表示非连续摘录。『创造并运用』是对 do language 的本次译法。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-028",
+    "zh": "你自己，是最容易被你欺骗的人。",
+    "en": "you are the easiest person to fool.",
+    "nl": "Jijzelf bent degene die je het gemakkelijkst voor de gek houdt.",
+    "category": "Wisdom",
+    "source": "理查德·费曼 / Richard P. Feynman · Cargo Cult Science，加州理工学院毕业演讲 · 1974",
+    "reference": {
+      "author": "理查德·费曼 / Richard P. Feynman",
+      "work": "Cargo Cult Science，加州理工学院毕业演讲",
+      "date": "1974",
+      "locator": "谈科学诚信、避免自欺的段落",
+      "url": "https://magazine.caltech.edu/post/feynman-at-100",
+      "sourceType": "演讲；校方转载",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "费曼要求研究者认真呈现可能推翻自己结论的证据。这比简单地要求别人相信自己，更接近诚实。",
+      "question": "如果我的判断是错的，什么证据能让我承认？",
+      "verification": "已核对加州理工学院 2018 年转载所载的 1974 年演讲文本；不把转载年份标成演讲年份。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-029",
+    "zh": "人有不为也，而后可以有为。",
+    "en": "There are things one will not do; only then can one act.",
+    "nl": "Pas als je besluit wat je niet doet, kun je handelen.",
+    "category": "Wisdom",
+    "source": "孟子及其后学 / Mencius and later compilers · 《孟子·离娄下》 · 先秦；具体编纂年份未定",
+    "reference": {
+      "author": "孟子及其后学 / Mencius and later compilers",
+      "work": "《孟子·离娄下》",
+      "date": "先秦；具体编纂年份未定",
+      "locator": "〈离娄下〉",
+      "url": "https://ctext.org/text.pl?if=en&node=24998",
+      "sourceType": "古籍",
+      "originalLanguage": "古汉语",
+      "chineseStatus": "古籍原文，转简体",
+      "englishStatus": "本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "原文所谈有道德上的选择与界限，不只是少做几件事以提高效率。明确不愿做什么，也能让行动更有方向。",
+      "question": "我希望守住的底线，真的进入了我的选择吗？",
+      "verification": "已核对古籍原句；不将现代时间管理式扩写冒充孟子原话。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-030",
+    "zh": "先为不可胜，以待敌之可胜。",
+    "en": "First make yourself secure against defeat; then wait for the opponent’s vulnerability.",
+    "nl": "Zorg eerst dat je niet verslagen kunt worden; wacht dan tot je tegenstander kwetsbaar wordt.",
+    "category": "The Art of War",
+    "source": "传统署名孙武 / Sun Tzu · 《孙子兵法·军形篇》 · 先秦；具体成书年份未定",
+    "reference": {
+      "author": "传统署名孙武 / Sun Tzu",
+      "work": "《孙子兵法·军形篇》",
+      "date": "先秦；具体成书年份未定",
+      "locator": "〈军形篇〉，开篇",
+      "url": "https://ctext.org/art-of-war/tactical-dispositions/zh",
+      "sourceType": "古籍",
+      "originalLanguage": "古汉语",
+      "chineseStatus": "古籍原文，转简体",
+      "englishStatus": "本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "原文首先是军事论述。把它用于日常决策时，可以启发我们先检查自身风险，再等待机会；这是编辑延伸，不是原文另有一句人生格言。",
+      "question": "我在追逐机会之前，是否先看清了自己的脆弱之处？",
+      "verification": "已核对古籍原句；这是专题候选，上线前仍应与网站孙子专题内部条目核对是否重复。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-031",
+    "zh": "一件东西的代价，是你必须用来交换它的那一部分生命，无论当下还是日后。",
+    "en": "the cost of a thing is the amount of what I will call life which is required to be exchanged for it, immediately or in the long run.",
+    "nl": "De prijs van iets is het deel van je leven dat je ervoor moet inruilen, nu of op de lange duur.",
+    "category": "Life",
+    "source": "亨利·戴维·梭罗 / Henry David Thoreau · Walden《瓦尔登湖》 · 1854",
+    "reference": {
+      "author": "亨利·戴维·梭罗 / Henry David Thoreau",
+      "work": "Walden《瓦尔登湖》",
+      "date": "1854",
+      "locator": "Economy〈经济〉；讨论住房成本的段落",
+      "url": "https://www.gutenberg.org/files/205/205-h/205-h.htm",
+      "sourceType": "随笔／书籍",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "梭罗把金钱成本重新换算为劳动与生命时间。这让『买得起』和『值得付出』成为两个不同的问题。",
+      "question": "我为这件东西付出的，除了钱，还有多少生命？",
+      "verification": "已核对作品全文；英文为连续摘录，省去句首连接语。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-032",
+    "zh": "我们在想象中受的苦，常比现实中的更多。",
+    "en": "we suffer more often in imagination than in reality.",
+    "nl": "We lijden vaker in onze verbeelding dan in werkelijkheid.",
+    "category": "Life",
+    "source": "塞涅卡 / Seneca · Moral Letters to Lucilius《致卢基利乌斯道德书简》 · 公元 1 世纪；所核对英文为 1925 年重印本转录",
+    "reference": {
+      "author": "塞涅卡 / Seneca",
+      "work": "Moral Letters to Lucilius《致卢基利乌斯道德书简》",
+      "date": "公元 1 世纪；所核对英文为 1925 年重印本转录",
+      "locator": "第 13 封信，第 4 节",
+      "url": "https://en.wikisource.org/wiki/Moral_letters_to_Lucilius/Letter_13",
+      "sourceType": "书信",
+      "originalLanguage": "拉丁语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "Richard Mott Gummere 历史英译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "这封信谈尚未发生的祸事，以及预先让自己困在恐惧里。它并不否定真实发生的困难。",
+      "question": "让我疲惫的，是眼前的事实，还是脑中反复预演的可能？",
+      "verification": "已在维基文库第 13 封信第 4 节核对；英文采用 Richard Mott Gummere 历史译文，总目录所载版本为 1925 年重印本。",
+      "additionalSources": [
+        {
+          "label": "第 13 封信在线阅读；含其他现代译写，不整体沿用",
+          "url": "https://www.lettersfromastoic.net/letter-13-on-groundless-fears/"
+        }
+      ]
+    }
+  },
+  {
+    "id": "curated-mgl-033",
+    "zh": "过去能帮助现在吗？逝者能拯救生者吗？",
+    "en": "Can the past help the present? Can the dead save the living?",
+    "nl": "Kan het verleden het heden helpen? Kunnen de doden de levenden redden?",
+    "category": "Life",
+    "source": "韩江 / Han Kang · Light and Thread《光与线》，诺贝尔文学奖演讲 · 2024",
+    "reference": {
+      "author": "韩江 / Han Kang",
+      "work": "Light and Thread《光与线》，诺贝尔文学奖演讲",
+      "date": "2024",
+      "locator": "英文 PDF 第 6 页；回顾《少年来了》的写作",
+      "url": "https://www.nobelprize.org/uploads/2024/12/han-lecture-english.pdf",
+      "sourceType": "演讲",
+      "originalLanguage": "韩语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "诺贝尔官网英文译稿",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "这两个问题与她书写光州历史的经历相连：过去留下的勇气、伤痛与尊严，如何进入今天的生命。",
+      "question": "我从过去继承的，不只有伤痛，还能有什么？",
+      "verification": "已核对诺贝尔官网英文译稿；没有把问题改写为作者给出的确定结论。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-034",
+    "zh": "因为是他，因为是我。",
+    "en": "because it was he, because it was I.",
+    "nl": "Omdat hij het was, omdat ik het was.",
+    "category": "Relationships",
+    "source": "米歇尔·德·蒙田 / Michel de Montaigne · Essays《随笔》，第一卷〈论友谊〉 · 16 世纪；《随笔》1580 年起出版并后续修订",
+    "reference": {
+      "author": "米歇尔·德·蒙田 / Michel de Montaigne",
+      "work": "Essays《随笔》，第一卷〈论友谊〉",
+      "date": "16 世纪；《随笔》1580 年起出版并后续修订",
+      "locator": "〈论友谊〉；不同版本章节编号有差异",
+      "url": "https://www.gutenberg.org/files/3600/3600-h/3600-h",
+      "sourceType": "随笔",
+      "originalLanguage": "法语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "Charles Cotton 历史英译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "蒙田在这里回顾与 Étienne de La Boétie 的友谊，尝试说明某种关系为何难以用一张理由清单解释。",
+      "question": "有没有一个人，其重要性无法被『优点』清单说尽？",
+      "verification": "已核对 Charles Cotton 历史英译；本句首次出现于哪次修订未核定，因此不将其精确标为 1580 年原句。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-035",
+    "zh": "天堂既在我们头顶，也在我们脚下。",
+    "en": "Heaven is under our feet as well as over our heads.",
+    "nl": "De hemel ligt evenzeer onder onze voeten als boven ons hoofd.",
+    "category": "Nature",
+    "source": "亨利·戴维·梭罗 / Henry David Thoreau · Walden《瓦尔登湖》 · 1854",
+    "reference": {
+      "author": "亨利·戴维·梭罗 / Henry David Thoreau",
+      "work": "Walden《瓦尔登湖》",
+      "date": "1854",
+      "locator": "The Pond in Winter〈冬天的湖〉",
+      "url": "https://www.gutenberg.org/files/205/205-h/205-h.htm",
+      "sourceType": "随笔／书籍",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "这句出现在冬季湖泊的观察中。它把值得敬畏的美，从遥远的天空带回近处、脚下与日常世界。",
+      "question": "我是不是一直望向远方，却忽略了已经在脚下的美？",
+      "verification": "已核对作品全文中的章节与句子。",
+      "additionalSources": []
+    }
+  },
+  {
+    "id": "curated-mgl-036",
+    "zh": "我并不认为答案只有一个。",
+    "en": "I don’t really think there is one answer",
+    "nl": "Ik geloof niet echt dat er maar één antwoord is.",
+    "category": "Self",
+    "source": "厄休拉·勒古恩 / Ursula K. Le Guin · The Art of Fiction No. 221；John Wray 访谈 · 2013 年秋",
+    "reference": {
+      "author": "厄休拉·勒古恩 / Ursula K. Le Guin",
+      "work": "The Art of Fiction No. 221；John Wray 访谈",
+      "date": "2013 年秋",
+      "locator": "The Paris Review，第 206 期；谈宗教探索",
+      "url": "https://www.theparisreview.org/interviews/6253/the-art-of-fiction-no-221-ursula-k-le-guin",
+      "sourceType": "访谈",
+      "originalLanguage": "英语",
+      "chineseStatus": "本次译文（中文古籍除外）",
+      "englishStatus": "来源中的英文摘录；另有注明者为本次翻译",
+      "dutchStatus": "荷兰文为本次据原文或所核对英译翻译。",
+      "originalText": "",
+      "context": "她在回答宗教探索的问题时谈到对不同思想的兴趣。不要把这句泛化为『所有事实都没有确定答案』。",
+      "question": "关于怎样生活，我是否太急着寻找唯一正确的模板？",
+      "verification": "已核对原刊访谈及期号；日期为发表时间。",
+      "additionalSources": []
+    }
+  }
+];
+
+// Append without changing the IDs or ordering of the original notes.
+baseQuotes.push(...sourcedNotes.filter((quote) => quote.category !== "The Art of War"));
+
+
 let userQuotes = JSON.parse(localStorage.getItem("userQuotes") || "[]");
 let publicVisitorQuotes = [];
 let quotes = [];
@@ -285,7 +1250,12 @@ const themeGroups = [
   { id: "Life", label: "Life" },
   { id: "Relationships", label: "Relationships" },
   { id: "Reading", label: "Reading" },
-  { id: "Others", label: "Others" }
+  { id: "Others", label: "Others" },
+  { id: "Attention", label: "Attention" },
+  { id: "Uncertainty", label: "Uncertainty" },
+  { id: "Time", label: "Time" },
+  { id: "Nature", label: "Nature" },
+  { id: "Creativity", label: "Creativity" }
 ];
 const groupIds = themeGroups.map((group) => group.id);
 const artOfWarSections = [
@@ -434,6 +1404,15 @@ const artOfWarSections = [
     ]
   }
 ];
+const sourcedStrategyNote = sourcedNotes.find((quote) => quote.category === artOfWarThemeId);
+if (sourcedStrategyNote) {
+  artOfWarSections[0].notes.push({
+    ...sourcedStrategyNote,
+    background: "This line opens the Tactical Dispositions chapter of The Art of War. It first concerns military preparation: protect against defeat before relying on an opportunity to win. The precise date of the text is uncertain; the source records the chapter rather than assigning an unsupported year.",
+    reality: "An editorial application to everyday decisions: before chasing an opportunity, examine your own exposure and prepare what is within your control. What vulnerability would you want to address first? This modern application is not another quotation from Sun Tzu."
+  });
+}
+
 const categoryGroups = {
   短句: "Wisdom",
   认知: "Wisdom",
@@ -721,6 +1700,53 @@ function commentBoard(index) {
   `;
 }
 
+function safeSourceUrl(value) {
+  try {
+    const url = new URL(String(value));
+    return ["https:", "http:"].includes(url.protocol) ? url.href : "";
+  } catch {
+    return "";
+  }
+}
+
+function sourceNotes(quote) {
+  const reference = quote.reference;
+  if (!reference) return "";
+  const url = safeSourceUrl(reference.url);
+  if (!url) return "";
+  const additionalSources = (reference.additionalSources || [])
+    .map((source) => ({ ...source, url: safeSourceUrl(source.url) }))
+    .filter((source) => source.url)
+    .map((source) => `<li><a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a></li>`)
+    .join("");
+  return `
+    <div class="quote-source">
+      <p class="citation-author">${escapeHtml(reference.author)}</p>
+      <p class="citation-work"><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(reference.work)}</a></p>
+      <p class="citation-date">${escapeHtml(reference.date)}</p>
+      <details class="citation-details">
+        <summary>Context &amp; source notes</summary>
+        <div class="citation-copy">
+          <h4>Context · 编辑说明</h4>
+          <p>${escapeHtml(reference.context)}</p>
+          <h4>A question to keep · 编辑提问</h4>
+          <p>${escapeHtml(reference.question)}</p>
+          <dl>
+            <dt>Source &amp; location</dt>
+            <dd>${escapeHtml(reference.sourceType)} · ${escapeHtml(reference.locator)}</dd>
+            <dt>Original language &amp; translations</dt>
+            <dd>${escapeHtml(reference.originalLanguage)}<br>${escapeHtml(reference.chineseStatus)}<br>${escapeHtml(reference.englishStatus)}<br>${escapeHtml(reference.dutchStatus)}</dd>
+            ${reference.originalText ? `<dt>Source-language excerpt</dt><dd>${escapeHtml(reference.originalText)}</dd>` : ""}
+            <dt>Reference check</dt>
+            <dd>${escapeHtml(reference.verification)}</dd>
+          </dl>
+          ${additionalSources ? `<h4>Additional references</h4><ul>${additionalSources}</ul>` : ""}
+        </div>
+      </details>
+    </div>
+  `;
+}
+
 function quoteCard(quote, index) {
   const isLong = (quote.zh || "").length + (quote.en || "").length + (quote.nl || "").length > 180;
   const body = [
@@ -733,6 +1759,7 @@ function quoteCard(quote, index) {
       <div class="quote-body">
         ${body}
       </div>
+      ${sourceNotes(quote)}
       <div class="reader-actions" aria-label="Reader actions">
         ${reactionButton(index, "like", "Like", likeIconPath)}
         <button class="reaction-btn note-action" type="button" data-proofread="${index}">Refine</button>
@@ -753,7 +1780,7 @@ function getVisibleQuotes() {
     })
     .filter(({ quote }) => {
       if (!keyword) return true;
-      return normalize(`${quote.zh || ""}${quote.en || ""}${categoryLabel(quote.category)}${quote.category}${quote.source}`).includes(keyword);
+      return normalize(`${quote.zh || ""}${quote.en || ""}${quote.nl || ""}${categoryLabel(quote.category)}${quote.category}${quote.source}`).includes(keyword);
     });
 }
 
@@ -766,6 +1793,7 @@ function artPopularCard(entry) {
         <p class="quote-text quote-en">${escapeHtml(note.en)}</p>
         <p class="quote-nl"><span>Sun Tzu’s Strategy</span>${escapeHtml(section.title)}</p>
       </div>
+      ${sourceNotes(note)}
       <div class="reader-actions" aria-label="Reader actions">
         ${reactionButtonForId(id, "like", "Like", likeIconPath)}
         <a class="strategy-detail-btn" href="#collection/art-of-war/${sectionIndex}/${noteIndex}/background">Background</a>
@@ -834,6 +1862,8 @@ function artOfWarSectionCard(section, sectionIndex) {
       <li class="strategy-note">
         <strong>${escapeHtml(note.zh)}</strong>
         <em>${escapeHtml(note.en)}</em>
+        ${note.nl ? `<p class="quote-text quote-nl"><span>Dutch</span>${escapeHtml(note.nl)}</p>` : ""}
+        ${sourceNotes(note)}
         <div class="strategy-note-actions" aria-label="Sun Tzu’s Strategy note details">
           ${reactionButtonForId(artNoteKey(sectionIndex, noteIndex), "like", "Like", likeIconPath)}
           <a class="strategy-detail-btn" href="#collection/art-of-war/${sectionIndex}/${noteIndex}/background">Background</a>
@@ -878,6 +1908,8 @@ function renderArtOfWarDetail(sectionIndex, noteIndex, detailType) {
       <p class="eyebrow">${escapeHtml(section.title)}</p>
       <h3>${escapeHtml(note.zh)}</h3>
       <p class="strategy-detail-translation">${escapeHtml(note.en)}</p>
+      ${note.nl ? `<p class="quote-text quote-nl"><span>Dutch</span>${escapeHtml(note.nl)}</p>` : ""}
+      ${sourceNotes(note)}
       <div class="reader-actions strategy-detail-reactions" aria-label="Reader actions">
         ${reactionButtonForId(artNoteKey(sectionIndex, noteIndex), "like", "Like", likeIconPath)}
       </div>
