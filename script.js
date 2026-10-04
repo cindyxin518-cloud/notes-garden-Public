@@ -1242,6 +1242,7 @@ Object.entries(reactions).forEach(([index, reaction]) => {
 
 const allCategory = "All";
 const artOfWarThemeId = "The Art of War";
+const daoDeJingThemeId = "Dao De Jing";
 const themeGroups = [
   { id: artOfWarThemeId, label: "Sun Tzu’s Strategy" },
   { id: "Wisdom", label: "Wisdom" },
@@ -1255,7 +1256,8 @@ const themeGroups = [
   { id: "Uncertainty", label: "Uncertainty" },
   { id: "Time", label: "Time" },
   { id: "Nature", label: "Nature" },
-  { id: "Creativity", label: "Creativity" }
+  { id: "Creativity", label: "Creativity" },
+  { id: daoDeJingThemeId, label: "道德经" }
 ];
 const groupIds = themeGroups.map((group) => group.id);
 const artOfWarSections = [
@@ -1413,6 +1415,34 @@ if (sourcedStrategyNote) {
   });
 }
 
+const classicCollections = {
+  "art-of-war": {
+    theme: artOfWarThemeId,
+    label: "Sun Tzu’s Strategy",
+    sections: artOfWarSections,
+    sectionLabel: "strategy sections",
+    introTitle: "Inspired by The Art of War",
+    intro: "Explore timeless strategic thinking: how to read situations, make better decisions, and solve conflicts with wisdom rather than force."
+  },
+  "dao-de-jing": {
+    theme: daoDeJingThemeId,
+    label: "道德经",
+    sections: daoDeJingSections,
+    sectionLabel: "reading sections · 18 classic passages",
+    introTitle: "Dao De Jing · 原文、背景与现实联系",
+    intro: "依王弼本章节选读。原文附出处；背景与现实联系为本站编辑解读，并非古籍原话或历史故事。English and Dutch translations are editorial; authorship and the precise date of composition remain debated."
+  }
+};
+
+function classicSlugForTheme(theme) {
+  return Object.keys(classicCollections).find((slug) => classicCollections[slug].theme === theme);
+}
+
+function themeHref(group) {
+  const slug = classicSlugForTheme(group.id);
+  return slug ? `#collection/${slug}` : `#category/${encodeURIComponent(group.id)}`;
+}
+
 const categoryGroups = {
   短句: "Wisdom",
   认知: "Wisdom",
@@ -1461,6 +1491,7 @@ function groupForQuote(quote) {
 
 function categoryLabel(category) {
   if (category === allCategory || category === "全部") return allCategory;
+  if (category === daoDeJingThemeId) return "道德经";
   return categoryGroups[category] || (groupIds.includes(category) ? category : "Others");
 }
 
@@ -1471,7 +1502,7 @@ function resolveGroup(value) {
 }
 
 function updateStats() {
-  if (totalCount) totalCount.textContent = quotes.length;
+  if (totalCount) totalCount.textContent = quotes.length + getClassicNoteEntries().length;
   categoryCount.textContent = themeGroups.length;
   mostPopularCount.textContent = getTotalPopularityScore();
   readerAddedCount.textContent = publicVisitorQuotes.length + userQuotes.length;
@@ -1576,7 +1607,7 @@ async function addPublicVisitorNote(quote) {
 function renderFilters() {
   filters.innerHTML = themeGroups
     .map((group) => {
-      const href = group.id === artOfWarThemeId ? "#collection/art-of-war" : `#category/${encodeURIComponent(group.id)}`;
+      const href = themeHref(group);
       return `<a class="filter-chip ${group.id === activeCategory ? "is-active" : ""}" href="${href}">${escapeHtml(group.label)}</a>`;
     })
     .join("");
@@ -1584,26 +1615,15 @@ function renderFilters() {
 
 function renderCategoryCards() {
   categoryGrid.innerHTML = themeGroups
-    .map((group, index) => {
-      const number = String(index + 1).padStart(2, "0");
-      if (group.id === artOfWarThemeId) {
-        return `
-          <a class="category-card category-card-special" href="#collection/art-of-war">
-            <span class="category-index">${number}</span>
-            <strong>${escapeHtml(group.label)}</strong>
-            <span>Special notes on strategy, judgment, resources, information, leadership, and decisions.</span>
-            <em>Featured collection</em>
-          </a>
-        `;
-      }
-      const groupQuotes = quotes.filter((quote) => groupForQuote(quote) === group.id);
-      const sample = groupQuotes[0];
+    .map((group) => {
+      const slug = classicSlugForTheme(group.id);
+      const count = slug
+        ? classicCollections[slug].sections.reduce((total, section) => total + section.notes.length, 0)
+        : quotes.filter((quote) => groupForQuote(quote) === group.id).length;
       return `
-        <a class="category-card" href="#category/${encodeURIComponent(group.id)}">
-          <span class="category-index">${number}</span>
+        <a class="theme-link" href="${themeHref(group)}" aria-label="${escapeHtml(group.label)} · ${count} notes">
           <strong>${escapeHtml(group.label)}</strong>
-          <span>${groupQuotes.length} notes${sample ? ` · ${escapeHtml(sample.en || sample.zh)}` : ""}</span>
-          <em>Open collection</em>
+          <span class="theme-note-count">${count}</span>
         </a>
       `;
     })
@@ -1784,37 +1804,44 @@ function getVisibleQuotes() {
     });
 }
 
-function artPopularCard(entry) {
-  const { section, note, sectionIndex, noteIndex, id } = entry;
+function classicNoteCard(entry) {
+  const { section, note, sectionIndex, noteIndex, id, slug } = entry;
+  const label = classicCollections[slug].label;
   return `
     <article class="quote-card strategy-popular-card">
       <div class="quote-body">
         <p class="quote-text quote-zh">${escapeHtml(note.zh)}</p>
         <p class="quote-text quote-en">${escapeHtml(note.en)}</p>
-        <p class="quote-nl"><span>Sun Tzu’s Strategy</span>${escapeHtml(section.title)}</p>
+        ${note.nl ? `<p class="quote-nl"><span>Dutch</span>${escapeHtml(note.nl)}</p>` : ""}
+        <p class="classic-card-label">${escapeHtml(label)} · ${escapeHtml(section.title)}</p>
       </div>
       ${sourceNotes(note)}
       <div class="reader-actions" aria-label="Reader actions">
         ${reactionButtonForId(id, "like", "Like", likeIconPath)}
-        <a class="strategy-detail-btn" href="#collection/art-of-war/${sectionIndex}/${noteIndex}/background">Background</a>
-        <a class="strategy-detail-btn" href="#collection/art-of-war/${sectionIndex}/${noteIndex}/reality">Reality Link</a>
+        <a class="strategy-detail-btn" href="#collection/${slug}/${sectionIndex}/${noteIndex}/background">Background</a>
+        <a class="strategy-detail-btn" href="#collection/${slug}/${sectionIndex}/${noteIndex}/reality">Reality Link</a>
       </div>
     </article>
   `;
 }
 
 function renderQuotes() {
+  if (classicCollections[collectionMode]) {
+    renderClassicSections(collectionMode);
+    return;
+  }
+  if (collectionMode.endsWith("-detail")) return;
   const visibleQuotes = getVisibleQuotes();
   if (collectionMode === "popular") {
     const quoteItems = visibleQuotes.map(({ quote, index }) => ({
       score: getPopularityScore(index),
       html: quoteCard(quote, index)
     }));
-    const artItems = getArtOfWarNoteEntries()
-      .filter((entry) => getPopularityScoreById(entry.id) > 0)
+    const artItems = getClassicNoteEntries()
+      .filter((entry) => getPopularityScoreById(entry.id) > 0 && classicNoteMatches(entry))
       .map((entry) => ({
         score: getPopularityScoreById(entry.id),
-        html: artPopularCard(entry)
+        html: classicNoteCard(entry)
       }));
     const items = [...quoteItems, ...artItems].sort((a, b) => b.score - a.score);
     quoteGrid.innerHTML = items.map((item) => item.html).join("");
@@ -1822,9 +1849,14 @@ function renderQuotes() {
     emptyState.classList.toggle("is-visible", items.length === 0);
     return;
   }
-  quoteGrid.innerHTML = visibleQuotes.map(({ quote, index }) => quoteCard(quote, index)).join("");
-  resultCount.textContent = `Showing ${visibleQuotes.length} notes`;
-  emptyState.classList.toggle("is-visible", visibleQuotes.length === 0);
+  const classicItems = activeCategory === allCategory && collectionMode === "category"
+    ? getClassicNoteEntries().filter(classicNoteMatches)
+    : [];
+  quoteGrid.innerHTML = visibleQuotes.map(({ quote, index }) => quoteCard(quote, index)).join("")
+    + classicItems.map(classicNoteCard).join("");
+  const count = visibleQuotes.length + classicItems.length;
+  resultCount.textContent = `Showing ${count} notes`;
+  emptyState.classList.toggle("is-visible", count === 0);
   focusQuoteFromHash();
 }
 
@@ -1837,45 +1869,64 @@ function artNoteKey(sectionIndex, noteIndex) {
   return `art-${sectionIndex}-${noteIndex}`;
 }
 
-function getArtOfWarNote(sectionIndex, noteIndex) {
-  const section = artOfWarSections[Number(sectionIndex)];
+function getClassicNote(slug, sectionIndex, noteIndex) {
+  const section = classicCollections[slug]?.sections[Number(sectionIndex)];
   const note = section?.notes[Number(noteIndex)];
   if (!section || !note) return null;
-  return { section, note, sectionIndex: Number(sectionIndex), noteIndex: Number(noteIndex) };
+  return { section, note, sectionIndex: Number(sectionIndex), noteIndex: Number(noteIndex), slug };
 }
 
-function getArtOfWarNoteEntries() {
-  return artOfWarSections.flatMap((section, sectionIndex) => {
+function classicNoteKey(slug, sectionIndex, noteIndex) {
+  return slug === "art-of-war"
+    ? artNoteKey(sectionIndex, noteIndex)
+    : classicCollections[slug].sections[sectionIndex].notes[noteIndex].id;
+}
+
+function getClassicNoteEntries(slug) {
+  const slugs = slug ? [slug] : Object.keys(classicCollections);
+  return slugs.flatMap((key) => classicCollections[key].sections.flatMap((section, sectionIndex) => {
     return section.notes.map((note, noteIndex) => ({
       section,
       note,
       sectionIndex,
       noteIndex,
-      id: artNoteKey(sectionIndex, noteIndex)
+      slug: key,
+      id: classicNoteKey(key, sectionIndex, noteIndex)
     }));
-  });
+  }));
 }
 
-function artOfWarSectionCard(section, sectionIndex) {
+function classicNoteMatches(entry) {
+  const keyword = normalize(searchInput.value.trim());
+  if (!keyword) return true;
+  const { section, note, slug } = entry;
+  return normalize(`${note.zh} ${note.en} ${note.nl || ""} ${note.source || ""} ${note.reference?.author || ""} ${classicCollections[slug].label} ${section.title}`).includes(keyword);
+}
+
+function classicSectionCard(section, sectionIndex, slug) {
+  const label = classicCollections[slug].label;
   const notes = section.notes
-    .map((note, noteIndex) => `
+    .map((note, noteIndex) => ({note, noteIndex}))
+    .filter(({note}) => classicNoteMatches({section, note, slug}))
+    .map(({note, noteIndex}) => `
       <li class="strategy-note">
         <strong>${escapeHtml(note.zh)}</strong>
         <em>${escapeHtml(note.en)}</em>
         ${note.nl ? `<p class="quote-text quote-nl"><span>Dutch</span>${escapeHtml(note.nl)}</p>` : ""}
         ${sourceNotes(note)}
-        <div class="strategy-note-actions" aria-label="Sun Tzu’s Strategy note details">
-          ${reactionButtonForId(artNoteKey(sectionIndex, noteIndex), "like", "Like", likeIconPath)}
-          <a class="strategy-detail-btn" href="#collection/art-of-war/${sectionIndex}/${noteIndex}/background">Background</a>
-          <a class="strategy-detail-btn" href="#collection/art-of-war/${sectionIndex}/${noteIndex}/reality">Reality Link</a>
+        <div class="strategy-note-actions" aria-label="${escapeHtml(label)} note details">
+          ${reactionButtonForId(classicNoteKey(slug, sectionIndex, noteIndex), "like", "Like", likeIconPath)}
+          <a class="strategy-detail-btn" href="#collection/${slug}/${sectionIndex}/${noteIndex}/background">Background</a>
+          <a class="strategy-detail-btn" href="#collection/${slug}/${sectionIndex}/${noteIndex}/reality">Reality Link</a>
         </div>
       </li>
     `)
     .join("");
+  if (!notes) return "";
 
   return `
     <article class="strategy-card">
-      <span>Sun Tzu’s Strategy</span>
+      <span>${escapeHtml(label)}</span>
       <h3>${escapeHtml(section.title)}</h3>
       <p>${escapeHtml(section.detail)}</p>
       <ul class="strategy-notes">
@@ -1885,41 +1936,52 @@ function artOfWarSectionCard(section, sectionIndex) {
   `;
 }
 
-function renderArtOfWarSections() {
-  quoteGrid.innerHTML = artOfWarSections.map(artOfWarSectionCard).join("");
-  resultCount.textContent = `${artOfWarSections.length} strategy sections`;
-  emptyState.classList.remove("is-visible");
+function renderClassicSections(slug) {
+  const book = classicCollections[slug];
+  quoteGrid.innerHTML = book.sections.map((section, index) => classicSectionCard(section, index, slug)).join("");
+  const matchingCount = getClassicNoteEntries(slug).filter(classicNoteMatches).length;
+  resultCount.textContent = searchInput.value.trim()
+    ? `Showing ${matchingCount} matching passages`
+    : `${book.sections.length} ${book.sectionLabel}`;
+  emptyState.classList.toggle("is-visible", matchingCount === 0);
 }
 
-function renderArtOfWarDetail(sectionIndex, noteIndex, detailType) {
-  const item = getArtOfWarNote(sectionIndex, noteIndex);
+function classicDetailCopy(value) {
+  if (typeof value === "string") return `<p>${escapeHtml(value)}</p>`;
+  return `<p lang="zh">${escapeHtml(value.zh)}</p><p lang="en" class="classic-detail-english">${escapeHtml(value.en)}</p>`;
+}
+
+function renderClassicDetail(slug, sectionIndex, noteIndex, detailType) {
+  const item = getClassicNote(slug, sectionIndex, noteIndex);
   if (!item || !artDetailLabels[detailType]) {
-    showArtOfWarCollection();
+    showClassicCollection(slug);
     return;
   }
   const { section, note } = item;
+  const label = classicCollections[slug].label;
   const detailText = detailType === "background" ? note.background : note.reality;
-  const backgroundHref = `#collection/art-of-war/${sectionIndex}/${noteIndex}/background`;
-  const realityHref = `#collection/art-of-war/${sectionIndex}/${noteIndex}/reality`;
+  const backgroundHref = `#collection/${slug}/${sectionIndex}/${noteIndex}/background`;
+  const realityHref = `#collection/${slug}/${sectionIndex}/${noteIndex}/reality`;
 
   quoteGrid.innerHTML = `
     <article class="strategy-detail-page">
-      <a class="back-link strategy-back-link" href="#collection/art-of-war">Back to Sun Tzu’s Strategy</a>
+      <a class="back-link strategy-back-link" href="#collection/${slug}">Back to ${escapeHtml(label)}</a>
       <p class="eyebrow">${escapeHtml(section.title)}</p>
       <h3>${escapeHtml(note.zh)}</h3>
       <p class="strategy-detail-translation">${escapeHtml(note.en)}</p>
       ${note.nl ? `<p class="quote-text quote-nl"><span>Dutch</span>${escapeHtml(note.nl)}</p>` : ""}
       ${sourceNotes(note)}
       <div class="reader-actions strategy-detail-reactions" aria-label="Reader actions">
-        ${reactionButtonForId(artNoteKey(sectionIndex, noteIndex), "like", "Like", likeIconPath)}
+        ${reactionButtonForId(classicNoteKey(slug, Number(sectionIndex), Number(noteIndex)), "like", "Like", likeIconPath)}
       </div>
-      <div class="strategy-note-actions strategy-detail-tabs" aria-label="Switch Sun Tzu’s Strategy detail">
+      <div class="strategy-note-actions strategy-detail-tabs" aria-label="Switch ${escapeHtml(label)} detail">
         <a class="strategy-detail-btn ${detailType === "background" ? "is-active" : ""}" href="${backgroundHref}">Background</a>
         <a class="strategy-detail-btn ${detailType === "reality" ? "is-active" : ""}" href="${realityHref}">Reality Link</a>
       </div>
       <section class="strategy-detail-copy" aria-label="${escapeHtml(artDetailLabels[detailType])}">
         <h4>${escapeHtml(artDetailLabels[detailType])}</h4>
-        <p>${escapeHtml(detailText)}</p>
+        ${slug === "dao-de-jing" ? `<p class="editorial-label">${detailType === "background" ? "背景解读" : "现实联系"} · Editorial interpretation, not original text</p>` : ""}
+        ${classicDetailCopy(detailText)}
       </section>
     </article>
   `;
@@ -2082,18 +2144,19 @@ if (statsBand) statsBand.addEventListener("click", (event) => {
   const button = event.target.closest("[data-stat-link]");
   if (!button) return;
 
-  if (button.dataset.statLink === "art-of-war") {
-    window.location.hash = "#collection/art-of-war";
+  if (classicCollections[button.dataset.statLink]) {
+    window.location.hash = `#collection/${button.dataset.statLink}`;
     return;
   }
 
   if (button.dataset.statLink === "all") {
+    searchInput.value = "";
     window.location.hash = `#category/${allCategory}`;
     return;
   }
 
   if (button.dataset.statLink === "themes") {
-    document.querySelector("#categories").scrollIntoView({ behavior: "smooth", block: "start" });
+    document.querySelector("#themes").scrollIntoView({ behavior: "smooth", block: "start" });
     return;
   }
 
@@ -2188,8 +2251,10 @@ function showHome() {
 
 function showCategory(category) {
   activeCategory = resolveGroup(category);
-  if (activeCategory === artOfWarThemeId) {
-    showArtOfWarCollection();
+  if (activeCategory !== allCategory) searchInput.value = "";
+  const classicSlug = classicSlugForTheme(activeCategory);
+  if (classicSlug) {
+    showClassicCollection(classicSlug);
     return;
   }
   collectionMode = "category";
@@ -2220,31 +2285,34 @@ function showSpecialCollection(mode) {
   renderQuotes();
 }
 
-function showArtOfWarCollection() {
-  collectionMode = "art-of-war";
-  activeCategory = artOfWarThemeId;
+function showClassicCollection(slug) {
+  const book = classicCollections[slug];
+  searchInput.value = "";
+  collectionMode = slug;
+  activeCategory = book.theme;
   categoryHome.hidden = true;
   collection.hidden = false;
-  collectionTitle.textContent = "Sun Tzu’s Strategy";
-  document.title = "Sun Tzu’s Strategy | Notes Garden";
-  collectionNote.innerHTML = "<strong>Inspired by The Art of War</strong><span>Explore timeless strategic thinking: how to read situations, make better decisions, and solve conflicts with wisdom rather than force.</span>";
+  collectionTitle.textContent = book.label;
+  document.title = `${book.label} | Notes Garden`;
+  collectionNote.innerHTML = `<strong>${escapeHtml(book.introTitle)}</strong><span>${escapeHtml(book.intro)}</span>`;
   updateStats();
   filters.hidden = false;
   renderFilters();
-  renderArtOfWarSections();
+  renderClassicSections(slug);
 }
 
-function showArtOfWarDetail(sectionIndex, noteIndex, detailType) {
-  collectionMode = "art-of-war-detail";
-  activeCategory = artOfWarThemeId;
+function showClassicDetail(slug, sectionIndex, noteIndex, detailType) {
+  const book = classicCollections[slug];
+  collectionMode = `${slug}-detail`;
+  activeCategory = book.theme;
   categoryHome.hidden = true;
   collection.hidden = false;
-  collectionTitle.textContent = artDetailLabels[detailType] || "Sun Tzu’s Strategy";
-  document.title = `${collectionTitle.textContent} | Sun Tzu’s Strategy | Notes Garden`;
-  collectionNote.textContent = "Inspired by The Art of War. A closer reading of one strategy note.";
+  collectionTitle.textContent = artDetailLabels[detailType] || book.label;
+  document.title = `${collectionTitle.textContent} | ${book.label} | Notes Garden`;
+  collectionNote.textContent = `${book.introTitle}. A closer reading of one passage.`;
   updateStats();
   filters.hidden = true;
-  renderArtOfWarDetail(sectionIndex, noteIndex, detailType);
+  renderClassicDetail(slug, sectionIndex, noteIndex, detailType);
 }
 
 function route() {
@@ -2257,13 +2325,14 @@ function route() {
     showSpecialCollection("visitor");
     return;
   }
-  const artDetailMatch = hash.match(/^#collection\/art-of-war\/(\d+)\/(\d+)\/(background|reality)$/);
-  if (artDetailMatch) {
-    showArtOfWarDetail(artDetailMatch[1], artDetailMatch[2], artDetailMatch[3]);
+  const classicDetailMatch = hash.match(/^#collection\/(art-of-war|dao-de-jing)\/(\d+)\/(\d+)\/(background|reality)$/);
+  if (classicDetailMatch) {
+    showClassicDetail(classicDetailMatch[1], classicDetailMatch[2], classicDetailMatch[3], classicDetailMatch[4]);
     return;
   }
-  if (hash === "#collection/art-of-war") {
-    showArtOfWarCollection();
+  const classicMatch = hash.match(/^#collection\/(art-of-war|dao-de-jing)$/);
+  if (classicMatch) {
+    showClassicCollection(classicMatch[1]);
     return;
   }
   if (hash.startsWith("#category/")) {
@@ -2286,16 +2355,10 @@ function focusQuoteFromHash() {
   card.scrollIntoView({ behavior: "smooth", block: "center" });
 }
 
-searchInput.addEventListener("input", () => {
-  if (collection.hidden) {
-    window.location.hash = `#category/${allCategory}`;
-    return;
-  }
-  if (collectionMode === "art-of-war") {
-    renderArtOfWarSections();
-    return;
-  }
-  renderQuotes();
+document.querySelector("#searchForm").addEventListener("submit", (event) => {
+  event.preventDefault();
+  window.location.hash = `#category/${allCategory}`;
+  showCategory(allCategory);
 });
 themeBtn.addEventListener("click", () => {
   document.body.dataset.theme = document.body.dataset.theme === "evening" ? "" : "evening";

@@ -7,7 +7,7 @@
     <meta name="description" content="A personal notes garden for ideas from books, conversations, and everyday life — arranged by theme." />
     <meta name="theme-color" content="#f4f2ea" />
     <link rel="icon" href="assets/minigrowlab-logo.png" />
-    <link rel="stylesheet" href="styles.css?v=20261004-sourced-notes" />
+    <link rel="stylesheet" href="styles.css?v=20261004-classic-collections" />
     <script
       defer
       src="https://static.cloudflareinsights.com/beacon.min.js"
@@ -55,42 +55,47 @@
             </aside>
           </section>
 
-          <div class="collection-tools home-tools" id="themes">
-            <div class="themes-title">
-              <p class="eyebrow">BROWSE THE GARDEN</p>
-              <h2>Read by theme</h2>
-            </div>
-            <label class="search-box">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m16.5 16.5 4 4" /></svg>
-              <input id="searchInput" type="search" placeholder="Search the notes" autocomplete="off" />
-            </label>
-          </div>
-          <div class="section-heading themes-heading">
-            <p>Choose a collection. Each one opens into notes, sources, and ideas worth returning to.</p>
-          </div>
-          <div class="category-grid" id="categoryGrid"></div>
-
           <section class="stats-band" aria-label="Curated paths">
             <button type="button" data-stat-link="art-of-war">
               <span class="path-number">01</span>
               <strong>Sun Tzu’s Strategy</strong>
               <span>A focused reading of judgment, resources, and decisions.</span>
             </button>
-            <button type="button" data-stat-link="all">
+            <button type="button" data-stat-link="dao-de-jing">
               <span class="path-number">02</span>
+              <strong lang="zh">道德经</strong>
+              <span>Dao De Jing · Readings on nature, balance, and the art of not forcing.</span>
+            </button>
+            <button type="button" data-stat-link="all">
+              <span class="path-number">03</span>
               <strong>All reflections</strong>
               <span>Wander through the complete personal collection.</span>
             </button>
             <button type="button" data-stat-link="popular">
-              <span class="path-number">03</span>
+              <span class="path-number">04</span>
               <strong>Reader favorites</strong>
               <span><b id="favoriteCount">0</b> appreciations across the garden.</span>
             </button>
             <button type="button" data-stat-link="reader-added">
-              <span class="path-number">04</span>
+              <span class="path-number">05</span>
               <strong>Visitor notes</strong>
               <span><b id="readerAddedCount">0</b> thoughts shared by readers.</span>
             </button>
+          </section>
+
+          <section class="theme-directory" id="themes" aria-label="Browse by theme">
+            <div class="collection-tools home-tools">
+              <div class="themes-title">
+                <p class="eyebrow">BROWSE THE GARDEN</p>
+                <h2>Read by theme</h2>
+              </div>
+              <form class="search-box" id="searchForm" role="search">
+                <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m16.5 16.5 4 4" /></svg>
+                <input id="searchInput" type="search" placeholder="Search notes & classics" aria-label="Search all notes and classics" autocomplete="off" />
+                <button class="search-submit" type="submit" aria-label="Search">Search</button>
+              </form>
+            </div>
+            <div class="category-grid" id="categoryGrid"></div>
           </section>
         </section>
 
@@ -224,6 +229,7 @@
       </form>
     </div>
 
-    <script src="script.js?v=20261004-sourced-notes"></script>
+    <script src="daodejing.js?v=20261004-classic-collections"></script>
+    <script src="script.js?v=20261004-classic-collections"></script>
   </body>
 </html>
