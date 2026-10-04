@@ -144,6 +144,20 @@ button {
   padding: 0 16px;
   font-size: 0.86rem;
   box-shadow: 0 12px 26px rgba(35, 50, 56, 0.08);
+  white-space: nowrap;
+}
+
+.home-lab-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 14px;
+}
+
+.home-lab-actions .lab-link {
+  min-height: 48px;
+  padding: 0 22px;
+  font-size: 0.95rem;
 }
 
 .icon-button {

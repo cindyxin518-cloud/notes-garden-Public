@@ -1,137 +1,42 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-  <title>Cadence Metronome - 步频节拍器</title>
-  <meta name="theme-color" content="#070B12">
-  <meta name="apple-mobile-web-app-capable" content="yes">
-  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-  <link rel="manifest" href="manifest.webmanifest">
-  <link rel="apple-touch-icon" href="icons/icon-192.png">
-  <link rel="stylesheet" href="css/style.css?v=20260830-clean2">
-  <script>
-    // 强制清除历史 Service Worker 缓存，确保立即显示最新单屏版
-    if ('serviceWorker' in navigator) {
-      navigator.serviceWorker.getRegistrations().then(function(registrations) {
-        for (let registration of registrations) {
-          registration.unregister();
-        }
-      });
-    }
-    if ('caches' in window) {
-      caches.keys().then(function(names) {
-        for (let name of names) caches.delete(name);
-      });
-    }
-  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#eaf9f5">
+  <title>Metronome · MiniGrowLab</title>
+  <link rel="stylesheet" href="../lab-access.css?v=20261004-private-labs">
+  <script id="lab-config" type="application/json">{"id":"metronome","mode":"encrypted","salt":"2X6eJKdtt7W4U44qq4HjUg==","iterations":600000,"check":{"iv":"VxXjCMuVVSDNVK/p","data":"RbTAK69EPHwdXHKw0jCD5eI4tcd+ZR43Biirl+re5njHz5km/pr7uRj7Y7QArEU="},"bundle":{"url":"protected/application-3052fd6fdfa9686d.bin","iv":"bt6VTZ/bnPTo6sPh"}}</script>
+  <script defer src="../lab-access.js?v=20261004-private-labs"></script>
 </head>
 <body>
-  <div class="app-container">
-    <!-- 顶部状态栏与导航 -->
-    <header class="app-header">
-      <div class="brand-group">
-        <div class="brand-icon">🏃</div>
-        <div class="brand-text">
-          <h1 id="appTitle">Cadence Metronome</h1>
-          <p id="appSubtitle">Background Audio Mixer</p>
-        </div>
-      </div>
-      <div class="header-actions">
-        <button id="langToggleBtn" class="lang-btn">🇨🇳 中文</button>
-        <div id="statusBadge" class="status-badge">Ready</div>
-      </div>
+  <div class="access-shell">
+    <header class="access-header">
+      <a class="garden-brand" href="../"><img src="../assets/minigrowlab-logo.png" alt=""><span>MiniGrowLab</span></a>
+      <a class="garden-return" href="../">← 返回首页</a>
     </header>
-
-    <main class="main-content">
-      <!-- 核心节拍器卡片 -->
-      <section class="card metronome-card">
-        <!-- 左右脚指示器 -->
-        <div class="foot-indicator-row">
-          <div id="leftFoot" class="foot-pill">LEFT (L)</div>
-          <div id="rightFoot" class="foot-pill">RIGHT (R)</div>
-        </div>
-
-        <!-- 步频大圆盘 (绝对居中) -->
-        <div id="spmCircle" class="spm-circle-wrapper" title="点击播放/暂停">
-          <div class="spm-circle-inner">
-            <span id="spmDisplay" class="spm-num">180</span>
-            <span id="spmUnit" class="spm-unit">SPM CADENCE</span>
+    <main>
+      <section class="access-card" aria-labelledby="access-title">
+        <span class="access-icon" aria-hidden="true">🏃</span>
+        <p class="access-eyebrow">MINIGROWLAB · PERSONAL LABS</p>
+        <h1 id="access-title">Metronome</h1>
+        <p class="access-intro">找到你的步频与节奏。输入密码，打开节拍器。</p>
+        <form id="unlock-form">
+          <label for="password">访问密码 <span>/ Password</span></label>
+          <div class="access-password">
+            <input id="password" name="password" type="password" required maxlength="128" autocomplete="current-password" placeholder="请输入访问密码" aria-describedby="access-status">
+            <button id="password-toggle" class="access-eye" type="button" aria-label="显示密码" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button>
           </div>
-        </div>
-
-        <!-- 步频加减微调按钮 -->
-        <div class="adjust-btn-row">
-          <button class="adj-btn" data-step="-5">-5</button>
-          <button class="adj-btn" data-step="-1">-1</button>
-          <button class="adj-btn" data-step="1">+1</button>
-          <button class="adj-btn" data-step="5">+5</button>
-        </div>
-
-        <!-- 步频滑动条 -->
-        <div class="slider-row">
-          <input type="range" id="spmSlider" min="120" max="240" step="1" value="180" class="yellow-slider">
-        </div>
-
-        <!-- 预设步频档位 -->
-        <div class="presets-row">
-          <button class="preset-btn" data-spm="160">160</button>
-          <button class="preset-btn" data-spm="170">170</button>
-          <button class="preset-btn" data-spm="175">175</button>
-          <button class="preset-btn active" data-spm="180">180</button>
-          <button class="preset-btn" data-spm="190">190</button>
-        </div>
-
-        <!-- 开始/暂停大按键 -->
-        <button id="playBtn" class="play-btn">
-          <span id="playIcon">▶</span>
-          <span id="playText">START (180 SPM)</span>
-        </button>
-
-        <!-- 运动统计 -->
-        <div class="stats-row">
-          <div class="stat-col">
-            <span id="workoutDuration" class="stat-val">00:00</span>
-            <span id="durationLabel" class="stat-lbl">Duration</span>
-          </div>
-          <div class="stat-col">
-            <span id="workoutSteps" class="stat-val">0</span>
-            <span id="stepsLabel" class="stat-lbl">Total Steps</span>
-          </div>
-        </div>
-      </section>
-
-      <!-- 音色与音量卡片 -->
-      <section class="card sound-card">
-        <h2 id="soundHeaderTitle" class="card-title">🔊 Sound & Volume</h2>
-        
-        <!-- 音色切换 -->
-        <div class="sound-tabs-scroll">
-          <button class="sound-chip active" data-sound="woodblock">🪵 Woodblock</button>
-          <button class="sound-chip" data-sound="dualtone">👟 Dual-Tone</button>
-          <button class="sound-chip" data-sound="click">⏱️ Mechanical</button>
-          <button class="sound-chip" data-sound="beep">⚡ Electronic</button>
-          <button class="sound-chip" data-sound="cowbell">🔔 Cowbell</button>
-        </div>
-
-        <!-- 音量滑动条 -->
-        <div class="volume-section">
-          <div class="volume-header">
-            <span id="volumeLabel">Volume: 80%</span>
-          </div>
-          <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.8" class="yellow-slider">
-        </div>
-
-        <!-- 振动反馈开关 -->
-        <label class="vibrate-row">
-          <input type="checkbox" id="vibrateToggle" class="vibrate-cb">
-          <span id="vibrateLabel">Haptic Beat Vibration</span>
-        </label>
+          <button id="unlock" class="access-submit" type="submit">进入 Metronome <span aria-hidden="true">→</span></button>
+        </form>
+        <p id="access-status" class="access-status" role="status" aria-live="polite"></p>
+        <p class="access-note">输入密码后即可访问，无需注册账号。</p>
+        <noscript><p>请开启浏览器 JavaScript 后访问。</p></noscript>
       </section>
     </main>
+    <footer>Small thoughts. Shared curiosity. · MiniGrowLab</footer>
   </div>
-
-  <script src="js/audio.js?v=20260830-clean"></script>
-  <script src="js/app.js?v=20260830-clean"></script>
 </body>
 </html>

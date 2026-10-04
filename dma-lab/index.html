@@ -1,40 +1,42 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="description" content="DMA Lab｜数字营销学习与分析工具箱 — a bilingual Digital Marketing & Analytics learning toolbox based on lecture and tutorial slides.">
-  <meta name="theme-color" content="#123fdb"><title>DMA Lab｜数字营销学习与分析工具箱</title>
-  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='6' fill='%23123fdb'/%3E%3Cpath d='M7 24V17h4v7m3 0V11h4v13m3 0V6h4v18' stroke='white' stroke-width='3'/%3E%3C/svg%3E">
-  <link rel="stylesheet" href="styles.css"><script defer src="content.js"></script><script defer src="chains.js"></script><script defer src="frameworks.js"></script><script defer src="reader.js"></script><script defer src="framework-visuals.js"></script><script defer src="framework-ui.js"></script><script defer src="app.js"></script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <meta name="referrer" content="no-referrer">
+  <meta name="theme-color" content="#eaf9f5">
+  <title>DMA Lab · MiniGrowLab</title>
+  <link rel="stylesheet" href="../lab-access.css?v=20261004-private-labs">
+  <script id="lab-config" type="application/json">{"id":"dma-lab","mode":"encrypted","salt":"izLdTQkqMyYJvjbB8EcLSw==","iterations":600000,"check":{"iv":"phqmwswAbrLEQgYl","data":"bJ51dZwhjHAbQ4YbXiZuCkzuXpFULeeatbCHls8U9kRL2Snh46MIGBjZ7nqa"},"bundle":{"url":"protected/application-3f17e8948fda8351.bin","iv":"kdJTfIey28WJotRN"}}</script>
+  <script defer src="../lab-access.js?v=20261004-private-labs"></script>
 </head>
-<body data-lang="zh">
-  <a class="skip-link" href="#main">跳到内容 / Skip to content</a>
-  <aside class="sidebar">
-    <a class="brand" href="#overview" aria-label="DMA Lab｜数字营销学习与分析工具箱"><span class="brand-mark">DMA</span><span>DMA Lab<br><small>Learning toolbox</small></span></a>
-    <div class="sidebar-caption">LEARNING TOOLBOX<br><span>课程学习工具箱</span></div>
-    <a class="garden-home" href="../">← MiniGrowLab <span class="zh">首页</span><span class="en" lang="en">home</span></a>
-    <nav id="navigation" aria-label="课程导航 / Course navigation"></nav>
-    <div class="sidebar-foot">UvA · EPMS<br>2025–2026 course materials</div>
-  </aside>
-  <div class="workspace">
-    <header class="topbar"><span class="course-label">LECTURES & TUTORIALS <span>课件与练习指导</span></span>
-      <div class="topbar-actions"><button type="button" class="fw-launch" data-fw-open><span class="zh">框架速查</span><span class="en" lang="en">Framework lookup</span></button><div class="languages" role="group" aria-label="语言 / Language">
-        <button data-lang="zh" aria-pressed="true">中文</button><button data-lang="both" aria-pressed="false">中 / EN</button><button data-lang="en" aria-pressed="false">English</button>
-      </div></div>
+<body>
+  <div class="access-shell">
+    <header class="access-header">
+      <a class="garden-brand" href="../"><img src="../assets/minigrowlab-logo.png" alt=""><span>MiniGrowLab</span></a>
+      <a class="garden-return" href="../">← 返回首页</a>
     </header>
-    <main id="main" tabindex="-1"></main>
-    <footer><span>DMA Lab · Digital Marketing & Analytics</span><span>Lecture & tutorial synthesis · 2025–2026</span></footer>
+    <main>
+      <section class="access-card" aria-labelledby="access-title">
+        <span class="access-icon" aria-hidden="true">📊</span>
+        <p class="access-eyebrow">MINIGROWLAB · PERSONAL LABS</p>
+        <h1 id="access-title">DMA Lab</h1>
+        <p class="access-intro">数字营销学习与分析工具箱。输入密码，继续学习。</p>
+        <form id="unlock-form">
+          <label for="password">访问密码 <span>/ Password</span></label>
+          <div class="access-password">
+            <input id="password" name="password" type="password" required maxlength="128" autocomplete="current-password" placeholder="请输入访问密码" aria-describedby="access-status">
+            <button id="password-toggle" class="access-eye" type="button" aria-label="显示密码" aria-pressed="false"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M2 12s3.5-6 10-6 10 6 10 6-3.5 6-10 6S2 12 2 12Z"/><circle cx="12" cy="12" r="3"/></svg></button>
+          </div>
+          <button id="unlock" class="access-submit" type="submit">进入 DMA Lab <span aria-hidden="true">→</span></button>
+        </form>
+        <p id="access-status" class="access-status" role="status" aria-live="polite"></p>
+        <p class="access-note">输入密码后即可访问，无需注册账号。</p>
+        <noscript><p>请开启浏览器 JavaScript 后访问。</p></noscript>
+      </section>
+    </main>
+    <footer>Small thoughts. Shared curiosity. · MiniGrowLab</footer>
   </div>
-  <dialog id="framework-quick" aria-labelledby="framework-quick-title">
-    <header class="fw-quick-header"><h2 id="framework-quick-title"><span class="zh">框架速查</span><span class="en" lang="en">Framework lookup</span></h2><button id="framework-quick-close" type="button" aria-label="关闭速查 / Close lookup">×</button></header>
-    <div id="framework-quick-body"></div>
-  </dialog>
-  <div id="fw-global-status" class="sr-only" role="status"></div>
-  <dialog id="pdf-viewer" aria-labelledby="pdf-title">
-    <header class="pdf-header"><div><p class="eyebrow">ORIGINAL COURSE MATERIAL</p><h2 id="pdf-title"></h2><p id="pdf-page-label" class="small-meta"></p></div><button id="pdf-close" type="button" aria-label="关闭课件 / Close slides">×</button></header>
-    <div class="pdf-toolbar"><a id="pdf-open" target="_blank" rel="noopener"><span class="zh">新标签打开</span><span class="en" lang="en">Open in new tab</span> ↗</a><a id="pdf-download" download><span class="zh">下载原版 PDF</span><span class="en" lang="en">Download original PDF</span> ↓</a><span class="pdf-hint"><span class="zh">原版内容未修改；页码包含 PDF 封面。可翻阅整份课件。</span><span class="en" lang="en">Original content is unchanged; page numbers include PDF covers. Browse the full deck below.</span></span></div>
-    <form id="pdf-navigation" class="pdf-navigation"><button id="pdf-prev" type="button" disabled aria-label="上一页 / Previous page">←</button><label for="pdf-current"><span class="zh">PDF 页码</span><span class="en" lang="en">PDF page</span></label><input id="pdf-current" type="number" min="1" value="1" aria-label="PDF 页码 / PDF page"><span id="pdf-total">/ …</span><button type="submit"><span class="zh">跳转</span><span class="en" lang="en">Go</span></button><button id="pdf-next" type="button" disabled aria-label="下一页 / Next page">→</button><select id="pdf-zoom" aria-label="缩放 / Zoom"><option value="page">整页 / Fit page</option><option value="width">页宽 / Fit width</option><option value="1">100%</option><option value="1.5">150%</option><option value="2">200%</option></select></form>
-    <div id="pdf-frame" class="pdf-canvas-wrap"><p id="pdf-status" role="status" aria-live="polite"></p><canvas id="pdf-canvas" role="img" aria-label="原版课件页面 / Original slide page" hidden></canvas><div id="pdf-accessible-text" class="sr-only"></div></div>
-  </dialog>
 </body>
 </html>

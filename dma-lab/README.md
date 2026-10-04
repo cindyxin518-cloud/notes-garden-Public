@@ -2,10 +2,10 @@
 
 Live page: https://www.minigrowlab.com/dma-lab/
 
-This static page is unpacked from the saved `DMA-Lab.html` version dated 3 October 2026. It includes the bilingual course toolbox, five-step learning chains, framework library, 27 B2B toolkit modules, and 12 original course PDFs.
+The current website requires a password. The application, 27 B2B modules, PDF viewer, and 12 original course PDFs are shipped as authenticated AES-GCM encrypted files in `protected/`. The browser derives its decryption key using PBKDF2-SHA-256 and 600,000 iterations. The access page does not contain the password or key.
 
-`index.html` loads the scripts and stylesheet in this folder. `materials/` contains the original PDFs, and `vendor/` contains the PDF viewer and its license. Keep the whole folder together when updating or publishing.
+After unlocking, original PDFs and PDF viewer modules are downloaded and decrypted only when needed. Language preferences, saved reasoning, and video collections remain in their existing browser storage. Access is remembered within the current tab for up to 12 hours; use the Lock button to require the password again.
 
-To update, edit this existing page or synchronize a newer DMA Lab export into this folder, retain the MiniGrowLab return link, and verify course navigation, language switching, B2B exports, and PDF viewing before publishing. Publishing the GitHub `main` branch updates the live page through GitHub Pages. The repository's publishing helper also copies `dma-lab/` when that folder is present.
+The editable originals remain in the local project, with the prior serving versions also recoverable from Git. Older public repository revisions are not made private by this webpage password.
 
-Learning preferences and saved answers are stored by the browser. These records do not automatically transfer from a local file or localhost to the live website.
+To update, revise the retained source, rebuild the encrypted assets with the intended password, and publish the matching access page and encrypted files together. Never copy plaintext course assets back into this serving folder. The publishing helper mirrors file removals to prevent obsolete plaintext assets from being restored.

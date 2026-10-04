@@ -20,11 +20,26 @@ cp "$SITE_DIR/publish-to-github.sh" "$PUBLISH_DIR/"
 
 git -C "$PUBLISH_DIR" add index.html styles.css script.js CNAME worker-visitor-counter.js worker-job-agent.js publish-to-github.sh assets admin
 
-if [[ -d "$SITE_DIR/dma-lab" ]]; then
-  mkdir -p "$PUBLISH_DIR/dma-lab"
-  cp -R "$SITE_DIR/dma-lab/." "$PUBLISH_DIR/dma-lab/"
-  git -C "$PUBLISH_DIR" add dma-lab
-fi
+for ACCESS_ASSET in lab-access.js lab-access.css; do
+  if [[ -f "$SITE_DIR/$ACCESS_ASSET" ]]; then
+    cp "$SITE_DIR/$ACCESS_ASSET" "$PUBLISH_DIR/"
+    git -C "$PUBLISH_DIR" add "$ACCESS_ASSET"
+  fi
+done
+
+for LAB_DIRECTORY in dma-lab videolab metronome; do
+  if [[ -d "$SITE_DIR/$LAB_DIRECTORY" ]]; then
+    # Mirror tracked removals so obsolete plaintext files are not republished.
+    while IFS= read -r -d '' TRACKED_FILE; do
+      if [[ ! -e "$SITE_DIR/$TRACKED_FILE" ]]; then
+        git -C "$PUBLISH_DIR" rm -- "$TRACKED_FILE"
+      fi
+    done < <(git -C "$PUBLISH_DIR" ls-files -z -- "$LAB_DIRECTORY")
+    mkdir -p "$PUBLISH_DIR/$LAB_DIRECTORY"
+    cp -R "$SITE_DIR/$LAB_DIRECTORY/." "$PUBLISH_DIR/$LAB_DIRECTORY/"
+    git -C "$PUBLISH_DIR" add "$LAB_DIRECTORY"
+  fi
+done
 
 if git -C "$PUBLISH_DIR" diff --cached --quiet; then
   echo "No website changes to publish."
