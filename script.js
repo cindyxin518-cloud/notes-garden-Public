@@ -191,6 +191,9 @@ const founderPasswordToggle = document.querySelector("#founderPasswordToggle");
 const founderStatus = document.querySelector("#founderStatus");
 const founderClose = document.querySelector("#founderClose");
 const founderCancel = document.querySelector("#founderCancel");
+const privateLabsEntry = document.querySelector("#privateLabsEntry");
+const privateLabsModal = document.querySelector("#privateLabsModal");
+const privateLabsClose = document.querySelector("#privateLabsClose");
 
 let activeCategory = "";
 let collectionMode = "category";
@@ -602,13 +605,15 @@ function renderFilters() {
 
 function renderCategoryCards() {
   categoryGrid.innerHTML = themeGroups
-    .map((group) => {
+    .map((group, index) => {
+      const number = String(index + 1).padStart(2, "0");
       if (group.id === artOfWarThemeId) {
         return `
           <a class="category-card category-card-special" href="#collection/art-of-war">
+            <span class="category-index">${number}</span>
             <strong>${escapeHtml(group.label)}</strong>
             <span>Special notes on strategy, judgment, resources, information, leadership, and decisions.</span>
-            <em>Open</em>
+            <em>Featured collection</em>
           </a>
         `;
       }
@@ -616,9 +621,10 @@ function renderCategoryCards() {
       const sample = groupQuotes[0];
       return `
         <a class="category-card" href="#category/${encodeURIComponent(group.id)}">
+          <span class="category-index">${number}</span>
           <strong>${escapeHtml(group.label)}</strong>
           <span>${groupQuotes.length} notes${sample ? ` · ${escapeHtml(sample.en || sample.zh)}` : ""}</span>
-          <em>Open</em>
+          <em>Open collection</em>
         </a>
       `;
     })
@@ -969,6 +975,20 @@ function closeFounderDialog() {
   founderStatus.textContent = "";
 }
 
+function openPrivateLabs() {
+  if (!privateLabsModal) return;
+  privateLabsModal.hidden = false;
+  document.body.classList.add("modal-open");
+  privateLabsClose?.focus();
+}
+
+function closePrivateLabs() {
+  if (!privateLabsModal) return;
+  privateLabsModal.hidden = true;
+  document.body.classList.remove("modal-open");
+  privateLabsEntry?.focus();
+}
+
 async function handleFounderPassword(password, statusTarget) {
   const value = String(password || "").trim();
   if (!value) return false;
@@ -1014,6 +1034,15 @@ document.addEventListener("keydown", (event) => {
   if (event.key === "Escape" && founderModal && !founderModal.hidden) {
     closeFounderDialog();
   }
+  if (event.key === "Escape" && privateLabsModal && !privateLabsModal.hidden) {
+    closePrivateLabs();
+  }
+});
+
+if (privateLabsEntry) privateLabsEntry.addEventListener("click", openPrivateLabs);
+if (privateLabsClose) privateLabsClose.addEventListener("click", closePrivateLabs);
+if (privateLabsModal) privateLabsModal.addEventListener("click", (event) => {
+  if (event.target === privateLabsModal) closePrivateLabs();
 });
 
 const statsBand = document.querySelector(".stats-band");

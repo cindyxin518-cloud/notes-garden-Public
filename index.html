@@ -4,7 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MiniGrowLab - Notes Garden</title>
-    <link rel="stylesheet" href="styles.css?v=20261004-private-labs" />
+    <meta name="description" content="A personal notes garden for ideas from books, conversations, and everyday life — arranged by theme." />
+    <meta name="theme-color" content="#f4f2ea" />
+    <link rel="icon" href="assets/minigrowlab-logo.png" />
+    <link rel="stylesheet" href="styles.css?v=20261004-editorial-garden" />
     <script
       defer
       src="https://static.cloudflareinsights.com/beacon.min.js"
@@ -20,12 +23,12 @@
             <span>MiniGrowLab</span>
           </a>
           <div class="nav-actions">
-            <a class="secondary-link lab-link" href="dma-lab/" title="DMA Lab · 输入密码访问"><span aria-hidden="true">📊</span> DMA Lab</a>
-            <a class="secondary-link lab-link" href="videolab/" title="Video Lab · 输入密码访问"><span aria-hidden="true">▶</span> Video Lab</a>
-            <a class="secondary-link lab-link" href="metronome/" title="Metronome · 输入密码访问"><span aria-hidden="true">🏃</span> Metronome</a>
-            <a class="icon-button" href="#categories" aria-label="Browse themes" title="Browse themes">
-              <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16 3h5v5M4 20l17-17M21 16v5h-5M15 15l6 6M4 4l5.5 5.5" /></svg>
-            </a>
+            <a class="nav-link" href="#themes">Themes</a>
+            <a class="nav-link" href="#share-note">Contribute</a>
+            <button class="private-entry" id="privateLabsEntry" type="button" aria-haspopup="dialog">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="5" y="10" width="14" height="10" rx="2" /><path d="M8 10V7a4 4 0 0 1 8 0v3" /></svg>
+              <span>Private labs</span>
+            </button>
             <button class="icon-button" id="themeBtn" type="button" aria-label="Switch theme" title="Switch theme">
               <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v2M12 19v2M4.22 4.22l1.42 1.42M18.36 18.36l1.42 1.42M3 12h2M19 12h2M4.22 19.78l1.42-1.42M18.36 5.64l1.42-1.42" /><circle cx="12" cy="12" r="4" /></svg>
             </button>
@@ -37,64 +40,58 @@
         <section class="category-home" id="categories">
           <section class="home-landing" id="top" aria-label="MiniGrowLab landing">
             <div class="home-landing-copy">
-              <p class="eyebrow">MiniGrowLab · Notes Garden</p>
-              <h1>A quiet space for small thoughts to grow</h1>
-              <p>Collected from books, reflections, conversations, and everyday moments. Kept here as small seeds of thinking to revisit, reshape, and grow.</p>
+              <p class="eyebrow">A PERSONAL NOTES GARDEN</p>
+              <h1>Ideas, kept<br />in good light.</h1>
+              <p class="landing-intro">A quiet collection of thoughts from books, conversations, and ordinary days — gathered here to be revisited and grown.</p>
               <div class="home-landing-actions">
-                <a class="primary-link" href="#categories">Browse themes</a>
-                <a class="secondary-link" href="#share-note">Share a note</a>
-              </div>
-              <div class="home-lab-actions" aria-label="Password-protected labs">
-                <a class="secondary-link lab-link" href="dma-lab/" title="DMA Lab · 输入密码访问"><span aria-hidden="true">📊</span> DMA Lab</a>
-                <a class="secondary-link lab-link" href="videolab/" title="Video Lab · 输入密码访问"><span aria-hidden="true">▶</span> Video Lab</a>
-                <a class="secondary-link lab-link" href="metronome/" title="Metronome · 输入密码访问"><span aria-hidden="true">🏃</span> Metronome</a>
+                <a class="primary-link" href="#themes">Explore the themes</a>
+                <span class="collection-count"><b id="totalCount">0</b> notes · <b id="categoryCount">0</b> themes</span>
               </div>
             </div>
-            <aside class="home-note-card" aria-label="MiniGrowLab note preview">
-              <span>MiniGrowLab Note</span>
-              <p>Read slowly. Let small thoughts grow with time.</p>
+            <aside class="home-note-card" aria-label="Featured thought">
+              <span class="note-index">NOTE / 01</span>
+              <p>“Reading is a refuge you can carry with you.”</p>
+              <small>On reading · 阅读</small>
             </aside>
           </section>
 
-          <div class="collection-tools home-tools">
+          <div class="collection-tools home-tools" id="themes">
+            <div class="themes-title">
+              <p class="eyebrow">BROWSE THE GARDEN</p>
+              <h2>Read by theme</h2>
+            </div>
             <label class="search-box">
               <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="7" /><path d="m16.5 16.5 4 4" /></svg>
-              <input id="searchInput" type="search" placeholder="Search notes" autocomplete="off" />
+              <input id="searchInput" type="search" placeholder="Search the notes" autocomplete="off" />
             </label>
-            <a class="primary-link" href="#categories">Browse themes</a>
           </div>
-          <section class="stats-band" aria-label="Quote statistics">
+          <div class="section-heading themes-heading">
+            <p>Choose a collection. Each one opens into notes, sources, and ideas worth returning to.</p>
+          </div>
+          <div class="category-grid" id="categoryGrid"></div>
+
+          <section class="stats-band" aria-label="Curated paths">
             <button type="button" data-stat-link="art-of-war">
+              <span class="path-number">01</span>
               <strong>Sun Tzu’s Strategy</strong>
-              <span>Inspired by The Art of War</span>
+              <span>A focused reading of judgment, resources, and decisions.</span>
             </button>
             <button type="button" data-stat-link="all">
-              <strong>Reflection Notes</strong>
-              <span>Personal reading collection</span>
-            </button>
-            <button type="button" data-stat-link="themes">
-              <strong>Themes</strong>
-              <span><b id="categoryCount">0</b> collections</span>
+              <span class="path-number">02</span>
+              <strong>All reflections</strong>
+              <span>Wander through the complete personal collection.</span>
             </button>
             <button type="button" data-stat-link="popular">
-              <strong>Popularity</strong>
-              <span><b id="favoriteCount">0</b> likes</span>
+              <span class="path-number">03</span>
+              <strong>Reader favorites</strong>
+              <span><b id="favoriteCount">0</b> appreciations across the garden.</span>
             </button>
             <button type="button" data-stat-link="reader-added">
-              <strong>Visitor Contributions</strong>
-              <span><b id="readerAddedCount">0</b> shared notes</span>
+              <span class="path-number">04</span>
+              <strong>Visitor notes</strong>
+              <span><b id="readerAddedCount">0</b> thoughts shared by readers.</span>
             </button>
           </section>
-
-          <div class="section-heading">
-            <div>
-              <p class="eyebrow">Themes</p>
-              <h2>Read by Theme</h2>
-            </div>
-            <p>Choose a theme to open its notes page.</p>
-          </div>
-          <p class="source-note">A small garden of thoughts collected, reshaped, and revisited over time. Kept here not as final answers, but as seeds of thinking, and ideas that may grow differently each time they are read.</p>
-          <div class="category-grid" id="categoryGrid"></div>
         </section>
 
         <section class="collection" id="collection" hidden>
@@ -116,9 +113,9 @@
 
         <section class="contribute-panel" id="share-note" aria-label="Open contributions">
           <div class="contribute-copy">
-            <p class="eyebrow">Open Contributions</p>
-            <h2>Share a Favorite Note</h2>
-            <p>Share a line, passage, or thought you love. Leave something meaningful for other visitors to discover.</p>
+            <p class="eyebrow">OPEN CONTRIBUTIONS</p>
+            <h2>Leave a thought<br />in the garden.</h2>
+            <p>Share a line, passage, or idea you want another visitor to discover.</p>
           </div>
             <form class="contribute-form" id="contributeForm">
               <label>
@@ -145,12 +142,34 @@
         </section>
 
         <footer class="site-footer" aria-label="Copyright notice">
-          <p>Thanks for visiting MiniGrowLab - Notes Garden.</p>
-          <p>© 2026 MiniGrowLab. All rights reserved.</p>
-          <p>Unauthorized copying, reproduction, redistribution, adaptation, or commercial use of MiniGrowLab content, structure, design, or visual materials is not permitted without prior written permission.</p>
-          <button class="founder-entry" id="founderEntry" type="button">Founder mode</button>
+          <div>
+            <strong>MiniGrowLab</strong>
+            <p>A small garden for thoughts that deserve another look.</p>
+          </div>
+          <div class="footer-meta">
+            <p>© 2026 MiniGrowLab. All rights reserved.</p>
+            <button class="founder-entry" id="founderEntry" type="button">Founder mode</button>
+          </div>
         </footer>
       </main>
+    </div>
+
+    <div class="modal-backdrop private-labs-modal" id="privateLabsModal" hidden>
+      <section class="private-labs-dialog" role="dialog" aria-modal="true" aria-labelledby="privateLabsTitle">
+        <div class="dialog-head">
+          <div>
+            <p class="eyebrow">OWNER ACCESS</p>
+            <h2 id="privateLabsTitle">Private labs</h2>
+          </div>
+          <button class="icon-button dialog-close" id="privateLabsClose" type="button" aria-label="Close private labs">×</button>
+        </div>
+        <p class="private-labs-intro">Personal workspaces. Each lab is protected and requires its own access password.</p>
+        <div class="private-labs-list">
+          <a href="dma-lab/"><span class="lab-monogram">D</span><span><strong>DMA Lab</strong><small>Marketing learning & analysis</small></span><span class="lock-mark">Locked</span></a>
+          <a href="videolab/"><span class="lab-monogram">V</span><span><strong>Video Lab</strong><small>Curated communication library</small></span><span class="lock-mark">Locked</span></a>
+          <a href="metronome/"><span class="lab-monogram">M</span><span><strong>Metronome</strong><small>Running rhythm & cadence</small></span><span class="lock-mark">Locked</span></a>
+        </div>
+      </section>
     </div>
 
     <div class="modal-backdrop" id="proofreadModal" hidden>
@@ -205,6 +224,6 @@
       </form>
     </div>
 
-    <script src="script.js?v=20260604-password-eye"></script>
+    <script src="script.js?v=20261004-editorial-garden"></script>
   </body>
 </html>
