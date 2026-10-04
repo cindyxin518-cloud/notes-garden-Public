@@ -20,6 +20,12 @@ cp "$SITE_DIR/publish-to-github.sh" "$PUBLISH_DIR/"
 
 git -C "$PUBLISH_DIR" add index.html styles.css script.js CNAME worker-visitor-counter.js worker-job-agent.js publish-to-github.sh assets admin
 
+if [[ -d "$SITE_DIR/dma-lab" ]]; then
+  mkdir -p "$PUBLISH_DIR/dma-lab"
+  cp -R "$SITE_DIR/dma-lab/." "$PUBLISH_DIR/dma-lab/"
+  git -C "$PUBLISH_DIR" add dma-lab
+fi
+
 if git -C "$PUBLISH_DIR" diff --cached --quiet; then
   echo "No website changes to publish."
   echo "Checked local files against $REPO_URL"

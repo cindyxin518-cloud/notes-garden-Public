@@ -81,6 +81,7 @@ button {
 
 .topbar {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
   gap: 18px;
@@ -131,7 +132,18 @@ button {
 
 .nav-actions {
   display: flex;
+  flex-wrap: wrap;
   gap: 10px;
+}
+
+.lab-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  min-height: 42px;
+  padding: 0 16px;
+  font-size: 0.86rem;
+  box-shadow: 0 12px 26px rgba(35, 50, 56, 0.08);
 }
 
 .icon-button {
