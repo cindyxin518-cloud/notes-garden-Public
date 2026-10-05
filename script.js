@@ -1162,6 +1162,8 @@ const privateLabsClose = document.querySelector("#privateLabsClose");
 
 let activeCategory = "";
 let collectionMode = "category";
+let expandedClassicNoteId = null;
+let expandedClassicDetailType = "background";
 let activeProofreadIndex = null;
 const visitorCounterEndpoint = "https://notes-garden-counter.cindyxin518.workers.dev";
 const jobAgentEndpoint = "https://minigrow-job-agent.cindyxin518.workers.dev";
@@ -1908,19 +1910,40 @@ function classicSectionCard(section, sectionIndex, slug) {
   const notes = section.notes
     .map((note, noteIndex) => ({note, noteIndex}))
     .filter(({note}) => classicNoteMatches({section, note, slug}))
-    .map(({note, noteIndex}) => `
+    .map(({note, noteIndex}) => {
+      const id = classicNoteKey(slug, sectionIndex, noteIndex);
+      const detailType = id === expandedClassicNoteId ? expandedClassicDetailType : "background";
+      return `
       <li class="strategy-note">
-        <strong>${escapeHtml(note.zh)}</strong>
-        <em>${escapeHtml(note.en)}</em>
-        ${note.nl ? `<p class="quote-text quote-nl"><span>Dutch</span>${escapeHtml(note.nl)}</p>` : ""}
-        ${sourceNotes(note)}
-        <div class="strategy-note-actions" aria-label="${escapeHtml(label)} note details">
-          ${reactionButtonForId(classicNoteKey(slug, sectionIndex, noteIndex), "like", "Like", likeIconPath)}
-          <a class="strategy-detail-btn" href="#collection/${slug}/${sectionIndex}/${noteIndex}/background">Background</a>
-          <a class="strategy-detail-btn" href="#collection/${slug}/${sectionIndex}/${noteIndex}/reality">Reality Link</a>
-        </div>
+        <details class="classic-passage" name="classic-passages" data-classic-note="${escapeHtml(id)}" ${id === expandedClassicNoteId ? "open" : ""}>
+          <summary class="classic-passage-heading">
+            <span class="classic-passage-title">
+              <strong lang="zh">${escapeHtml(note.zh)}</strong>
+              <em lang="en">${escapeHtml(note.en)}</em>
+            </span>
+            <span class="classic-passage-chevron" aria-hidden="true"></span>
+          </summary>
+          <div class="classic-passage-content">
+            ${note.nl ? `<p class="quote-text quote-nl" lang="nl"><span>Dutch</span>${escapeHtml(note.nl)}</p>` : ""}
+            ${sourceNotes(note)}
+            <div class="strategy-note-actions classic-passage-actions" aria-label="${escapeHtml(label)} note details">
+              ${reactionButtonForId(id, "like", "Like", likeIconPath)}
+              ${Object.entries(artDetailLabels).map(([type, title]) => `
+                <button type="button" class="strategy-detail-btn ${type === detailType ? "is-active" : ""}" data-classic-detail="${type}" aria-pressed="${type === detailType}" aria-controls="${escapeHtml(id)}-${type}">${escapeHtml(title)}</button>
+              `).join("")}
+            </div>
+            ${Object.entries(artDetailLabels).map(([type, title]) => `
+              <section class="strategy-detail-copy classic-passage-copy" id="${escapeHtml(id)}-${type}" data-classic-panel="${type}" aria-label="${escapeHtml(title)}" ${type === detailType ? "" : "hidden"}>
+                <h4>${escapeHtml(title)}</h4>
+                ${slug === "dao-de-jing" ? `<p class="editorial-label">${type === "background" ? "背景解读" : "现实联系"} · Editorial interpretation, not original text</p>` : ""}
+                ${classicDetailCopy(note[type])}
+              </section>
+            `).join("")}
+          </div>
+        </details>
       </li>
-    `)
+    `;
+    })
     .join("");
   if (!notes) return "";
 
@@ -1990,6 +2013,23 @@ function renderClassicDetail(slug, sectionIndex, noteIndex, detailType) {
 }
 
 quoteGrid.addEventListener("click", async (event) => {
+  const classicDetailButton = event.target.closest("[data-classic-detail]");
+  if (classicDetailButton) {
+    const passage = classicDetailButton.closest("[data-classic-note]");
+    const detailType = classicDetailButton.dataset.classicDetail;
+    expandedClassicNoteId = passage.dataset.classicNote;
+    expandedClassicDetailType = detailType;
+    passage.querySelectorAll("[data-classic-detail]").forEach((button) => {
+      const selected = button.dataset.classicDetail === detailType;
+      button.classList.toggle("is-active", selected);
+      button.setAttribute("aria-pressed", String(selected));
+    });
+    passage.querySelectorAll("[data-classic-panel]").forEach((panel) => {
+      panel.hidden = panel.dataset.classicPanel !== detailType;
+    });
+    return;
+  }
+
   const proofreadButton = event.target.closest("[data-proofread]");
   if (proofreadButton) {
     activeProofreadIndex = proofreadButton.dataset.proofread;
@@ -2021,6 +2061,32 @@ quoteGrid.addEventListener("click", async (event) => {
   updateStats();
   route();
 });
+
+quoteGrid.addEventListener("toggle", (event) => {
+  const passage = event.target;
+  if (!passage.matches("[data-classic-note]") || !quoteGrid.contains(passage)) return;
+  if (passage.open) {
+    const isNewPassage = expandedClassicNoteId !== passage.dataset.classicNote;
+    quoteGrid.querySelectorAll("[data-classic-note][open]").forEach((other) => {
+      if (other !== passage) other.open = false;
+    });
+    expandedClassicNoteId = passage.dataset.classicNote;
+    if (isNewPassage) {
+      expandedClassicDetailType = "background";
+      passage.querySelectorAll("[data-classic-detail]").forEach((button) => {
+        const selected = button.dataset.classicDetail === "background";
+        button.classList.toggle("is-active", selected);
+        button.setAttribute("aria-pressed", String(selected));
+      });
+      passage.querySelectorAll("[data-classic-panel]").forEach((panel) => {
+        panel.hidden = panel.dataset.classicPanel !== "background";
+      });
+    }
+  } else if (expandedClassicNoteId === passage.dataset.classicNote) {
+    expandedClassicNoteId = null;
+    expandedClassicDetailType = "background";
+  }
+}, true);
 
 function closeProofreadDialog() {
   proofreadModal.hidden = true;
@@ -2287,6 +2353,10 @@ function showSpecialCollection(mode) {
 
 function showClassicCollection(slug) {
   const book = classicCollections[slug];
+  if (collectionMode !== slug) {
+    expandedClassicNoteId = null;
+    expandedClassicDetailType = "background";
+  }
   searchInput.value = "";
   collectionMode = slug;
   activeCategory = book.theme;
