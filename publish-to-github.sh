@@ -27,7 +27,7 @@ for ACCESS_ASSET in lab-access.js lab-access.css; do
   fi
 done
 
-for LAB_DIRECTORY in dma-lab videolab metronome; do
+for LAB_DIRECTORY in dma-lab dtlab videolab metronome; do
   if [[ -d "$SITE_DIR/$LAB_DIRECTORY" ]]; then
     # Mirror tracked removals so obsolete plaintext files are not republished.
     while IFS= read -r -d '' TRACKED_FILE; do
