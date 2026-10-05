@@ -2653,10 +2653,6 @@ h2 {
   background-image: url("assets/card-themes-fill.png");
 }
 
-.stats-band button[data-stat-link="dao-de-jing"] strong {
-  font-family: "Songti SC", "STSong", "SimSun", Georgia, serif;
-}
-
 .theme-directory {
   padding: 22px 0 26px;
   border-top: 1px solid var(--line-strong);
