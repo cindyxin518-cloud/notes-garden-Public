@@ -1121,7 +1121,7 @@ const dailyQuotes = Array.isArray(dailyQuoteData.notes) ? dailyQuoteData.notes :
 baseQuotes.push(...dailyQuotes);
 const dailyQuotesStatus = document.querySelector("#dailyQuotesStatus");
 if (dailyQuotesStatus && dailyQuotes.length && dailyQuoteData.updated_on) {
-  dailyQuotesStatus.textContent = `Latest update · 最近更新：${dailyQuoteData.updated_on} · ${dailyQuoteData.latest_count} new notes / 新增 ${dailyQuoteData.latest_count} 条`;
+  dailyQuotesStatus.textContent = `Latest update: ${dailyQuoteData.updated_on} · ${dailyQuoteData.latest_count} new notes`;
   dailyQuotesStatus.hidden = false;
 }
 
@@ -1269,7 +1269,7 @@ const themeGroups = [
   { id: "Time", label: "Time" },
   { id: "Nature", label: "Nature" },
   { id: "Creativity", label: "Creativity" },
-  { id: daoDeJingThemeId, label: "道德经" }
+  { id: daoDeJingThemeId, label: "Tao Te Ching" }
 ];
 const groupIds = themeGroups.map((group) => group.id);
 const artOfWarSections = [
@@ -1438,11 +1438,11 @@ const classicCollections = {
   },
   "dao-de-jing": {
     theme: daoDeJingThemeId,
-    label: "道德经",
+    label: "Tao Te Ching",
     sections: daoDeJingSections,
     sectionLabel: "reading sections · 18 classic passages",
     introTitle: "Selected readings from the Tao Te Ching",
-    intro: "Read in English, with Chinese available under 中文翻译. Open Reading notes for context and reflections."
+    intro: "Read in English. Select Chinges for Chinese. Open Reading notes for context and reflections."
   }
 };
 
@@ -1503,7 +1503,7 @@ function groupForQuote(quote) {
 
 function categoryLabel(category) {
   if (category === allCategory || category === "全部") return allCategory;
-  if (category === daoDeJingThemeId) return "道德经";
+  if (category === daoDeJingThemeId) return "Tao Te Ching";
   return categoryGroups[category] || (groupIds.includes(category) ? category : "Others");
 }
 
@@ -1741,6 +1741,97 @@ function safeSourceUrl(value) {
   }
 }
 
+// English display labels preserve the original source records and quote IDs.
+const englishSourceLabels = {
+  "文摘": "Collected excerpt",
+  "微语录": "Collected saying",
+  "稻盛和夫": "Kazuo Inamori",
+  "加藤谛三": "Taizo Kato",
+  "叔本华": "Arthur Schopenhauer",
+  "《半山文集》": "Banshan's Collected Writings",
+  "《你在逃避什么》": "What Are You Avoiding?",
+  "曾国藩": "Zeng Guofan",
+  "史铁生": "Shi Tiesheng",
+  "毛姆《月亮与六便士》": "W. Somerset Maugham, The Moon and Sixpence",
+  "克罗德·西蒙": "Claude Simon",
+  "林徽因": "Lin Huiyin",
+  "叔本华《人生的智慧》": "Arthur Schopenhauer, The Wisdom of Life",
+  "星云大师": "Master Hsing Yun",
+  "余秋雨《文化苦旅》": "Yu Qiuyu, A Bitter Journey Through Culture",
+  "《银魂》": "Gintama",
+  "《大鱼海棠》": "Big Fish & Begonia",
+  "《撒野》": "Sa Ye",
+  "村上春树": "Haruki Murakami",
+  "赫尔曼·黑塞": "Hermann Hesse",
+  "马克·鲍尔莱恩": "Mark Bauerlein",
+  "毛姆": "W. Somerset Maugham",
+  "菲茨杰拉德《了不起的盖茨比》": "F. Scott Fitzgerald, The Great Gatsby",
+  "梭罗《瓦尔登湖》": "Henry David Thoreau, Walden",
+  "保罗·戈埃罗《牧羊少年奇幻之旅》": "Paulo Coelho, The Alchemist",
+  "周国平": "Zhou Guoping",
+  "木心《素履之往》": "Mu Xin, Su Lu Zhi Wang",
+  "韧心旎": "Ren Xinni",
+  "陈继儒《小窗幽记》": "Chen Jiru, Notes from a Small Window",
+  "杨绛《一百岁感言》": "Yang Jiang, Reflections at One Hundred",
+  "亚里士多德": "Aristotle",
+  "丰子恺": "Feng Zikai",
+  "余世存《时间之书》": "Yu Shicun, The Book of Time",
+  "Self-Reliance《论自立》，收于 Essays: First Series": "Self-Reliance, Essays: First Series",
+  "《道德经》": "Tao Te Ching",
+  "Leaves of Grass《草叶集》；后来题为 Song of Myself《自我之歌》的诗": "Leaves of Grass, Song of Myself",
+  "The Fringe Benefits of Failure, and the Importance of Imagination，哈佛毕业演讲": "The Fringe Benefits of Failure, and the Importance of Imagination",
+  "斯坦福毕业演讲；官方刊题 You’ve got to find what you love": "Stanford Commencement Address: You've Got to Find What You Love",
+  "The Prophet《先知》": "The Prophet",
+  "《论语·子路》": "The Analects, Book 13: Zilu",
+  "The Tender Narrator《温柔的讲述者》，诺贝尔文学奖演讲": "The Tender Narrator, Nobel Lecture",
+  "致 Oskar Pollak 的信": "Letter to Oskar Pollak",
+  "The Art of Fiction No. 78；Jordan Elgrably 访谈": "The Art of Fiction No. 78, interview with Jordan Elgrably",
+  "My Twentieth Century Evening—and Other Small Breakthroughs，诺贝尔文学奖演讲": "My Twentieth Century Evening—and Other Small Breakthroughs, Nobel Lecture",
+  "The Principles of Psychology《心理学原理》": "The Principles of Psychology",
+  "This Is Water，Kenyon College 毕业演讲": "This Is Water, Kenyon College Commencement Address",
+  "The Poet and the World《诗人与世界》，诺贝尔文学奖演讲": "The Poet and the World, Nobel Lecture",
+  "The Relation of Science and Religion，Caltech YMCA 午餐论坛演讲": "The Relation of Science and Religion, Caltech YMCA Address",
+  "Enchiridion《手册》": "Enchiridion",
+  "致 Franz Xaver Kappus 的信；后收入《给一个青年诗人的十封信》": "Letter to Franz Xaver Kappus, Letters to a Young Poet",
+  "《前赤壁赋》": "First Ode to the Red Cliff",
+  "Moral Letters to Lucilius《致卢基利乌斯道德书简》": "Moral Letters to Lucilius",
+  "The Sense of Wonder《惊奇之心》；前身为 Help Your Child to Wonder": "The Sense of Wonder; originally Help Your Child to Wonder",
+  "Pale Blue Dot: A Vision of the Human Future in Space《暗淡蓝点》": "Pale Blue Dot: A Vision of the Human Future in Space",
+  "On Being，Krista Tippett 访谈": "On Being, interview with Krista Tippett",
+  "A Room of One’s Own《一间自己的房间》": "A Room of One's Own",
+  "National Book Foundation Medal 获奖致辞": "National Book Foundation Medal Acceptance Speech",
+  "诺贝尔文学奖演讲": "Nobel Lecture",
+  "Cargo Cult Science，加州理工学院毕业演讲": "Cargo Cult Science, Caltech Commencement Address",
+  "《孟子·离娄下》": "Mencius, Li Lou II",
+  "《孙子兵法·军形篇》": "The Art of War, Tactical Dispositions",
+  "Walden《瓦尔登湖》": "Walden",
+  "Light and Thread《光与线》，诺贝尔文学奖演讲": "Light and Thread, Nobel Lecture",
+  "Essays《随笔》，第一卷〈论友谊〉": "Essays, Book I: Of Friendship",
+  "The Art of Fiction No. 221；John Wray 访谈": "The Art of Fiction No. 221, interview with John Wray",
+  "The Brothers Karamazov《卡拉马佐夫兄弟》": "The Brothers Karamazov",
+  "Fruit-Gathering《采果集》": "Fruit-Gathering",
+  "Middlemarch《米德尔马契》": "Middlemarch",
+  "《庄子·知北游》": "Zhuangzi, Knowledge Wandered North",
+  "电影《生之欲》Living 公开剧本": "Living (screenplay)",
+  "《困在时间里的父亲》The Father 最终公开剧本": "The Father (screenplay)",
+  "The Art of Fiction No. 71，《巴黎评论》第74期": "The Art of Fiction No. 71, The Paris Review No. 74",
+  "1957年诺贝尔奖晚宴演讲": "Nobel Banquet Speech",
+  "Crediting Poetry《为诗辩护》诺贝尔演讲": "Crediting Poetry, Nobel Lecture",
+  "The danger of a single story《单一故事的危险》，TEDGlobal 2009": "The Danger of a Single Story, TEDGlobal 2009"
+};
+
+function englishDisplayLabel(value) {
+  const label = String(value || "").trim();
+  if (englishSourceLabels[label]) return englishSourceLabels[label];
+  const taoChapter = label.match(/^《道德经》第(\d+)章/);
+  if (taoChapter) return `Tao Te Ching, Chapter ${taoChapter[1]} (Wang Bi edition)`;
+  return label.replace(/[《〈][^》〉]*[》〉]/g, "")
+    .replace(/（[^）]*）/g, "")
+    .replace(/[\u3400-\u9fff\uf900-\ufaff]/g, "")
+    .replace(/[，；、]/g, ", ")
+    .replace(/^[\s,·]+|[\s,·]+$/g, "").trim();
+}
+
 function englishCredit(quote) {
   const credit = String(quote.reference?.author || quote.source || "").split(/[；;]/)[0];
   return credit.split("、")
@@ -1749,69 +1840,38 @@ function englishCredit(quote) {
     .join(" & ");
 }
 
-function quoteReadingBody(quote) {
-  const credit = englishCredit(quote);
+function quoteReadingBody(quote, fallbackSource = "") {
   return `
     <div class="quote-body">
       <p class="quote-text quote-en" lang="en">${escapeHtml(quote.en || "English text is not available for this reader note.")}</p>
-      ${credit ? `<p class="quote-credit">${escapeHtml(credit)}</p>` : ""}
+      ${sourceNotes(quote, fallbackSource)}
     </div>
   `;
 }
 
-function chineseTranslation(quote) {
+function chineseTranslation(quote, readerTools = "") {
   if (!quote.zh) return "";
   return `
     <details class="quote-translation">
-      <summary role="button" aria-label="中文翻译" lang="zh">中文翻译</summary>
+      <summary role="button" aria-label="Chinges" lang="en">Chinges</summary>
       <p class="quote-text quote-zh" lang="zh">${escapeHtml(quote.zh)}</p>
+      ${readerTools ? `<div class="translation-tools">${readerTools}</div>` : ""}
     </details>
   `;
 }
 
-function sourceNotes(quote, readerTools = "") {
+function sourceNotes(quote, fallbackSource = "") {
   const reference = quote.reference;
-  if (!reference) return quote.source || readerTools ? `
-    <details class="quote-source">
-      <summary role="button" aria-label="Source">Source</summary>
-      <div class="citation-copy">
-        ${quote.source ? `<p>${escapeHtml(quote.source)}</p>` : ""}
-        ${readerTools}
-      </div>
-    </details>
-  ` : "";
+  if (!reference) {
+    const credit = englishDisplayLabel(quote.source || fallbackSource) || "Reader contribution";
+    return `<p class="quote-credit quote-source">Source: ${escapeHtml(credit)}</p>`;
+  }
+  const author = englishDisplayLabel(englishCredit(quote));
+  const work = englishDisplayLabel(reference.work) || "Original source";
   const url = safeSourceUrl(reference.url);
-  if (!url) return "";
-  const additionalSources = (reference.additionalSources || [])
-    .map((source) => ({ ...source, url: safeSourceUrl(source.url) }))
-    .filter((source) => source.url)
-    .map((source) => `<li><a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a></li>`)
-    .join("");
-  return `
-    <details class="quote-source">
-      <summary role="button" aria-label="Source">Source</summary>
-      <div class="citation-copy">
-      <p class="citation-author">${escapeHtml(reference.author)}</p>
-      <p class="citation-work"><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(reference.work)}</a></p>
-      <p class="citation-date">${escapeHtml(reference.date)}</p>
-          <h4>Context · 编辑说明</h4>
-          <p>${escapeHtml(reference.context)}</p>
-          <h4>A question to keep · 编辑提问</h4>
-          <p>${escapeHtml(reference.question)}</p>
-          <dl>
-            <dt>Source &amp; location</dt>
-            <dd>${escapeHtml(reference.sourceType)} · ${escapeHtml(reference.locator)}</dd>
-            <dt>Original language &amp; translations</dt>
-            <dd>${[reference.originalLanguage, reference.chineseStatus, reference.englishStatus].filter(Boolean).map(escapeHtml).join("<br>")}</dd>
-            ${reference.originalText ? `<dt>Checked excerpt · 所核版本摘录</dt><dd>${escapeHtml(reference.originalText)}</dd>` : ""}
-            <dt>Reference check</dt>
-            <dd>${escapeHtml(reference.verification)}</dd>
-          </dl>
-          ${additionalSources ? `<h4>Additional references</h4><ul>${additionalSources}</ul>` : ""}
-          ${readerTools}
-      </div>
-    </details>
-  `;
+  const linkedWork = url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(work)}</a>` : escapeHtml(work);
+  const year = String(reference.date || "").match(/^\d{4}(?:[–—-]\d{4})?/)?.[0];
+  return `<p class="quote-credit quote-source">Source: ${[author ? escapeHtml(author) : "", linkedWork, year].filter(Boolean).join(" · ")}</p>`;
 }
 
 function quoteCard(quote, index) {
@@ -1820,8 +1880,7 @@ function quoteCard(quote, index) {
     <article class="quote-card" id="quote-${index}">
       ${quoteReadingBody(quote)}
       <div class="quote-tools">
-        ${chineseTranslation(quote)}
-        ${sourceNotes(quote, readerTools)}
+        ${chineseTranslation(quote, readerTools)}
         <div class="reader-actions" aria-label="Reader actions">
           ${reactionButton(index, "like", "Like", likeIconPath)}
         </div>
@@ -1841,7 +1900,7 @@ function getVisibleQuotes() {
     })
     .filter(({ quote }) => {
       if (!keyword) return true;
-      return normalize(`${quote.zh || ""}${quote.en || ""}${categoryLabel(quote.category)}${quote.category}${quote.source}`).includes(keyword);
+      return normalize(`${quote.zh || ""}${quote.en || ""}${categoryLabel(quote.category)}${quote.category}${quote.source}${englishDisplayLabel(quote.source)}`).includes(keyword);
     });
 }
 
@@ -1849,10 +1908,9 @@ function classicNoteCard(entry) {
   const { section, note, sectionIndex, noteIndex, id, slug } = entry;
   return `
     <article class="quote-card strategy-popular-card">
-      ${quoteReadingBody(note)}
+      ${quoteReadingBody(note, slug === "art-of-war" ? "Sun Tzu, The Art of War" : "Laozi, Tao Te Ching")}
       <div class="quote-tools">
         ${chineseTranslation(note)}
-        ${sourceNotes(note)}
       </div>
       <div class="reader-actions" aria-label="Reader actions">
         ${reactionButtonForId(id, "like", "Like", likeIconPath)}
@@ -1951,7 +2009,7 @@ function classicSectionCard(section, sectionIndex, slug) {
       const detailType = id === expandedClassicNoteId ? expandedClassicDetailType : "background";
       return `
       <li class="strategy-note">
-        ${quoteReadingBody(note)}
+        ${quoteReadingBody(note, slug === "art-of-war" ? "Sun Tzu, The Art of War" : "Laozi, Tao Te Ching")}
         <div class="quote-tools">
           ${chineseTranslation(note)}
           ${reactionButtonForId(id, "like", "Like", likeIconPath)}
@@ -1962,7 +2020,6 @@ function classicSectionCard(section, sectionIndex, slug) {
             <span class="classic-passage-chevron" aria-hidden="true"></span>
           </summary>
           <div class="classic-passage-content">
-            ${sourceNotes(note)}
             <div class="strategy-note-actions classic-passage-actions" aria-label="${escapeHtml(label)} note details">
               ${Object.entries(artDetailLabels).map(([type, title]) => `
                 <button type="button" class="strategy-detail-btn ${type === detailType ? "is-active" : ""}" data-classic-detail="${type}" aria-pressed="${type === detailType}" aria-controls="${escapeHtml(id)}-${type}">${escapeHtml(title)}</button>
@@ -1971,7 +2028,7 @@ function classicSectionCard(section, sectionIndex, slug) {
             ${Object.entries(artDetailLabels).map(([type, title]) => `
               <section class="strategy-detail-copy classic-passage-copy" id="${escapeHtml(id)}-${type}" data-classic-panel="${type}" aria-label="${escapeHtml(title)}" ${type === detailType ? "" : "hidden"}>
                 <h4>${escapeHtml(title)}</h4>
-                ${slug === "dao-de-jing" ? `<p class="editorial-label">${type === "background" ? "背景解读" : "现实联系"} · Editorial interpretation, not original text</p>` : ""}
+                ${slug === "dao-de-jing" ? `<p class="editorial-label">Editorial interpretation, not original text</p>` : ""}
                 ${classicDetailCopy(note[type])}
               </section>
             `).join("")}
@@ -1986,7 +2043,7 @@ function classicSectionCard(section, sectionIndex, slug) {
   return `
     <article class="strategy-card">
       <span>${escapeHtml(label)}</span>
-      <h3>${escapeHtml(section.title)}</h3>
+      <h3>${escapeHtml(englishDisplayLabel(section.title))}</h3>
       <p>${escapeHtml(section.detail)}</p>
       <ul class="strategy-notes">
         ${notes}
@@ -2007,7 +2064,7 @@ function renderClassicSections(slug) {
 
 function classicDetailCopy(value) {
   if (typeof value === "string") return `<p>${escapeHtml(value)}</p>`;
-  return `<p lang="zh">${escapeHtml(value.zh)}</p><p lang="en" class="classic-detail-english">${escapeHtml(value.en)}</p>`;
+  return `<p lang="en" class="classic-detail-english">${escapeHtml(value.en)}</p>${chineseTranslation(value)}`;
 }
 
 function renderClassicDetail(slug, sectionIndex, noteIndex, detailType) {
@@ -2025,11 +2082,10 @@ function renderClassicDetail(slug, sectionIndex, noteIndex, detailType) {
   quoteGrid.innerHTML = `
     <article class="strategy-detail-page">
       <a class="back-link strategy-back-link" href="#collection/${slug}">Back to ${escapeHtml(label)}</a>
-      <p class="eyebrow">${escapeHtml(section.title)}</p>
-      ${quoteReadingBody(note)}
+      <p class="eyebrow">${escapeHtml(englishDisplayLabel(section.title))}</p>
+      ${quoteReadingBody(note, slug === "art-of-war" ? "Sun Tzu, The Art of War" : "Laozi, Tao Te Ching")}
       <div class="quote-tools">
         ${chineseTranslation(note)}
-        ${sourceNotes(note)}
       </div>
       <div class="reader-actions strategy-detail-reactions" aria-label="Reader actions">
         ${reactionButtonForId(classicNoteKey(slug, Number(sectionIndex), Number(noteIndex)), "like", "Like", likeIconPath)}
@@ -2040,7 +2096,7 @@ function renderClassicDetail(slug, sectionIndex, noteIndex, detailType) {
       </div>
       <section class="strategy-detail-copy" aria-label="${escapeHtml(artDetailLabels[detailType])}">
         <h4>${escapeHtml(artDetailLabels[detailType])}</h4>
-        ${slug === "dao-de-jing" ? `<p class="editorial-label">${detailType === "background" ? "背景解读" : "现实联系"} · Editorial interpretation, not original text</p>` : ""}
+        ${slug === "dao-de-jing" ? `<p class="editorial-label">Editorial interpretation, not original text</p>` : ""}
         ${classicDetailCopy(detailText)}
       </section>
     </article>
@@ -2365,7 +2421,7 @@ function showCategory(category) {
   collection.hidden = false;
   collectionTitle.textContent = activeCategory === allCategory ? "Search Results" : `${categoryLabel(activeCategory)} Notes`;
   document.title = `${collectionTitle.textContent} | Notes Garden`;
-  collectionNote.textContent = "Read in English. Open 中文翻译 when you need it.";
+  collectionNote.textContent = "Read in English. Select Chinges for Chinese.";
   updateStats();
   filters.hidden = false;
   renderFilters();

@@ -158,7 +158,7 @@ if (after.result.slice(-10).some(note => "nl" in note)) throw Error("New notes u
 vm.runInContext(source.slice(source.indexOf("function escapeHtml("), source.indexOf("function groupForQuote(")), after);
 vm.runInContext(source.slice(source.indexOf("function safeSourceUrl("), source.indexOf("function quoteCard(")), after);
 vm.runInContext("globalThis.rendered = sourceNotes(baseQuotes[baseQuotes.length - 1]);", after);
-if (after.rendered.includes("undefined") || !after.rendered.includes('aria-label="Source"')) throw Error("Bilingual source note rendering failed");
+if (after.rendered.includes("undefined") || !after.rendered.includes('Source: ') || after.rendered.includes('<details')) throw Error("Inline source note rendering failed");
 if (status.hidden || !status.textContent.includes("2026-10-24") || !status.textContent.includes("10")) throw Error("Latest update is absent");
 process.stdout.write(JSON.stringify({ legacy: before.result.length, appended: 10, oldNotesPreserved: true }));
 '''

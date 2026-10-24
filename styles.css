@@ -2643,7 +2643,6 @@ h2 {
 }
 
 .quote-source a:focus-visible,
-.quote-source summary:focus-visible,
 .quote-translation summary:focus-visible {
   outline: 2px solid var(--moss);
   outline-offset: 4px;
@@ -2724,8 +2723,7 @@ h2 {
   max-width: 100%;
 }
 
-.quote-translation > summary,
-.quote-source > summary {
+.quote-translation > summary {
   display: inline-flex;
   align-items: center;
   min-height: 38px;
@@ -2746,19 +2744,16 @@ h2 {
   border-radius: 20px;
 }
 
-.quote-translation > summary::-webkit-details-marker,
-.quote-source > summary::-webkit-details-marker {
+.quote-translation > summary::-webkit-details-marker {
   display: none;
 }
 
-.quote-translation > summary::after,
-.quote-source > summary::after {
+.quote-translation > summary::after {
   content: "+";
   font-size: 0.9rem;
 }
 
-.quote-translation[open] > summary::after,
-.quote-source[open] > summary::after {
+.quote-translation[open] > summary::after {
   content: "−";
 }
 
@@ -2772,7 +2767,7 @@ h2 {
   line-height: 1.85;
 }
 
-.quote-source > .citation-copy {
+.translation-tools {
   margin-top: 12px;
   padding-top: 16px;
   border-top: 1px solid var(--line);
