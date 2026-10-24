@@ -1881,22 +1881,22 @@ h2 {
 
 .quote-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 12px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+  gap: 20px;
 }
 
 .quote-card {
   position: relative;
   display: flex;
-  min-height: 156px;
+  min-height: 0;
   flex-direction: column;
-  gap: 10px;
-  padding: 15px 15px 13px;
+  gap: 24px;
+  padding: 28px;
   border: 1px solid var(--line);
   border-radius: var(--radius);
   background: var(--paper);
-  box-shadow: 0 10px 26px rgba(35, 50, 56, 0.07);
-  backdrop-filter: blur(14px);
+  box-shadow: none;
 }
 
 .quote-card.long {
@@ -1910,12 +1910,7 @@ h2 {
 }
 
 .quote-card::after {
-  content: "";
-  position: absolute;
-  inset: auto 14px 0;
-  height: 3px;
-  border-radius: 999px 999px 0 0;
-  background: linear-gradient(90deg, var(--mint), var(--sun), var(--coral));
+  content: none;
 }
 
 .strategy-card {
@@ -2227,12 +2222,11 @@ h2 {
 }
 
 .quote-en {
-  padding-top: 8px;
-  border-top: 1px solid rgba(35, 50, 56, 0.09);
-  color: #536a72;
-  font-size: 0.84rem;
-  font-weight: 500;
-  line-height: 1.58;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(1.12rem, 1.7vw, 1.35rem);
+  font-weight: 400;
+  line-height: 1.7;
 }
 
 .quote-nl {
@@ -2624,14 +2618,11 @@ h2 {
 
 }
 
-/* References accompany newly sourced notes without changing earlier cards. */
+/* Reading comes first; translations and references open only when requested. */
 .quote-source {
-  display: grid;
-  gap: 5px;
-  padding-top: 14px;
-  border-top: 1px solid var(--line);
   color: var(--muted);
-  font-size: 0.875rem;
+  min-width: 0;
+  font-size: 0.85rem;
   line-height: 1.65;
   overflow-wrap: anywhere;
 }
@@ -2652,7 +2643,8 @@ h2 {
 }
 
 .quote-source a:focus-visible,
-.citation-details summary:focus-visible {
+.quote-source summary:focus-visible,
+.quote-translation summary:focus-visible {
   outline: 2px solid var(--moss);
   outline-offset: 4px;
 }
@@ -2700,7 +2692,153 @@ h2 {
 
 .strategy-note .quote-source,
 .strategy-detail-page .quote-source {
-  margin: 16px 0;
+  margin: 0;
+}
+
+.quote-credit {
+  margin: 16px 0 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+  line-height: 1.6;
+}
+
+.quote-tools {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  gap: 10px 16px;
+  min-width: 0;
+}
+
+.quote-tools .reader-actions {
+  margin-left: auto;
+}
+
+.quote-tools > details[open] {
+  flex-basis: 100%;
+}
+
+.quote-translation,
+.quote-source {
+  max-width: 100%;
+}
+
+.quote-translation > summary,
+.quote-source > summary {
+  display: inline-flex;
+  align-items: center;
+  min-height: 38px;
+  gap: 9px;
+  padding: 4px 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+  font-weight: 500;
+  line-height: 1.5;
+  list-style: none;
+  cursor: pointer;
+}
+
+.quote-translation > summary {
+  color: var(--moss);
+  padding: 6px 12px;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+}
+
+.quote-translation > summary::-webkit-details-marker,
+.quote-source > summary::-webkit-details-marker {
+  display: none;
+}
+
+.quote-translation > summary::after,
+.quote-source > summary::after {
+  content: "+";
+  font-size: 0.9rem;
+}
+
+.quote-translation[open] > summary::after,
+.quote-source[open] > summary::after {
+  content: "−";
+}
+
+.quote-translation > .quote-zh {
+  margin: 12px 0 0;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+  color: var(--ink);
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.85;
+}
+
+.quote-source > .citation-copy {
+  margin-top: 12px;
+  padding-top: 16px;
+  border-top: 1px solid var(--line);
+}
+
+.quote-card .reader-actions .reaction-btn {
+  min-height: 38px;
+  padding: 4px 0;
+  border: 0;
+  background: transparent;
+  font-weight: 500;
+}
+
+.quote-card:hover {
+  box-shadow: none;
+}
+
+.strategy-note > .quote-body {
+  padding: 20px 20px 14px;
+}
+
+.strategy-note > .quote-body .quote-en {
+  color: var(--ink);
+  font-size: 1.12rem;
+  line-height: 1.7;
+}
+
+.strategy-note > .quote-body .quote-credit {
+  margin-top: 14px;
+  font-size: 0.8rem;
+}
+
+.strategy-note > .quote-tools {
+  padding: 0 20px 10px;
+}
+
+.classic-passage-heading {
+  margin: 0 20px;
+  padding: 10px 0;
+  border-top: 1px solid var(--line);
+  border-radius: 0;
+  color: var(--muted);
+  font-size: 0.78rem;
+}
+
+@media (max-width: 720px) {
+  .filters {
+    max-width: 100%;
+    flex-wrap: nowrap;
+    overflow-x: auto;
+    padding-bottom: 10px;
+  }
+
+  .filters > a {
+    flex-shrink: 0;
+  }
+
+  .quote-grid {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .quote-card {
+    gap: 20px;
+    padding: 22px;
+  }
 }
 
 /* Keep the illustrated collections above a deliberately compact theme directory. */

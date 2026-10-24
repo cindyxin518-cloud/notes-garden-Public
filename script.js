@@ -1441,8 +1441,8 @@ const classicCollections = {
     label: "道德经",
     sections: daoDeJingSections,
     sectionLabel: "reading sections · 18 classic passages",
-    introTitle: "Dao De Jing · 原文、背景与现实联系",
-    intro: "依王弼本章节选读。原文附出处；背景与现实联系为本站编辑解读，并非古籍原话或历史故事。English and Dutch translations are editorial; authorship and the precise date of composition remain debated."
+    introTitle: "Selected readings from the Tao Te Ching",
+    intro: "Read in English, with Chinese available under 中文翻译. Open Reading notes for context and reflections."
   }
 };
 
@@ -1741,9 +1741,45 @@ function safeSourceUrl(value) {
   }
 }
 
-function sourceNotes(quote) {
+function englishCredit(quote) {
+  const credit = String(quote.reference?.author || quote.source || "").split(/[；;]/)[0];
+  return credit.split("、")
+    .map((part) => part.split(/\s*\/\s*/).pop().replace(/（[^）]*）/g, "").trim())
+    .filter((part) => /[A-Za-z]/.test(part))
+    .join(" & ");
+}
+
+function quoteReadingBody(quote) {
+  const credit = englishCredit(quote);
+  return `
+    <div class="quote-body">
+      <p class="quote-text quote-en" lang="en">${escapeHtml(quote.en || "English text is not available for this reader note.")}</p>
+      ${credit ? `<p class="quote-credit">${escapeHtml(credit)}</p>` : ""}
+    </div>
+  `;
+}
+
+function chineseTranslation(quote) {
+  if (!quote.zh) return "";
+  return `
+    <details class="quote-translation">
+      <summary role="button" aria-label="中文翻译" lang="zh">中文翻译</summary>
+      <p class="quote-text quote-zh" lang="zh">${escapeHtml(quote.zh)}</p>
+    </details>
+  `;
+}
+
+function sourceNotes(quote, readerTools = "") {
   const reference = quote.reference;
-  if (!reference) return "";
+  if (!reference) return quote.source || readerTools ? `
+    <details class="quote-source">
+      <summary role="button" aria-label="Source">Source</summary>
+      <div class="citation-copy">
+        ${quote.source ? `<p>${escapeHtml(quote.source)}</p>` : ""}
+        ${readerTools}
+      </div>
+    </details>
+  ` : "";
   const url = safeSourceUrl(reference.url);
   if (!url) return "";
   const additionalSources = (reference.additionalSources || [])
@@ -1752,13 +1788,12 @@ function sourceNotes(quote) {
     .map((source) => `<li><a href="${escapeHtml(source.url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(source.label)}</a></li>`)
     .join("");
   return `
-    <div class="quote-source">
+    <details class="quote-source">
+      <summary role="button" aria-label="Source">Source</summary>
+      <div class="citation-copy">
       <p class="citation-author">${escapeHtml(reference.author)}</p>
       <p class="citation-work"><a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(reference.work)}</a></p>
       <p class="citation-date">${escapeHtml(reference.date)}</p>
-      <details class="citation-details">
-        <summary>Context &amp; source notes</summary>
-        <div class="citation-copy">
           <h4>Context · 编辑说明</h4>
           <p>${escapeHtml(reference.context)}</p>
           <h4>A question to keep · 编辑提问</h4>
@@ -1767,36 +1802,30 @@ function sourceNotes(quote) {
             <dt>Source &amp; location</dt>
             <dd>${escapeHtml(reference.sourceType)} · ${escapeHtml(reference.locator)}</dd>
             <dt>Original language &amp; translations</dt>
-            <dd>${[reference.originalLanguage, reference.chineseStatus, reference.englishStatus, reference.dutchStatus].filter(Boolean).map(escapeHtml).join("<br>")}</dd>
+            <dd>${[reference.originalLanguage, reference.chineseStatus, reference.englishStatus].filter(Boolean).map(escapeHtml).join("<br>")}</dd>
             ${reference.originalText ? `<dt>Checked excerpt · 所核版本摘录</dt><dd>${escapeHtml(reference.originalText)}</dd>` : ""}
             <dt>Reference check</dt>
             <dd>${escapeHtml(reference.verification)}</dd>
           </dl>
           ${additionalSources ? `<h4>Additional references</h4><ul>${additionalSources}</ul>` : ""}
-        </div>
-      </details>
-    </div>
+          ${readerTools}
+      </div>
+    </details>
   `;
 }
 
 function quoteCard(quote, index) {
-  const isLong = (quote.zh || "").length + (quote.en || "").length + (quote.nl || "").length > 180;
-  const body = [
-    quote.zh ? `<p class="quote-text quote-zh">${escapeHtml(quote.zh)}</p>` : "",
-    quote.en ? `<p class="quote-text quote-en">${escapeHtml(quote.en)}</p>` : "",
-    quote.nl ? `<p class="quote-text quote-nl"><span>Dutch</span>${escapeHtml(quote.nl)}</p>` : ""
-  ].join("");
+  const readerTools = `<button class="reaction-btn note-action" type="button" data-proofread="${index}">Suggest an edit</button>${commentBoard(index)}`;
   return `
-    <article class="quote-card ${isLong ? "long" : ""}" id="quote-${index}">
-      <div class="quote-body">
-        ${body}
+    <article class="quote-card" id="quote-${index}">
+      ${quoteReadingBody(quote)}
+      <div class="quote-tools">
+        ${chineseTranslation(quote)}
+        ${sourceNotes(quote, readerTools)}
+        <div class="reader-actions" aria-label="Reader actions">
+          ${reactionButton(index, "like", "Like", likeIconPath)}
+        </div>
       </div>
-      ${sourceNotes(quote)}
-      <div class="reader-actions" aria-label="Reader actions">
-        ${reactionButton(index, "like", "Like", likeIconPath)}
-        <button class="reaction-btn note-action" type="button" data-proofread="${index}">Refine</button>
-      </div>
-      ${commentBoard(index)}
     </article>
   `;
 }
@@ -1812,22 +1841,19 @@ function getVisibleQuotes() {
     })
     .filter(({ quote }) => {
       if (!keyword) return true;
-      return normalize(`${quote.zh || ""}${quote.en || ""}${quote.nl || ""}${categoryLabel(quote.category)}${quote.category}${quote.source}`).includes(keyword);
+      return normalize(`${quote.zh || ""}${quote.en || ""}${categoryLabel(quote.category)}${quote.category}${quote.source}`).includes(keyword);
     });
 }
 
 function classicNoteCard(entry) {
   const { section, note, sectionIndex, noteIndex, id, slug } = entry;
-  const label = classicCollections[slug].label;
   return `
     <article class="quote-card strategy-popular-card">
-      <div class="quote-body">
-        <p class="quote-text quote-zh">${escapeHtml(note.zh)}</p>
-        <p class="quote-text quote-en">${escapeHtml(note.en)}</p>
-        ${note.nl ? `<p class="quote-nl"><span>Dutch</span>${escapeHtml(note.nl)}</p>` : ""}
-        <p class="classic-card-label">${escapeHtml(label)} · ${escapeHtml(section.title)}</p>
+      ${quoteReadingBody(note)}
+      <div class="quote-tools">
+        ${chineseTranslation(note)}
+        ${sourceNotes(note)}
       </div>
-      ${sourceNotes(note)}
       <div class="reader-actions" aria-label="Reader actions">
         ${reactionButtonForId(id, "like", "Like", likeIconPath)}
         <a class="strategy-detail-btn" href="#collection/${slug}/${sectionIndex}/${noteIndex}/background">Background</a>
@@ -1912,7 +1938,7 @@ function classicNoteMatches(entry) {
   const keyword = normalize(searchInput.value.trim());
   if (!keyword) return true;
   const { section, note, slug } = entry;
-  return normalize(`${note.zh} ${note.en} ${note.nl || ""} ${note.source || ""} ${note.reference?.author || ""} ${classicCollections[slug].label} ${section.title}`).includes(keyword);
+  return normalize(`${note.zh} ${note.en} ${note.source || ""} ${note.reference?.author || ""} ${classicCollections[slug].label} ${section.title}`).includes(keyword);
 }
 
 function classicSectionCard(section, sectionIndex, slug) {
@@ -1925,19 +1951,19 @@ function classicSectionCard(section, sectionIndex, slug) {
       const detailType = id === expandedClassicNoteId ? expandedClassicDetailType : "background";
       return `
       <li class="strategy-note">
+        ${quoteReadingBody(note)}
+        <div class="quote-tools">
+          ${chineseTranslation(note)}
+          ${reactionButtonForId(id, "like", "Like", likeIconPath)}
+        </div>
         <details class="classic-passage" name="classic-passages" data-classic-note="${escapeHtml(id)}" ${id === expandedClassicNoteId ? "open" : ""}>
           <summary class="classic-passage-heading">
-            <span class="classic-passage-title">
-              <strong lang="zh">${escapeHtml(note.zh)}</strong>
-              <em lang="en">${escapeHtml(note.en)}</em>
-            </span>
+            <span class="classic-passage-title">Reading notes</span>
             <span class="classic-passage-chevron" aria-hidden="true"></span>
           </summary>
           <div class="classic-passage-content">
-            ${note.nl ? `<p class="quote-text quote-nl" lang="nl"><span>Dutch</span>${escapeHtml(note.nl)}</p>` : ""}
             ${sourceNotes(note)}
             <div class="strategy-note-actions classic-passage-actions" aria-label="${escapeHtml(label)} note details">
-              ${reactionButtonForId(id, "like", "Like", likeIconPath)}
               ${Object.entries(artDetailLabels).map(([type, title]) => `
                 <button type="button" class="strategy-detail-btn ${type === detailType ? "is-active" : ""}" data-classic-detail="${type}" aria-pressed="${type === detailType}" aria-controls="${escapeHtml(id)}-${type}">${escapeHtml(title)}</button>
               `).join("")}
@@ -2000,10 +2026,11 @@ function renderClassicDetail(slug, sectionIndex, noteIndex, detailType) {
     <article class="strategy-detail-page">
       <a class="back-link strategy-back-link" href="#collection/${slug}">Back to ${escapeHtml(label)}</a>
       <p class="eyebrow">${escapeHtml(section.title)}</p>
-      <h3>${escapeHtml(note.zh)}</h3>
-      <p class="strategy-detail-translation">${escapeHtml(note.en)}</p>
-      ${note.nl ? `<p class="quote-text quote-nl"><span>Dutch</span>${escapeHtml(note.nl)}</p>` : ""}
-      ${sourceNotes(note)}
+      ${quoteReadingBody(note)}
+      <div class="quote-tools">
+        ${chineseTranslation(note)}
+        ${sourceNotes(note)}
+      </div>
       <div class="reader-actions strategy-detail-reactions" aria-label="Reader actions">
         ${reactionButtonForId(classicNoteKey(slug, Number(sectionIndex), Number(noteIndex)), "like", "Like", likeIconPath)}
       </div>
@@ -2338,7 +2365,7 @@ function showCategory(category) {
   collection.hidden = false;
   collectionTitle.textContent = activeCategory === allCategory ? "Search Results" : `${categoryLabel(activeCategory)} Notes`;
   document.title = `${collectionTitle.textContent} | Notes Garden`;
-  collectionNote.textContent = "Collected reading notes. AI translations may be imperfect; corrections and reflections are welcome.";
+  collectionNote.textContent = "Read in English. Open 中文翻译 when you need it.";
   updateStats();
   filters.hidden = false;
   renderFilters();
