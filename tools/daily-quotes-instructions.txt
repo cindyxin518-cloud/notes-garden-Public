@@ -1,0 +1,65 @@
+MiniGrowLab 每日金句任务（本机 Codex，Europe/Amsterdam 每天 09:00）
+
+任务与边界
+每天为 https://www.minigrowlab.com/ 新增一个完整的 10 条中英双语批次，累积保留历史。
+从全球经典文学、影视、访谈中找有深刻影响、值得反思的短句或短段落。注重思想深度、具体背景及来源多样性；不要连续多日偏向同一国家、作者或体裁。兼顾文学、影视和访谈，不为类别配额牺牲可靠性。
+新增只含中文和英文；已有荷兰语、旧金句顺序、ID、点赞、收藏、评论、古籍和私密实验室保持原样。
+用户已授权该每日任务及准确更新后的主页发布。仅更新每日金句数据及其必要生成文件；不要使用旧 publish-to-github.sh 整站覆盖，不更改其他网站或恢复 Video Lab 自动搜片任务。
+正常成功时安静运行；只有有意义的失败、无法补齐 10 条、发布受阻或需要用户处理时通知。
+
+工作目录与同步
+仓库：https://github.com/cindyxin518-cloud/notes-garden-Public.git ，分支 main。
+本机工作目录：/Users/cindyxin/Documents/New project/minigrowlab-daily-quotes
+任何变更前检查当前分支、remote 和 git status。保留用户和其他任务未提交的更改，不自动 stash、reset、clean、覆盖或提交其他人的文件。
+从当前 main 同步开始；干净目录使用 fetch 与 fast-forward 更新。如目录已有改动或 main 已前进导致冲突，建立新的临时 clone，以远端最新 main 为基础，只应用本任务数据；不要强推。GitHub 的写入需要当前可用的已授权登录，不把凭据写进文件、命令参数、任务日志或网站。本机已验证可用的 push URL 为 git@github.com:cindyxin518-cloud/notes-garden-Public.git；保留可用的当前认证，不重新生成或要求用户提供私钥。
+正常联网读取、fetch、clone、push 属于用户已授权的研究及每日发布范围。若执行工具因网络限制无法完成，按需使用 exec_command 的 sandbox_permissions=require_escalated 并简洁说明用途，接受自动审核结果；不要反复执行已被拒绝的同一操作。自动审核拒绝且无安全替代时，完成离线准备，保留批次并明确告知用户该审核阻断了哪一步及理由。
+本地根目录可能是 sparse checkout，仅根文件可见。先确认 data/quote-batches 和 tools 也已纳入 sparse checkout，再读取历史；不能把隐藏的数据误判为没有历史。首次配置已由当前会话完成。后续临时完整 clone 不使用 sparse checkout。
+
+开始前与去重
+使用 Europe/Amsterdam 的当前日期 YYYY-MM-DD 作为批次日；不要用执行机默认时区推定日期。
+先运行 python3 tools/import_daily_quotes.py --check。失败时检查原因；生成文件不一致可执行 --rebuild，再 --check。
+运行 python3 tools/import_daily_quotes.py --list，读取现有原始金句、已核验笔记和所有已完成批次作为去重基准。
+如果 data/quote-batches/当天日期.json 已存在，该日内容不可更换、删除、重排、再追加 10 条。完成情况应通过远端提交和 GitHub Pages 部署核实；有发布中断则恢复同一批，不研究第二批。
+同一原句、译句或近似摘录都不应再收录。导入器能拦截标准化后相同的中英文或源语文本，以及高度重叠的长摘录；你还要人工判断改写、别译、同一段落和语义重复，不能仅靠换译文绕过去重。
+
+研究与质量
+检索只是定位来源：实际打开并阅读作者/原书、出版社或影视官方剧本/字幕、原访谈全文或官方视频、大学/国家图书馆档案及其他权威原始材料，核对摘录确实出现、说话者是谁及上下文。
+名言聚合站、搜索摘要、社交媒体图片、影迷转述不能单独证明作者与原句。无法核验就换一条，不凭记忆补造引用。
+文学注明作者、作品、章节/页码或段落定位及版本信息；影视区分角色、编剧/作者、影片/剧集、年份与场景/时间码；访谈注明受访者、采访者/发布机构、日期和问题/段落/时间码。
+区分原作年代、作品首次发表、后续翻译版本和采访发布日期；古代作品可用可靠时代范围，不制造精确日期。
+选短摘录，遵守所用检索工具对各来源的引用字数限制。每个来源的多条累计引用也要计数；不要摘录整段长对话或诗词歌词。涉及英文原句尽量简短；每个现代来源通常最多一条。
+原文不是中文时，中译标明本次译文；原文不是英文时，英译标明本次译文或注明采用的真实出版译本。不要将自译称为作者原句或官方译文。
+reference.originalText 保存实际核验版本的摘录，英语来源通常与 en 相同。优先核对源语；若仅能核对可信出版英译，originalLanguage 仍保留作品的原始语言，要在 englishStatus、verification 和版本说明中如实注明译者/译本、所核的是英译、尚未核对原语言，不能声称核对了源语原文。页面将此字段显示为“Checked excerpt · 所核版本摘录”。影视须保持所核台词原貌，不能把意译拼接成原台词。
+context 和 question 是编辑背景与反思问题，不冒充作者观点；解释会影响含义的反讽、虚构说话者或场景，避免把坏角色台词当作无条件建议。
+verification 记录具体核验了哪一份文本及位置，不能只写“已核验”或虚构查看过程。
+
+候选文件格式（放临时目录，草稿不要放进 data/quote-batches）
+JSON 顶层恰好为：schema_version:1，date:YYYY-MM-DD，timezone:"Europe/Amsterdam"，expected_count:10，notes:含恰好10条对象的数组。
+每条恰好包含 id、zh、en、category、source、reference。
+id 按当天数组顺序固定为 daily-YYYY-MM-DD-01 至 daily-YYYY-MM-DD-10，发布后永久保留。
+category 从 Wisdom、Self、Growth、Life、Relationships、Reading、Others、Attention、Uncertainty、Time、Nature、Creativity 中选择；不向两个古籍专栏导入日更条目。
+source 是简短作者/作品/年份显示文字。
+reference 必填非空字段：author、work、date、locator、url、sourceType、originalLanguage、chineseStatus、englishStatus、originalText、context、question、verification。
+reference.additionalSources 可省略或为 [{"label":"来源说明","url":"https://..."}]。
+不添加 nl、dutchStatus 或未规定的字段。url 必须是实际打开并支持引文的 HTTP(S) 页面，不能是搜索结果页。
+
+导入与验证（均无需网络）
+python3 tools/import_daily_quotes.py --input /绝对路径/候选.json --check
+通过后：python3 tools/import_daily_quotes.py --input /绝对路径/候选.json
+然后：python3 tools/import_daily_quotes.py --check
+导入器原子写入 data/quote-batches/YYYY-MM-DD.json 和 daily-quotes.js，保留全部历史，拒绝不完整批次、缺失引用、重复、错误ID和同日替换。
+如果进程恰好在两份文件写入之间中断，批次文件为准。重跑同一候选或 --rebuild，然后 --check；不要手工删除完成批次来重试。
+本仓库的离线回归测试：python3 -m unittest discover -s tools -p 'test_*.py' -v
+JS兼容性测试需要Node；PATH没有Node时可通过Codex load_workspace_dependencies获取Node路径，再用NODE_BINARY环境变量运行上面的测试。不要把本机凭据或环境文件提交到仓库。
+
+发布与成功确认
+每日普通更新的预期变更只有当天 JSON 和 daily-quotes.js；若同步恢复使其他每日批次生成文件变化，应逐一核对历史未丢失。
+检查 diff：新增正好10条、无旧记录变化、无新荷语、所有来源准确、无意外文件和敏感数据。仅暂存本任务这两个路径，正常提交并推送 main；提交消息包含批次日期。
+如果推送因远端前进被拒绝，刷新 main 并在最新数据上重新验证、重建，必要时新 clone 再重做同一批次；若当天批次已由另一个运行完成，停止新增并核对其部署，不覆盖它。
+GitHub commit/push 成功不等于网站已更新。检查 GitHub Pages 部署/Actions，确认与本次提交SHA对应的部署成功；再读取线上 daily-quotes.js，核对当天日期、10个ID及累计历史。只看到主页旧缓存时不要再次新增内容。
+只有已部署并核验线上数据后，才把该日记为已上线。若GitHub或部署服务暂时失败，保留同一提交/候选并在下次恢复；不要把失败报成成功。
+
+不足10条或其他失败
+先继续换来源研究，不用伪引语、重复句、无出处内容或凭空生成的“名人名言”凑足10条。
+仍不足时将已核验候选保存在临时草稿中，保留旧主页，记录日期、已合格数量、还缺几条及具体障碍，并告知用户。不要发布部分批次，不声称该日完成。
+需要额外授权、登录失效或工具访问受限时，停止依赖该权限的步骤并清楚说明；其余已授权离线准备可继续。

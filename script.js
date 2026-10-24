@@ -1115,6 +1115,16 @@ const sourcedNotes = [
 // Append without changing the IDs or ordering of the original notes.
 baseQuotes.push(...sourcedNotes.filter((quote) => quote.category !== "The Art of War"));
 
+// Daily batches are append-only; existing IDs and their order remain stable.
+const dailyQuoteData = window.MINIGROW_DAILY_QUOTES || {};
+const dailyQuotes = Array.isArray(dailyQuoteData.notes) ? dailyQuoteData.notes : [];
+baseQuotes.push(...dailyQuotes);
+const dailyQuotesStatus = document.querySelector("#dailyQuotesStatus");
+if (dailyQuotesStatus && dailyQuotes.length && dailyQuoteData.updated_on) {
+  dailyQuotesStatus.textContent = `Latest update · 最近更新：${dailyQuoteData.updated_on} · ${dailyQuoteData.latest_count} new notes / 新增 ${dailyQuoteData.latest_count} 条`;
+  dailyQuotesStatus.hidden = false;
+}
+
 
 let userQuotes = JSON.parse(localStorage.getItem("userQuotes") || "[]");
 let publicVisitorQuotes = [];
@@ -1757,8 +1767,8 @@ function sourceNotes(quote) {
             <dt>Source &amp; location</dt>
             <dd>${escapeHtml(reference.sourceType)} · ${escapeHtml(reference.locator)}</dd>
             <dt>Original language &amp; translations</dt>
-            <dd>${escapeHtml(reference.originalLanguage)}<br>${escapeHtml(reference.chineseStatus)}<br>${escapeHtml(reference.englishStatus)}<br>${escapeHtml(reference.dutchStatus)}</dd>
-            ${reference.originalText ? `<dt>Source-language excerpt</dt><dd>${escapeHtml(reference.originalText)}</dd>` : ""}
+            <dd>${[reference.originalLanguage, reference.chineseStatus, reference.englishStatus, reference.dutchStatus].filter(Boolean).map(escapeHtml).join("<br>")}</dd>
+            ${reference.originalText ? `<dt>Checked excerpt · 所核版本摘录</dt><dd>${escapeHtml(reference.originalText)}</dd>` : ""}
             <dt>Reference check</dt>
             <dd>${escapeHtml(reference.verification)}</dd>
           </dl>

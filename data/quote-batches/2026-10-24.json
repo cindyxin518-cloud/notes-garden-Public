@@ -1,0 +1,276 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-24",
+  "timezone": "Europe/Amsterdam",
+  "expected_count": 10,
+  "notes": [
+    {
+      "id": "daily-2026-10-24-01",
+      "zh": "与梦里的爱相比，付诸行动的爱是严酷而可畏的。",
+      "en": "love in action is a harsh and dreadful thing compared with love in dreams.",
+      "category": "Relationships",
+      "source": "陀思妥耶夫斯基 / Fyodor Dostoyevsky · The Brothers Karamazov《卡拉马佐夫兄弟》 · 1879–1880",
+      "reference": {
+        "author": "陀思妥耶夫斯基 / Fyodor Dostoyevsky",
+        "work": "The Brothers Karamazov《卡拉马佐夫兄弟》",
+        "date": "1879–1880（连载）；1880 年首次单行本",
+        "locator": "第一部，第二卷，第四章 A Lady Of Little Faith；佐西马长老与霍赫拉科娃夫人的谈话",
+        "url": "https://www.gutenberg.org/files/28054/28054-h/28054-h.htm",
+        "sourceType": "小说中的人物对白",
+        "originalLanguage": "俄语",
+        "chineseStatus": "本次据所核英文译本翻译，非既有中文译本摘录",
+        "englishStatus": "Constance Garnett 英译本摘录；本次未独立核对俄文",
+        "originalText": "love in action is a harsh and dreadful thing compared with love in dreams.",
+        "context": "夫人承认，自己想象着照顾别人，却很难忍受别人的忘恩。长老随后区分渴望迅速得到赞赏的爱与需要持续劳作、耐心的爱。这是小说人物在宗教语境中的话，不宜解释为忍受伤害或放弃界限的义务。",
+        "question": "当善意没有得到感谢时，我还愿意做什么，又需要守住什么界限？",
+        "verification": "2026-10-24 已在 Project Gutenberg 所载 Garnett 英译全文核对原句及前后段；出版年代另核对代顿大学珍本展览说明。",
+        "additionalSources": [
+          {
+            "label": "代顿大学 Roesch Library：作品出版与背景",
+            "url": "https://exhibits.udayton.edu/s/rosebook/page/dostoevsky"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-10-24-02",
+      "zh": "愿我祈求的，不是免于危险，而是面对危险时无所畏惧。",
+      "en": "Let me not pray to be sheltered from dangers but to be fearless in facing them.",
+      "category": "Growth",
+      "source": "泰戈尔 / Rabindranath Tagore · Fruit-Gathering《采果集》 · 1916",
+      "reference": {
+        "author": "泰戈尔 / Rabindranath Tagore",
+        "work": "Fruit-Gathering《采果集》",
+        "date": "1916（本次所核作者英译本出版年）",
+        "locator": "第 79 首，LXXIX，第一句",
+        "url": "https://www.gutenberg.org/cache/epub/6522/pg6522-images.html",
+        "sourceType": "诗歌（作者英译）",
+        "originalLanguage": "孟加拉语",
+        "chineseStatus": "本次据作者英文自译本翻译，非既有中文译本摘录",
+        "englishStatus": "作者本人由孟加拉语译成英文的版本摘录；本次未独立核对孟加拉语",
+        "originalText": "Let me not pray to be sheltered from dangers but to be fearless in facing them.",
+        "context": "这首祈祷诗将希望从消除所有危险，转向面对危险的勇气；后文继续谈及痛苦、自由与失败。它没有要求读者主动冒险，也不否定寻求实际帮助。",
+        "question": "我正在等待困难消失，还是可以先培养一种面对它的能力？",
+        "verification": "2026-10-24 已在 Project Gutenberg 全文核对第 LXXIX 首；页面书名页注明作者自译及 Macmillan 1916 年出版。",
+        "additionalSources": [
+          {
+            "label": "Project Gutenberg：作者及版本记录",
+            "url": "https://www.gutenberg.org/ebooks/6522"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-10-24-03",
+      "zh": "如果不是为了让彼此的生活少些艰难，我们又为什么而活呢？",
+      "en": "What do we live for, if it is not to make life less difficult to each other?",
+      "category": "Relationships",
+      "source": "乔治·艾略特 / George Eliot · Middlemarch《米德尔马契》 · 1871–1872",
+      "reference": {
+        "author": "乔治·艾略特 / George Eliot",
+        "work": "Middlemarch《米德尔马契》",
+        "date": "1871–1872（分册出版）",
+        "locator": "第八卷 Sunset and Sunrise，第 72 章；多萝西娅谈及遭受猜疑的利德盖特",
+        "url": "https://www.gutenberg.org/files/145/145-h/145-h.htm",
+        "sourceType": "小说中的人物对白",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本摘录",
+        "englishStatus": "英文原作摘录",
+        "originalText": "What do we live for, if it is not to make life less difficult to each other?",
+        "context": "面对利德盖特遭受的流言，多萝西娅主张朋友应当设法查明事实、帮助他，而不只是谨慎地旁观。这是人物在具体困境中的伦理选择，不是要求一个人替别人管理整个人生。",
+        "question": "面对别人的困境，我是在评判，还是能提供一种有分寸的帮助？",
+        "verification": "2026-10-24 已在 Project Gutenberg 第 72 章核对原句及谈话背景；1871–1872 年分册出版另核对 SMU Bridwell Library 的初版馆藏记录。",
+        "additionalSources": [
+          {
+            "label": "SMU Bridwell Library：Middlemarch 初版馆藏",
+            "url": "https://bridwell.omeka.net/exhibits/show/fiftywomen/item/1583"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-10-24-04",
+      "zh": "人生天地之间，若白驹之过郤，忽然而已。",
+      "en": "A human life between heaven and earth passes like a white colt glimpsed through a crack: suddenly, it is gone.",
+      "category": "Time",
+      "source": "庄子及后学 / Zhuangzi and later followers · 《庄子·知北游》 · 先秦，具体成书年代未定",
+      "reference": {
+        "author": "庄子及后学 / Zhuangzi and later followers",
+        "work": "《庄子·知北游》",
+        "date": "先秦；篇章具体成书年代未定",
+        "locator": "外篇第 22 篇，孔子问老聃一段",
+        "url": "https://zh.wikisource.org/wiki/%E8%8E%8A%E5%AD%90/%E7%9F%A5%E5%8C%97%E9%81%8A",
+        "sourceType": "古籍中的寓言对话",
+        "originalLanguage": "古汉语",
+        "chineseStatus": "传世古籍原句，转简体；保留所核文本的“郤”字",
+        "englishStatus": "本次翻译",
+        "originalText": "人生天地之間，若白駒之過郤，忽然而已。",
+        "context": "篇中通过孔子向老聃问道的对话，谈论生命在天地变化中的短暂。后文紧接着讨论化生与化死，重点并非催促人追逐更多成就。这里是古籍叙事中的话，不当作可验证的历史谈话记录。",
+        "question": "既然生命如此短暂，我今天的忙碌是否仍与珍视的事情有关？",
+        "verification": "2026-10-24 已实际打开维基文库《知北游》传世全文核对原句与前后段。中国哲学书电子化计划全文本次访问返回 403，未声称已打开该站全文核对。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-24-05",
+      "zh": "我没有时间生气，史密斯太太。",
+      "en": "I don’t have time to get angry, Mrs Smith.",
+      "category": "Time",
+      "source": "石黑一雄 / Kazuo Ishiguro 编剧；角色 Williams · 电影《生之欲》Living 公开剧本 · 2022",
+      "reference": {
+        "author": "石黑一雄 / Kazuo Ishiguro（编剧）；Williams（说话角色）",
+        "work": "电影《生之欲》Living 公开剧本",
+        "date": "2022（电影首映年份）；公开剧本未署写作日期",
+        "locator": "剧本第94页；PDF第95页；County Hall走廊回忆场景",
+        "url": "https://www.sonyclassics.com/assets/screenplays/living/living-screenplay.pdf",
+        "sourceType": "电影剧本",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次译文，非官方中文字幕",
+        "englishStatus": "发行方公开英文剧本摘录；未逐字核对上映版音轨",
+        "originalText": "I don’t have time to get angry, Mrs Smith.",
+        "context": "Williams为居民推动游乐场项目，刚遭遇官僚阻力。知道自己时日有限的他，把剩余精力用于继续行动。这是角色在具体处境中的选择，不意味着愤怒没有正当性，也不是演员本人发表的人生格言。",
+        "question": "面对反复出现的阻力，我的有限时间正在用于什么：消耗，还是推动一件真正重要的事？",
+        "verification": "2026-10-24已打开Sony Pictures Classics官方公开剧本，核对第94页Williams对白；编剧署名见封面及官网。2022年首映由Sony官方2022-01-25新闻稿确认。",
+        "additionalSources": [
+          {
+            "label": "Sony Pictures Classics：电影与编剧信息",
+            "url": "https://www.sonyclassics.com/film/living/"
+          },
+          {
+            "label": "Sony官方：2022年圣丹斯世界首映后的收购公告",
+            "url": "https://www.sonypictures.com/corp/press_releases/2022/0126"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-10-24-06",
+      "zh": "我觉得自己的叶子，正一片接一片地落去。",
+      "en": "I feel as if I’m losing all my leaves, one after another.",
+      "category": "Life",
+      "source": "弗洛里安·泽勒 / Florian Zeller、克里斯托弗·汉普顿 / Christopher Hampton 编剧；角色 Anthony · 《困在时间里的父亲》The Father 公开剧本 · 2020",
+      "reference": {
+        "author": "弗洛里安·泽勒 / Florian Zeller、克里斯托弗·汉普顿 / Christopher Hampton（编剧）；Anthony（说话角色）",
+        "work": "《困在时间里的父亲》The Father 最终公开剧本",
+        "date": "2020（电影首映年份；公开文件标题标识2020-12-01）",
+        "locator": "剧本第86页；PDF第88页；第66场末段Anthony与护理人员的对话",
+        "url": "https://www.sonyclassics.com/assets/screenplays/thefather/thefather-screenplay.pdf",
+        "sourceType": "电影剧本",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次译文，非官方中文字幕",
+        "englishStatus": "发行方公开英文剧本的连续句段摘录；略去前一句未完成的重复起句，未逐字核对上映版音轨",
+        "originalText": "I feel as if I’m losing all my leaves, one after another.",
+        "context": "影片末段，Anthony在认知与记忆的混乱中向护理人员描述自己的失落。落叶的比喻让抽象的身份消退变成可以感受的经验。这不是笼统赞美遗忘或劝人放下，而是在邀请观众进入一个脆弱者的处境。",
+        "question": "当一个人不再能清楚记得或说明自己时，我还能怎样看见并维护他的尊严？",
+        "verification": "2026-10-24已打开Sony Pictures Classics官方最终剧本，核对第86页Anthony连续对白、场景及封面编剧署名；官网确认作品及人物处境。2020年首映依据Sony官方2020-09-14新闻稿。",
+        "additionalSources": [
+          {
+            "label": "Sony Pictures Classics：作品、编剧与故事介绍",
+            "url": "https://www.sonyclassics.com/film/thefather"
+          },
+          {
+            "label": "Sony官方2020年新闻稿：电影及圣丹斯首映信息",
+            "url": "https://sony.mediaroom.com/index.php?item=129113&s=2429"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-10-24-07",
+      "zh": "适度的阻力，对任何人都有益。",
+      "en": "A certain amount of resistance is good for anybody.",
+      "category": "Growth",
+      "source": "琼·狄迪恩 / Joan Didion · Linda Kuehl访谈，The Art of Fiction No. 71 · 1978年秋冬",
+      "reference": {
+        "author": "琼·狄迪恩 / Joan Didion；采访者 Linda Kuehl",
+        "work": "The Art of Fiction No. 71，《巴黎评论》第74期",
+        "date": "1978年秋冬刊发；访谈于1977-08-18及1977-08-24进行",
+        "locator": "采访者追问女性作家的“Advantages?”，Didion答话中段",
+        "url": "https://www.theparisreview.org/interviews/3439/the-art-of-fiction-no-71-joan-didion",
+        "sourceType": "访谈",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次译文",
+        "englishStatus": "《巴黎评论》原刊访谈英文原句",
+        "originalText": "A certain amount of resistance is good for anybody.",
+        "context": "Didion先谈女性作家在当时文坛缺乏现成社会角色，随后被问到其中的有利之处。她认为一定程度的阻力能使人保持清醒。这是对创作经验的回应，不能延伸为歧视、压迫或所有苦难都有益。",
+        "question": "我正在遇到的阻力，哪些能让我更清醒，哪些已经需要拒绝或改变？",
+        "verification": "2026-10-24已实际打开《巴黎评论》原刊采访，核对相邻问答、作者答话、期号与刊发季节；文首由Didion说明两次访谈的1977年具体日期。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-24-08",
+      "zh": "这项任务，就是阻止世界走向自我毁灭。",
+      "en": "It consists in preventing the world from destroying itself.",
+      "category": "Wisdom",
+      "source": "阿尔贝·加缪 / Albert Camus · 诺贝尔奖晚宴演讲 · 1957-12-10",
+      "reference": {
+        "author": "阿尔贝·加缪 / Albert Camus",
+        "work": "1957年诺贝尔奖晚宴演讲",
+        "date": "1957-12-10",
+        "locator": "谈论本代人责任的段落；Each generation 开头一段第三句",
+        "url": "https://www.nobelprize.org/prizes/literature/1957/camus/speech/",
+        "sourceType": "演讲",
+        "originalLanguage": "法语",
+        "chineseStatus": "本次据法文并参照官方英译翻译",
+        "englishStatus": "诺贝尔奖官网所载英文译文；非演讲原语言",
+        "originalText": "Elle consiste à empêcher que le monde se défasse.",
+        "context": "加缪谈到经历战争、集中营与核毁灭威胁的一代人。即使无法重塑整个世界，他们仍能承担阻止毁灭、维护生命尊严的责任。句中的任务指的是这种历史责任，而不是要求个人独自解决所有危机。",
+        "question": "当我无法改变整个局面时，仍能守护什么、阻止哪一种伤害继续发生？",
+        "verification": "2026-10-24已实际读取诺贝尔奖官网英文全文及法文全文，核对同一段落与演讲日期。中文为本次翻译。",
+        "additionalSources": [
+          {
+            "label": "诺贝尔奖官网：法文演讲原文",
+            "url": "https://www.nobelprize.org/prizes/literature/1957/camus/25232-banquet-speech-french/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-10-24-09",
+      "zh": "诗的形式，既是船，也是锚。",
+      "en": "Poetic form is both the ship and the anchor.",
+      "category": "Creativity",
+      "source": "谢默斯·希尼 / Seamus Heaney · Crediting Poetry 诺贝尔文学奖演讲 · 1995-12-07",
+      "reference": {
+        "author": "谢默斯·希尼 / Seamus Heaney",
+        "work": "Crediting Poetry《为诗辩护》诺贝尔演讲",
+        "date": "1995-12-07",
+        "locator": "演讲最后一段；讨论叶芝诗歌形式、节奏与三重韵脚之后",
+        "url": "https://www.nobelprize.org/prizes/literature/1995/heaney/lecture/",
+        "sourceType": "文学演讲",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本摘录",
+        "englishStatus": "英文演讲原句",
+        "originalText": "Poetic form is both the ship and the anchor.",
+        "context": "希尼先讨论政治暴力与人的脆弱，再解释诗的形式怎样同时提供浮力和稳定。这句话把形式看成使经验得以承载的力量；它并不是说所有生活都必须依照固定模板。",
+        "question": "在我的创作或生活中，什么结构既能承载探索，又能让我不失去方向？",
+        "verification": "2026-10-24已实际读取诺贝尔奖官网演讲全文，核对最后一段原句、相邻论述及1995年12月7日演讲日期。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-24-10",
+      "zh": "故事也能修复那被损伤的尊严。",
+      "en": "stories can also repair that broken dignity.",
+      "category": "Wisdom",
+      "source": "奇玛曼达·恩戈齐·阿迪契 / Chimamanda Ngozi Adichie · The danger of a single story《单一故事的危险》 · 2009年7月",
+      "reference": {
+        "author": "奇玛曼达·恩戈齐·阿迪契 / Chimamanda Ngozi Adichie",
+        "work": "The danger of a single story《单一故事的危险》，TEDGlobal 2009",
+        "date": "2009年7月（演讲录制时间）",
+        "locator": "TED官方英文逐字稿17:27起段末句的后半句",
+        "url": "https://www.ted.com/talks/chimamanda_ngozi_adichie_the_danger_of_a_single_story?view=transcript",
+        "sourceType": "演讲",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译；为连续句段摘录，非官方中文字幕",
+        "englishStatus": "TED官方英文逐字稿的连续句段摘录，保留原文小写起句",
+        "originalText": "stories can also repair that broken dignity.",
+        "context": "阿迪契反思单一叙事如何把一个地方或群体压缩为刻板印象，也指出多样的故事能帮助人重新看见彼此。这里的修复并非抹去困难，而是让被简化的人重新拥有复杂性和尊严。",
+        "question": "我正在用哪一个单一故事理解别人？还有什么经历或声音没有被我听见？",
+        "verification": "2026-10-24已核对TED官方逐字稿17:27段原句，打开官方演讲页面确认TEDGlobal 2009及2009年7月录制日期。",
+        "additionalSources": []
+      }
+    }
+  ]
+}
