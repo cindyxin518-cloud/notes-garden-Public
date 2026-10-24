@@ -1840,11 +1840,16 @@ function englishCredit(quote) {
     .join(" & ");
 }
 
-function quoteReadingBody(quote, fallbackSource = "") {
+function sourceAudit(quote, auditId = "") {
+  return window.MINIGROW_SOURCE_AUDIT?.records?.[auditId || quote.id] || null;
+}
+
+function quoteReadingBody(quote, fallbackSource = "", auditId = "") {
+  const english = sourceAudit(quote, auditId)?.correctedEnglish || quote.en;
   return `
     <div class="quote-body">
-      <p class="quote-text quote-en" lang="en">${escapeHtml(quote.en || "English text is not available for this reader note.")}</p>
-      ${sourceNotes(quote, fallbackSource)}
+      <p class="quote-text quote-en" lang="en">${escapeHtml(english || "English text is not available for this reader note.")}</p>
+      ${sourceNotes(quote, fallbackSource, auditId)}
     </div>
   `;
 }
@@ -1860,7 +1865,19 @@ function chineseTranslation(quote, readerTools = "") {
   `;
 }
 
-function sourceNotes(quote, fallbackSource = "") {
+function sourceNotes(quote, fallbackSource = "", auditId = "") {
+  const audit = sourceAudit(quote, auditId);
+  if (audit) {
+    if (audit.status === "unverified") {
+      const credit = audit.author ? `Attributed to ${audit.author} · Attribution unverified` : "Unattributed collected text";
+      return `<p class="quote-credit quote-source" data-source-status="unverified">Source: ${escapeHtml(credit)}</p>`;
+    }
+    const url = safeSourceUrl(audit.url);
+    const work = url ? `<a href="${escapeHtml(url)}" target="_blank" rel="noopener noreferrer">${escapeHtml(audit.work)}</a>` : escapeHtml(audit.work);
+    const prefix = audit.textKind === "paraphrase" ? "Adapted from" : audit.textKind === "editorial_translation" ? "Translated from" : audit.textKind === "quoted_in" ? "Quoted in" : "Source";
+    const parts = [escapeHtml(audit.author), work, escapeHtml(audit.locator), escapeHtml(audit.date), escapeHtml(audit.edition)].filter(Boolean);
+    return `<p class="quote-credit quote-source" data-source-status="${escapeHtml(audit.status)}">${prefix}: ${parts.join(" · ")}</p>`;
+  }
   const reference = quote.reference;
   if (!reference) {
     const credit = englishDisplayLabel(quote.source || fallbackSource) || "Reader contribution";
@@ -1900,7 +1917,8 @@ function getVisibleQuotes() {
     })
     .filter(({ quote }) => {
       if (!keyword) return true;
-      return normalize(`${quote.zh || ""}${quote.en || ""}${categoryLabel(quote.category)}${quote.category}${quote.source}${englishDisplayLabel(quote.source)}`).includes(keyword);
+      const audit = sourceAudit(quote);
+      return normalize(`${quote.zh || ""}${audit?.correctedEnglish || quote.en || ""}${categoryLabel(quote.category)}${quote.category}${audit ? `${audit.author} ${audit.work} ${audit.locator}` : englishDisplayLabel(quote.source)}`).includes(keyword);
     });
 }
 
@@ -1908,7 +1926,7 @@ function classicNoteCard(entry) {
   const { section, note, sectionIndex, noteIndex, id, slug } = entry;
   return `
     <article class="quote-card strategy-popular-card">
-      ${quoteReadingBody(note, slug === "art-of-war" ? "Sun Tzu, The Art of War" : "Laozi, Tao Te Ching")}
+      ${quoteReadingBody(note, slug === "art-of-war" ? "Sun Tzu, The Art of War" : "Laozi, Tao Te Ching", id)}
       <div class="quote-tools">
         ${chineseTranslation(note)}
       </div>
@@ -2009,7 +2027,7 @@ function classicSectionCard(section, sectionIndex, slug) {
       const detailType = id === expandedClassicNoteId ? expandedClassicDetailType : "background";
       return `
       <li class="strategy-note">
-        ${quoteReadingBody(note, slug === "art-of-war" ? "Sun Tzu, The Art of War" : "Laozi, Tao Te Ching")}
+        ${quoteReadingBody(note, slug === "art-of-war" ? "Sun Tzu, The Art of War" : "Laozi, Tao Te Ching", id)}
         <div class="quote-tools">
           ${chineseTranslation(note)}
           ${reactionButtonForId(id, "like", "Like", likeIconPath)}
@@ -2083,7 +2101,7 @@ function renderClassicDetail(slug, sectionIndex, noteIndex, detailType) {
     <article class="strategy-detail-page">
       <a class="back-link strategy-back-link" href="#collection/${slug}">Back to ${escapeHtml(label)}</a>
       <p class="eyebrow">${escapeHtml(englishDisplayLabel(section.title))}</p>
-      ${quoteReadingBody(note, slug === "art-of-war" ? "Sun Tzu, The Art of War" : "Laozi, Tao Te Ching")}
+      ${quoteReadingBody(note, slug === "art-of-war" ? "Sun Tzu, The Art of War" : "Laozi, Tao Te Ching", classicNoteKey(slug, Number(sectionIndex), Number(noteIndex)))}
       <div class="quote-tools">
         ${chineseTranslation(note)}
       </div>
