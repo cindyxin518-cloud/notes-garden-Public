@@ -1442,7 +1442,7 @@ const classicCollections = {
     sections: daoDeJingSections,
     sectionLabel: "reading sections · 18 classic passages",
     introTitle: "Selected readings from the Tao Te Ching",
-    intro: "Read in English. Select Chinges for Chinese. Open Reading notes for context and reflections."
+    intro: "Read in English. Select Chinese for Chinese. Open Reading notes for context and reflections."
   }
 };
 
@@ -1853,7 +1853,7 @@ function chineseTranslation(quote, readerTools = "") {
   if (!quote.zh) return "";
   return `
     <details class="quote-translation">
-      <summary role="button" aria-label="Chinges" lang="en">Chinges</summary>
+      <summary role="button" aria-label="Chinese" lang="en">Chinese</summary>
       <p class="quote-text quote-zh" lang="zh">${escapeHtml(quote.zh)}</p>
       ${readerTools ? `<div class="translation-tools">${readerTools}</div>` : ""}
     </details>
@@ -2421,7 +2421,7 @@ function showCategory(category) {
   collection.hidden = false;
   collectionTitle.textContent = activeCategory === allCategory ? "Search Results" : `${categoryLabel(activeCategory)} Notes`;
   document.title = `${collectionTitle.textContent} | Notes Garden`;
-  collectionNote.textContent = "Read in English. Select Chinges for Chinese.";
+  collectionNote.textContent = "Read in English. Select Chinese for Chinese.";
   updateStats();
   filters.hidden = false;
   renderFilters();
