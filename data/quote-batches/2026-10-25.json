@@ -1,0 +1,253 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-25",
+  "timezone": "Europe/Amsterdam",
+  "expected_count": 10,
+  "notes": [
+    {
+      "id": "daily-2026-10-25-01",
+      "zh": "只要愿意倾听，我们每个人内心的指引，都胜过任何他人。",
+      "en": "We have all a better guide in ourselves, if we would attend to it, than any other person can be.",
+      "category": "Self",
+      "source": "Jane Austen · Mansfield Park · 1814",
+      "reference": {
+        "author": "Jane Austen",
+        "work": "Mansfield Park",
+        "date": "1814",
+        "locator": "Chapter XLII: Fanny Price replying to Henry Crawford about his responsibility to his tenants",
+        "url": "https://www.gutenberg.org/files/141/141-h/141-h.htm",
+        "sourceType": "小说人物对白",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "英文原作的连续摘录；保留所核文字",
+        "originalText": "We have all a better guide in ourselves, if we would attend to it, than any other person can be.",
+        "context": "克劳福德声称要纠正庄园管理中的不公，却又把芬妮的判断当作自己的准则。芬妮不愿替他承担道德选择，提醒他自己知道何为正确。这是人物在具体情境中的回答，并非否定向别人学习或寻求专业意见。",
+        "question": "我是否把本应自己承担的判断，交给了某个让我安心的人？",
+        "verification": "2026-10-25：实际读取 Project Gutenberg 英文全文，定位第42章结尾克劳福德询问是否应回诺福克的连续问答；核对说话者为芬妮，书首注明1814年。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-25-02",
+      "zh": "有悲伤之处，就有圣地。",
+      "en": "Where there is sorrow there is holy ground.",
+      "category": "Relationships",
+      "source": "Oscar Wilde · De Profundis · 1913 edition",
+      "reference": {
+        "author": "Oscar Wilde",
+        "work": "De Profundis",
+        "date": "1913 edition",
+        "locator": "Passage recalling a friend who raised his hat to Wilde while he was handcuffed",
+        "url": "https://www.gutenberg.org/cache/epub/921/pg921-images.html",
+        "sourceType": "书信作品",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "英文原作的连续摘录；保留所核文字",
+        "originalText": "Where there is sorrow there is holy ground.",
+        "context": "王尔德在囚禁中回忆：自己戴着手铐经过人群时，一位朋友仍郑重脱帽致意。这里的神圣联系着对受苦者的尊重和怜悯，不是赞美伤害本身，也不是说痛苦值得主动追求。",
+        "question": "面对处境艰难的人，我能用什么微小行动维护他的尊严？",
+        "verification": "2026-10-25：实际读取 Project Gutenberg 转录的1913年 Methuen 版，核对原句及随后脱帽致意的回忆。日期明确指所核版本，不冒充作品首次发表年份。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-25-03",
+      "zh": "说出全部真相，却要从侧面道来——",
+      "en": "Tell all the truth but tell it slant—",
+      "category": "Creativity",
+      "source": "Emily Dickinson · Tell all the truth but tell it slant (Fr1263) · 19th-century poem; 1998 Franklin edition cited",
+      "reference": {
+        "author": "Emily Dickinson",
+        "work": "Tell all the truth but tell it slant (Fr1263)",
+        "date": "19th-century poem; 1998 Franklin edition cited",
+        "locator": "Opening line, quoted in the Emily Dickinson Museum’s Tips for Reading, item 2",
+        "url": "https://www.emilydickinsonmuseum.org/emily-dickinson/poetry/tips-for-reading/",
+        "sourceType": "诗歌",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "英文原作的连续摘录；保留所核文字",
+        "originalText": "Tell all the truth but tell it slant—",
+        "context": "诗以迂回和光亮的意象思考真相怎样被理解。博物馆的导读强调她诗歌中的间接表达与反复阅读。本条将它作为关于诗和表达方式的邀请，不把它解释为篡改事实或隐瞒重要信息的许可。",
+        "question": "怎样的表达方式，能让一个难以接受的事实真正被听见？",
+        "verification": "2026-10-25：实际打开狄金森博物馆导读，核对第2项所引开篇原句及Fr1263编号；页面说明Fr对应1998年Franklin校勘版。并下载博物馆2007年教学讲义核对全诗。没有给创作或首刊年份制造精确日期。",
+        "additionalSources": [
+          {
+            "label": "Emily Dickinson Museum: poem and teaching handout",
+            "url": "https://www.emilydickinsonmuseum.org/wp-content/uploads/2018/08/ED_Writing_Prompt_.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-10-25-04",
+      "zh": "我们的历史叙述有失偏颇，对许多残酷之事缄口不言。",
+      "en": "Our histories were partial, silent about many cruelties.",
+      "category": "Reading",
+      "source": "Abdulrazak Gurnah · Writing, Nobel Lecture · 2021-12-07",
+      "reference": {
+        "author": "Abdulrazak Gurnah",
+        "work": "Writing, Nobel Lecture",
+        "date": "2021-12-07",
+        "locator": "Paragraph reflecting on histories of the 1964 Zanzibar revolution and its aftermath",
+        "url": "https://www.nobelprize.org/prizes/literature/2021/gurnah/lecture/",
+        "sourceType": "文学演讲",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "英文原作的连续摘录；保留所核文字",
+        "originalText": "Our histories were partial, silent about many cruelties.",
+        "context": "古尔纳回顾离开桑给巴尔后，怎样重新面对革命及其后果中的暴力和被删去的记忆。他所说的历史叙述有特定社会背景；此处的反思是检视叙述遗漏了谁，而不是笼统否定所有历史研究。",
+        "question": "在我熟悉的一段历史或家族故事里，谁的经历始终没有被讲述？",
+        "verification": "2026-10-25：直接读取诺贝尔奖官网英文完整演讲稿，核对讨论1964年桑给巴尔革命的段落、紧接的政治与迫害叙述，以及官网注明的2021年12月7日演讲日期；没有采用搜索摘要代替原文。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-25-05",
+      "zh": "我觉得，我们共享同一片天空，真好。",
+      "en": "I think it’s nice that we share the sky.",
+      "category": "Relationships",
+      "source": "Sophie (Charlotte Wells, screenwriter) · Aftersun (screenplay) · 2022",
+      "reference": {
+        "author": "Sophie (Charlotte Wells, screenwriter)",
+        "work": "Aftersun (screenplay)",
+        "date": "2022",
+        "locator": "Scene 40, poolside: screenplay p. 34, PDF p. 35",
+        "url": "https://nofilmschool.com/files/54668/aftersun-read-the-screenplay.pdf",
+        "sourceType": "电影剧本中的人物对白",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "公开英文剧本中的连续完整句；非根据中文回译；未核对上映版音轨",
+        "originalText": "I think it’s nice that we share the sky.",
+        "context": "度假时，苏菲告诉父亲：即使分别身在不同地方，他们仍能看见同一个太阳。亲密在这里通过共同的天空被感受到；而全片又让成年后的回望与当时未能理解的父亲并置。这是角色苏菲的话，不是演员的格言。",
+        "question": "与一个无法常常见面的人之间，我珍惜的共同经验是什么？",
+        "verification": "2026-10-25：打开No Film School公开提供的完整剧本PDF，核对封面Charlotte Wells署名；提取并逐页图像检查印刷第34页/PDF第35页第40场，确认说话者Sophie及原句确为share the sky，没有擅加same。A24官方影片页核对编剧和2022年公映年份。剧本为公开转存件，未声称当前A24下载端点可用，也未逐字核对上映版音轨。",
+        "additionalSources": [
+          {
+            "label": "A24: film, writer and 2022 theatrical release",
+            "url": "https://a24films.com/films/aftersun"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-10-25-06",
+      "zh": "比起聪明才智，我们更需要善意与温柔。",
+      "en": "More than cleverness we need kindness and gentleness.",
+      "category": "Wisdom",
+      "source": "The Jewish Barber (Charlie Chaplin, writer) · The Great Dictator, final speech · 1940",
+      "reference": {
+        "author": "The Jewish Barber (Charlie Chaplin, writer)",
+        "work": "The Great Dictator, final speech",
+        "date": "1940",
+        "locator": "Final speech: paragraph beginning with the effects of greed, machinery and knowledge",
+        "url": "https://www.charliechaplin.com/en/articles/29-the-final-speech-from-the-great-dictator-",
+        "sourceType": "电影中的人物演讲",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "卓别林版权方官网刊载的英文电影演说原句",
+        "originalText": "More than cleverness we need kindness and gentleness.",
+        "context": "影片结尾，遭误认为独裁者的犹太理发师发出反对压迫、呼吁共同人性的演说。该句批评的是与人的福祉脱节的聪明和效率；后文同时呼吁理性、科学与进步，不宜误读成反智或拒绝技术。",
+        "question": "我正在追求的效率或成绩，是否仍保留了对人的善意？",
+        "verification": "2026-10-25：实际打开卓别林版权方官网所载完整结尾演说，逐字核对该句及相邻段落，页面同时说明理发师被误认为Hynkel的情节；另打开官方影片页确认1940年。未给原句添加其他转录版本中的逗号。",
+        "additionalSources": [
+          {
+            "label": "Official Chaplin film record: The Great Dictator (1940)",
+            "url": "https://www.charliechaplin.com/en/films/7-The-Great-Dictator"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-10-25-07",
+      "zh": "我是家里第一个会读书写字的人，却不是第一个诗人。",
+      "en": "I was the first to read and write in my family, but I was not the first poet.",
+      "category": "Creativity",
+      "source": "Ocean Vuong · ABC 7.30, interview with Sarah Ferguson · 2025-07-16",
+      "reference": {
+        "author": "Ocean Vuong",
+        "work": "ABC 7.30, interview with Sarah Ferguson",
+        "date": "2025-07-16",
+        "locator": "First substantive answer, about his family’s oral storytelling",
+        "url": "https://www.abc.net.au/news/2025-07-16/author-ocean-vuong-on-his-new-book/105540050",
+        "sourceType": "访谈",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "ABC原刊英文访谈逐字稿中的连续摘录",
+        "originalText": "I was the first to read and write in my family, but I was not the first poet.",
+        "context": "王鸥行谈到家中女性长辈虽不会英语读写，却善于讲故事，懂得安排节奏和人物。他把自己的写作放回家庭的口述传统中，区分制度认可的读写能力与创造力。这是他对家庭的回忆，不是关于所有移民家庭的概括。",
+        "question": "有哪些没有得到文凭或头衔认可的才华，曾经滋养过我？",
+        "verification": "2026-10-25：实际读取澳大利亚ABC 7.30原始访谈逐字稿，核对Sarah Ferguson首个实质问题、Ocean答话及随后美甲店和女性长辈讲故事的段落；网页注明2025年7月16日发布，所摘句子保持原样。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-25-08",
+      "zh": "世界总比我们最出色的思想所能抵达的，更辽阔、更强烈，也更陌生。",
+      "en": "the world is always larger and more intense and stranger than our best thought will ever reach.",
+      "category": "Uncertainty",
+      "source": "John O’Donohue · The Inner Landscape of Beauty, On Being · 2008-02-28",
+      "reference": {
+        "author": "John O’Donohue",
+        "work": "The Inner Landscape of Beauty, On Being",
+        "date": "2008-02-28",
+        "locator": "Reply about consciousness, language and never having seen our own faces",
+        "url": "https://onbeing.org/programs/john-odonohue-the-inner-landscape-of-beauty/",
+        "sourceType": "访谈",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "原始英文访谈逐字稿中的连续句段摘录，保留小写起句",
+        "originalText": "the world is always larger and more intense and stranger than our best thought will ever reach.",
+        "context": "奥多诺休与克里斯塔·蒂皮特谈论：人与人虽亲近，却无法完全知道另一个人的内在经验。他接着把诗看成靠近世界之谜的一种方式。这里邀请人保留惊异和谦逊，并不意味着放弃判断事实或认真求证。",
+        "question": "我对一个人或一件事的解释，是否已经遮住了继续了解的可能？",
+        "verification": "2026-10-25：实际读取On Being完整访谈逐字稿，核对意识与面孔段落末的连续分句，并保留原文小写the。页面注明最初播出日期2008年2月28日，2022年为页面更新，不混同为采访日期。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-25-09",
+      "zh": "只要一半的人仍被束缚，我们就不可能共同成功。",
+      "en": "We cannot all succeed when half of us are held back.",
+      "category": "Others",
+      "source": "Malala Yousafzai · 16th Birthday Speech at the United Nations · 2013-07-12",
+      "reference": {
+        "author": "Malala Yousafzai",
+        "work": "16th Birthday Speech at the United Nations",
+        "date": "2013-07-12",
+        "locator": "Call for communities to reject discrimination and ensure freedom and equality for women",
+        "url": "https://malala.org/news-and-voices/malala-un-speech",
+        "sourceType": "演讲",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "英文原作的连续摘录；保留所核文字",
+        "originalText": "We cannot all succeed when half of us are held back.",
+        "context": "马拉拉在联合国呼吁保障女孩受教育的权利，并要求社区反对性别等方面的歧视。句中的一半具体指女性；它把共同进步与消除结构性障碍相连，而不是把被排斥者面临的问题归咎于不够努力。",
+        "question": "我所说的共同进步，是否包括了那些仍被排除在机会之外的人？",
+        "verification": "2026-10-25：实际打开Malala Fund所载2013年7月12日联合国生日演说全文，核对反歧视及妇女自由平等段落中的原句；不把2013年联合国演说误标为2014年诺贝尔演说。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-25-10",
+      "zh": "我们面临的挑战，是重建蝌蚪的家园，把一个美丽而充满惊奇的世界还给孩子们。",
+      "en": "The challenge is to restore the home of the tadpoles and give back to our children a world of beauty and wonder.",
+      "category": "Nature",
+      "source": "Wangari Maathai · Nobel Peace Prize Lecture · 2004-12-10",
+      "reference": {
+        "author": "Wangari Maathai",
+        "work": "Nobel Peace Prize Lecture",
+        "date": "2004-12-10",
+        "locator": "Final paragraph, recalling childhood water, frogspawn and the stream that later dried up",
+        "url": "https://www.nobelprize.org/prizes/peace/2004/maathai/lecture/",
+        "sourceType": "演讲",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "英文原作的连续摘录；保留所核文字",
+        "originalText": "The challenge is to restore the home of the tadpoles and give back to our children a world of beauty and wonder.",
+        "context": "马塔伊以童年取水时见过的蛙卵与蝌蚪结束演讲，再对照后来干涸的溪流。她把环境修复、社区生活与孩子能继承什么联系起来。这个具体家园的意象提醒读者：生态损失也意味着下一代失去原本能够亲身认识的世界。",
+        "question": "我希望孩子们还能亲眼看见的自然经验，今天需要怎样的保护？",
+        "verification": "2026-10-25：直接读取诺贝尔奖官网英文演讲全文，核对末段蝌蚪、溪流干涸的回忆以及最后一句；页面明确注明2004年12月10日。使用实际演讲内容，不用其他场合的种树口号替换。",
+        "additionalSources": []
+      }
+    }
+  ]
+}
