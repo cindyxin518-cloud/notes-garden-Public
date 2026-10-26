@@ -1,0 +1,248 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-26",
+  "timezone": "Europe/Amsterdam",
+  "expected_count": 10,
+  "notes": [
+    {
+      "id": "daily-2026-10-26-01",
+      "zh": "把生活的务实与内心的激情连在一起，两者都会升华，人类之爱也会展现至高的境界。",
+      "en": "Only connect the prose and the passion, and both will be exalted, and human love will be seen at its height.",
+      "category": "Relationships",
+      "source": "E. M. Forster · Howards End · 1910",
+      "reference": {
+        "author": "E. M. Forster",
+        "work": "Howards End",
+        "date": "1910",
+        "locator": "Chapter XXII: Margaret imagines connecting the prose and passion in Henry’s life",
+        "url": "https://www.gutenberg.org/files/2946/2946-h/2946-h.htm",
+        "sourceType": "小说叙述",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "英文原作的连续摘录，保留所核版本文字",
+        "originalText": "Only connect the prose and the passion, and both will be exalted, and human love will be seen at its height.",
+        "context": "玛格丽特希望亨利把实际事务与内心感受联系起来，不再让生活分裂成互不相通的片段。叙述随即写到她的努力受挫：亨利没有注意到那些细微的情绪和关系。这句理想也因此带着现实的难度。",
+        "question": "我是否把务实与感受放在了互不相通的两个生活里？",
+        "verification": "2026-10-26：实际读取 Project Gutenberg 英文全文，定位第22章 Only connect 段，逐字核对整句及此前玛格丽特的设想、此后亨利未能理解的叙述。书末署 Weybridge, 1908–1910；1910为小说年代，不是电子书发布日期。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-26-02",
+      "zh": "没有什么比巨大而突如其来的变故，更让人的心灵痛苦。",
+      "en": "Nothing is so painful to the human mind as a great and sudden change.",
+      "category": "Life",
+      "source": "Mary Shelley · Frankenstein · 1831 revised edition",
+      "reference": {
+        "author": "Mary Shelley",
+        "work": "Frankenstein",
+        "date": "1831 revised edition",
+        "locator": "Chapter XXIII: Victor looks again at the lake after Elizabeth’s death",
+        "url": "https://www.gutenberg.org/files/42324/42324-h/42324-h.htm",
+        "sourceType": "小说人物叙述",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "英文原作的连续摘录，保留所核版本文字",
+        "originalText": "Nothing is so painful to the human mind as a great and sudden change.",
+        "context": "伊丽莎白遇害之后，维克多看着湖中仍像几小时前一样游动的鱼，却发现自己眼里的世界已经完全改变。这里写的是骤然失去所爱之人的震动，而非所有改变都应避免。",
+        "question": "当熟悉的世界骤然改变时，我需要怎样的时间和陪伴？",
+        "verification": "2026-10-26：实际读取 Project Gutenberg 第42324号英文文本。转录说明明确依据1831年版影印本；定位第23章湖水、鱼与伊丽莎白的回忆，核对叙述者维克多及原句，没有混用1818年版的章节编号。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-26-03",
+      "zh": "紧紧守住梦想，\n因为梦想一旦消亡，\n生命便成了折翼的鸟，\n再也无法飞翔。",
+      "en": "Hold fast to dreams\nFor if dreams die\nLife is a broken-winged bird\nThat cannot fly.",
+      "category": "Growth",
+      "source": "Langston Hughes · Dreams · 1994 collected edition cited",
+      "reference": {
+        "author": "Langston Hughes",
+        "work": "Dreams",
+        "date": "1994 collected edition cited",
+        "locator": "Opening four lines; Academy of American Poets authorized text from The Collected Poems of Langston Hughes",
+        "url": "https://poets.org/poem/dreams",
+        "sourceType": "诗歌短摘录",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "美国诗人学会获授权刊载的英文原诗开篇四行，非全诗",
+        "originalText": "Hold fast to dreams\nFor if dreams die\nLife is a broken-winged bird\nThat cannot fly.",
+        "context": "诗以折翼的鸟与冰封的田野，写梦想失去之后生命可能变成的样子。本条只摘开篇四行；这里的梦想是使生活保持生命力的盼望，不必等同于职位、收入或他人的成功标准。",
+        "question": "有什么愿望让我的生活仍有飞翔的可能，而我已很久没有照顾它？",
+        "verification": "2026-10-26：实际打开美国诗人学会授权刊载的 Dreams，逐行核对开篇四行及断行。页面注明出自1994年 Collected Poems、由遗产方授权重印；日期明确标注所核合集版本，未将1994写成创作或首刊年份。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-26-04",
+      "zh": "我也即将作出一个选择。一个此后余生都要与之相伴的选择。",
+      "en": "I’m about to make a choice, too. One that I will have to live with forever.",
+      "category": "Time",
+      "source": "Louise Banks (Eric Heisserer, screenwriter) · Arrival (shooting screenplay) · 2015-08-20 draft; 2016 film",
+      "reference": {
+        "author": "Louise Banks (Eric Heisserer, screenwriter)",
+        "work": "Arrival (shooting screenplay)",
+        "date": "2015-08-20 draft; 2016 film",
+        "locator": "Scene 124, lake house at night: printed p. 117, PDF p. 131; Louise’s voice-over",
+        "url": "https://www.sellingyourscreenplay.com/wp-content/uploads/screenplay/scripts/Arrival.pdf",
+        "sourceType": "电影拍摄剧本中的人物独白",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "2015年英文最终拍摄稿中的连续两句；与上映版结尾措辞不同",
+        "originalText": "I’m about to make a choice, too. One that I will have to live with forever.",
+        "context": "剧本结尾，露易丝望向与伊恩共同生活的可能，也看见女儿未来的生命与失去。这里的选择意味着接受一段关系的全部时间。本条采用2015年拍摄稿的独白措辞；这一结尾写法与上映版不同。",
+        "question": "面对一个会长久改变生活的选择，我愿意连同它的代价一起承担什么？",
+        "verification": "2026-10-26：读取 Selling Your Screenplay 公开转存的132页剧本PDF，并逐页图像核对封面、PDF第130–132页。封面署 Eric Heisserer、据 Ted Chiang 的 Story of Your Life 改编、Final Shooting Draft / August 20, 2015；印刷第117页第124场的连续两句由 LOUISE (V.O.) 说出。该页带2015年6月11日修订标识，不将其混同封面汇总稿日期。Viennale官方档案核对2016年影片、Louise Banks角色和编剧。没有把这段拍摄稿冒称上映版逐字台词；未核对上映音轨。",
+        "additionalSources": [
+          {
+            "label": "Viennale: Arrival (2016), cast and screenplay credits",
+            "url": "https://www.viennale.at/en/films/arrival"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-10-26-05",
+      "zh": "我确实知道，我会好好活过生命中的每一分钟。",
+      "en": "I do know I’m going to live every minute of it.",
+      "category": "Life",
+      "source": "Joe Gardner (Pete Docter, Mike Jones and Kemp Powers, screenwriters) · Soul (Academy screenplay) · 2020-07-17 draft",
+      "reference": {
+        "author": "Joe Gardner (Pete Docter, Mike Jones and Kemp Powers, screenwriters)",
+        "work": "Soul (Academy screenplay)",
+        "date": "2020-07-17 draft",
+        "locator": "Final scene outside Joe’s apartment: printed p. 126, PDF p. 127; final voice-over clause",
+        "url": "https://deadline.com/wp-content/uploads/2021/01/2020.07.17_Soul_Final_Script.pdf",
+        "sourceType": "动画电影剧本中的人物独白",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "英文Academy剧本最后一段独白中的连续分句摘录，非上映版音轨核验",
+        "originalText": "I do know I’m going to live every minute of it.",
+        "context": "得到重新生活的机会后，乔仍不知道自己会如何度过余生。剧本把他的回答接到走出公寓、看见街头日常的一刻：确定的不是一份完美计划，而是愿意亲身经历生活。",
+        "question": "今天有哪些平凡的时刻，值得我真正置身其中？",
+        "verification": "2026-10-26：实际下载 Deadline 公开提供的颁奖季剧本PDF，读取封面完整三位编剧署名，并以页面图像核对末页印刷第126页/PDF第127页。所摘为 JOE (O.S.) 最后一句中从 I do know 开始的连续分句，未把剧本的省略号和 but 之前的另一场景对白拼接成新句，也未按记忆改写成常见电影转录版本。Pixar官方影片页核对角色全名 Joe Gardner。未逐字核对上映版音轨。",
+        "additionalSources": [
+          {
+            "label": "Pixar: Soul and Joe Gardner",
+            "url": "https://www.pixar.com/soul"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-10-26-06",
+      "zh": "保持觉察，是熟悉之中那门隐而不显的功课。",
+      "en": "Alertness is the hidden discipline of familiarity.",
+      "category": "Attention",
+      "source": "David Whyte · Seeking Language Large Enough, On Being · 2016-04-07",
+      "reference": {
+        "author": "David Whyte",
+        "work": "Seeking Language Large Enough, On Being",
+        "date": "2016-04-07",
+        "locator": "Recitation of Everything Is Waiting for You, followed by discussion with Krista Tippett",
+        "url": "https://onbeing.org/programs/david-whyte-seeking-language-large-enough/",
+        "sourceType": "诗人在原始访谈中朗诵并讨论的诗句",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "作者在原始英文访谈中朗诵并再次重复的诗句",
+        "originalText": "Alertness is the hidden discipline of familiarity.",
+        "context": "怀特在访谈中背诵自己的诗 Everything Is Waiting for You，让人重新注意天空、微风和日常物件。蒂皮特回应这句之后，他又把它延伸到亲密关系：熟悉也需要继续认真看见。",
+        "question": "哪个熟悉的人或日常事物，已经很久没有得到我的仔细注意？",
+        "verification": "2026-10-26：实际读取 On Being 完整访谈逐字稿，核对怀特朗诵 Everything Is Waiting for You 的段落及其后与 Krista Tippett 的讨论；这句话由怀特朗诵并再次重复，不误标成采访者原创或 Consolations 中的散文。采用网页明确注明的最初播出日2016年4月7日，2022年5月26日仅为页面更新。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-26-07",
+      "zh": "说到底，即使没有理由抱有希望，我仍做我所做的事，写我所写的文字。",
+      "en": "Essentially I do what I do and write what I write, even if there is no reason for hope.",
+      "category": "Wisdom",
+      "source": "Arundhati Roy · PBS NewsHour interview with Elizabeth Flock · 2017-06-29",
+      "reference": {
+        "author": "Arundhati Roy",
+        "work": "PBS NewsHour interview with Elizabeth Flock",
+        "date": "2017-06-29",
+        "locator": "Answer to the question about activism and political writing; paragraph beginning But one of the messages of the book",
+        "url": "https://www.pbs.org/newshour/arts/arundhati-roy-air-india-now-pure-terror",
+        "sourceType": "原始访谈",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "PBS原刊英文问答中受访者回答的连续完整句",
+        "originalText": "Essentially I do what I do and write what I write, even if there is no reason for hope.",
+        "context": "罗伊谈新小说与政治写作时，解释自己为何把希望与理性预测分开：即使没有乐观的根据，写作和相信的事仍会继续。随后她也谈到从意想不到的地方感受短暂的希望与幸福。",
+        "question": "即使不能保证结果，我仍愿意坚持做的事情是什么？",
+        "verification": "2026-10-26：实际读取 PBS NewsHour 的 Elizabeth Flock 原始问答全文，核对关于 activism 的问题、罗伊连续回答和摘句；页面发布日期为2017年6月29日。保留 Essentially 及原句措辞，没有把记者的概括当成受访者原话。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-26-08",
+      "zh": "就我而言，我曾说过：我写下或说出的任何事实性文字，都不会像我的小说那样真实。",
+      "en": "For myself, I have said that nothing factual that I write or say will be as truthful as my fiction.",
+      "category": "Reading",
+      "source": "Nadine Gordimer · Writing and Being, Nobel Lecture · 1991-12-07",
+      "reference": {
+        "author": "Nadine Gordimer",
+        "work": "Writing and Being, Nobel Lecture",
+        "date": "1991-12-07",
+        "locator": "Autobiographical passage beginning I do not know if my own beginnings have any particular interest",
+        "url": "https://www.nobelprize.org/prizes/literature/1991/gordimer/lecture/",
+        "sourceType": "文学演讲",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "英文原作的连续摘录，保留所核版本文字",
+        "originalText": "For myself, I have said that nothing factual that I write or say will be as truthful as my fiction.",
+        "context": "戈迪默准备简述自己的经历时，先区分作家的生平、意见与作品。她接着谈到想象如何在置身事外和参与其中的张力里转化经验，所说的真实关乎小说能揭示的人与生活。",
+        "question": "有没有一部虚构作品，让我比一份履历更深地理解了一个人？",
+        "verification": "2026-10-26：实际读取诺贝尔奖官网 Writing and Being 英文演讲全文，核对自述段的连续完整句及下一句有关 life、opinions、work 和 imagination 的区分；官网标注 Nobel Lecture, December 7, 1991。按原句保留 For myself 的引入，不将节录后的小写分句自行改写为独立格言。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-26-09",
+      "zh": "当我们被撕裂、受伤，甚至被摧毁时，正是自己的故事会重新塑造我们。",
+      "en": "It is our stories that will recreate us, when we are torn, hurt, even destroyed.",
+      "category": "Creativity",
+      "source": "Doris Lessing · On Not Winning the Nobel Prize · 2007-12-07",
+      "reference": {
+        "author": "Doris Lessing",
+        "work": "On Not Winning the Nobel Prize",
+        "date": "2007-12-07",
+        "locator": "Closing passage: paragraph beginning The storyteller is deep inside every one of us",
+        "url": "https://www.nobelprize.org/prizes/literature/2007/lessing/lecture/",
+        "sourceType": "文学演讲",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "诺贝尔奖官网按作者意愿修订刊载的英文演讲稿原句",
+        "originalText": "It is our stories that will recreate us, when we are torn, hurt, even destroyed.",
+        "context": "莱辛从缺乏书本与教育机会的生活谈起，在结尾把讲故事视为人在灾难之后重新形成自身的能力。她强调的创造力，也属于那些资源匮乏、声音很少被出版的人。",
+        "question": "怎样讲述自己的经历，能让我在受伤之后重新理解并继续生活？",
+        "verification": "2026-10-26：实际读取诺贝尔奖官网完整英文稿，核对结尾故事、想象与凤凰段落中的连续整句。官网日期为2007年12月7日，并说明当天由其英国出版人 Nicholas Pearson 代为宣读；页面注明文字按作者意愿修订。本条依据该官网文本，不声称核对现场录音的每一字。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-26-10",
+      "zh": "有些人可以没有野生万物而生活，有些人却不能。",
+      "en": "There are some who can live without wild things and some who cannot.",
+      "category": "Nature",
+      "source": "Aldo Leopold · A Sand County Almanac · 1949",
+      "reference": {
+        "author": "Aldo Leopold",
+        "work": "A Sand County Almanac",
+        "date": "1949",
+        "locator": "Aldo Leopold Foundation, Who Was Aldo Leopold?, section Aldo Leopold’s Sand County Almanac",
+        "url": "https://aldoleopold.org/about/aldo-leopold",
+        "sourceType": "自然文学；作者基金会所引原书短句",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "作者基金会引用的英文原书短句，保留该页措辞与标点",
+        "originalText": "There are some who can live without wild things and some who cannot.",
+        "context": "利奥波德基金会以这句话介绍 Sand County Almanac，并把全书联系到人与自然的伦理关系。野生万物不仅提供资源，也可能成为人认识世界与安顿自身的一部分。",
+        "question": "如果身边一种熟悉的野生生命消失，我的生活会失去什么？",
+        "verification": "2026-10-26：实际打开 Aldo Leopold Foundation 作者介绍页，核对 Sand County Almanac 小节所引整句及其后 Oxford University Press 于1949年首次出版的说明。保留基金会所刊不带额外逗号的文字；本次核对的是基金会引用，并未声称逐页核对1949年初版或编造页码。",
+        "additionalSources": []
+      }
+    }
+  ]
+}
