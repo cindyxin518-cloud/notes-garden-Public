@@ -2,9 +2,9 @@
 window.MINIGROW_DAILY_QUOTES = {
   "schema_version": 1,
   "timezone": "Europe/Amsterdam",
-  "updated_on": "2026-10-26",
+  "updated_on": "2026-10-27",
   "latest_count": 10,
-  "total_count": 30,
+  "total_count": 40,
   "batches": [
     {
       "date": "2026-10-24",
@@ -16,6 +16,10 @@ window.MINIGROW_DAILY_QUOTES = {
     },
     {
       "date": "2026-10-26",
+      "count": 10
+    },
+    {
+      "date": "2026-10-27",
       "count": 10
     }
   ],
@@ -770,6 +774,251 @@ window.MINIGROW_DAILY_QUOTES = {
         "context": "利奥波德基金会以这句话介绍 Sand County Almanac，并把全书联系到人与自然的伦理关系。野生万物不仅提供资源，也可能成为人认识世界与安顿自身的一部分。",
         "question": "如果身边一种熟悉的野生生命消失，我的生活会失去什么？",
         "verification": "2026-10-26：实际打开 Aldo Leopold Foundation 作者介绍页，核对 Sand County Almanac 小节所引整句及其后 Oxford University Press 于1949年首次出版的说明。保留基金会所刊不带额外逗号的文字；本次核对的是基金会引用，并未声称逐页核对1949年初版或编造页码。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-27-01",
+      "zh": "循规蹈矩不等于道德高尚，自以为义也不等于虔诚信仰。",
+      "en": "Conventionality is not morality. Self-righteousness is not religion.",
+      "category": "Wisdom",
+      "source": "Charlotte Brontë · Jane Eyre, second-edition preface · 1847-12-21",
+      "reference": {
+        "author": "Charlotte Brontë",
+        "work": "Jane Eyre, second-edition preface",
+        "date": "1847-12-21",
+        "locator": "Preface: paragraph beginning Conventionality is not morality; signed Currer Bell, December 21st, 1847",
+        "url": "https://www.gutenberg.org/files/1260/1260-h/1260-h.htm",
+        "sourceType": "小说作者序言",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "英文原作的连续摘录，保留所核版本文字",
+        "originalText": "Conventionality is not morality. Self-righteousness is not religion.",
+        "context": "勃朗特在第二版序言中回应对小说的批评，把社会惯例与真正的道德、道貌岸然与信仰区分开来。接下来的文字强调，外表不应被当成真实的品格。",
+        "question": "我用来评判别人的标准，来自认真思考，还是只来自习惯和体面的外表？",
+        "verification": "2026-10-27：实际读取 Project Gutenberg 的 Jane Eyre 英文全文，逐字核对序言中的连续两句及上下文；序末署笔名 Currer Bell 和 December 21st, 1847，并说明献给 Thackeray 的第二版。本条日期指序言署日，不混同小说首版或电子书发布日期；这不是小说人物简的对白。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-27-02",
+      "zh": "他仿佛活在离自己身体稍远的地方，带着疑虑，侧目审视自己的行为。",
+      "en": "He lived at a little distance from his body, regarding his own acts with doubtful side-glances.",
+      "category": "Self",
+      "source": "James Joyce · A Painful Case, Dubliners · 1914",
+      "reference": {
+        "author": "James Joyce",
+        "work": "A Painful Case, Dubliners",
+        "date": "1914",
+        "locator": "A Painful Case: opening character portrait of Mr Duffy, after the description of his face and eyes",
+        "url": "https://www.gutenberg.org/files/2814/2814-h/2814-h.htm",
+        "sourceType": "短篇小说叙述",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "英文原作的连续摘录，保留所核版本文字",
+        "originalText": "He lived at a little distance from his body, regarding his own acts with doubtful side-glances.",
+        "context": "故事开篇描写达菲井然有序却孤立的生活。他习惯把自己当成第三人称来观察，与自己的身体和感受保持距离。这里写的是一个人物的疏离，邀请读者看见过度自我审视的代价。",
+        "question": "什么时候，我只顾评价自己的表现，忘记了自己正在经历什么？",
+        "verification": "2026-10-27：实际读取 Project Gutenberg 的 Dubliners 英文全文，定位 A Painful Case 开篇：房间、面貌与眼睛的描写之后，核对连续完整句及随后以第三人称编写自传式句子的习惯。原文是 He lived at a little distance，没有按常见转述改成 Mr Duffy lived a short distance；1914标注作品集年份。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-27-03",
+      "zh": "作家的秘密不在于灵感——因为灵感究竟来自何处，从来都不清楚——而在于他的执着与耐心。",
+      "en": "The writer’s secret is not inspiration – for it is never clear where it comes from – it is his stubbornness, his patience.",
+      "category": "Growth",
+      "source": "Orhan Pamuk · My Father’s Suitcase (tr. Maureen Freely) · 2006-12-07",
+      "reference": {
+        "author": "Orhan Pamuk",
+        "work": "My Father’s Suitcase (tr. Maureen Freely)",
+        "date": "2006-12-07",
+        "locator": "Nobel Lecture: paragraph beginning The writer’s secret, followed by the Turkish saying about digging a well with a needle",
+        "url": "https://www.nobelprize.org/prizes/literature/2006/pamuk/lecture/",
+        "sourceType": "文学演讲的官方英译",
+        "originalLanguage": "土耳其语",
+        "chineseStatus": "据 Maureen Freely 官方英译本次转译；非既有中文译本摘录，未核对土耳其语原文",
+        "englishStatus": "诺贝尔奖官网2006年英译版本，译者 Maureen Freely；仅核对英译，非英语原作",
+        "originalText": "The writer’s secret is not inspiration – for it is never clear where it comes from – it is his stubbornness, his patience.",
+        "context": "帕慕克由父亲留下的手稿谈起，写到自己多年独坐桌前、用词语一点点建造世界的经验。他随后以用针挖井的土耳其俗语说明这种耐心，把创造放回长期的手艺与劳动之中。",
+        "question": "我是否一直在等待灵感，而没有给一件重要的事留下持续练习的时间？",
+        "verification": "2026-10-27：实际读取诺贝尔奖官网英文演讲稿，核对 writer’s secret 段的完整连续句及前后的写作、针挖井和细密画家例子。网页明确说明原演讲以土耳其语于2006年12月7日发表，文末署 Translation from Turkish by Maureen Freely。本条 originalText 保存所核官方英译摘录；未核对土耳其语原文。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-27-04",
+      "zh": "爱把自己藏在了一个问句里。",
+      "en": "Love disguised itself as a question.",
+      "category": "Attention",
+      "source": "Herta Müller · Nobel Lecture (tr. Philip Boehm) · 2009-12-07",
+      "reference": {
+        "author": "Herta Müller",
+        "work": "Nobel Lecture (tr. Philip Boehm)",
+        "date": "2009-12-07",
+        "locator": "Every word knows something of a vicious circle: opening paragraph about her mother asking whether she has a handkerchief",
+        "url": "https://www.nobelprize.org/prizes/literature/2009/muller/lecture/",
+        "sourceType": "文学演讲的官方英译",
+        "originalLanguage": "德语",
+        "chineseStatus": "据 Philip Boehm 官方英译本次转译；非既有中文译本摘录，未核对德语原文",
+        "englishStatus": "诺贝尔奖官网2009年英译版本，译者 Philip Boehm；仅核对英译，非英语原作",
+        "originalText": "Love disguised itself as a question.",
+        "context": "穆勒回忆母亲每天出门前问她有没有带手帕。在不习惯直接说爱的家庭里，这个看似平常、甚至带着命令口气的问题，让孩子感到自己正被照料着。",
+        "question": "哪些日常小问题里，藏着我已经习以为常的关心？",
+        "verification": "2026-10-27：实际读取诺贝尔奖官网 Every word knows something of a vicious circle 英文稿，核对开篇手帕段的原句及母亲每天询问的背景。网页注明2009年12月7日以德语发表，文末明确署 Translated by Philip Boehm。本条依据该官方英译，originalText 为所核英语摘录；未声称核对德语原文。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-27-05",
+      "zh": "而在一个我们都认定没有人会爱你的宇宙里，只要足够认真地去找，就会有某样东西证明我们错了。",
+      "en": "And in a universe where we both agree that no one could love you, if we look hard enough, something will prove us wrong.",
+      "category": "Others",
+      "source": "Evelyn Wang (Kwan and Scheinert, screenwriters) · Everything Everywhere All at Once (screenplay) · 2022 film",
+      "reference": {
+        "author": "Evelyn Wang (Kwan and Scheinert, screenwriters)",
+        "work": "Everything Everywhere All at Once (screenplay)",
+        "date": "2022 film",
+        "locator": "Scene 107-3, IRS building: Evelyn addressing Deirdre; printed p. 109, PDF p. 110",
+        "url": "https://nofilmschool.com/files/54671/eeaao_script.pdf",
+        "sourceType": "电影剧本中的英语人物对白",
+        "originalLanguage": "英语（所核剧本中的该段对白）",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "公开英文剧本中的连续完整句；非根据中文回译，未核对上映版音轨",
+        "originalText": "And in a universe where we both agree that no one could love you, if we look hard enough, something will prove us wrong.",
+        "context": "伊芙琳面对认为自己不可被爱、仍在攻击她的迪尔德丽，开始认真看见对方的脆弱。影片把荒诞的多重宇宙变成一种尝试：重新发现一个人身上仍值得爱的东西。",
+        "question": "当我把自己或某个人认定为不可被爱时，有什么真实的细节可能改变这个判断？",
+        "verification": "2026-10-27：读取 No Film School 公开提供的126页完整剧本PDF，核对封面 Daniel Kwan 与 Daniel Scheinert 编剧署名。提取文字并以页面图像核对印刷第109页/PDF第110页，确认该句为 EVELYN (CONT’D) 对 DEIRDRE (BAGEL) 的连续英语对白，位置为107-3的IRS场景；保留起首 And，未改成更常见的短句。A24官方影片页确认编剧及2022年影片。所核封面无稿件日期，日期字段明确指影片年份；未逐字核对上映版音轨。",
+        "additionalSources": [
+          {
+            "label": "A24: film and writing credits",
+            "url": "https://a24films.com/films/everything-everywhere-all-at-once"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-10-27-06",
+      "zh": "只是，你让我的人生宽广了这么多，我在想，我是否也为你做到了同样的事。",
+      "en": "It’s just that you make my life so much bigger, and I’m wondering if I do the same thing for you.",
+      "category": "Relationships",
+      "source": "Arthur (Celine Song, screenwriter) · Past Lives (screenplay) · 2023 film",
+      "reference": {
+        "author": "Arthur (Celine Song, screenwriter)",
+        "work": "Past Lives (screenplay)",
+        "date": "2023 film",
+        "locator": "Bedroom conversation between Arthur and Nora: printed p. 62, PDF p. 63",
+        "url": "https://deadline.com/wp-content/uploads/2024/02/Past-Lives-Read-The-Screenplay.pdf",
+        "sourceType": "电影剧本中的英语人物对白",
+        "originalLanguage": "英语（所核剧本中的该段对白）",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "原始双语剧本中的英语对白连续整句，非韩语台词英译；未核对上映音轨",
+        "originalText": "It’s just that you make my life so much bigger, and I’m wondering if I do the same thing for you.",
+        "context": "诺拉与童年朋友重逢之后，丈夫亚瑟向她说出自己在婚姻中的不安。她使他的生活变得宽广，他也渴望知道自己在她的生活里是否有同样的意义。诺拉随后回应了他的疑问。",
+        "question": "在一段重要关系里，我是否既表达了感激，也让对方知道他的存在对我意味着什么？",
+        "verification": "2026-10-27：实际下载 Deadline 公开的86页剧本PDF，核对封面 Celine Song 署名；提取并图像检查印刷第62页/PDF第63页，确认 ARTHUR 的整句、诺拉的回应及前后的移民梦想问答。原文为 my life、the same thing，未按记忆替换成 my world 或省去 thing。这段以英语书写，区别于同一剧本中并排提供的韩语及英译对白。A24官方页核对2023年影片与编剧；未给无日期的剧本制造修订日期，未逐字核对上映音轨。",
+        "additionalSources": [
+          {
+            "label": "A24: Past Lives, writer and 2023 release",
+            "url": "https://a24films.com/films/past-lives"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-10-27-07",
+      "zh": "在狮子拥有自己的史家之前，狩猎的历史总会歌颂猎人。",
+      "en": "until the lions have their own historians, the history of the hunt will always glorify the hunter.",
+      "category": "Reading",
+      "source": "Chinua Achebe (quoting a proverb) · The Art of Fiction No. 139, The Paris Review · Winter 1994",
+      "reference": {
+        "author": "Chinua Achebe (quoting a proverb)",
+        "work": "The Art of Fiction No. 139, The Paris Review",
+        "date": "Winter 1994",
+        "locator": "Interview by Jerome Brooks: reply about childhood reading and the danger of not having one’s own stories",
+        "url": "https://www.theparisreview.org/interviews/1720/the-art-of-fiction-no-139-chinua-achebe",
+        "sourceType": "原始英语访谈中转述的谚语",
+        "originalLanguage": "英语（所核访谈）；谚语更早的源语未确认",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "原始英语访谈中对一则谚语的连续转述；不认定为阿契贝原创，保留小写起句",
+        "originalText": "until the lions have their own historians, the history of the hunt will always glorify the hunter.",
+        "context": "阿契贝回忆童年阅读殖民冒险故事时，曾自然地站在白人主人公一边。后来他用狮子与猎人的谚语解释，为什么需要由被叙述的人亲自讲述经验。他明确称这是一则谚语。",
+        "question": "我正在听的故事里，谁有权讲述，谁始终只能被别人描述？",
+        "verification": "2026-10-27：通过网页工具实际打开《巴黎评论》公开可读的访谈部分，核对 Jerome Brooks 采访、Issue 133 / Winter 1994，以及读殖民冒险小说后的完整回答。该分句原文紧跟 There is that great proverb—that，保留小写 until。明确记为阿契贝引用的谚语，不把谚语冒称他的原创，也不凭这份英文访谈确定其更早源语或最初作者；没有声称取得页面后续的付费全文。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-27-08",
+      "zh": "如今，终极的奢侈，也许只是日历里的一片空白。",
+      "en": "The ultimate luxury now might be just a blank space in the calendar.",
+      "category": "Time",
+      "source": "Pico Iyer · The Urgency of Slowing Down, On Being · 2015-06-04",
+      "reference": {
+        "author": "Pico Iyer",
+        "work": "The Urgency of Slowing Down, On Being",
+        "date": "2015-06-04",
+        "locator": "Reply to Krista Tippett’s question about what living in Japan taught him about time",
+        "url": "https://onbeing.org/programs/pico-iyer-the-urgency-of-slowing-down-nov2018/",
+        "sourceType": "原始访谈",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "On Being原始英文访谈逐字稿中的连续完整句",
+        "originalText": "The ultimate luxury now might be just a blank space in the calendar.",
+        "context": "艾耶谈到从纽约搬往日本后的时间感：他小时候把奢侈理解成大房子或大汽车，如今更珍惜能自由支配的时间。日历上的空白，意味着让一天有机会展开，而不只是被安排填满。",
+        "question": "如果给这一周留下一小块不预先安排的时间，我希望用它重新感受到什么？",
+        "verification": "2026-10-27：实际读取 On Being 完整英文逐字稿，定位 Krista Tippett 询问 time、日本生活和年轻时纽约经历的问答，逐字核对 ultimate luxury 句及前后对空间与时间的比较。网页明确标注 Original Air Date / June 4, 2015；2018年11月29日是页面更新日，不误标为首次访谈日期。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-27-09",
+      "zh": "主题可能改变，甚至让你捉摸不定；但既然你的人生是你自己的故事，你总能选择讲述它的语调。",
+      "en": "The theme you choose may change or simply elude you, but being your own story means you can always choose the tone.",
+      "category": "Creativity",
+      "source": "Toni Morrison · Wellesley College Commencement Address · 2004-05-28",
+      "reference": {
+        "author": "Toni Morrison",
+        "work": "Wellesley College Commencement Address",
+        "date": "2004-05-28",
+        "locator": "Closing passage after acknowledging that no author completely controls a narrative",
+        "url": "https://www1.wellesley.edu/events/commencement/archives/2004commencement/commencementaddress",
+        "sourceType": "大学毕业演讲",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "英文原作的连续摘录，保留所核版本文字",
+        "originalText": "The theme you choose may change or simply elude you, but being your own story means you can always choose the tone.",
+        "context": "莫里森在演讲结尾把人生比作故事。她先承认作者也无法完全控制叙事与闯入其中的人物，再提出我们仍能选择讲述的语调，以怎样的语言理解自己和他人。",
+        "question": "对一段无法改写的经历，我是否还能找到一种更诚实、也更宽厚的讲述方式？",
+        "verification": "2026-10-27：实际读取 Wellesley College 官网完整演讲稿，核对结尾 theme、tone 的连续完整句，以及此前承认不完全控制叙事、此后谈创造语言的段落。另打开该校2004届毕业典礼官方档案，确认活动日期为2004年5月28日。本条是2004年毕业演讲，未混同1993年诺贝尔演说。",
+        "additionalSources": [
+          {
+            "label": "Wellesley: Class of 2004 ceremony and date",
+            "url": "https://www1.wellesley.edu/events/commencement/archives/2004commencement"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-10-27-10",
+      "zh": "来和我一起庆祝吧：\n每一天，都有某种东西\n试图将我杀死，\n却没能成功。",
+      "en": "come celebrate\nwith me that everyday\nsomething has tried to kill me\nand has failed.",
+      "category": "Self",
+      "source": "Lucille Clifton · won’t you celebrate with me (Collected Poems text) · 1991 text copyright",
+      "reference": {
+        "author": "Lucille Clifton",
+        "work": "won’t you celebrate with me (Collected Poems text)",
+        "date": "1991 text copyright",
+        "locator": "Closing passage, beginning after the semicolon in my other hand; Academy of American Poets authorized collected text",
+        "url": "https://poets.org/poem/wont-you-celebrate-me",
+        "sourceType": "诗歌短摘录",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "美国诗人学会获授权刊载的英文原诗结尾短摘录，保留小写与断行，非全诗",
+        "originalText": "come celebrate\nwith me that everyday\nsomething has tried to kill me\nand has failed.",
+        "context": "克利夫顿写出身为非白人女性、没有现成榜样时怎样塑造自己的生活。诗结尾把活下来本身视为值得庆祝的成就，也让那些往往不被看见的日常抗争获得承认。",
+        "question": "我曾经克服了哪些很少被看见、却值得承认的困难？",
+        "verification": "2026-10-27：实际打开美国诗人学会刊载的完整原诗，核对结尾自 come celebrate 开始的连续文字、断行与作者刻意保留的小写。该页说明出自 Collected Poems of Lucille Clifton，文字版权为1991年，经 BOA Editions 方面授权重印。日期字段明确写 text copyright，不把1991冒作合集出版年或断言首次发表日期；未把未能打开的 Poetry Foundation 页面当作本次核验依据。本条只摘结尾，未刊载全诗。",
         "additionalSources": []
       }
     }
