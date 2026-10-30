@@ -2,9 +2,9 @@
 window.MINIGROW_DAILY_QUOTES = {
   "schema_version": 1,
   "timezone": "Europe/Amsterdam",
-  "updated_on": "2026-10-27",
+  "updated_on": "2026-10-30",
   "latest_count": 10,
-  "total_count": 40,
+  "total_count": 50,
   "batches": [
     {
       "date": "2026-10-24",
@@ -20,6 +20,10 @@ window.MINIGROW_DAILY_QUOTES = {
     },
     {
       "date": "2026-10-27",
+      "count": 10
+    },
+    {
+      "date": "2026-10-30",
       "count": 10
     }
   ],
@@ -1019,6 +1023,246 @@ window.MINIGROW_DAILY_QUOTES = {
         "context": "克利夫顿写出身为非白人女性、没有现成榜样时怎样塑造自己的生活。诗结尾把活下来本身视为值得庆祝的成就，也让那些往往不被看见的日常抗争获得承认。",
         "question": "我曾经克服了哪些很少被看见、却值得承认的困难？",
         "verification": "2026-10-27：实际打开美国诗人学会刊载的完整原诗，核对结尾自 come celebrate 开始的连续文字、断行与作者刻意保留的小写。该页说明出自 Collected Poems of Lucille Clifton，文字版权为1991年，经 BOA Editions 方面授权重印。日期字段明确写 text copyright，不把1991冒作合集出版年或断言首次发表日期；未把未能打开的 Poetry Foundation 页面当作本次核验依据。本条只摘结尾，未刊载全诗。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-30-01",
+      "zh": "知音没有我从前以为的那么稀少。发现世上竟有这么多与自己心灵相通的人，真是太好了。",
+      "en": "Kindred spirits are not so scarce as I used to think. It’s splendid to find out there are so many of them in the world.",
+      "category": "Relationships",
+      "source": "L. M. Montgomery · Anne of Green Gables · 1908",
+      "reference": {
+        "author": "L. M. Montgomery",
+        "work": "Anne of Green Gables",
+        "date": "1908",
+        "locator": "Chapter XIX, A Concert, a Catastrophe, and a Confession: Anne talking to Marilla after Miss Barry’s visit",
+        "url": "https://www.gutenberg.org/cache/epub/45/pg45-images.html",
+        "sourceType": "小说人物对白",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "英文原作的连续摘录，保留所核版本文字",
+        "originalText": "Kindred spirits are not so scarce as I used to think. It’s splendid to find out there are so many of them in the world.",
+        "context": "安妮与巴里小姐成为朋友之后，向玛丽拉承认，有些心灵相通的人并不能从外表或第一印象认出来。关系慢慢展开，她也重新认识了世界里友谊的可能。",
+        "question": "我是否因为第一印象，错过了一个可能与我心灵相通的人？",
+        "verification": "2026-10-30：实际复读已获取的 Project Gutenberg 英文原书，定位第19章结尾、巴里小姐邀请安妮来访后的连续两句；核对说话者安妮和听者玛丽拉。保留原文 scarce、so many 与标点；1908为小说年份，不是网页的电子书更新时间。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-30-02",
+      "zh": "上天知道，我们无须为眼泪感到羞耻；它像雨水，洒落在尘世蒙蔽双眼、覆盖坚硬心灵的灰尘上。",
+      "en": "Heaven knows we need never be ashamed of our tears, for they are rain upon the blinding dust of earth, overlying our hard hearts.",
+      "category": "Life",
+      "source": "Charles Dickens · Great Expectations · 1860–1861",
+      "reference": {
+        "author": "Charles Dickens",
+        "work": "Great Expectations",
+        "date": "1860–1861",
+        "locator": "Chapter XIX: Pip cries at the signpost while leaving his home village for London",
+        "url": "https://www.gutenberg.org/cache/epub/1400/pg1400-images.html",
+        "sourceType": "小说人物叙述",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "英文原作的连续摘录，保留所核版本文字",
+        "originalText": "Heaven knows we need never be ashamed of our tears, for they are rain upon the blinding dust of earth, overlying our hard hearts.",
+        "context": "皮普离开故乡时原本故作轻松，却在路标旁哭了起来。随后他觉察到自己对乔的亏欠，变得更温柔。这段眼泪也让他重新看见被野心遮住的感情。",
+        "question": "我是否把眼泪当成软弱，因而忽略了它让我看清的感情？",
+        "verification": "2026-10-30：实际复读 Project Gutenberg 英文全文第19章，核对皮普在村口路标旁哭泣、回想乔的连续叙述及完整原句。说话层次是成年皮普的回忆性叙述；保留 blinding dust、overlying 的措辞，不把它变成临床心理学结论。年份标为小说连载的1860–1861年。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-30-03",
+      "zh": "你会再次爱上那个陌生人——那个曾经的自己。",
+      "en": "You will love again the stranger who was your self.",
+      "category": "Self",
+      "source": "Derek Walcott · Love After Love · 2014 selected edition",
+      "reference": {
+        "author": "Derek Walcott",
+        "work": "Love After Love",
+        "date": "2014 selected edition",
+        "locator": "Second stanza: the complete sentence after the invitation to sit and eat",
+        "url": "https://poets.org/poem/love-after-love",
+        "sourceType": "诗歌短摘录",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "美国诗人学会获授权刊载的英文原诗单句，采用2014年选本所载文字",
+        "originalText": "You will love again the stranger who was your self.",
+        "context": "诗把重新接纳自己写成一次归家：在门口与镜子前，迎接那个被自己疏远的人。它随后让读者取下旧情书与照片，把长期投向他人的关心，也还给自己。",
+        "question": "有没有哪一部分自己，曾为了得到别人的爱而被我冷落？",
+        "verification": "2026-10-30：实际读取美国诗人学会获授权刊载的原诗，核对第二节完整句，保留原文分写的 your self。页面注明来自 Glyn Maxwell 所选 The Poetry of Derek Walcott, 1948–2013，版权2014，由 Farrar, Straus and Giroux 授权重印。日期明确指所核选本，不将2014冒称诗的创作或首刊年份。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-30-04",
+      "zh": "有那么一会儿，\n我安歇在世界的恩泽里，自由自在。",
+      "en": "For a time\nI rest in the grace of the world, and am free.",
+      "category": "Nature",
+      "source": "Wendell Berry · The Peace of Wild Things · 2016-12-08 authorized reprint",
+      "reference": {
+        "author": "Wendell Berry",
+        "work": "The Peace of Wild Things",
+        "date": "2016-12-08 authorized reprint",
+        "locator": "Closing sentence, beginning after waiting with their light; On Being authorized Selected Poems text",
+        "url": "https://onbeing.org/poetry/the-peace-of-wild-things/",
+        "sourceType": "诗歌短摘录",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "经作者和出版社授权刊载的英文原诗结尾短句，保留该版本断行，非全诗",
+        "originalText": "For a time\nI rest in the grace of the world, and am free.",
+        "context": "诗人在夜里为自己与孩子的未来忧虑时，来到野鸭、苍鹭与静水所在之处。结尾的自由是片刻安歇：自然没有替他消除一切问题，却让他暂时从忧惧中松开。",
+        "question": "什么地方能让我暂时放下对未来的预演，重新感到自己身处这个世界？",
+        "verification": "2026-10-30：实际读取 On Being 刊载的完整原诗，核对末尾自 For a time 开始的连续句及原文断行。页面写明经作者与 Counterpoint Press 授权，节选自 The Selected Poems of Wendell Berry，并标注网页发布日2016年12月8日。本条日期明确为授权重印时间，不把它当作原诗首刊年份；未声称核对该页音频。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-30-05",
+      "zh": "人读诗，是因为他属于人类，而人类充满激情！",
+      "en": "One reads poetry because he is a member of the human race and the human race is filled with passion!",
+      "category": "Reading",
+      "source": "John Keating (Tom Schulman, screenwriter) · Dead Poets Society (screenplay) · 1989 film; undated draft",
+      "reference": {
+        "author": "John Keating (Tom Schulman, screenwriter)",
+        "work": "Dead Poets Society (screenplay)",
+        "date": "1989 film; undated draft",
+        "locator": "Classroom discussion of literature and professional ambitions: printed p. 29, PDF p. 31",
+        "url": "https://assets.scriptslug.com/live/pdf/scripts/dead-poets-society-1989.pdf",
+        "sourceType": "电影剧本中的人物对白",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "公开英文剧本中的连续整句；该稿措辞与常见上映版转录不同，未核对音轨",
+        "originalText": "One reads poetry because he is a member of the human race and the human race is filled with passion!",
+        "context": "基廷在课堂上反对把诗歌学习缩减成一套与考试和职业无关的规则。他希望学生感受语言如何连接人的激情，并重新思考，除了维持生活，人还为什么而活。",
+        "question": "除了判断一件事有没有用，我是否也给那些使生活丰厚的经验留下了位置？",
+        "verification": "2026-10-30：读取 Script Slug 公开转存的135页剧本PDF，提取文字并图像检查封面和印刷第29页/PDF第31页，确认 Tom Schulman 署名、说话者 KEATING 及连续整句。该稿写 One reads poetry，没有按常见上映版转述改成 We read and write poetry。封面没有稿件日期，因此明确区分无日期剧本与1989年影片；D23官方档案核对角色全名、编剧和影片年份。未声称本稿与上映版音轨逐字一致。",
+        "additionalSources": [
+          {
+            "label": "Disney D23: film, character and screenplay credits",
+            "url": "https://d23.com/a-to-z/dead-poets-society-film/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-10-30-06",
+      "zh": "真希望我当时说了，我爱你。",
+      "en": "I wish I'd said that I love you.",
+      "category": "Relationships",
+      "source": "Dad (Richard Curtis, screenwriter) · About Time (screenplay) · 2012-03-08 draft; 2013 film",
+      "reference": {
+        "author": "Dad (Richard Curtis, screenwriter)",
+        "work": "About Time (screenplay)",
+        "date": "2012-03-08 draft; 2013 film",
+        "locator": "After Dad’s wedding speech, talking to Tim: printed p. 71, PDF p. 72",
+        "url": "https://theromcomcatalog.com/wp-content/uploads/2023/01/script-abouttime.pdf",
+        "sourceType": "电影剧本中的人物对白",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "2012年3月8日英文剧本中的连续整句，保留所核措辞，未核对上映版音轨",
+        "originalText": "I wish I'd said that I love you.",
+        "context": "父亲在婚礼致辞后觉得，自己虽然说了许多玩笑，却还没有把爱清楚地告诉儿子。蒂姆说那份爱已经隐含其中，父亲却希望亲口表达；剧本接着让他重新说了一次致辞。",
+        "question": "有哪些我以为对方已经知道的爱，仍值得清楚地说出来？",
+        "verification": "2026-10-30：读取公开转存的116页完整剧本PDF，并图像核对封面及印刷第71页/PDF第72页。封面署 Written by Richard Curtis、Edited by Emma Freud、8th March 2012、Working Title Films；所摘完整句由 DAD 对 TIM 说出，属于婚礼致辞后的父子对话，不误标为对伴侣的告白。United Agents 的作者官方履历确认2013年影片及其编剧身份。所核为2012年稿，未逐字核对上映音轨。",
+        "additionalSources": [
+          {
+            "label": "Richard Curtis official agency credits: About Time (2013)",
+            "url": "https://www.unitedagents.co.uk/richard-curtis/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-10-30-07",
+      "zh": "苔藓，是教人量力而活的出色老师。",
+      "en": "Mosses are superb teachers about living within your means.",
+      "category": "Wisdom",
+      "source": "Robin Wall Kimmerer · The Intelligence of Plants, On Being · 2016-02-25 first broadcast",
+      "reference": {
+        "author": "Robin Wall Kimmerer",
+        "work": "The Intelligence of Plants, On Being",
+        "date": "2016-02-25 first broadcast",
+        "locator": "Conversation with Krista Tippett: mosses living on rocks, logs and trees, followed by the discussion of ecological niches",
+        "url": "https://onbeing.org/programs/robin-wall-kimmerer-the-intelligence-of-plants-2022/",
+        "sourceType": "原始访谈",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "On Being原始英语访谈逐字稿中的连续完整句",
+        "originalText": "Mosses are superb teachers about living within your means.",
+        "context": "基默尔谈苔藓怎样在岩石、树木与狭小缝隙里生长，顺应微小表面的自然条件。它们并不靠抢占最多资源取胜，却能在适合自己的地方繁盛，使她重新思考成功与竞争。",
+        "question": "我有哪些真正适合自己的生长空间，而不是人人争抢的位置？",
+        "verification": "2026-10-30：实际读取 On Being 完整英文访谈稿，核对苔藓、微小尺度与生态竞争力段落，确认该句由 Kimmerer 说出。采用页面注明的 Original Air Date / February 25, 2016；2022年5月12日为页面更新，导语另提及2015年采访，不将三种日期混同。此处是她从苔藓生态引出的生活比喻。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-30-08",
+      "zh": "每写作一个小时，我就会用两个小时朗读。",
+      "en": "I read two hours out loud for every one hour I write.",
+      "category": "Creativity",
+      "source": "Mohsin Hamid · PBS NewsHour interview with Jeffrey Brown · 2018-03-30",
+      "reference": {
+        "author": "Mohsin Hamid",
+        "work": "PBS NewsHour interview with Jeffrey Brown",
+        "date": "2018-03-30",
+        "locator": "Exit West reader Q&A: response about the book sounding like someone telling a story, and pacing while reading aloud",
+        "url": "https://www.pbs.org/newshour/show/exit-west-author-mohsin-hamid-answers-your-questions",
+        "sourceType": "原始访谈",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "PBS原刊英语访谈逐字稿中的受访者连续完整句",
+        "originalText": "I read two hours out loud for every one hour I write.",
+        "context": "回答读者关于小说叙述声音的问题时，哈米德说自己会在书房来回踱步，把句子一遍遍读给自己听。他让写作也经过听觉，借此感受语言如何被另一个人接收到。",
+        "question": "我有没有认真听过自己的文字，而不只是看过它们？",
+        "verification": "2026-10-30：实际读取 PBS NewsHour 的完整读者问答稿，核对 Jeffrey Brown 询问朗读与踱步的连续对答，所摘为 Hamid 自述的完整句。页面注明2018年3月30日，不混同2017年另一次 Exit West 访谈。两小时与一小时是作者自己的创作习惯，不将其描述为所有写作者必须遵守的比例。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-30-09",
+      "zh": "历史不可预知，因为推动历史的人类，本身就是不确定性的化身。",
+      "en": "History is unpredictable because its agent, mankind, is the personification of indeterminism.",
+      "category": "Uncertainty",
+      "source": "Octavio Paz · In Search of the Present (tr. Anthony Stanton) · 1990-12-08; 1993 edition",
+      "reference": {
+        "author": "Octavio Paz",
+        "work": "In Search of the Present (tr. Anthony Stanton)",
+        "date": "1990-12-08; 1993 edition",
+        "locator": "Nobel Lecture: paragraph criticizing historical determinism, immediately before the review of the end of a historical period",
+        "url": "https://www.nobelprize.org/prizes/literature/1990/paz/lecture/",
+        "sourceType": "文学演讲的官方英译",
+        "originalLanguage": "西班牙语",
+        "chineseStatus": "据 Anthony Stanton 官方英译本次转译；非既有中文译本摘录，未核对西班牙语原文",
+        "englishStatus": "Anthony Stanton 英译，诺贝尔奖官网所载1993年 Nobel Lectures 版本；非英语原作，仅核对英译",
+        "originalText": "History is unpredictable because its agent, mankind, is the personification of indeterminism.",
+        "context": "帕斯批判那些声称已经掌握历史必然规律、并以此合理化压迫的思想。他把人的自由与不确定性放回历史之中，提醒读者，不能把对未来的预言当成支配他人的许可证。",
+        "question": "当有人声称未来只有一种必然走向时，这个说法给人的选择留下了多少空间？",
+        "verification": "2026-10-30：实际读取诺贝尔奖官网 In Search of the Present 英译全文，核对批判历史决定论段落的末句及上下文。页面明确标注1990年12月8日演讲，文末署 Anthony Stanton 翻译，载自1993年 Nobel Lectures, Literature 1981–1990。originalText 保存本次所核官方英译；未声称核对西班牙语原文，也不把1993当作演讲年份。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-30-10",
+      "zh": "我相信，人类不只是会熬过这一切，还会取得胜利。",
+      "en": "I believe that man will not merely endure: he will prevail.",
+      "category": "Growth",
+      "source": "William Faulkner · Nobel Banquet Speech · 1950-12-10",
+      "reference": {
+        "author": "William Faulkner",
+        "work": "Nobel Banquet Speech",
+        "date": "1950-12-10",
+        "locator": "Final paragraph: rejection of the idea that humanity will merely endure, followed by compassion, sacrifice and endurance",
+        "url": "https://www.nobelprize.org/prizes/literature/1949/faulkner/speech/",
+        "sourceType": "文学获奖演说",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次翻译，非既有中文译本或官方字幕摘录",
+        "englishStatus": "诺贝尔奖官网所载英文出版稿原句；网页提示存在出版修订，未核对现场录音",
+        "originalText": "I believe that man will not merely endure: he will prevail.",
+        "context": "面对核时代对毁灭的恐惧，福克纳把写作的责任放在人心的冲突、同情与承受之中。这句话表达他对人类精神的文学信念，随后强调的力量包括怜悯、牺牲与勇气。",
+        "question": "在令人恐惧的消息面前，我希望自己的语言仍能守护哪些人的品质？",
+        "verification": "2026-10-30：实际读取诺贝尔奖官网完整英文演说，核对末段连续整句及随后关于 compassion、sacrifice、endurance 的说明。页面明确写1950年12月10日诺贝尔晚宴，虽然奖项属于1949年，不混同两者。所载文字注明来源为1969年 Nobel Lectures 卷，脚注提示似经作者为出版修订；本条核对该刊载文字，不声称与现场录音逐字一致。",
         "additionalSources": []
       }
     }
