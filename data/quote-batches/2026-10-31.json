@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "date": "2026-10-31",
+  "timezone": "Europe/Amsterdam",
+  "expected_count": 10,
+  "notes": [
+    {
+      "id": "daily-2026-10-31-01",
+      "zh": "地上野兽的任何愚行，都会被人的疯狂远远超越。",
+      "en": "there is no folly of the beasts of the earth which is not infinitely outdone by the madness of men.",
+      "category": "Wisdom",
+      "source": "Herman Melville · Moby-Dick · 1851",
+      "reference": {
+        "author": "Herman Melville",
+        "work": "Moby-Dick",
+        "date": "1851",
+        "locator": "Chapter 87, “The Grand Armada”; comparison of panicked whales with people responding to a fire alarm.",
+        "url": "https://www.gutenberg.org/cache/epub/2701/pg2701-images.html",
+        "sourceType": "经典小说英文全文，Project Gutenberg 电子版。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英文原作连续分句摘录，保留 there 的小写起句。",
+        "originalText": "there is no folly of the beasts of the earth which is not infinitely outdone by the madness of men.",
+        "context": "叙述者写到惊慌的鲸群时，想到人群听见火警也会相互践踏。这一比较打断了人类理所当然优于其他生命的自信。",
+        "question": "我是否因为身为人，就把自己的判断看得比其他生命更高明？",
+        "verification": "2026-10-31：实际阅读 Project Gutenberg 第 87 章及前后段。摘录为以 for 引出的连续分句，保留原文 there 的小写；未把它改成独立大写起句。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-31-02",
+      "zh": "真相很少纯粹，也从不简单。",
+      "en": "The truth is rarely pure and never simple.",
+      "category": "Uncertainty",
+      "source": "Algernon · The Importance of Being Earnest · 1895",
+      "reference": {
+        "author": "Algernon (Oscar Wilde, playwright)",
+        "work": "The Importance of Being Earnest",
+        "date": "1895",
+        "locator": "Act I; Algernon replies after Jack describes his invented brother Ernest and calls his account “the whole truth pure and simple.”",
+        "url": "https://www.gutenberg.org/cache/epub/844/pg844-images.html",
+        "sourceType": "戏剧英文全文，Project Gutenberg 电子版。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语原作摘录；保留所核版本的措辞和标点。",
+        "originalText": "The truth is rarely pure and never simple.",
+        "context": "杰克解释自己虚构的弟弟后，宣称已讲出纯粹而简单的全部真相。阿尔杰农这句带着机锋的回应，处在身份与体面受到讽刺的戏剧情境中。",
+        "question": "当我说事情很简单时，有没有把关键的矛盾也省略了？",
+        "verification": "2026-10-31：实际阅读第一幕杰克交代虚构身份的对话，核对说话者为 Algernon，逐字核对该完整句；作者为剧作家 Oscar Wilde，未将角色发言写成作者的直接自述。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-31-03",
+      "zh": "让一切临到你身上：美与恐惧。\n只管继续前行。没有一种感受就是终局。",
+      "en": "Let everything happen to you: beauty and terror.\nJust keep going. No feeling is final.",
+      "category": "Life",
+      "source": "Rainer Maria Rilke · Book of Hours I.59 · Macy–Barrows translation, 2010 reprint",
+      "reference": {
+        "author": "Rainer Maria Rilke",
+        "work": "Book of Hours I.59 (tr. Joanna Macy & Anita Barrows)",
+        "date": "2010-09-16 authorized reprint",
+        "locator": "“Go to the Limits of Your Longing”; two lines beginning “Let everything happen to you”; Book of Hours I.59.",
+        "url": "https://onbeing.org/poetry/go-to-the-limits-of-your-longing/",
+        "sourceType": "On Being 经授权刊载的出版英译诗歌节选。",
+        "originalLanguage": "德语",
+        "chineseStatus": "本次据 Macy–Barrows 英译转译，非既有出版中译；未核对德语原文。",
+        "englishStatus": "采用 Joanna Macy 与 Anita Barrows 的出版英译；On Being 经授权转载。核对的是英译，尚未核对德语原文，非英语原作。",
+        "originalText": "Let everything happen to you: beauty and terror.\nJust keep going. No feeling is final.",
+        "context": "诗中上帝向即将走入生命的人说话，把美与恐惧放在同一段旅程里。此处让强烈的感受保持流动，未将此刻写成生命的最后结论。",
+        "question": "在一种强烈的感受里，我是否把此刻误认成了永远？",
+        "verification": "2026-10-31：实际阅读 On Being 全诗和页脚：标注 Book of Hours I 59、译者 Joanna Macy and Anita Barrows、reprinted with permission。页面发布日期为 2010-09-16，此日期指授权转载，不冒称原诗或英译首版日期；原文栏保存实际核对的英文译句。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-31-04",
+      "zh": "活着不是儿戏：\n你必须极其认真地活着，\n比如像一只松鼠——",
+      "en": "Living is no laughing matter:\nyou must live with great seriousness\nlike a squirrel, for example—",
+      "category": "Attention",
+      "source": "Nâzim Hikmet · On Living · Blasing–Konuk translation, 1994",
+      "reference": {
+        "author": "Nâzim Hikmet",
+        "work": "On Living (tr. Randy Blasing & Mutlu Konuk)",
+        "date": "1994 translation copyright",
+        "locator": "Part I, opening three lines; English version from Poems of Nazim Hikmet, Persea Books.",
+        "url": "https://poets.org/poem/living",
+        "sourceType": "美国诗人学会刊载、经出版社许可的出版英译。",
+        "originalLanguage": "土耳其语",
+        "chineseStatus": "本次据 Blasing–Konuk 英译转译，非既有出版中译；未核对土耳其语原文。",
+        "englishStatus": "采用 Randy Blasing 与 Mutlu Konuk 的出版英译；核对的是英译，尚未核对土耳其语原文，非英语原作。",
+        "originalText": "Living is no laughing matter:\nyou must live with great seriousness\nlike a squirrel, for example—",
+        "context": "接下来的诗行把认真生活解释为不总在生活之外寻找某个更高的东西，而把生活本身当作全部事业。松鼠的比喻让这份认真变得具体而朴素。",
+        "question": "我是不是一直在为生活寻找某个更高的理由，而忽略了生活本身？",
+        "verification": "2026-10-31：实际阅读 Poets.org 的 On Living 全文、第一节和许可页脚。页脚明确列出 Poems of Nazim Hikmet、Persea Books、译者 Randy Blasing and Mutlu Konuk、英译版权 1994；未把译本版权年标作原诗写作年。保留三行及末尾破折号，只摘录短片段。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-31-05",
+      "zh": "难道我会因为读过《雾都孤儿》，就自以为了解你是什么样的人吗？",
+      "en": "Do you think I would presume to know the first thing about who you are because I read \"Oliver Twist?\"",
+      "category": "Others",
+      "source": "Sean · Good Will Hunting · 1997 film, screenplay excerpt",
+      "reference": {
+        "author": "Sean (Matt Damon & Ben Affleck, screenwriters)",
+        "work": "Good Will Hunting (screenplay)",
+        "date": "1997 film; undated screenplay",
+        "locator": "PDF page 60 of 131; Sean responds after Will confirms that he is an orphan.",
+        "url": "https://faculty.washington.edu/jwhelan/Disenchantment%20Site/Scripts/Good%20Will%20Hunting%20.pdf",
+        "sourceType": "华盛顿大学教师档案保存的英文原始剧本转录 PDF。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "所核为英文剧本转录，保留该版本 Oliver Twist 后问号位于引号内的标点；未另称核对过上映版音轨。",
+        "originalText": "Do you think I would presume to know the first thing about who you are because I read \"Oliver Twist?\"",
+        "context": "尚恩在谈到威尔作为孤儿的经历时，拒绝假装单凭《雾都孤儿》便能了解他。他把对话转向这个具体的人，而不是书本或标签。",
+        "question": "我是否把对某一类人的了解，误当成了对眼前这个人的了解？",
+        "verification": "2026-10-31：下载并阅读大学档案 PDF，视觉核对第 60 页说话者 SEAN 和完整句；封面列编剧 Matt Damon and Ben Affleck。该文件是未注明草稿日期的网页打印稿，页眉 2018-02-21 是打印时间；1997 年是 Miramax 影片页列明的发行年，不是所核剧本的写作日期。",
+        "additionalSources": [
+          {
+            "label": "Miramax film page: release year and film credits",
+            "url": "https://www.miramax.com/movie/good-will-hunting/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-10-31-06",
+      "zh": "我们接受眼前被呈现出来的世界，并把它当成现实。",
+      "en": "We accept the reality of the world with which we're presented.",
+      "category": "Self",
+      "source": "Christof · The Truman Show · 1998 film, shooting screenplay",
+      "reference": {
+        "author": "Christof (Andrew M. Niccol, screenwriter)",
+        "work": "The Truman Show (shooting screenplay)",
+        "date": "1998 film; undated screenplay",
+        "locator": "Printed page 80, PDF page 81 of 109; Christof answers an interviewer asking why Truman has not discovered the nature of his world.",
+        "url": "https://assets.scriptslug.com/live/pdf/scripts/the-truman-show-1998.pdf",
+        "sourceType": "Script Slug 保存的英文拍摄剧本 PDF；剧本文本作为一手材料，镜像并非制片公司官网。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "所核英文 shooting script 原句，保留缩写 we're；未另称核对过上映版音轨。",
+        "originalText": "We accept the reality of the world with which we're presented.",
+        "context": "虚构的节目制作人克里斯托夫解释，为什么楚门没有识破周围的世界；紧接着他讲到人为制造阻碍，把楚门留在海景镇。这是控制者的自我辩护，也引出对习以为常的现实的追问。",
+        "question": "我视为理所当然的现实，有多少来自从未检验过的环境？",
+        "verification": "2026-10-31：实际下载并阅读 Script Slug 的 109 页 PDF，视觉核对封面 Written by Andrew M. Niccol / Shooting Script，以及印刷页 80、PDF 第 81 页 CHRISTOF 的回答。引用与该版本一致，不用常见转述 we are 替代 we're；文件未注明草稿日期，1998 仅指影片年份。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-31-07",
+      "zh": "但我真心相信，大多数人做的，都是他们从自己的角度看来正确的事。",
+      "en": "But I truly believe that most people are doing what they believe is right from their point of view.",
+      "category": "Relationships",
+      "source": "Trevor Noah · PBS NewsHour profile with Jeffrey Brown · 2016-11-17",
+      "reference": {
+        "author": "Trevor Noah",
+        "work": "PBS NewsHour profile with Jeffrey Brown",
+        "date": "2016-11-17",
+        "locator": "Transcript: Noah discusses practicing empathy after Brown describes his outsider perspective; sentence beginning “But I truly believe”.",
+        "url": "https://www.pbs.org/newshour/show/daily-show-host-trevor-noah-turns-outside-perspective-funny-observation",
+        "sourceType": "PBS NewsHour 原始访谈报道全文与机构发布的英文转录。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "原始英语访谈中的连续完整句，据 PBS 发布的转录核对；未另称听核过录音。",
+        "originalText": "But I truly believe that most people are doing what they believe is right from their point of view.",
+        "context": "诺亚谈到练习从别人的处境理解其想法。随后他解释，这样的理解可以帮助自己与对方交谈，也可以帮助自己提出反驳。",
+        "question": "当我不同意一个人时，我是否真正弄清了对方为什么认为自己是对的？",
+        "verification": "2026-10-31：实际阅读 PBS 2016-11-17 节目的完整转录，核对该句处于 TREVOR NOAH 关于换位思考的回答中；采访报道人为 Jeffrey Brown。未将节目开头的工作会议片段误作这一回答，也未改写成对所有行为的认可。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-31-08",
+      "zh": "彼此契合，是爱所成就的结果。",
+      "en": "Compatibility is an achievement of love.",
+      "category": "Relationships",
+      "source": "Alain de Botton · On Being: The True Hard Work of Love and Relationships · 2017-02-09",
+      "reference": {
+        "author": "Alain de Botton",
+        "work": "On Being: The True Hard Work of Love and Relationships",
+        "date": "2017-02-09",
+        "locator": "Conversation with Krista Tippett; de Botton discusses family, compatibility and love, before Tippett calls the point politically relevant.",
+        "url": "https://onbeing.org/programs/alain-de-botton-the-true-hard-work-of-love-and-relationships/",
+        "sourceType": "On Being 原始英语访谈全文及节目转录。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "原始英语访谈完整句，据 On Being 转录逐字核对；未拼接相邻句或另称听核过录音。",
+        "originalText": "Compatibility is an achievement of love.",
+        "context": "德波顿在谈家人与彼此契合时，把默契视为关系逐渐产生的成果。紧接着他说，人们却常把它想象成开始相爱的先决条件。",
+        "question": "我期待的默契，有多少需要通过表达、倾听和练习来共同建立？",
+        "verification": "2026-10-31：实际阅读 On Being 转录中 de Botton 的这一段及前后问答，核对完整短句及采访者 Krista Tippett。页面注明 Original Air Date 为 2017-02-09，另列 2021-02-11 为更新日；采用原播出日期。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-31-09",
+      "zh": "我一生最遗憾的，是那些没有善待他人的时刻。",
+      "en": "What I regret most in my life are failures of kindness.",
+      "category": "Others",
+      "source": "George Saunders · Syracuse University Convocation Address · 2013-05-11",
+      "reference": {
+        "author": "George Saunders",
+        "work": "Syracuse University Convocation Address",
+        "date": "2013-05-11",
+        "locator": "College of Arts and Sciences undergraduate convocation; reflection following the childhood story about “ELLEN”.",
+        "url": "https://artsandsciences.syracuse.edu/news-all/news-2013/2013-george_saunders_convocation/",
+        "sourceType": "演讲主办大学刊载的演讲全文。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "原始英文演讲全文中的完整句，据主办大学刊本核对。",
+        "originalText": "What I regret most in my life are failures of kindness.",
+        "context": "桑德斯回忆一位遭同学嘲弄的女孩：自己虽然没有加入欺负，甚至稍有维护，却始终过于克制，没有给出更多善意。他遗憾的正是这种本可以靠近却退后的时刻。",
+        "question": "有没有一次，我虽然没有做坏事，却错过了本可以给出的善意？",
+        "verification": "2026-10-31：实际阅读 Syracuse University 刊载的全文及 ELLEN 段落。导语明确演讲发生于 2013-05-11，区别于文章发布及后续更新日期；逐字核对摘录中的 failures of kindness，保留完整句。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-10-31-10",
+      "zh": "所以，是的，关于一本书，读者比作者本人知道得更多。",
+      "en": "So yes, the reader knows more about a book than the author himself.",
+      "category": "Reading",
+      "source": "Patrick Modiano · Nobel Lecture · 2014, James Hardiker translation",
+      "reference": {
+        "author": "Patrick Modiano",
+        "work": "Nobel Lecture (tr. James Hardiker)",
+        "date": "2014-12-07",
+        "locator": "Paragraph beginning “So yes, the reader knows more”; between the fresco/scaffolding image and the photographic-development analogy.",
+        "url": "https://www.nobelprize.org/prizes/literature/2014/modiano/lecture/",
+        "sourceType": "诺贝尔奖官方网站发布的获奖演讲英译全文。",
+        "originalLanguage": "法语",
+        "chineseStatus": "本次据 James Hardiker 的官方刊载英译转译，非既有出版中译；未核对法语原文。",
+        "englishStatus": "采用 NobelPrize.org 官方刊载的 James Hardiker（Semantix）英译；核对的是英译，尚未核对法语原文，非英语原作。",
+        "originalText": "So yes, the reader knows more about a book than the author himself.",
+        "context": "莫迪亚诺把作者比作近距离绘制天顶画、难以看清全貌的人。小说离开作者，又会在读者心中像照片那样显影，产生作者未必意识到的意义。",
+        "question": "阅读时，我是否允许自己的真实经验参与理解，而不只是寻找一个标准答案？",
+        "verification": "2026-10-31：实际阅读 NobelPrize.org 英译全文及页脚，核对所引完整句和前后两个比喻。页面说明演讲于 2014-12-07 以法语发表；译者署名明确为 Translation: James Hardiker, Semantix，版权 Nobel Foundation 2014。原文栏保存实际核对的英文译句，不冒称已核法语。",
+        "additionalSources": []
+      }
+    }
+  ]
+}
