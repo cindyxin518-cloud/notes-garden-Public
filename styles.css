@@ -3049,3 +3049,109 @@ body .theme-directory .home-tools {
     font-size: 0.75rem;
   }
 }
+
+.mapkai-film {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(260px, 0.72fr) minmax(0, 1.28fr);
+  align-items: center;
+  gap: clamp(26px, 5vw, 64px);
+  margin: 0 0 clamp(36px, 6vw, 72px);
+  padding: clamp(26px, 4.4vw, 52px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 24px;
+  color: #fbfaf5;
+  background:
+    radial-gradient(circle at 8% 0%, rgba(185, 212, 74, 0.19), transparent 34%),
+    linear-gradient(135deg, #194d3e 0%, #1c382f 58%, #17211d 100%);
+  box-shadow: 0 24px 56px rgba(23, 33, 29, 0.18);
+}
+
+.mapkai-film::before {
+  content: "";
+  position: absolute;
+  top: -180px;
+  left: -130px;
+  width: 360px;
+  height: 360px;
+  border: 1px solid rgba(185, 212, 74, 0.22);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.mapkai-film-copy,
+.mapkai-film-player {
+  position: relative;
+  z-index: 1;
+  min-width: 0;
+}
+
+.mapkai-film .eyebrow {
+  margin-bottom: 20px;
+  color: #d8e98d;
+}
+
+.mapkai-film h2 {
+  max-width: 520px;
+  margin: 0;
+  color: #fbfaf5;
+  font-family: Georgia, "Times New Roman", "Songti SC", serif;
+  font-size: clamp(2.35rem, 4.4vw, 4.35rem);
+  font-weight: 400;
+  letter-spacing: -0.055em;
+  line-height: 0.98;
+}
+
+.mapkai-film h2 span {
+  color: #c4dc58;
+}
+
+.mapkai-film-description {
+  max-width: 320px;
+  margin: 22px 0 0;
+  color: rgba(251, 250, 245, 0.76);
+  font-size: 1rem;
+  line-height: 1.65;
+}
+
+.mapkai-film-player {
+  margin: 0;
+}
+
+.mapkai-film-player video {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  border-radius: 14px;
+  background: #0d1511;
+  object-fit: contain;
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.24);
+}
+
+.mapkai-film-fallback {
+  padding: 16px;
+  color: #fbfaf5;
+}
+
+.mapkai-film-fallback a {
+  color: #d8e98d;
+}
+
+@media (max-width: 760px) {
+  .mapkai-film {
+    grid-template-columns: 1fr;
+    gap: 24px;
+    padding: clamp(24px, 6vw, 36px);
+    border-radius: 20px;
+  }
+
+  .mapkai-film h2 {
+    font-size: clamp(2.4rem, 11vw, 3.8rem);
+  }
+
+  .mapkai-film-description {
+    margin-top: 14px;
+  }
+}
