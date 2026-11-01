@@ -3155,3 +3155,204 @@ body .theme-directory .home-tools {
     margin-top: 14px;
   }
 }
+
+/* Topic notes stay compact until a reader chooses to open one. */
+.quote-accordion {
+  display: block;
+  gap: 0;
+  padding: 0;
+  overflow: hidden;
+  transition: border-color 180ms ease, box-shadow 180ms ease, transform 180ms ease;
+}
+
+.quote-accordion:hover {
+  border-color: rgba(35, 50, 56, 0.28);
+  box-shadow: 0 12px 28px rgba(35, 50, 56, 0.08);
+  transform: translateY(-2px);
+}
+
+.quote-accordion[open] {
+  border-color: rgba(35, 50, 56, 0.3);
+  box-shadow: 0 18px 38px rgba(35, 50, 56, 0.09);
+}
+
+.quote-card-summary {
+  display: flex;
+  min-height: 218px;
+  flex-direction: column;
+  gap: 20px;
+  padding: 26px 28px 22px;
+  cursor: pointer;
+  list-style: none;
+}
+
+.quote-card-summary::-webkit-details-marker {
+  display: none;
+}
+
+.quote-card-summary:focus-visible {
+  outline: 3px solid var(--moss);
+  outline-offset: -5px;
+}
+
+.quote-card-summary-head {
+  display: flex;
+  min-width: 0;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 7px 14px;
+}
+
+.quote-card-eyebrow {
+  color: #77908a;
+  font-size: 0.65rem;
+  font-weight: 800;
+  letter-spacing: 0.15em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.quote-card-credit {
+  max-width: 100%;
+  overflow: hidden;
+  color: var(--muted);
+  font-size: 0.76rem;
+  font-weight: 600;
+  line-height: 1.5;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.quote-card-preview {
+  display: -webkit-box;
+  overflow: hidden;
+  color: var(--ink);
+  font-family: Georgia, "Times New Roman", "Songti SC", serif;
+  font-size: clamp(1.14rem, 1.65vw, 1.42rem);
+  font-weight: 400;
+  line-height: 1.62;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+}
+
+.quote-card-summary-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: auto;
+  padding-top: 14px;
+  border-top: 1px solid rgba(35, 50, 56, 0.11);
+  color: var(--moss);
+  font-size: 0.78rem;
+  font-weight: 700;
+}
+
+.quote-card-hint-close,
+.quote-accordion[open] .quote-card-hint-open {
+  display: none;
+}
+
+.quote-accordion[open] .quote-card-hint-close {
+  display: inline;
+}
+
+.quote-card-indicator {
+  display: grid;
+  width: 28px;
+  height: 28px;
+  flex: 0 0 28px;
+  place-items: center;
+  border: 1px solid rgba(35, 50, 56, 0.15);
+  border-radius: 50%;
+}
+
+.quote-card-indicator::before {
+  width: 7px;
+  height: 7px;
+  border-right: 1.5px solid currentColor;
+  border-bottom: 1.5px solid currentColor;
+  content: "";
+  transform: translateY(-2px) rotate(45deg);
+  transition: transform 180ms ease;
+}
+
+.quote-accordion[open] .quote-card-indicator::before {
+  transform: translateY(2px) rotate(225deg);
+}
+
+.quote-accordion[open] > .quote-card-summary {
+  min-height: 0;
+  background: rgba(116, 214, 189, 0.055);
+}
+
+.quote-card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  padding: 26px 28px 28px;
+  border-top: 1px solid var(--line);
+}
+
+.quote-accordion .quote-body {
+  gap: 14px;
+}
+
+.quote-accordion .quote-en {
+  font-size: clamp(1.16rem, 1.55vw, 1.38rem);
+  line-height: 1.85;
+}
+
+.quote-accordion .quote-credit {
+  margin-top: 5px;
+  font-size: 0.82rem;
+  line-height: 1.75;
+}
+
+.quote-accordion .quote-tools {
+  align-items: center;
+  gap: 12px 18px;
+  padding-top: 18px;
+  border-top: 1px solid var(--line);
+}
+
+.quote-accordion .quote-translation > summary {
+  padding: 5px 12px;
+  border-radius: 999px;
+  cursor: pointer;
+  pointer-events: auto;
+}
+
+@media (max-width: 720px) {
+  .quote-card-summary {
+    min-height: 195px;
+    gap: 17px;
+    padding: 22px;
+  }
+
+  .quote-accordion[open] > .quote-card-summary {
+    min-height: 0;
+  }
+
+  .quote-card-content {
+    gap: 18px;
+    padding: 22px;
+  }
+
+  .quote-accordion .quote-en {
+    font-size: 1.12rem;
+    line-height: 1.82;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .quote-accordion,
+  .quote-card-indicator::before {
+    transition: none;
+  }
+
+  .quote-accordion:hover {
+    transform: none;
+  }
+}

@@ -1891,18 +1891,52 @@ function sourceNotes(quote, fallbackSource = "", auditId = "") {
   return `<p class="quote-credit quote-source">Source: ${[author ? escapeHtml(author) : "", linkedWork, year].filter(Boolean).join(" · ")}</p>`;
 }
 
+function quotePreview(quote) {
+  const audit = sourceAudit(quote);
+  const text = audit?.correctedEnglish || quote.en || quote.zh || "A note from the garden.";
+  const normalized = String(text).replace(/\s+/g, " ").trim();
+  const characters = Array.from(normalized);
+  const preview = characters.length > 164 ? `${characters.slice(0, 161).join("")}…` : normalized;
+  const credit = audit?.author
+    || englishCredit(quote)
+    || englishDisplayLabel(quote.reference?.work || quote.source)
+    || "A note from the garden";
+  return {
+    text: preview,
+    lang: audit?.correctedEnglish || quote.en ? "en" : quote.zh ? "zh" : "en",
+    credit
+  };
+}
+
 function quoteCard(quote, index) {
   const readerTools = `<button class="reaction-btn note-action" type="button" data-proofread="${index}">Suggest an edit</button>${commentBoard(index)}`;
+  const preview = quotePreview(quote);
   return `
-    <article class="quote-card" id="quote-${index}">
-      ${quoteReadingBody(quote)}
-      <div class="quote-tools">
-        ${chineseTranslation(quote, readerTools)}
-        <div class="reader-actions" aria-label="Reader actions">
-          ${reactionButton(index, "like", "Like", likeIconPath)}
+    <details class="quote-card quote-accordion" id="quote-${index}">
+      <summary class="quote-card-summary">
+        <span class="quote-card-summary-head">
+          <span class="quote-card-eyebrow">A NOTE FROM THE GARDEN</span>
+          <span class="quote-card-credit">${escapeHtml(preview.credit)}</span>
+        </span>
+        <span class="quote-card-preview" lang="${preview.lang}">“${escapeHtml(preview.text)}”</span>
+        <span class="quote-card-summary-footer">
+          <span class="quote-card-hint">
+            <span class="quote-card-hint-open">Read note</span>
+            <span class="quote-card-hint-close">Close note</span>
+          </span>
+          <span class="quote-card-indicator" aria-hidden="true"></span>
+        </span>
+      </summary>
+      <div class="quote-card-content">
+        ${quoteReadingBody(quote)}
+        <div class="quote-tools">
+          ${chineseTranslation(quote, readerTools)}
+          <div class="reader-actions" aria-label="Reader actions">
+            ${reactionButton(index, "like", "Like", likeIconPath)}
+          </div>
         </div>
       </div>
-    </article>
+    </details>
   `;
 }
 
@@ -2156,6 +2190,7 @@ quoteGrid.addEventListener("click", async (event) => {
   const index = button.dataset.index;
   const id = button.dataset.reactionId || quoteKey(index);
   const nextValue = !reactions[id]?.[key];
+  const openQuoteIds = [...quoteGrid.querySelectorAll(".quote-accordion[open]")].map((card) => card.id);
   try {
     await togglePublicLikeById(id, nextValue);
   } catch (error) {
@@ -2171,6 +2206,10 @@ quoteGrid.addEventListener("click", async (event) => {
   saveFavorites();
   updateStats();
   route();
+  openQuoteIds.forEach((quoteId) => {
+    const card = document.getElementById(quoteId);
+    if (card) card.open = true;
+  });
 });
 
 quoteGrid.addEventListener("toggle", (event) => {
@@ -2532,6 +2571,7 @@ function focusQuoteFromHash() {
   if (!match) return;
   const card = document.querySelector(`#quote-${match[1]}`);
   if (!card) return;
+  if (card.matches("details.quote-accordion")) card.open = true;
   card.classList.add("is-targeted");
   card.scrollIntoView({ behavior: "smooth", block: "center" });
 }
