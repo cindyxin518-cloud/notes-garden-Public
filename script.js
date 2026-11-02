@@ -1172,8 +1172,6 @@ const privateLabsClose = document.querySelector("#privateLabsClose");
 
 let activeCategory = "";
 let collectionMode = "category";
-let expandedClassicNoteId = null;
-let expandedClassicDetailType = "background";
 let activeProofreadIndex = null;
 const visitorCounterEndpoint = "https://notes-garden-counter.cindyxin518.workers.dev";
 const jobAgentEndpoint = "https://minigrow-job-agent.cindyxin518.workers.dev";
@@ -1434,7 +1432,7 @@ const classicCollections = {
     sections: artOfWarSections,
     sectionLabel: "strategy sections",
     introTitle: "Inspired by The Art of War",
-    intro: "Explore timeless strategic thinking: how to read situations, make better decisions, and solve conflicts with wisdom rather than force."
+    intro: "Each passage pairs its strategic background with a practical application for decisions, leadership, and conflict. Select Chinese to see the original text."
   },
   "dao-de-jing": {
     theme: daoDeJingThemeId,
@@ -1442,7 +1440,7 @@ const classicCollections = {
     sections: daoDeJingSections,
     sectionLabel: "reading sections · 18 classic passages",
     introTitle: "Selected readings from the Tao Te Ching",
-    intro: "Read in English. Select Chinese for Chinese. Open Reading notes for context and reflections."
+    intro: "Each passage pairs its philosophical context with a modern reflection. Select Chinese to see the original passage and Chinese reading notes."
   }
 };
 
@@ -1854,15 +1852,43 @@ function quoteReadingBody(quote, fallbackSource = "", auditId = "") {
   `;
 }
 
-function chineseTranslation(quote, readerTools = "") {
+function chineseTranslation(quote, translationId, additionalTranslations = [], originalIsChinese = false) {
   if (!quote.zh) return "";
+  const sourceLanguage = quote.reference?.originalLanguage || sourceAudit(quote)?.originalLanguage || "";
+  const isOriginal = originalIsChinese || /chinese|中文|汉语|古汉语/i.test(sourceLanguage);
+  const showLabel = isOriginal ? "Show Chinese original" : "Show Chinese translation";
+  const hideLabel = isOriginal ? "Hide Chinese original" : "Hide Chinese translation";
+  const hasAdditionalTranslations = additionalTranslations.some(({ text }) => text);
+  const panelLabel = hasAdditionalTranslations ? "Chinese original and reading notes" : showLabel.replace("Show ", "");
   return `
-    <details class="quote-translation">
-      <summary role="button" aria-label="Chinese" lang="en">Chinese</summary>
-      <p class="quote-text quote-zh" lang="zh">${escapeHtml(quote.zh)}</p>
-      ${readerTools ? `<div class="translation-tools">${readerTools}</div>` : ""}
-    </details>
+    <div class="translation-control">
+      <button class="translation-toggle" type="button" data-translation-toggle aria-expanded="false" aria-controls="${escapeHtml(translationId)}" data-show-label="${showLabel}" data-hide-label="${hideLabel}">
+        <span class="translation-toggle-label">${showLabel}</span>
+        <span class="translation-toggle-mark" aria-hidden="true">+</span>
+      </button>
+      <div class="translation-panel" id="${escapeHtml(translationId)}" role="region" aria-label="${escapeHtml(panelLabel)}" hidden>
+        <p class="quote-text quote-zh" lang="zh">${escapeHtml(quote.zh)}</p>
+        ${additionalTranslations.filter(({ text }) => text).map(({ label, text }) => `
+          <section class="translation-extra">
+            <h4>${escapeHtml(label)}</h4>
+            <p lang="zh">${escapeHtml(text)}</p>
+          </section>
+        `).join("")}
+      </div>
+    </div>
   `;
+}
+
+function setTranslationExpanded(button, expanded) {
+  const panel = document.getElementById(button.getAttribute("aria-controls"));
+  if (!panel) return;
+  button.setAttribute("aria-expanded", String(expanded));
+  button.querySelector(".translation-toggle-label").textContent = expanded
+    ? button.dataset.hideLabel
+    : button.dataset.showLabel;
+  button.querySelector(".translation-toggle-mark").textContent = expanded ? "−" : "+";
+  button.closest(".translation-control").classList.toggle("is-open", expanded);
+  panel.hidden = !expanded;
 }
 
 function sourceNotes(quote, fallbackSource = "", auditId = "") {
@@ -1891,52 +1917,19 @@ function sourceNotes(quote, fallbackSource = "", auditId = "") {
   return `<p class="quote-credit quote-source">Source: ${[author ? escapeHtml(author) : "", linkedWork, year].filter(Boolean).join(" · ")}</p>`;
 }
 
-function quotePreview(quote) {
-  const audit = sourceAudit(quote);
-  const text = audit?.correctedEnglish || quote.en || quote.zh || "A note from the garden.";
-  const normalized = String(text).replace(/\s+/g, " ").trim();
-  const characters = Array.from(normalized);
-  const preview = characters.length > 164 ? `${characters.slice(0, 161).join("")}…` : normalized;
-  const credit = audit?.author
-    || englishCredit(quote)
-    || englishDisplayLabel(quote.reference?.work || quote.source)
-    || "A note from the garden";
-  return {
-    text: preview,
-    lang: audit?.correctedEnglish || quote.en ? "en" : quote.zh ? "zh" : "en",
-    credit
-  };
-}
-
 function quoteCard(quote, index) {
-  const readerTools = `<button class="reaction-btn note-action" type="button" data-proofread="${index}">Suggest an edit</button>${commentBoard(index)}`;
-  const preview = quotePreview(quote);
   return `
-    <details class="quote-card quote-accordion" id="quote-${index}">
-      <summary class="quote-card-summary">
-        <span class="quote-card-summary-head">
-          <span class="quote-card-eyebrow">A NOTE FROM THE GARDEN</span>
-          <span class="quote-card-credit">${escapeHtml(preview.credit)}</span>
-        </span>
-        <span class="quote-card-preview" lang="${preview.lang}">“${escapeHtml(preview.text)}”</span>
-        <span class="quote-card-summary-footer">
-          <span class="quote-card-hint">
-            <span class="quote-card-hint-open">Read note</span>
-            <span class="quote-card-hint-close">Close note</span>
-          </span>
-          <span class="quote-card-indicator" aria-hidden="true"></span>
-        </span>
-      </summary>
-      <div class="quote-card-content">
-        ${quoteReadingBody(quote)}
-        <div class="quote-tools">
-          ${chineseTranslation(quote, readerTools)}
-          <div class="reader-actions" aria-label="Reader actions">
-            ${reactionButton(index, "like", "Like", likeIconPath)}
-          </div>
+    <article class="quote-card" id="quote-${index}">
+      ${quoteReadingBody(quote)}
+      <div class="quote-tools">
+        ${chineseTranslation(quote, `translation-quote-${index}`)}
+        <div class="reader-actions" aria-label="Reader actions">
+          ${reactionButton(index, "like", "Like", likeIconPath)}
+          <button class="reaction-btn note-action" type="button" data-proofread="${index}">Suggest an edit</button>
+          ${commentBoard(index)}
         </div>
       </div>
-    </details>
+    </article>
   `;
 }
 
@@ -1959,16 +1952,15 @@ function getVisibleQuotes() {
 function classicNoteCard(entry) {
   const { section, note, sectionIndex, noteIndex, id, slug } = entry;
   return `
-    <article class="quote-card strategy-popular-card">
+    <article class="quote-card strategy-popular-card strategy-note-card">
       ${quoteReadingBody(note, slug === "art-of-war" ? "Sun Tzu, The Art of War" : "Laozi, Tao Te Ching", id)}
       <div class="quote-tools">
-        ${chineseTranslation(note)}
-      </div>
-      <div class="reader-actions" aria-label="Reader actions">
+        ${chineseTranslation(note, `translation-classic-${id}`, classicChineseNotes(note), true)}
+        <div class="reader-actions" aria-label="Reader actions">
         ${reactionButtonForId(id, "like", "Like", likeIconPath)}
-        <a class="strategy-detail-btn" href="#collection/${slug}/${sectionIndex}/${noteIndex}/background">Background</a>
-        <a class="strategy-detail-btn" href="#collection/${slug}/${sectionIndex}/${noteIndex}/reality">Reality Link</a>
+        </div>
       </div>
+      ${classicReadingNotes(note, slug, id)}
     </article>
   `;
 }
@@ -2010,7 +2002,7 @@ function renderQuotes() {
 
 const artDetailLabels = {
   background: "Background",
-  reality: "Reality Link"
+  reality: "Real-world application"
 };
 
 function artNoteKey(sectionIndex, noteIndex) {
@@ -2051,6 +2043,36 @@ function classicNoteMatches(entry) {
   return normalize(`${note.zh} ${note.en} ${note.source || ""} ${note.reference?.author || ""} ${classicCollections[slug].label} ${section.title}`).includes(keyword);
 }
 
+function classicChineseNotes(note) {
+  return [
+    { label: "Background", text: typeof note.background === "object" ? note.background.zh : "" },
+    { label: "Real-world application", text: typeof note.reality === "object" ? note.reality.zh : "" }
+  ];
+}
+
+function classicReadingNotes(note, slug, id, open = false) {
+  return `
+    <details class="classic-passage" data-classic-note="${escapeHtml(id)}" ${open ? "open" : ""}>
+      <summary class="classic-passage-heading">
+        <span class="classic-passage-title">Background &amp; real-world application</span>
+        <span class="classic-passage-chevron" aria-hidden="true"></span>
+      </summary>
+      <div class="classic-passage-content">
+        <section class="classic-passage-copy" aria-label="Background">
+          <h4>Background</h4>
+          ${slug === "dao-de-jing" ? `<p class="editorial-label">Editorial interpretation, not original text</p>` : ""}
+          ${classicDetailCopy(note.background)}
+        </section>
+        <section class="classic-passage-copy" aria-label="Real-world application">
+          <h4>Real-world application</h4>
+          ${slug === "dao-de-jing" ? `<p class="editorial-label">Modern reflection, not original text</p>` : ""}
+          ${classicDetailCopy(note.reality)}
+        </section>
+      </div>
+    </details>
+  `;
+}
+
 function classicSectionCard(section, sectionIndex, slug) {
   const label = classicCollections[slug].label;
   const notes = section.notes
@@ -2058,34 +2080,14 @@ function classicSectionCard(section, sectionIndex, slug) {
     .filter(({note}) => classicNoteMatches({section, note, slug}))
     .map(({note, noteIndex}) => {
       const id = classicNoteKey(slug, sectionIndex, noteIndex);
-      const detailType = id === expandedClassicNoteId ? expandedClassicDetailType : "background";
       return `
       <li class="strategy-note">
         ${quoteReadingBody(note, slug === "art-of-war" ? "Sun Tzu, The Art of War" : "Laozi, Tao Te Ching", id)}
         <div class="quote-tools">
-          ${chineseTranslation(note)}
+          ${chineseTranslation(note, `translation-classic-${id}`, classicChineseNotes(note), true)}
           ${reactionButtonForId(id, "like", "Like", likeIconPath)}
         </div>
-        <details class="classic-passage" name="classic-passages" data-classic-note="${escapeHtml(id)}" ${id === expandedClassicNoteId ? "open" : ""}>
-          <summary class="classic-passage-heading">
-            <span class="classic-passage-title">Reading notes</span>
-            <span class="classic-passage-chevron" aria-hidden="true"></span>
-          </summary>
-          <div class="classic-passage-content">
-            <div class="strategy-note-actions classic-passage-actions" aria-label="${escapeHtml(label)} note details">
-              ${Object.entries(artDetailLabels).map(([type, title]) => `
-                <button type="button" class="strategy-detail-btn ${type === detailType ? "is-active" : ""}" data-classic-detail="${type}" aria-pressed="${type === detailType}" aria-controls="${escapeHtml(id)}-${type}">${escapeHtml(title)}</button>
-              `).join("")}
-            </div>
-            ${Object.entries(artDetailLabels).map(([type, title]) => `
-              <section class="strategy-detail-copy classic-passage-copy" id="${escapeHtml(id)}-${type}" data-classic-panel="${type}" aria-label="${escapeHtml(title)}" ${type === detailType ? "" : "hidden"}>
-                <h4>${escapeHtml(title)}</h4>
-                ${slug === "dao-de-jing" ? `<p class="editorial-label">Editorial interpretation, not original text</p>` : ""}
-                ${classicDetailCopy(note[type])}
-              </section>
-            `).join("")}
-          </div>
-        </details>
+        ${classicReadingNotes(note, slug, id)}
       </li>
     `;
     })
@@ -2116,7 +2118,7 @@ function renderClassicSections(slug) {
 
 function classicDetailCopy(value) {
   if (typeof value === "string") return `<p>${escapeHtml(value)}</p>`;
-  return `<p lang="en" class="classic-detail-english">${escapeHtml(value.en)}</p>${chineseTranslation(value)}`;
+  return `<p lang="en" class="classic-detail-english">${escapeHtml(value.en)}</p>`;
 }
 
 function renderClassicDetail(slug, sectionIndex, noteIndex, detailType) {
@@ -2125,32 +2127,19 @@ function renderClassicDetail(slug, sectionIndex, noteIndex, detailType) {
     showClassicCollection(slug);
     return;
   }
-  const { section, note } = item;
+  const { section, note, id } = item;
   const label = classicCollections[slug].label;
-  const detailText = detailType === "background" ? note.background : note.reality;
-  const backgroundHref = `#collection/${slug}/${sectionIndex}/${noteIndex}/background`;
-  const realityHref = `#collection/${slug}/${sectionIndex}/${noteIndex}/reality`;
 
   quoteGrid.innerHTML = `
     <article class="strategy-detail-page">
       <a class="back-link strategy-back-link" href="#collection/${slug}">Back to ${escapeHtml(label)}</a>
       <p class="eyebrow">${escapeHtml(englishDisplayLabel(section.title))}</p>
-      ${quoteReadingBody(note, slug === "art-of-war" ? "Sun Tzu, The Art of War" : "Laozi, Tao Te Ching", classicNoteKey(slug, Number(sectionIndex), Number(noteIndex)))}
+      ${quoteReadingBody(note, slug === "art-of-war" ? "Sun Tzu, The Art of War" : "Laozi, Tao Te Ching", id)}
       <div class="quote-tools">
-        ${chineseTranslation(note)}
+        ${chineseTranslation(note, `translation-classic-${id}`, classicChineseNotes(note), true)}
+        ${reactionButtonForId(id, "like", "Like", likeIconPath)}
       </div>
-      <div class="reader-actions strategy-detail-reactions" aria-label="Reader actions">
-        ${reactionButtonForId(classicNoteKey(slug, Number(sectionIndex), Number(noteIndex)), "like", "Like", likeIconPath)}
-      </div>
-      <div class="strategy-note-actions strategy-detail-tabs" aria-label="Switch ${escapeHtml(label)} detail">
-        <a class="strategy-detail-btn ${detailType === "background" ? "is-active" : ""}" href="${backgroundHref}">Background</a>
-        <a class="strategy-detail-btn ${detailType === "reality" ? "is-active" : ""}" href="${realityHref}">Reality Link</a>
-      </div>
-      <section class="strategy-detail-copy" aria-label="${escapeHtml(artDetailLabels[detailType])}">
-        <h4>${escapeHtml(artDetailLabels[detailType])}</h4>
-        ${slug === "dao-de-jing" ? `<p class="editorial-label">Editorial interpretation, not original text</p>` : ""}
-        ${classicDetailCopy(detailText)}
-      </section>
+      ${classicReadingNotes(note, slug, id, true)}
     </article>
   `;
   resultCount.textContent = "";
@@ -2158,20 +2147,10 @@ function renderClassicDetail(slug, sectionIndex, noteIndex, detailType) {
 }
 
 quoteGrid.addEventListener("click", async (event) => {
-  const classicDetailButton = event.target.closest("[data-classic-detail]");
-  if (classicDetailButton) {
-    const passage = classicDetailButton.closest("[data-classic-note]");
-    const detailType = classicDetailButton.dataset.classicDetail;
-    expandedClassicNoteId = passage.dataset.classicNote;
-    expandedClassicDetailType = detailType;
-    passage.querySelectorAll("[data-classic-detail]").forEach((button) => {
-      const selected = button.dataset.classicDetail === detailType;
-      button.classList.toggle("is-active", selected);
-      button.setAttribute("aria-pressed", String(selected));
-    });
-    passage.querySelectorAll("[data-classic-panel]").forEach((panel) => {
-      panel.hidden = panel.dataset.classicPanel !== detailType;
-    });
+  const translationButton = event.target.closest("[data-translation-toggle]");
+  if (translationButton) {
+    const isOpen = translationButton.getAttribute("aria-expanded") === "true";
+    setTranslationExpanded(translationButton, !isOpen);
     return;
   }
 
@@ -2190,7 +2169,10 @@ quoteGrid.addEventListener("click", async (event) => {
   const index = button.dataset.index;
   const id = button.dataset.reactionId || quoteKey(index);
   const nextValue = !reactions[id]?.[key];
-  const openQuoteIds = [...quoteGrid.querySelectorAll(".quote-accordion[open]")].map((card) => card.id);
+  const openTranslations = new Set([...quoteGrid.querySelectorAll(".translation-toggle[aria-expanded='true']")]
+    .map((translation) => translation.getAttribute("aria-controls")));
+  const openClassicNotes = new Set([...quoteGrid.querySelectorAll(".classic-passage[open]")]
+    .map((passage) => passage.dataset.classicNote));
   try {
     await togglePublicLikeById(id, nextValue);
   } catch (error) {
@@ -2206,37 +2188,15 @@ quoteGrid.addEventListener("click", async (event) => {
   saveFavorites();
   updateStats();
   route();
-  openQuoteIds.forEach((quoteId) => {
-    const card = document.getElementById(quoteId);
-    if (card) card.open = true;
+  quoteGrid.querySelectorAll("[data-translation-toggle]").forEach((translation) => {
+    if (openTranslations.has(translation.getAttribute("aria-controls"))) {
+      setTranslationExpanded(translation, true);
+    }
+  });
+  quoteGrid.querySelectorAll(".classic-passage").forEach((passage) => {
+    if (openClassicNotes.has(passage.dataset.classicNote)) passage.open = true;
   });
 });
-
-quoteGrid.addEventListener("toggle", (event) => {
-  const passage = event.target;
-  if (!passage.matches("[data-classic-note]") || !quoteGrid.contains(passage)) return;
-  if (passage.open) {
-    const isNewPassage = expandedClassicNoteId !== passage.dataset.classicNote;
-    quoteGrid.querySelectorAll("[data-classic-note][open]").forEach((other) => {
-      if (other !== passage) other.open = false;
-    });
-    expandedClassicNoteId = passage.dataset.classicNote;
-    if (isNewPassage) {
-      expandedClassicDetailType = "background";
-      passage.querySelectorAll("[data-classic-detail]").forEach((button) => {
-        const selected = button.dataset.classicDetail === "background";
-        button.classList.toggle("is-active", selected);
-        button.setAttribute("aria-pressed", String(selected));
-      });
-      passage.querySelectorAll("[data-classic-panel]").forEach((panel) => {
-        panel.hidden = panel.dataset.classicPanel !== "background";
-      });
-    }
-  } else if (expandedClassicNoteId === passage.dataset.classicNote) {
-    expandedClassicNoteId = null;
-    expandedClassicDetailType = "background";
-  }
-}, true);
 
 function closeProofreadDialog() {
   proofreadModal.hidden = true;
@@ -2478,7 +2438,7 @@ function showCategory(category) {
   collection.hidden = false;
   collectionTitle.textContent = activeCategory === allCategory ? "Search Results" : `${categoryLabel(activeCategory)} Notes`;
   document.title = `${collectionTitle.textContent} | Notes Garden`;
-  collectionNote.textContent = "Read in English. Select Chinese for Chinese.";
+  collectionNote.textContent = "Read the note in English. Select Show Chinese to reveal its Chinese translation.";
   updateStats();
   filters.hidden = false;
   renderFilters();
@@ -2503,10 +2463,6 @@ function showSpecialCollection(mode) {
 
 function showClassicCollection(slug) {
   const book = classicCollections[slug];
-  if (collectionMode !== slug) {
-    expandedClassicNoteId = null;
-    expandedClassicDetailType = "background";
-  }
   searchInput.value = "";
   collectionMode = slug;
   activeCategory = book.theme;
@@ -2527,7 +2483,7 @@ function showClassicDetail(slug, sectionIndex, noteIndex, detailType) {
   activeCategory = book.theme;
   categoryHome.hidden = true;
   collection.hidden = false;
-  collectionTitle.textContent = artDetailLabels[detailType] || book.label;
+  collectionTitle.textContent = `${book.label} · Reading note`;
   document.title = `${collectionTitle.textContent} | ${book.label} | Notes Garden`;
   collectionNote.textContent = `${book.introTitle}. A closer reading of one passage.`;
   updateStats();
@@ -2571,7 +2527,6 @@ function focusQuoteFromHash() {
   if (!match) return;
   const card = document.querySelector(`#quote-${match[1]}`);
   if (!card) return;
-  if (card.matches("details.quote-accordion")) card.open = true;
   card.classList.add("is-targeted");
   card.scrollIntoView({ behavior: "smooth", block: "center" });
 }
