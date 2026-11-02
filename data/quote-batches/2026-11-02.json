@@ -1,0 +1,258 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-02",
+  "timezone": "Europe/Amsterdam",
+  "expected_count": 10,
+  "notes": [
+    {
+      "id": "daily-2026-11-02-01",
+      "zh": "从那一刻起，我明白了从奴役通向自由的道路。",
+      "en": "From that moment, I understood the pathway from slavery to freedom.",
+      "category": "Reading",
+      "source": "Frederick Douglass · Narrative of the Life of Frederick Douglass · 1845",
+      "reference": {
+        "author": "Frederick Douglass",
+        "work": "Narrative of the Life of Frederick Douglass",
+        "date": "1845",
+        "locator": "Chapter VI; Douglass reflects after Hugh Auld forbids his wife to teach him to read.",
+        "url": "https://www.gutenberg.org/cache/epub/23/pg23-images.html",
+        "sourceType": "经典自传英文全文，Project Gutenberg 电子版。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语原作摘录；保留所核版本的措辞和标点。",
+        "originalText": "From that moment, I understood the pathway from slavery to freedom.",
+        "context": "奴隶主禁止妻子教道格拉斯识字，反而让他明白：阻断知识正是维持奴役的一种手段。他由此更坚定地学习阅读。这里说的是作者亲历的奴隶制度。",
+        "question": "我需要掌握什么知识，才能看清并改变限制自己的处境？",
+        "verification": "2026-11-02：实际阅读第六章禁止识字的对话及其后道格拉斯的回顾，逐字核对完整句；作品扉页注明 Written by Himself、Boston、1845。1845 是原作出版年，不是电子版发布日期。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-02-02",
+      "zh": "你可以给予他们你的爱，却不能把你的思想也给他们，\n因为他们有自己的思想。",
+      "en": "You may give them your love but not your thoughts,\nFor they have their own thoughts.",
+      "category": "Relationships",
+      "source": "Kahlil Gibran · The Prophet, On Children · 1923",
+      "reference": {
+        "author": "Kahlil Gibran",
+        "work": "The Prophet, On Children",
+        "date": "1923",
+        "locator": "“On Children”; Almustafa answers a woman holding a baby; two lines beginning “You may give them your love”.",
+        "url": "https://www.gutenberg.org/cache/epub/58585/pg58585-images.html",
+        "sourceType": "英文原作散文诗全文，Project Gutenberg 电子版。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语原作摘录；保留所核版本的措辞和标点。",
+        "originalText": "You may give them your love but not your thoughts,\nFor they have their own thoughts.",
+        "context": "一位怀抱婴儿的母亲问起孩子，书中的阿尔穆斯塔法用这段话区分爱与占有。孩子由父母养育，也有独立的思想和属于未来的人生。",
+        "question": "我的关爱是在支持对方成为自己，还是要求对方照着我去生活？",
+        "verification": "2026-11-02：实际阅读 The Prophet 的 On Children 全节，核对两行、逗号及 For 的大写。扉页列 Kahlil Gibran、Alfred A. Knopf、Published September 1923。该书为作者英语原作，未误标为阿拉伯语原文的英译。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-02-03",
+      "zh": "我仿佛一直在走下坡路，却还以为自己正在往上走。",
+      "en": "It is as if I had been going downhill while I imagined I was going up.",
+      "category": "Life",
+      "source": "Leo Tolstoy · The Death of Ivan Ilych · 1886, Maude translation",
+      "reference": {
+        "author": "Leo Tolstoy",
+        "work": "The Death of Ivan Ilych (tr. Louise & Aylmer Maude)",
+        "date": "1886 original; Maude English translation",
+        "locator": "Chapter IX; Ivan Ilych reviews his marriage and official career, just before contrasting public opinion with his ebbing life.",
+        "url": "https://open.lib.umn.edu/ivanilich/chapter/full-text-english/",
+        "sourceType": "明尼苏达大学开放图书馆收录的研究版小说英译全文。",
+        "originalLanguage": "俄语",
+        "chineseStatus": "本次据 Maude 英译转译，非既有出版中译；未核对俄语原文。",
+        "englishStatus": "采用 Louise 与 Aylmer Maude 英译，依明尼苏达大学研究版核对；尚未核对俄语原文，非英语原作。",
+        "originalText": "It is as if I had been going downhill while I imagined I was going up.",
+        "context": "临终的伊凡·伊里奇回望自己看似体面的婚姻和仕途，开始怀疑社会评价中的上升是否也是生命的充实。这是小说人物的内心独白。",
+        "question": "我正在追逐的上升，是否也让我离真正重视的生活越来越远？",
+        "verification": "2026-11-02：实际打开大学研究版英文全文，阅读第九章回顾人生的段落并核对该完整句。版本说明页明确署 Louise and Aylmer Maude，并列原作 1886 年；未把原作年冒称所核英译的首版年份，未声称已核俄文。",
+        "additionalSources": [
+          {
+            "label": "University of Minnesota: Maude translation and original publication year",
+            "url": "https://open.lib.umn.edu/ivanilich/part/english-translation-of-the-death-of-ivan-ilich/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-11-02-04",
+      "zh": "我学会了所有词语，又将它们拆解，只为从中提炼出\n一个词：家。",
+      "en": "I have learned and dismantled all the words in order to draw from them a\nsingle word: Home.",
+      "category": "Self",
+      "source": "Mahmoud Darwish · I Belong There · 2003 English edition",
+      "reference": {
+        "author": "Mahmoud Darwish",
+        "work": "I Belong There (Akash–Forché English edition)",
+        "date": "2003 English edition",
+        "locator": "Final two lines; Unfortunately, It Was Paradise, translated and edited by Munir Akash and Carolyn Forché with Sinan Antoon and Amira El-Zein, University of California Press.",
+        "url": "https://poets.org/poem/i-belong-there",
+        "sourceType": "美国诗人学会经加州大学出版社许可刊载的出版英译。",
+        "originalLanguage": "阿拉伯语",
+        "chineseStatus": "本次据上述出版英译转译，非既有出版中译；未核对阿拉伯语原文。",
+        "englishStatus": "采用 2003 年 Unfortunately, It Was Paradise 英译选集版本；版本署名 Munir Akash、Carolyn Forché with Sinan Antoon、Amira El-Zein。仅核对英译，尚未核对阿拉伯语原文。",
+        "originalText": "I have learned and dismantled all the words in order to draw from them a\nsingle word: Home.",
+        "context": "诗中把母亲、窗户、朋友、牢房和土地并置，最后将所有言语收束为家。归属在这里不只是一个地名，也包含一整套生命经验。",
+        "question": "如果只能用一个词说出我真正想守护的东西，那个词会是什么？",
+        "verification": "2026-11-02：实际阅读 Poets.org 的 I Belong There 及许可页脚，核对末两行、Home 的大写和句号。页脚列选集全名、四位参与译编者、2003 年版权和 University of California Press 许可；按选集署名记录，未擅自指定单一诗篇译者，未把英译年写成原诗写作年。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-02-05",
+      "zh": "我不想只是生存下去！我想真正地活着！",
+      "en": "I DON’T WANT TO SURVIVE! I WANT TO LIVE!",
+      "category": "Growth",
+      "source": "The Captain · WALL-E · 2008 film, screenplay excerpt",
+      "reference": {
+        "author": "The Captain (Stanton & Reardon, screenwriters)",
+        "work": "WALL-E (screenplay)",
+        "date": "2008 film; undated screenplay",
+        "locator": "Printed page 68, PDF page 69 of 95; the Captain rejects the Autopilot’s promise that passengers will survive aboard the Axiom.",
+        "url": "https://assets.scriptslug.com/live/pdf/scripts/wall-e-2008.pdf",
+        "sourceType": "电影原始英文剧本，Script Slug 专业剧本档案镜像。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "据所核英文剧本摘录，保留大写和两个感叹号；未另称听核过上映版音轨。",
+        "originalText": "I DON’T WANT TO SURVIVE! I WANT TO LIVE!",
+        "context": "自动驾驶系统承诺飞船上的人可以继续生存，船长却决定承担返回地球的责任。他反对的是把安全而被动地消磨时日当作生活的全部。",
+        "question": "有哪些让我活着的保障，已经不知不觉变成了让我停止参与生活的理由？",
+        "verification": "2026-11-02：实际下载并阅读 95 页 PDF，视觉核对第 69 页、印刷页 68 的 CAPTAIN 原句及上下文。封面列 Screenplay by Andrew Stanton / Jim Reardon，Original Story by Andrew Stanton / Pete Docter，区分编剧与故事署名。所核稿未标日期，2008 为影片年份。",
+        "additionalSources": [
+          {
+            "label": "Pixar: WALL-E and the Axiom characters",
+            "url": "https://www.pixar.com/wall-e"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-11-02-06",
+      "zh": "爸爸妈妈，还有队友们……他们是因为悲伤，才来帮忙的。",
+      "en": "Mom and Dad, the team... they came to help because of Sadness.",
+      "category": "Relationships",
+      "source": "Joy · Inside Out · 2015 film, screenplay excerpt",
+      "reference": {
+        "author": "Joy (Docter, LeFauve & Cooley, screenwriters)",
+        "work": "Inside Out (screenplay)",
+        "date": "2015 film; undated screenplay",
+        "locator": "Printed page 109, PDF page 110 of 130; Joy rewinds the hockey memory in the Memory Dump and sees Riley being comforted.",
+        "url": "https://assets.scriptslug.com/live/pdf/scripts/inside-out-2015.pdf",
+        "sourceType": "电影原始英文剧本，Script Slug 专业剧本档案镜像。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "原始英语剧本中的连续台词片段，保留三点省略号及角色名 Sadness 的大写；未补成其他版本或另称听核过音轨。",
+        "originalText": "Mom and Dad, the team... they came to help because of Sadness.",
+        "context": "乐乐回看莱莉输掉冰球赛后的记忆，发现原先以为只是快乐的一幕，始于莱莉的伤心和亲友的安慰。Sadness 同时是片中被拟人化的情绪角色。",
+        "question": "当我努力让一切看起来开心时，是否也遮住了自己需要陪伴的信号？",
+        "verification": "2026-11-02：实际阅读并视觉核对 PDF 第 110 页、印刷页 109 的 JOY 台词。摘录从 Mom and Dad 连续截取，未将别处未说完的倾听台词补写成金句。封面编剧为 Pete Docter、Meg LeFauve、Josh Cooley；原故事署名与编剧分列。2015 仅作影片年。",
+        "additionalSources": [
+          {
+            "label": "Pixar: Inside Out and its emotion characters",
+            "url": "https://www.pixar.com/inside-out"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-11-02-07",
+      "zh": "这个星球上，拥有个性、心智和情感的生命，并不只有我们。",
+      "en": "We’re not the only beings on the planet with personalities, minds, and emotions.",
+      "category": "Nature",
+      "source": "Jane Goodall · On Being: What It Means to Be Human · 2020-08-06",
+      "reference": {
+        "author": "Jane Goodall",
+        "work": "On Being: What It Means to Be Human",
+        "date": "2020-08-06",
+        "locator": "Interview with Krista Tippett; Goodall recalls Cambridge objections to naming chimpanzees and her childhood dog Rusty.",
+        "url": "https://onbeing.org/programs/jane-goodall-what-it-means-to-be-human/",
+        "sourceType": "On Being 原始英语访谈及机构发布的转录。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "原始英语访谈完整句，据 On Being 官网转录核对；未另称听核过录音。",
+        "originalText": "We’re not the only beings on the planet with personalities, minds, and emotions.",
+        "context": "古道尔回忆，有学者曾反对她给黑猩猩起名字，认为个性、心智和情感只属于人。她提到儿时与狗的相处，说明自己为什么无法接受这种划分。",
+        "question": "如果我承认其他生命也有内心体验，我会怎样改变与它们相处的方式？",
+        "verification": "2026-11-02：实际阅读官网转录中 Rusty 与 Cambridge 的连续问答，确认完整句为 Goodall 本人回答，非主持人复述。页面 Original Air Date 为 2020-08-06，后于 2025-10-03 更新为纪念版；采用原播出日期，未把更新日期当作访谈发生时间。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-02-08",
+      "zh": "和解是一段旅程的开始，一段谨慎前行、处处可能有坑洼和雷区的旅程。",
+      "en": "Reconciliation is the beginning of a journey, a cautious journey, a journey filled with all kinds of potholes and minefields.",
+      "category": "Others",
+      "source": "Charles Villa-Vicencio · Truth and Reconciliation · 2007 transcript",
+      "reference": {
+        "author": "Charles Villa-Vicencio",
+        "work": "Speaking of Faith: Truth and Reconciliation",
+        "date": "2007-03-22 transcript; first aired 2004-01-01",
+        "locator": "Interview with Krista Tippett; answer about communal reconciliation after examples of former political enemies learning to cooperate.",
+        "url": "https://onbeing.org/programs/charles-villa-vicencio-and-pumla-gobodo-madikizela-truth-and-reconciliation/",
+        "sourceType": "Speaking of Faith 原始英语访谈，现由 On Being 保存的节目转录。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "据官网标为 2007-03-22 的英语转录核对完整句；节目列首播 2004-01-01，未据此断言这段问答的录制日。",
+        "originalText": "Reconciliation is the beginning of a journey, a cautious journey, a journey filled with all kinds of potholes and minefields.",
+        "context": "维拉-维森西奥回顾南非真相与和解的经验时说，过去的对手并没有立刻相爱或互相信任，却已经开始合作。和解在这里是一段修复关系的过程。",
+        "question": "我是否把和解想成矛盾已经消失，而忽略了之后漫长的信任修复？",
+        "verification": "2026-11-02：实际阅读官网全文中 DR. VILLA-VICENCIO 关于共同治理、合作与信任的回答，逐字核对该完整句，未归给同场另一位嘉宾 Pumla Gobodo-Madikizela。页面首播日期与所核转录日期分开记录；历史例子按当时访谈语境解释，不当作今日状态。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-02-09",
+      "zh": "手中的橙子、蓝天、孩子的面庞——一切都成了奇迹。",
+      "en": "The orange in your hand, the blue sky, the face of a child — everything becomes a wonder.",
+      "category": "Attention",
+      "source": "Thich Nhat Hanh · On Being interview · 2003, 2022 transcript edition",
+      "reference": {
+        "author": "Thich Nhat Hanh",
+        "work": "On Being: Remembering Thich Nhat Hanh, Brother Thay",
+        "date": "2003-09-25 interview; 2022 transcript edition",
+        "locator": "Conversation with Krista Tippett; answer to why he calls ordinary mindful breathing a “miracle”.",
+        "url": "https://onbeing.org/programs/remembering-thich-nhat-hanh-brother-thay/",
+        "sourceType": "原始英语访谈，On Being 纪念版机构转录。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "所引为受访者用英语回答的完整句，依 2022 年官网转录核对；不是把其越南语著作英译冒充英语原话。",
+        "originalText": "The orange in your hand, the blue sky, the face of a child — everything becomes a wonder.",
+        "context": "提佩特追问，呼吸和留心当下如此平常，为什么叫作奇迹。一行禅师以橙子、天空和孩子的面庞回答：当人真正回到眼前，寻常事物也会重新显现。",
+        "question": "今天，有什么一直在我身边，却从未被我认真看见？",
+        "verification": "2026-11-02：实际阅读官网问及 miracle 的完整问答，核对说话者 Thich Nhat Hanh 和原句中的三个具体事物。页面列首播 2003-09-25、更新 2022-01-27，采用英语访谈原话及纪念版转录，未冒称已核其越南语书稿或录音。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-02-10",
+      "zh": "后来，我开始明白把一切排出高下这种思维的危险和局限；但在童年，颁出一个奖似乎很重要。",
+      "en": "Later I began to understand the dangers and limitations of hierarchical thinking, but in my childhood it seemed important to confer a prize.",
+      "category": "Wisdom",
+      "source": "Louise Glück · Nobel Lecture · 2020 lecture text",
+      "reference": {
+        "author": "Louise Glück",
+        "work": "Nobel Lecture",
+        "date": "2020 lecture text",
+        "locator": "Printed page 1, PDF page 3 of 12; recollection of a childhood contest to select the greatest poem, before the mountain-ranking image.",
+        "url": "https://www.nobelprize.org/uploads/2020/12/gluck-lecture-english.pdf",
+        "sourceType": "诺贝尔基金会发布的英语获奖演讲书面稿。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语原作讲稿中的完整句；据基金会 2020 年 PDF 及官网正文核对，不把 2023 年后补录影日期当成书面稿日期。",
+        "originalText": "Later I began to understand the dangers and limitations of hierarchical thinking, but in my childhood it seemed important to confer a prize.",
+        "context": "格丽克回忆，儿时曾在心中评选世界上最伟大的诗。后来她意识到，把目光只放在山顶那一个人身上，会让稍低一点的人彻底隐形。",
+        "question": "我是否只看见排名最前者，而忽略了其他值得倾听的声音？",
+        "verification": "2026-11-02：实际阅读 NobelPrize.org 正文与官方 12 页 PDF，视觉核对 PDF 第 3 页、印刷页 1 的完整句。PDF 版权 2020，发布许可注明 2020-12-07 17:30 CET 之后；此处日期只记 2020 年书面稿。官网另列录像录于 2023-03-27，二者未混淆；未摘录稿中转引的歌词。",
+        "additionalSources": [
+          {
+            "label": "NobelPrize.org: lecture text and separate 2023 recording date",
+            "url": "https://www.nobelprize.org/prizes/literature/2020/gluck/lecture/"
+          }
+        ]
+      }
+    }
+  ]
+}
