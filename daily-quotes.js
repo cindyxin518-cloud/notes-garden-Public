@@ -2,9 +2,9 @@
 window.MINIGROW_DAILY_QUOTES = {
   "schema_version": 1,
   "timezone": "Europe/Amsterdam",
-  "updated_on": "2026-11-02",
+  "updated_on": "2026-11-03",
   "latest_count": 10,
-  "total_count": 70,
+  "total_count": 80,
   "batches": [
     {
       "date": "2026-10-24",
@@ -32,6 +32,10 @@ window.MINIGROW_DAILY_QUOTES = {
     },
     {
       "date": "2026-11-02",
+      "count": 10
+    },
+    {
+      "date": "2026-11-03",
       "count": 10
     }
   ],
@@ -1757,6 +1761,241 @@ window.MINIGROW_DAILY_QUOTES = {
             "url": "https://www.nobelprize.org/prizes/literature/2020/gluck/lecture/"
           }
         ]
+      }
+    },
+    {
+      "id": "daily-2026-11-03-01",
+      "zh": "我们活着，就像做梦——独自一人……",
+      "en": "We live, as we dream—alone....",
+      "category": "Self",
+      "source": "Marlow · Heart of Darkness · 1899",
+      "reference": {
+        "author": "Marlow (Joseph Conrad, author)",
+        "work": "Heart of Darkness",
+        "date": "1899 serial; Gutenberg e-text",
+        "locator": "Part I; Marlow pauses to discuss the difficulty of conveying the felt experience of his past, while speaking to listeners aboard the Nellie.",
+        "url": "https://www.gutenberg.org/cache/epub/219/pg219-images.html",
+        "sourceType": "经典小说英语全文，Project Gutenberg 电子版。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语原作摘录，保留所核版本的措辞和标点。",
+        "originalText": "We live, as we dream—alone....",
+        "context": "马洛讲述经历时，承认自己很难传达当时完整的生命感受。随后他又说，听众也可能从他身上看见当时的自己看不见的东西。这里呈现的是叙述与理解之间的距离。",
+        "question": "有没有一种经历，我以为已经讲清楚，对方却仍没有机会真正接近它？",
+        "verification": "2026-11-03：实际阅读第一部分该句前后的叙述与停顿，核对说话者为 Marlow，保留 Gutenberg 文本中的破折号和四个句点。1899 指原作连载年代，所引措辞依电子文本核对；未把小说人物的话写成作者的直接自述。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-03-02",
+      "zh": "淑女和卖花女的区别，不在她的举止，而在别人如何对待她。",
+      "en": "the difference between a lady and a flower girl is not how she behaves, but how she’s treated.",
+      "category": "Relationships",
+      "source": "Eliza Doolittle · Pygmalion · written 1912, published 1916",
+      "reference": {
+        "author": "Eliza Doolittle (George Bernard Shaw, playwright)",
+        "work": "Pygmalion",
+        "date": "1912 composition; 1916 book publication",
+        "locator": "Act V; Eliza thanks Colonel Pickering and contrasts his treatment of her with Professor Higgins’s.",
+        "url": "https://www.gutenberg.org/cache/epub/3825/pg3825-images.html",
+        "sourceType": "戏剧英语全文，Project Gutenberg 电子版；作者学会年表辅助核对年代。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语原作中的连续分句节录，保留小写 the；依 Gutenberg 恢复缩写撇号的转录版，未冒称原印本保留同样撇号。",
+        "originalText": "the difference between a lady and a flower girl is not how she behaves, but how she’s treated.",
+        "context": "伊莱莎对皮克林说，真正改变她的并不只是衣着和发音，更是他一直以尊重待她。她把外在礼仪与被承认为一个有尊严的人区分开来。",
+        "question": "我给一个人的尊重，是否取决于对方的身份，还是我选择如何待人？",
+        "verification": "2026-11-03：实际阅读第五幕 LIZA 与 Pickering、Higgins 的对话，逐字核对这一连续分句，保留 she’s。Gutenberg 转录者说明恢复了印本省去的缩写撇号。另读 Shaw Society 年表及其图例，区分写作 1912、首演 1913、出版 1916，未混作同一日期。",
+        "additionalSources": [
+          {
+            "label": "The Shaw Society: composition, performance and publication chronology",
+            "url": "https://www.shawsociety.org.uk/general-8-2"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-11-03-03",
+      "zh": "伊萨卡给了你这趟奇妙的旅程。\n没有她，你就不会启程。\n如今，她已没有什么可以再给你。",
+      "en": "Ithaka gave you the marvelous journey.\nWithout her you would not have set out.\nShe has nothing left to give you now.",
+      "category": "Growth",
+      "source": "C. P. Cavafy · Ithaka · Keeley–Sherrard revised translation, 1992",
+      "reference": {
+        "author": "C. P. Cavafy",
+        "work": "Ithaka (Keeley–Sherrard revised translation)",
+        "date": "1992 revised translation copyright; first translation copyright 1975",
+        "locator": "Three sentences beginning “Ithaka gave you”; C. P. Cavafy: Collected Poems, Revised Edition, edited by George Savidis, Princeton University Press.",
+        "url": "https://www.onassis.org/initiatives/cavafy-archive/the-canon/ithaka",
+        "sourceType": "诗人官方档案 Onassis Cavafy Archive 刊载的出版英译。",
+        "originalLanguage": "希腊语",
+        "chineseStatus": "本次据 Keeley–Sherrard 修订英译转译，非既有出版中译；未核对希腊语原文。",
+        "englishStatus": "采用 Edmund Keeley 与 Philip Sherrard 的修订出版英译，编辑 George Savidis；实际核对官方档案英文版，尚未核对希腊语原文。",
+        "originalText": "Ithaka gave you the marvelous journey.\nWithout her you would not have set out.\nShe has nothing left to give you now.",
+        "context": "诗把归返伊萨卡的旅程写成充满见闻、感官与学习的一生。目的地给人的礼物，是让人出发并在路上成长，而不一定是在抵达后再兑现某种财富。",
+        "question": "当一个目标没有给我预想中的奖赏时，我能否看见它已经带来的经历和成长？",
+        "verification": "2026-11-03：实际打开 Onassis 官方档案的 Ithaka 全文及版本署名，核对所引三句；此版本是 would not，未套用另一转载本的 wouldn’t。页脚明确 Collected Poems Revised Edition、Keeley、Sherrard、Savidis 及版权 1975、1992。日期指所用英译版权版本，不冒称原诗写作年。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-03-04",
+      "zh": "寻找一个能孕育未来的此刻，\n让未来像面包一样\n滋养我们的孩子。",
+      "en": "seeking a now that can breed\nfutures\nlike bread in our children’s mouths",
+      "category": "Others",
+      "source": "Audre Lorde · A Litany for Survival · 2020 institutional excerpt",
+      "reference": {
+        "author": "Audre Lorde",
+        "work": "A Litany for Survival (institutional excerpt)",
+        "date": "2020-03-17 institutional excerpt; updated 2020-04-08",
+        "locator": "Opening stanza, the three consecutive lines beginning “seeking a now”; NYS Writers Institute, University at Albany, archival post.",
+        "url": "https://www.nyswritersinstitute.org/post/audre-lorde-a-litany-for-survival",
+        "sourceType": "纽约州作家学院、University at Albany 文学档案刊载的原诗节录。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文诗行翻译；以滋养传达面包意象，非既有出版中译。",
+        "englishStatus": "英语原诗连续三行节录，保留小写起句及原行序，未添加原句没有的结尾标点。",
+        "originalText": "seeking a now that can breed\nfutures\nlike bread in our children’s mouths",
+        "context": "诗人写处在不断抉择的边缘、承受不安的人，也写他们为孩子寻找未来。面包这个日常意象，使未来成为切实的生存与滋养。",
+        "question": "我想为下一代留下的未来，是否也落实为今天能让他们安稳生活的东西？",
+        "verification": "2026-11-03：实际阅读 NYS Writers Institute 刊出的开篇诗节，核对从 seeking a now 到 children’s mouths 的连续三行及署名 Audre Lorde。记录学院页面发布与更新日期，明确它们是机构节录本日期，不把 2020 写成诗的创作年。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-03-05",
+      "zh": "希望是美好的，也许是最美好的事物，而美好的事物永不消逝。",
+      "en": "Hope is a good thing, maybe the best of things, and no good thing ever dies.",
+      "category": "Life",
+      "source": "Andy Dufresne · The Shawshank Redemption · 1994 film, screenplay",
+      "reference": {
+        "author": "Andy Dufresne (Frank Darabont, screenwriter)",
+        "work": "The Shawshank Redemption (screenplay)",
+        "date": "1994 film; undated screenplay",
+        "locator": "Printed page 123, PDF page 124 of 126; Andy’s letter to Red, read in voice-over after Red retrieves the envelope beneath the rock.",
+        "url": "https://assets.scriptslug.com/live/pdf/scripts/the-shawshank-redemption-1994.pdf",
+        "sourceType": "电影原始英文剧本，Script Slug 专业剧本档案镜像。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "据所核英语剧本的完整句摘录，保留 maybe the best of things；未另称听核过上映版音轨。",
+        "originalText": "Hope is a good thing, maybe the best of things, and no good thing ever dies.",
+        "context": "离开监狱后的瑞德找到安迪留下的信。安迪邀请他继续向前，仍为他留着位置。这句话出现在两人曾经争论希望是否危险之后。",
+        "question": "我是否因为害怕再次失望，就把仍然可能的生活也拒之门外？",
+        "verification": "2026-11-03：实际下载并阅读 126 页 PDF，视觉核对第 124 页、印刷页 123 的 ANDY (V.O.) 信件。封面署编剧 Frank Darabont，并明确改编自 Stephen King 的 Rita Hayworth and Shawshank Redemption，未把这份剧本的具体措辞直接归给小说原文。1994 指电影年，所核稿未标日期。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-03-06",
+      "zh": "但那又怎样呢——答案必定在尝试本身。",
+      "en": "But who cares - the answer must be in the attempt.",
+      "category": "Relationships",
+      "source": "Celine · Before Sunrise · 1995 film, screenplay",
+      "reference": {
+        "author": "Celine (Richard Linklater & Kim Krizan, screenwriters)",
+        "work": "Before Sunrise (screenplay)",
+        "date": "1995 film; undated screenplay",
+        "locator": "Printed page 63, PDF page 64 of 73; Celine’s reflection on the space between people and the difficulty of truly understanding another person.",
+        "url": "https://assets.scriptslug.com/live/pdf/scripts/before-sunrise-1995.pdf",
+        "sourceType": "电影原始英文剧本，Script Slug 专业剧本档案镜像。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "所核英语剧本中的完整句，保留连字符和该稿措辞；未拼入其他流传版本的 really 或另称听核过音轨。",
+        "originalText": "But who cares - the answer must be in the attempt.",
+        "context": "塞琳说，人与人之间也许存在某种魔力，来自试着理解对方、分享一些东西；即使完全理解几乎不可能，尝试本身仍有意义。这里的那又怎样，回应的是无法完美理解的限制。",
+        "question": "我是否因为无法完全理解一个人，就不再认真尝试靠近他？",
+        "verification": "2026-11-03：实际下载并视觉阅读 73 页 PDF 的第 64 页、印刷页 63，核对 CELINE 的整段发言及所引最后一句。封面列 Richard Linklater、Kim Krizan。采用该版本的原句和连字符，未将流传的简化台词冒称这份剧本原文；1995 为电影年，稿件未标日期。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-03-07",
+      "zh": "没有希望的批判性思考，是犬儒；没有批判性思考的希望，则是天真。",
+      "en": "Critical thinking without hope is cynicism. But hope without critical thinking is naïveté.",
+      "category": "Uncertainty",
+      "source": "Maria Popova · Cartographer of Meaning in a Digital Age · 2015",
+      "reference": {
+        "author": "Maria Popova",
+        "work": "Cartographer of Meaning in a Digital Age, On Being",
+        "date": "2015-05-14 first broadcast; 2019 transcript edition",
+        "locator": "Conversation with Krista Tippett; Popova answers a question about the philosophy behind her intellectual confidence and generosity.",
+        "url": "https://onbeing.org/programs/maria-popova-cartographer-of-meaning-in-a-digital-age-feb2019/",
+        "sourceType": "On Being 原始英语访谈及机构转录。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "原始英语访谈的两个连续完整句，据 2019 年官网转录核对；保留两句的分界，未改成其他转载本的一句。",
+        "originalText": "Critical thinking without hope is cynicism. But hope without critical thinking is naïveté.",
+        "context": "波波娃把两种退缩并置：一味挑错会使人放弃改变，盲信一切会好也会让人停止行动。她想在看清问题与仍愿意改善之间建立生活。",
+        "question": "我的怀疑是在帮助我更准确地行动，还是在替我放弃行动找理由？",
+        "verification": "2026-11-03：实际阅读官网完整问答及日期栏。所核全文使用两个句子，第二句以 But 开头；页面注明首播 2015-05-14、更新 2019-02-07。原地址重定向到此 feb2019 正式页面；未把 2023 年课程剪辑发布日期当成原访谈日期。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-03-08",
+      "zh": "有许多事情，你无法为之感恩。但在每一个时刻，你仍然可以心怀感恩。",
+      "en": "There are many things for which you cannot be grateful. But in every moment, you can be grateful.",
+      "category": "Attention",
+      "source": "David Steindl-Rast · On Being interview · 2016",
+      "reference": {
+        "author": "David Steindl-Rast",
+        "work": "How to Be Grateful in Every Moment, On Being",
+        "date": "2016-01-21 first broadcast; interview recorded in 2015",
+        "locator": "Conversation with Krista Tippett at Gut Aich Priory, St. Gilgen, Austria; answer distinguishing gratitude in a moment from gratitude for violence or suffering.",
+        "url": "https://onbeing.org/programs/david-steindl-rast-how-to-be-grateful-in-every-moment/",
+        "sourceType": "On Being 原始英语访谈，2020 年机构重播转录。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "原始英语访谈的两个连续完整句，依 2020 年官网转录核对；未另称听核过录音。",
+        "originalText": "There are many things for which you cannot be grateful. But in every moment, you can be grateful.",
+        "context": "他明确说，人无法为战争、暴力和疾病感恩；但当下仍可能有学习、成长，甚至站出来抗议的机会。他区分对遭遇的认可与对仍可回应的机会的珍惜。",
+        "question": "面对不愿接受的事情，我还能珍惜或争取哪一种回应它的机会？",
+        "verification": "2026-11-03：实际阅读官网 stop、look、go 段落及其后关于机会的回答，核对所引连续两句。主持人说明访问在 2015 年，页面首播 2016-01-21、更新 2020-04-09；三种时间分开记录，未把感恩改写成赞同伤害。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-03-09",
+      "zh": "人的一切活动，都由欲求推动。",
+      "en": "All human activity is prompted by desire.",
+      "category": "Wisdom",
+      "source": "Bertrand Russell · What Desires Are Politically Important?, Nobel Lecture · 1950-12-11",
+      "reference": {
+        "author": "Bertrand Russell",
+        "work": "What Desires Are Politically Important?, Nobel Lecture",
+        "date": "1950-12-11",
+        "locator": "Opening argument after the introductory discussion of politics and psychology; followed by Russell’s explanation of the desire to be dutiful.",
+        "url": "https://www.nobelprize.org/prizes/literature/1950/russell/lecture/",
+        "sourceType": "诺贝尔奖官方网站发布的英语演讲全文。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语原作摘录，保留所核版本的措辞和标点。",
+        "originalText": "All human activity is prompted by desire.",
+        "context": "罗素在这篇演讲中把愿意履行道德义务，也视为一种欲求。他希望人们不只看物质处境，也看各种动机及其相对强弱，而不是把欲求简单等同于贪婪。",
+        "question": "当我说自己只是在尽义务时，背后还藏着哪些愿望与期待？",
+        "verification": "2026-11-03：实际阅读 NobelPrize.org 英文全文开头论证及紧接的 duty 段落，逐字核对完整句。官网明确 Nobel Lecture, December 11, 1950；所引为 Russell 自己的论断，未把它写成已经获得实验验证的心理学结论。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-03-10",
+      "zh": "我们知道，那套历法并不通用于全世界；但时间是共通的，时代的迫切要求也是如此。",
+      "en": "That calendar, we know, is not universal, but time is, and so are the imperatives of time.",
+      "category": "Time",
+      "source": "Wole Soyinka · This Past Must Address Its Present, Nobel Lecture · 1986-12-08",
+      "reference": {
+        "author": "Wole Soyinka",
+        "work": "This Past Must Address Its Present, Nobel Lecture",
+        "date": "1986-12-08",
+        "locator": "Final paragraph; after the reference to a symbolic coming-of-age in the twenty-first century and before the call to end racism and human inequality.",
+        "url": "https://www.nobelprize.org/prizes/literature/1986/soyinka/lecture/",
+        "sourceType": "诺贝尔奖官方网站发布的英语演讲全文。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语原作摘录，保留所核版本的措辞和标点。",
+        "originalText": "That calendar, we know, is not universal, but time is, and so are the imperatives of time.",
+        "context": "演讲结尾把新世纪的象征性到来，与终结种族主义和不平等的实际责任并置。历法并非人人相同，而不能无限推迟的责任仍摆在人面前。",
+        "question": "我是否把日历翻新当成了进步，却没有回应仍摆在面前的问题？",
+        "verification": "2026-11-03：实际阅读 NobelPrize.org 全文最后数段，确认该句由 Soyinka 本人陈述，紧邻其关于世纪交替与反种族主义责任的论述，并非前文所引他人的话。页首明确 1986-12-08，版权 Nobel Foundation 1986；保留所核英语原句，未脱离历史语境写成对今日具体事件的陈述。",
+        "additionalSources": []
       }
     }
   ]
