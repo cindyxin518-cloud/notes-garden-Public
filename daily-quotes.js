@@ -2,9 +2,9 @@
 window.MINIGROW_DAILY_QUOTES = {
   "schema_version": 1,
   "timezone": "Europe/Amsterdam",
-  "updated_on": "2026-11-03",
+  "updated_on": "2026-11-04",
   "latest_count": 10,
-  "total_count": 80,
+  "total_count": 90,
   "batches": [
     {
       "date": "2026-10-24",
@@ -36,6 +36,10 @@ window.MINIGROW_DAILY_QUOTES = {
     },
     {
       "date": "2026-11-03",
+      "count": 10
+    },
+    {
+      "date": "2026-11-04",
       "count": 10
     }
   ],
@@ -1995,6 +1999,241 @@ window.MINIGROW_DAILY_QUOTES = {
         "context": "演讲结尾把新世纪的象征性到来，与终结种族主义和不平等的实际责任并置。历法并非人人相同，而不能无限推迟的责任仍摆在人面前。",
         "question": "我是否把日历翻新当成了进步，却没有回应仍摆在面前的问题？",
         "verification": "2026-11-03：实际阅读 NobelPrize.org 全文最后数段，确认该句由 Soyinka 本人陈述，紧邻其关于世纪交替与反种族主义责任的论述，并非前文所引他人的话。页首明确 1986-12-08，版权 Nobel Foundation 1986；保留所核英语原句，未脱离历史语境写成对今日具体事件的陈述。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-04-01",
+      "zh": "我到底是谁？啊，这才是那个大难题！",
+      "en": "Who in the world am I? Ah, that’s the great puzzle!",
+      "category": "Self",
+      "source": "Alice · Alice’s Adventures in Wonderland · 1865",
+      "reference": {
+        "author": "Alice (Lewis Carroll, author)",
+        "work": "Alice’s Adventures in Wonderland",
+        "date": "1865 work; Gutenberg e-text",
+        "locator": "Chapter II, The Pool of Tears; Alice wonders whether she has changed overnight, before comparing herself with Ada and Mabel.",
+        "url": "https://www.gutenberg.org/cache/epub/11/pg11-images.html",
+        "sourceType": "经典小说英语全文，Project Gutenberg 的 Millennium Fulcrum Edition 3.0。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语原作中的两个连续完整问叹句，依所核电子版保留 that’s；不是作者的直接自述。",
+        "originalText": "Who in the world am I? Ah, that’s the great puzzle!",
+        "context": "身体不断变化的爱丽丝，连熟悉的知识和记忆也变得不可靠。她试着用自己与其他孩子的差异，重新辨认自己。",
+        "question": "当熟悉的身份和能力发生变化时，我还会用什么来认识自己？",
+        "verification": "2026-11-04：实际阅读第二章该句前后的自问，以及随后 Ada、Mabel 和知识测试的段落，核对说话者 Alice。1865 指原作出版年代，所引措辞据 Gutenberg 电子版核对；未把虚构人物的话归作 Carroll 的个人宣言。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-04-02",
+      "zh": "我并不希望女人拥有支配男人的权力，而是拥有掌握自己的权力。",
+      "en": "I do not wish them to have power over men; but over themselves.",
+      "category": "Growth",
+      "source": "Mary Wollstonecraft · A Vindication of the Rights of Woman · 1792",
+      "reference": {
+        "author": "Mary Wollstonecraft",
+        "work": "A Vindication of the Rights of Woman",
+        "date": "1792 work; Gutenberg e-text",
+        "locator": "Chapter 4, Observations on the State of Degradation to Which Woman Is Reduced by Various Causes; response to Rousseau on women’s education.",
+        "url": "https://www.gutenberg.org/cache/epub/3420/pg3420-images.html",
+        "sourceType": "论著英语全文，Project Gutenberg 电子版。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语原作摘录，保留所核版本的措辞和标点。",
+        "originalText": "I do not wish them to have power over men; but over themselves.",
+        "context": "她回应卢梭对女性接受教育的议论：目标并非让女性更能支配男性，而是让女性能够依自己的理性掌握生活。这里的她们指女性。",
+        "question": "我追求的力量，是支配别人，还是更能掌握自己的生活？",
+        "verification": "2026-11-04：实际阅读第四章引用 Rousseau 的段落和随后的反驳，确认所引句是 Wollstonecraft 自己的回应，不是卢梭的话。逐字保留 men 后的分号与 but；1792 为原作出版年代，措辞据该电子版核对。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-04-03",
+      "zh": "那将是一个奇异的时刻，\n没有匆忙，没有引擎；\n我们会聚在一起，\n置身于突如其来的陌生感中。",
+      "en": "It would be an exotic moment\nwithout rush, without engines;\nwe would all be together\nin a sudden strangeness.",
+      "category": "Attention",
+      "source": "Pablo Neruda · Keeping Quiet · tr. Alastair Reid, 2020 reprint",
+      "reference": {
+        "author": "Pablo Neruda",
+        "work": "Keeping Quiet (tr. Alastair Reid)",
+        "date": "2020-09-29 English reprint; 2001 translation edition cited",
+        "locator": "Third stanza, four lines beginning “It would be an exotic moment”; On Being English text. Oceans Initiative identifies Extravagaria, Noonday Press bilingual edition, 2001, p. 26.",
+        "url": "https://onbeing.org/poetry/keeping-quiet/",
+        "sourceType": "On Being 刊载的诗歌英译；Oceans Initiative 所引出版书目及相同诗节辅助核对译者与版本。",
+        "originalLanguage": "西班牙语",
+        "chineseStatus": "本次据所核 Reid 英译转译，非既有出版中译；尚未核对西班牙语原文。",
+        "englishStatus": "采用 Alastair Reid 的出版英译。所引四行据 On Being 2020 文本核对，并与明确署 Reid 译名的 Oceans Initiative 同节比对；尚未核对西班牙语原文。",
+        "originalText": "It would be an exotic moment\nwithout rush, without engines;\nwe would all be together\nin a sudden strangeness.",
+        "context": "诗人想象全世界短暂停下来，让忙碌、机器与争战的声音稍歇。他随后明确区分这种片刻静止与彻底不行动、死亡。",
+        "question": "如果暂时停止忙碌和解释，我会听见什么平时被盖住的声音？",
+        "verification": "2026-11-04：实际阅读 On Being 诗文、四行行序及 2020-09-29 日期，另实际打开 Oceans Initiative 2011 转载，核对所选四行完全相同，末注作者 Neruda、译者 Reid、Noonday Press 2001 双语版、ISBN 0374512388、p. 26 及原集 1958。On Being 页未列译者，译者依据另附书目，不冒称该页明确署 Reid。两转载其他诗行有差异，未混用；未声称核对了西语原文或英译初版版权年。",
+        "additionalSources": [
+          {
+            "label": "Oceans Initiative: matching stanza and Alastair Reid edition credit",
+            "url": "https://oceansinitiative.org/keeping-quiet/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-11-04-04",
+      "zh": "我想在那些拖着脚步、过街时微笑的人中，\n在杂货店排队、满手黏糊糊的孩子中出名，\n以那个回以微笑的人的身份出名。",
+      "en": "I want to be famous to shuffling men\nwho smile while crossing streets,\nsticky children in grocery lines,\nfamous as the one who smiled back.",
+      "category": "Others",
+      "source": "Naomi Shihab Nye · Famous · Words Under the Words, 1995",
+      "reference": {
+        "author": "Naomi Shihab Nye",
+        "work": "Famous, Words Under the Words",
+        "date": "1995 collection copyright",
+        "locator": "Four-line stanza beginning “I want to be famous to shuffling men”; Words Under the Words: Selected Poems, as reproduced by the Academy of American Poets.",
+        "url": "https://poets.org/poem/famous",
+        "sourceType": "美国诗人学会刊载的原诗，页脚列诗集、1995 版权及 Far Corner Books 转载许可。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语原诗连续四行节录，保留所核页面的行序和标点。",
+        "originalText": "I want to be famous to shuffling men\nwho smile while crossing streets,\nsticky children in grocery lines,\nfamous as the one who smiled back.",
+        "context": "诗里的出名，来自被某个具体的人需要、认识或记住。这里想被记住的是一个小小的回应：向迎面微笑的人，也回以微笑。",
+        "question": "我希望被人记住的，是多么耀眼的表现，还是曾给过的一次回应？",
+        "verification": "2026-11-04：实际阅读 Poets.org 全诗与转载说明，核对所引四行及作者 Naomi Shihab Nye；日期据页脚 Words Under the Words: Selected Poems 的 1995 版权，不冒称诗的首次写作日期。未给 shuffling men 添加原文没有的年龄。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-04-05",
+      "zh": "有时候，我真希望自己能拥有一千次人生。",
+      "en": "Sometimes I wish I had a thousand lifetimes.",
+      "category": "Life",
+      "source": "Rita · Groundhog Day · 1993 film, 1992 screenplay revision",
+      "reference": {
+        "author": "Rita (Danny Rubin & Harold Ramis, screenwriters)",
+        "work": "Groundhog Day (screenplay)",
+        "date": "1993 film; screenplay revision 1992-01-07",
+        "locator": "Printed p. 95, PDF p. 96 of 122; Rita imagines the many lives she could try and offers Phil another perspective on his repeating day.",
+        "url": "https://assets.scriptslug.com/live/pdf/scripts/groundhog-day-1993.pdf",
+        "sourceType": "电影原始英语剧本，Script Slug 专业剧本档案镜像。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "所核 1992-01-07 第二修订剧本的完整句；未另称逐字听核了 1993 上映版音轨。",
+        "originalText": "Sometimes I wish I had a thousand lifetimes.",
+        "context": "丽塔接着列出自己想尝试的不同生活：记者、学艺术或汽车修理，也包括熟悉的日常。面对菲尔重复同一天的困境，她提供了另一种看待时间的角度。",
+        "question": "在那些无法同时拥有的人生里，哪一种体验值得我现在就为它腾出时间？",
+        "verification": "2026-11-04：实际下载 122 页 PDF，视觉核对封面 Danny Rubin、Second Revision by Harold Ramis、January 7, 1992，并视觉核对 PDF 第 96 页、印刷页 95 的 RITA 发言和所引句。1993 指电影年；摘录明确来自 1992 修订稿，未拼接其他台词或冒称最终成片字幕。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-04-06",
+      "zh": "我们所能决定的，只是如何使用被给予我们的时间。",
+      "en": "All we have to decide is what to do with the time that is given to us.",
+      "category": "Time",
+      "source": "Gandalf · The Fellowship of the Ring · 2001 screenplay",
+      "reference": {
+        "author": "Gandalf (Fran Walsh, Philippa Boyens & Peter Jackson, screenwriters)",
+        "work": "The Lord of the Rings: The Fellowship of the Ring (screenplay)",
+        "date": "2001 film and screenplay copyright",
+        "locator": "Printed p. 124, PDF p. 125 of 173; Gandalf answers Frodo during the pause at the three passages in Moria, before the Dwarrowdelf chamber.",
+        "url": "https://assets.scriptslug.com/live/pdf/scripts/the-lord-of-the-rings-the-fellowship-of-the-ring-2001.pdf",
+        "sourceType": "电影原始英语剧本，Script Slug 专业剧本档案镜像。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "所核英语剧本中 Gandalf 在 Moria 现场说的完整句，保留 given to us 中的 to；未称听核过上映版音轨。",
+        "originalText": "All we have to decide is what to do with the time that is given to us.",
+        "context": "弗罗多希望自己从未遇见魔戒，也不必面对这一切。甘道夫的回答承认人无法选择身处的时代，随后把注意力转向仍可作出的选择。",
+        "question": "在不能选择的处境里，我现在仍能决定怎样使用自己的时间？",
+        "verification": "2026-11-04：实际下载 173 页 PDF，视觉核对封面三位编剧、改编自 J. R. R. Tolkien 小说及 ©2001 New Line Cinema，并视觉核对 PDF 第 125 页、印刷页 124 的 GANDALF 发言。该处是 given to us；同稿后面回想段省略 to，未混同。该句按电影剧本署名，不把具体稿本措辞冒称已经逐字核对的小说原文。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-04-07",
+      "zh": "我们拥有前所未有的自由，却也更少有现成的依托；一切都必须谈清楚，因为没有预先达成的共识。",
+      "en": "We have unprecedented freedom, but we are far more unmoored, and everything has to be talked about, because there is no preceding agreement.",
+      "category": "Relationships",
+      "source": "Esther Perel · On Being interview · 2019",
+      "reference": {
+        "author": "Esther Perel",
+        "work": "The Erotic Is an Antidote to Death, On Being",
+        "date": "2019-07-11 first broadcast; 2021 transcript edition",
+        "locator": "Conversation with Krista Tippett; early discussion comparing inherited family and community roles with the negotiations required in contemporary couples.",
+        "url": "https://onbeing.org/programs/esther-perel-the-erotic-is-an-antidote-to-death/",
+        "sourceType": "On Being 原始英语访谈及机构转录。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "原始英语访谈的一个连续完整句，据官网 2021 转录核对；未另称听核过录音。",
+        "originalText": "We have unprecedented freedom, but we are far more unmoored, and everything has to be talked about, because there is no preceding agreement.",
+        "context": "佩雷尔谈到，过去的家庭和社群往往预先规定角色与责任；当这些框架变少，关系里的优先次序便需要双方自己讨论。这是她对关系变化的观察。",
+        "question": "哪些我以为彼此默认的期待，其实从未被好好谈过？",
+        "verification": "2026-11-04：实际阅读官网该段前后的 Tippett—Perel 问答，核对发言人、完整句及其后关于自由与不确定性的补充。页首首播 2019-07-11、更新 2021-07-08；日期分开记录。未把受访者的社会观察写成已经实证的普遍结论。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-04-08",
+      "zh": "可后来，我碰上了一个麻烦：人生变得太有故事了。",
+      "en": "But then I acquired the problem of an interesting life.",
+      "category": "Life",
+      "source": "Salman Rushdie · PBS NewsHour, Knife interview · 2024",
+      "reference": {
+        "author": "Salman Rushdie",
+        "work": "PBS NewsHour: Knife interview with Jeffrey Brown",
+        "date": "2024-04-23",
+        "locator": "CANVAS interview with Jeffrey Brown; paragraph after Rushdie says he had zero interest in autobiography when he became a writer.",
+        "url": "https://www.pbs.org/newshour/show/salman-rushdie-reflects-on-attack-that-changed-his-life-in-new-memoir-knife",
+        "sourceType": "PBS NewsHour 原始英语电视访谈的机构完整转录。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次译文，以太有故事了传达 interesting life 在威胁与遇袭背景下的苦涩反讽，非出版中译。",
+        "englishStatus": "英语原始访谈完整句，依 PBS 官网转录核对；未另称听核过录像。",
+        "originalText": "But then I acquired the problem of an interesting life.",
+        "context": "谈到两部自传性作品时，拉什迪说自己起初根本不想写自传。这句带着苦涩的反讽，指向被威胁与暴力改变的人生，并不是赞美那些遭遇。",
+        "question": "我所羡慕的有故事的人生，是否也有我未曾看见的代价？",
+        "verification": "2026-11-04：实际阅读 PBS 官网采访转录与 2024-04-23 日期，核对 Rushdie 关于两部自传及原本无意写自传的连续发言，保留起句 But。采访者为 Jeffrey Brown，讨论新回忆录 Knife；未将 2024 报道中的司法状态当成今日现状。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-04-09",
+      "zh": "打碎一只花瓶；重新拼合碎片的爱，比它完好时将那份匀称视为理所当然的爱，更为强烈。",
+      "en": "Break a vase, and the love that reassembles the fragments is stronger than that love which took its symmetry for granted when it was whole.",
+      "category": "Creativity",
+      "source": "Derek Walcott · The Antilles: Fragments of Epic Memory · 1992",
+      "reference": {
+        "author": "Derek Walcott",
+        "work": "The Antilles: Fragments of Epic Memory, Nobel Lecture",
+        "date": "1992-12-07",
+        "locator": "Paragraph beginning “Break a vase”; after the discussion of Trinidad’s fragmented languages, before the African and Asiatic fragments and white scars of restoration.",
+        "url": "https://www.nobelprize.org/prizes/literature/1992/walcott/lecture/",
+        "sourceType": "诺贝尔奖官方网站发布的英语演讲全文。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语原作摘录，保留所核版本的措辞和标点。",
+        "originalText": "Break a vase, and the love that reassembles the fragments is stronger than that love which took its symmetry for granted when it was whole.",
+        "context": "沃尔科特用花瓶碎片，谈安的列斯群岛被历史打断的文化记忆如何重新拼接。他紧接着写到修复留下的白色痕迹，保留其中的关怀和痛楚。",
+        "question": "对于一度破碎的记忆或关系，我愿意付出怎样的耐心，而不要求它恢复得毫无痕迹？",
+        "verification": "2026-11-04：实际阅读 NobelPrize.org 该段与前后关于 Trinidad 语言、African and Asiatic fragments 的论述，核对完整句与 1992-12-07 演讲日期。句中更强烈的是重新拼合碎片的爱，不是花瓶本身；未改写成所有创伤都有益，也未把提问中的关系隐喻冒称作者原论题。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-04-10",
+      "zh": "但如果思想会败坏语言，语言也同样会败坏思想。",
+      "en": "But if thought corrupts language, language can also corrupt thought.",
+      "category": "Reading",
+      "source": "George Orwell · Politics and the English Language · 1946",
+      "reference": {
+        "author": "George Orwell",
+        "work": "Politics and the English Language",
+        "date": "1946-04",
+        "locator": "Paragraph beginning “But if thought corrupts language”; followed by the discussion of bad usage spreading through tradition and imitation.",
+        "url": "https://www.orwellfoundation.com/the-orwell-foundation/orwell/essays-and-other-works/politics-and-the-english-language/",
+        "sourceType": "The Orwell Foundation 刊载的英语原作全文。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语原作摘录，保留所核版本的措辞和标点。",
+        "originalText": "But if thought corrupts language, language can also corrupt thought.",
+        "context": "奥威尔讨论思想与语言如何相互影响：套话不只表达已有的想法，也可能让人停止认真组织和检查想法。他也承认自己的写作会犯同样的毛病。",
+        "question": "我常用的套话，是在帮助我说清楚，还是替我省掉了思考？",
+        "verification": "2026-11-04：实际阅读 Orwell Foundation 该句及其后的语言惯用法、套话和作者自省段落，核对完整句保留开头 But。页面文末注明 Horizon, April 1946；未用流传摘句省略 But 后冒称所核全文的完整句。",
         "additionalSources": []
       }
     }
