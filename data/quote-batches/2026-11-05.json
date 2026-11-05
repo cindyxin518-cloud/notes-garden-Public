@@ -1,0 +1,258 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-05",
+  "timezone": "Europe/Amsterdam",
+  "expected_count": 10,
+  "notes": [
+    {
+      "id": "daily-2026-11-05-01",
+      "zh": "真正的孤独，是生活在一群善良的人中间，而他们只要求你装作若无其事！",
+      "en": "The real loneliness is living among all these kind people who only ask one to pretend!",
+      "category": "Relationships",
+      "source": "Ellen Olenska (Edith Wharton) · The Age of Innocence · 1920",
+      "reference": {
+        "author": "Ellen Olenska (Edith Wharton, author)",
+        "work": "The Age of Innocence",
+        "date": "1920 novel; Gutenberg e-text",
+        "locator": "Book I, Chapter IX; Ellen speaks to Newland Archer at her West Twenty-third Street home, after he suggests accepting her relatives’ support.",
+        "url": "https://www.gutenberg.org/cache/epub/541/pg541-images.html",
+        "sourceType": "经典小说英语全文，Project Gutenberg 电子版。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语原作摘录，保留所核版本的措辞和标点。",
+        "originalText": "The real loneliness is living among all these kind people who only ask one to pretend!",
+        "context": "阿彻说亲友愿意帮助她，艾伦却指出，帮助的前提似乎是他们不必听见任何不愉快的事。这里的孤独来自无法说出实情，即使身边不乏友善的人。",
+        "question": "我安慰一个人时，有没有给对方留出可以如实说出难处的空间？",
+        "verification": "2026-11-05：实际打开 Gutenberg 全文，核对第一部第九章、阿彻到艾伦家中的谈话及该句之后艾伦的反应，确认说话者是 Ellen Olenska。所引是完整句，1920 指小说出版年；未把角色感受写成作者直接自述。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-05-02",
+      "zh": "昼夜流过我血脉的那股生命之流，也流过世界，和着节律起舞。",
+      "en": "The same stream of life that runs through my veins night and day runs through the world and dances in rhythmic measures.",
+      "category": "Nature",
+      "source": "Rabindranath Tagore · Gitanjali 69 · author’s English translation, 1912",
+      "reference": {
+        "author": "Rabindranath Tagore",
+        "work": "Gitanjali (Song Offerings), no. 69",
+        "date": "1912 English collection; author’s translation, Gutenberg e-text",
+        "locator": "Poem 69, opening sentence, in the English Gitanjali (Song Offerings), with an introduction by W. B. Yeats.",
+        "url": "https://www.gutenberg.org/cache/epub/7164/pg7164-images.html",
+        "sourceType": "Project Gutenberg 刊载的作者自译英语诗集；另查出版档案。",
+        "originalLanguage": "孟加拉语",
+        "chineseStatus": "本次据泰戈尔本人所作英译转译，非出版中译；未另核孟加拉语原文。",
+        "englishStatus": "作者本人从孟加拉语翻成英语的出版文本。所核为英语诗集第 69 首，未另核孟加拉语原文。",
+        "originalText": "The same stream of life that runs through my veins night and day runs through the world and dances in rhythmic measures.",
+        "context": "泰戈尔先写血脉里的生命之流，随后把同一股生命写入草叶、花朵与生死的潮汐。诗的比喻把人的身体放回更大的生命世界。",
+        "question": "当我把生活看成自己一人的事时，忽略了与哪些生命的联系？",
+        "verification": "2026-11-05：实际阅读 Gutenberg 第 69 首及其前后编号，核对首句。卷首明确说明为作者本人译自孟加拉语，叶芝作序。另读 Tamil Virtual Academy 所载出版档案说明，确认英语诗集 1912 年由 London India Society 首刊；该日期不是孟加拉语原诗写作年，也未冒称所引字样据 1912 印本直接校勘。",
+        "additionalSources": [
+          {
+            "label": "Tamil Virtual Academy: first English edition publication note",
+            "url": "https://www.tamilvu.org/slet/l9100/l9100pd1.jsp?bookid=149&pno=129"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-11-05-03",
+      "zh": "每天失去一样东西。接受那份慌乱，\n因为丢了门钥匙，因为白白耗掉了一个小时。",
+      "en": "Lose something every day. Accept the fluster\nof lost door keys, the hour badly spent.",
+      "category": "Life",
+      "source": "Elizabeth Bishop · One Art · collected edition, 1979/1983",
+      "reference": {
+        "author": "Elizabeth Bishop",
+        "work": "One Art, The Complete Poems 1927–1979",
+        "date": "1979 and 1983 copyrights on the cited collection",
+        "locator": "Second stanza, opening two lines; The Complete Poems 1927–1979 text reproduced by the Academy of American Poets.",
+        "url": "https://poets.org/poem/one-art",
+        "sourceType": "美国诗人学会经 Farrar, Straus & Giroux 许可刊载的英语原诗。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语原诗连续两行，保留第二节开头的断行与标点。",
+        "originalText": "Lose something every day. Accept the fluster\nof lost door keys, the hour badly spent.",
+        "context": "诗从钥匙和虚耗的时间起笔，再写失去住所、城市乃至亲近的人。越接近重大的失去，反复练习就越难维持轻松口吻；这份张力比表面的练习指令更关键。",
+        "question": "当我用“没关系”安慰自己时，有哪些失去仍值得我认真说出？",
+        "verification": "2026-11-05：实际阅读 Poets.org 全诗与许可页脚，确认所引是第二节前两行。页脚列诗集 The Complete Poems 1927–1979 及 1979、1983 版权；未把版权年当成诗的首次发表年，也未把诗的反讽命令当作生活处方。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-05-04",
+      "zh": "教育不能只教人如何工作，也必须教人如何生活。",
+      "en": "Education must not simply teach work—it must teach Life.",
+      "category": "Growth",
+      "source": "W. E. B. Du Bois · The Talented Tenth · 1903",
+      "reference": {
+        "author": "W. E. B. Du Bois",
+        "work": "The Talented Tenth, The Negro Problem",
+        "date": "1903",
+        "locator": "Final paragraph of The Talented Tenth in The Negro Problem; immediately after the discussion of education and work as ways to uplift a people.",
+        "url": "https://www.gutenberg.org/cache/epub/15041/pg15041-images.html",
+        "sourceType": "英语论文原文，Project Gutenberg 收录的原论文集；耶鲁大学文献页辅助核对书目。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语原作摘录，保留所核版本的措辞和标点。",
+        "originalText": "Education must not simply teach work—it must teach Life.",
+        "context": "杜波依斯参与当时美国黑人教育的争论。他承认职业训练的作用，也强调教育应让人发展判断力、同情心和对世界的认识。全文同时提出由少数受过高等教育者带动群体的主张。",
+        "question": "如果学习的成果不只用能找到什么工作来衡量，我还希望自己学会什么？",
+        "verification": "2026-11-05：实际阅读 Gutenberg 所收论文最后一段与前文对职业训练的讨论，核对这是 Du Bois 自己的主张；保留破折号和大写 Life。另读耶鲁大学 Gilder Lehrman Center 节录页的书目信息，确认论文集 1903 年出版。",
+        "additionalSources": [
+          {
+            "label": "Yale Gilder Lehrman Center: essay and 1903 publication details",
+            "url": "https://macmillan.yale.edu/glc/talented-tenth-excerpts"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-11-05-05",
+      "zh": "我们看不见、也听不见受苦的人；生活中可怕的事，在幕后某处照样发生……",
+      "en": "we do not see and we do not hear those who suffer, and what is terrible in life goes on somewhere behind the scenes....",
+      "category": "Others",
+      "source": "Anton Chekhov · Gooseberries · 1898, tr. Constance Garnett",
+      "reference": {
+        "author": "Ivan Ivanovitch (Anton Chekhov, author)",
+        "work": "Gooseberries (tr. Constance Garnett)",
+        "date": "1898 story; Garnett translation, Gutenberg e-text",
+        "locator": "Ivan Ivanovitch’s account of his brother’s estate, after the night he hears his brother eating gooseberries; The Wife and Other Stories, The Tales of Chekhov, vol. 5.",
+        "url": "https://www.gutenberg.org/cache/epub/1883/pg1883-images.html",
+        "sourceType": "Project Gutenberg 刊载的 Constance Garnett 经典出版英译。",
+        "originalLanguage": "俄语",
+        "chineseStatus": "本次据 Garnett 英译转译，非既有出版中译；未另核俄语原文。",
+        "englishStatus": "Constance Garnett 的出版英译中连续分句节录，保留小写 we 和末尾四个句点；未另核俄语原文。",
+        "originalText": "we do not see and we do not hear those who suffer, and what is terrible in life goes on somewhere behind the scenes....",
+        "context": "伊万见弟弟终于在自己的庄园吃到醋栗，反而感到不安。他想到，旁人看不见的痛苦也可以与眼前的满足同时存在。这是故事人物的质问。",
+        "question": "当周围显得一切太平时，谁的困难没有机会被我看见或听见？",
+        "verification": "2026-11-05：实际阅读 Gutenberg 的 Gooseberries 段落，核对伊万讲述弟弟吃醋栗后关于看不见的苦难的发言，保留所引分句起首及末尾标点。卷首和目录均注明 Garnett 及 The Tales of Chekhov 第五卷；1898 指原故事年代，未当作该英译的出版年。",
+        "additionalSources": [
+          {
+            "label": "Project Gutenberg catalogue: translator and collection contents",
+            "url": "https://www.gutenberg.org/ebooks/1883"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-11-05-06",
+      "zh": "因为我有被倾听的权利！",
+      "en": "Because I have a right to be heard!",
+      "category": "Self",
+      "source": "Bertie · The King’s Speech · 2010 screenplay",
+      "reference": {
+        "author": "Bertie (David Seidler, screenwriter)",
+        "work": "The King’s Speech (screenplay)",
+        "date": "2010 film and awards screenplay",
+        "locator": "Printed p. 74, PDF p. 76 of 92; Westminster Abbey at night, as Lionel Logue challenges Bertie to say why he should listen.",
+        "url": "https://assets.scriptslug.com/live/pdf/scripts/the-kings-speech-2010.pdf",
+        "sourceType": "电影英语评奖剧本，Script Slug 档案镜像；封面为 For Your Consideration 2010。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "所核英语评奖剧本的完整台词，保留 Because 及感叹号；未另称逐字听核了成片音轨。",
+        "originalText": "Because I have a right to be heard!",
+        "context": "在威斯敏斯特教堂里，莱昂内尔逼伯蒂说出别人为何应该听他。伯蒂起初诉诸王位，随后转而坚持自己作为一个人有被听见的权利。",
+        "question": "当我担心自己说得不够好时，会不会也把应当说的话一并咽下？",
+        "verification": "2026-11-05：实际下载 92 页剧本，视觉核对封面的 2010 年评奖标识及 David Seidler 署名、PDF 第 76 页印刷页 74 的 BERTIE 发言。阅读前页场景标注及该页前后对话。所引为剧本角色台词，不当作历史录音中的逐字引文。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-05-07",
+      "zh": "尼奥，迟早你也会像我一样明白：知道一条路，与亲自去走，是两回事。",
+      "en": "Sooner or later, Neo, you're going to realize just like I did the difference between knowing a path and walking a path.",
+      "category": "Growth",
+      "source": "Morpheus · The Matrix · 1999 film, 1998 shooting script",
+      "reference": {
+        "author": "Morpheus (the Wachowskis, screenwriters)",
+        "work": "The Matrix (numbered shooting script)",
+        "date": "1999 film; shooting script cover dated 1998-03-29",
+        "locator": "Scene 167, exterior rooftop; printed p. 108, PDF p. 114 of 133; excerpt page marked Rev. 3/9/98.",
+        "url": "https://assets.scriptslug.com/live/pdf/scripts/the-matrix-1999.pdf",
+        "sourceType": "电影英语编号拍摄剧本，Script Slug 专业剧本档案镜像。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "所核拍摄剧本中 Morpheus 的完整句。保留该稿的不定冠词与完整起句，未混入其他字幕或台词版本。",
+        "originalText": "Sooner or later, Neo, you're going to realize just like I did the difference between knowing a path and walking a path.",
+        "context": "直升机坠毁后的屋顶上，尼奥想起先知的话。墨菲斯把事先听到的说法和刚刚经历的行动区分开，提醒他有些理解只能从亲身经历中获得。",
+        "question": "有哪件我已经很会解释的事，其实还需要自己试着做一次？",
+        "verification": "2026-11-05：实际下载 133 页剧本，视觉核对 Wachowskis 署名、1998-03-29 拍摄稿封面及 PDF 第 114 页、印刷页 108 的第 167 场。该页页眉另标 Rev. 3/9/98；两处日期分别记录。台词由 Morpheus 对 Neo 说，未称核对了上映版音轨。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-05-08",
+      "zh": "这不是为了证明什么，而是为了分享一些东西。",
+      "en": "It’s not about proving anything. It’s about sharing something.",
+      "category": "Creativity",
+      "source": "Yo-Yo Ma · Music Happens Between the Notes · 2014",
+      "reference": {
+        "author": "Yo-Yo Ma",
+        "work": "Music Happens Between the Notes, On Being",
+        "date": "2014-09-04 first broadcast; transcript updated 2018-07-05",
+        "locator": "Krista Tippett interview; Ma’s answer about performance mishaps and sharing a moment with the people in the hall.",
+        "url": "https://onbeing.org/programs/yo-yo-ma-music-happens-between-the-notes-jul2018/",
+        "sourceType": "On Being 原始英语访谈及机构转录。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语访谈的两个连续完整句，据官网正文转录核对；未另称听核了音轨。",
+        "originalText": "It’s not about proving anything. It’s about sharing something.",
+        "context": "马友友在谈现场演奏失手时，把台上的技术问题与演奏的目的区分开。他在意的是台上和台下共享这个时刻，而不是用演奏来证明自己。",
+        "question": "下次做自己在意的事，我想让别人看到我的能力，还是也想让他们得到些什么？",
+        "verification": "2026-11-05：实际阅读官网开场节录及正文中讨论演奏失误的完整问答。所引两句在正文连续出现，由 Ma 发言；页首注明首播 2014-09-04、更新 2018-07-05。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-05-09",
+      "zh": "愤怒是推动你从此处走向彼处的燃料。",
+      "en": "Your anger is the fuel that you need to move from one point to the other.",
+      "category": "Others",
+      "source": "Leymah Gbowee · Nobel Prize Teacher Summit interview · 2025",
+      "reference": {
+        "author": "Leymah Gbowee",
+        "work": "Nobel Prize Teacher Summit interview",
+        "date": "2025-03-28 recorded interview",
+        "locator": "Nobel Prize Outreach transcript, Stockholm; answer to the question about advice for aspiring activists, listed at 6:21 in the interview index.",
+        "url": "https://www.nobelprize.org/prizes/peace/2011/gbowee/1925988-interview-transcript/",
+        "sourceType": "诺贝尔奖官网刊载的原始英语访谈逐字稿。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语原始访谈的一个完整句，据诺贝尔奖官网转录核对。",
+        "originalText": "Your anger is the fuel that you need to move from one point to the other.",
+        "context": "格博韦在回答行动者如何开始时，先谈找到真正关心的议题，再谈如何把情绪变成向前行动的力气，随后提醒人还要提出办法并保持专注。",
+        "question": "一件事让我愤怒时，我能把这份力气用在哪个具体行动上？",
+        "verification": "2026-11-05：实际打开诺贝尔奖访谈索引及其链接的 2025 逐字稿，阅读给新行动者建议的整段回答，核对 Gbowee 的完整句。页面标明录于 2025-03-28 Stockholm 教师峰会，索引列该问 6:21；未把同页另列的 2011 年电话访谈当成这次访谈，也未称听核了音轨。",
+        "additionalSources": [
+          {
+            "label": "Nobel Prize: interview index and question timestamps",
+            "url": "https://www.nobelprize.org/prizes/peace/2011/gbowee/interview/?print=1"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-11-05-10",
+      "zh": "和平并非不能实现，战争也并非无法避免。",
+      "en": "Peace need not be impracticable, and war need not be inevitable.",
+      "category": "Uncertainty",
+      "source": "John F. Kennedy · American University Commencement Address · 1963",
+      "reference": {
+        "author": "John F. Kennedy",
+        "work": "American University Commencement Address",
+        "date": "1963-06-10",
+        "locator": "First section, on attitudes toward peace; after the discussion of mutual tolerance and before the second section on the Soviet Union.",
+        "url": "https://www.presidency.ucsb.edu/documents/commencement-address-american-university-washington",
+        "sourceType": "加州大学圣巴巴拉分校 American Presidency Project 收录的英语演讲全文。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译，非既有出版中译。",
+        "englishStatus": "英语原作摘录，保留所核版本的措辞和标点。",
+        "originalText": "Peace need not be impracticable, and war need not be inevitable.",
+        "context": "在冷战背景下，肯尼迪谈到，和平不要求分歧从此消失；人们可以在仍有分歧时，以公正、和平的方式处理争端。他继而主张把目标说得更明确、更可实行。",
+        "question": "对一场看似无解的冲突，我能否先说清一个双方都能检验的小目标？",
+        "verification": "2026-11-05：实际阅读 UCSB 档案的演讲日期及第一段主体论证，核对肯尼迪在讨论互相容忍之后说出的完整句，以及下一句关于明确目标的论述。档案注明 1963-06-10 华盛顿 American University 毕业典礼；所引据官方档案转录，未声称听核了录音。",
+        "additionalSources": []
+      }
+    }
+  ]
+}
