@@ -2,9 +2,9 @@
 window.MINIGROW_DAILY_QUOTES = {
   "schema_version": 1,
   "timezone": "Europe/Amsterdam",
-  "updated_on": "2026-11-05",
+  "updated_on": "2026-11-06",
   "latest_count": 10,
-  "total_count": 100,
+  "total_count": 110,
   "batches": [
     {
       "date": "2026-10-24",
@@ -44,6 +44,10 @@ window.MINIGROW_DAILY_QUOTES = {
     },
     {
       "date": "2026-11-05",
+      "count": 10
+    },
+    {
+      "date": "2026-11-06",
       "count": 10
     }
   ],
@@ -2488,6 +2492,241 @@ window.MINIGROW_DAILY_QUOTES = {
         "context": "在冷战背景下，肯尼迪谈到，和平不要求分歧从此消失；人们可以在仍有分歧时，以公正、和平的方式处理争端。他继而主张把目标说得更明确、更可实行。",
         "question": "对一场看似无解的冲突，我能否先说清一个双方都能检验的小目标？",
         "verification": "2026-11-05：实际阅读 UCSB 档案的演讲日期及第一段主体论证，核对肯尼迪在讨论互相容忍之后说出的完整句，以及下一句关于明确目标的论述。档案注明 1963-06-10 华盛顿 American University 毕业典礼；所引据官方档案转录，未声称听核了录音。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-06-01",
+      "zh": "不论错过了什么，我们仍共同拥有那段珍贵而无法言传的过去。",
+      "en": "Whatever we had missed, we possessed together the precious, the incommunicable past.",
+      "category": "Time",
+      "source": "Jim Burden (Willa Cather) · My Ántonia · 1918",
+      "reference": {
+        "author": "Jim Burden (Willa Cather, author)",
+        "work": "My Ántonia",
+        "date": "1918 Houghton Mifflin edition",
+        "locator": "Book V, Cuzak’s Boys, section III, closing sentence on printed p. 419.",
+        "url": "https://www.gutenberg.org/files/19810/19810-h/19810-h.htm",
+        "sourceType": "Project Gutenberg 转录的英语小说原作，保留印本页码。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译。",
+        "englishStatus": "英语原作摘录，保留所核版本的措辞和标点。",
+        "originalText": "Whatever we had missed, we possessed together the precious, the incommunicable past.",
+        "context": "吉姆多年后回到内布拉斯加，沿着他与安东妮娅幼时走过的旧路重温当年的感受。他把那段共同记忆视为两人依旧拥有的东西。",
+        "question": "我想和谁重新说起那段只有我们才能充分理解的过去？",
+        "verification": "2026-11-06 核验。实际阅读第五部第三节末段，核对说话者是第一人称叙述者 Jim，所引为印本第 419 页的全书最后一句。所核 Gutenberg 文本的卷首标明 Houghton Mifflin 与 1918 年。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-06-02",
+      "zh": "自由，桑丘，是上天赐给人最珍贵的礼物之一。",
+      "en": "Freedom, Sancho, is one of the most precious gifts that heaven has bestowed upon men;",
+      "category": "Wisdom",
+      "source": "Miguel de Cervantes · Don Quixote, Part II · 1615, tr. John Ormsby",
+      "reference": {
+        "author": "Don Quixote (Miguel de Cervantes, author)",
+        "work": "Don Quixote, Part II (tr. John Ormsby)",
+        "date": "1615 Part II, Ormsby translation in the Gutenberg edition",
+        "locator": "Part II, Chapter LVIII, opening dialogue after Don Quixote and Sancho leave the duke and duchess’s castle.",
+        "url": "https://www.gutenberg.org/cache/epub/996/pg996-images.html",
+        "sourceType": "Project Gutenberg 刊载的 John Ormsby 出版英译。",
+        "originalLanguage": "西班牙语",
+        "chineseStatus": "本次据 Ormsby 英译转译。所核对的底本为英语版。",
+        "englishStatus": "John Ormsby 的出版英译。引文是发言开头的连续分句，保留句末分号。所核为英语版，尚未核对西班牙语原文。",
+        "originalText": "Freedom, Sancho, is one of the most precious gifts that heaven has bestowed upon men;",
+        "context": "离开公爵夫妇的城堡之后，堂吉诃德回想丰盛宴席背后的人情义务。他把在野外的自在与受人款待时的拘束放在一起，谈及自由的价值。",
+        "question": "一项优厚的待遇如果也带来难以拒绝的义务，我会怎样衡量它的代价？",
+        "verification": "2026-11-06 核验。实际阅读第二部第五十八章开头及堂吉诃德随后对宴席和人情义务的说明，确认他对 Sancho 所说的话。核对卷首 John Ormsby 译者署名及导言中的第二部出版年代。1615 指西班牙语第二部首刊，英文字样依据所链接的 Ormsby 电子版。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-06-03",
+      "zh": "我那时懂得什么，我那时懂得什么，\n懂得爱那清苦而孤独的劳作？",
+      "en": "What did I know, what did I know\nof love’s austere and lonely offices?",
+      "category": "Relationships",
+      "source": "Robert Hayden · Those Winter Sundays · 1966 text copyright",
+      "reference": {
+        "author": "Robert Hayden",
+        "work": "Those Winter Sundays, Collected Poems of Robert Hayden",
+        "date": "1966 text copyright, collected edition edited by Frederick Glaysher",
+        "locator": "Closing two lines in the Academy of American Poets reprint of the Frederick Glaysher edition.",
+        "url": "https://poets.org/poem/those-winter-sundays",
+        "sourceType": "美国诗人学会经 Liveright Publishing Corporation 许可刊载的英语原诗。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译。",
+        "englishStatus": "英语原诗的最后两行，保留重复措辞和断行。",
+        "originalText": "What did I know, what did I know\nof love’s austere and lonely offices?",
+        "context": "诗中的父亲在周日清晨早起生火，也替孩子擦鞋。成年后的叙述者回望这些没有得到感谢的照顾，同时记得家中令他害怕的怒气。",
+        "question": "回想那些曾被我视作平常的日子，有哪一种照顾如今才看得清？",
+        "verification": "2026-11-06 核验。实际阅读 Poets.org 全诗，核对最后两行及其前面的生火、擦鞋和家中怒气。页脚注明 Frederick Glaysher 所编 Collected Poems、1966 年文本版权和 Liveright 许可。日期标明所引文本版权。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-06-04",
+      "zh": "人的困窘有一种奇特的本领，\n能把平日不屑一顾的东西变得珍贵。",
+      "en": "The art of our necessities is strange\nAnd can make vile things precious.",
+      "category": "Uncertainty",
+      "source": "Lear (William Shakespeare) · King Lear · 1608, Folger text",
+      "reference": {
+        "author": "Lear (William Shakespeare, playwright)",
+        "work": "King Lear",
+        "date": "1608 first quarto, Folger reading text",
+        "locator": "Act 3, scene 2, Folger lines 1851–1852, Lear in the storm.",
+        "url": "https://www.folger.edu/explore/shakespeares-works/king-lear/read/3/2/",
+        "sourceType": "Folger Shakespeare Library 刊载的英语剧本。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译。",
+        "englishStatus": "所核 Folger 剧本中 Lear 的完整句，保留跨行，止于第二行的句点。",
+        "originalText": "The art of our necessities is strange\nAnd can make vile things precious.",
+        "context": "暴风雨里，李尔自己感到寒冷，开始寻找草料和避风的茅舍。身处困窘使他重新认识这些过去难以看重的东西。",
+        "question": "什么东西在我以为理所当然时看似平常，到了缺少它的时候才显出价值？",
+        "verification": "2026-11-06 核验。实际阅读 Folger 第三幕第二场及第 1851–1852 行，核对 Lear 说话时正在寻找避风处并关心弄人的寒冷。1608 为 Folger 作品页所述首个四开本年代。所引按 Folger 阅读文本转录。",
+        "additionalSources": [
+          {
+            "label": "Folger Shakespeare Library overview and first quarto date",
+            "url": "https://www.folger.edu/explore/shakespeares-works/king-lear/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-11-06-05",
+      "zh": "这么浩瀚的宇宙，如果只有我们在其中，又有什么意义？那未免太……浪费空间了。",
+      "en": "what's the point of a universe so vast if we're the only ones in it? It'd just be such a... waste of space.",
+      "category": "Uncertainty",
+      "source": "Peter · Contact · 1997 film, 1995 screenplay rewrite",
+      "reference": {
+        "author": "Peter (Michael Goldenberg, draft reviser)",
+        "work": "Contact (screenplay rewrite)",
+        "date": "1997 film, rewrite dated 1995-09-08",
+        "locator": "Printed p. 15, PDF p. 16 of 171. Peter and Ellie consider the limits of their imagination about the universe.",
+        "url": "https://assets.scriptslug.com/live/pdf/scripts/contact-1997.pdf",
+        "sourceType": "电影英语剧本改写稿，Script Slug 专业剧本档案镜像。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译。",
+        "englishStatus": "所核 1995 年改写稿中 Peter 的连续台词节录，保留小写起句和省略号。版本标注以剧本为准。",
+        "originalText": "what's the point of a universe so vast if we're the only ones in it? It'd just be such a... waste of space.",
+        "context": "彼得和艾莉谈到人们如何受自己时代的知识所限。彼得把这句设问作为直觉上的感受说出来，显露出他对辽阔宇宙中其他可能性的好奇。",
+        "question": "面对还没有答案的问题，我怎样同时保有好奇心和对证据的耐心？",
+        "verification": "2026-11-06 核验。实际下载 171 页 PDF，读取封面所列编剧、基于 Carl Sagan 小说及 Michael Goldenberg 改写的说明，确认封面日期为 1995-09-08。视觉核对 PDF 第 16 页、印刷页 15 的 PETER 发言及上下文。台词和角色均按这份稿本记录。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-06-06",
+      "zh": "这一切发生前，我还是个和善的人。现在我不知道自己成了什么样。",
+      "en": "I was nice, before all this. I don’t know what I am now.",
+      "category": "Self",
+      "source": "Pádraic · The Banshees of Inisherin · 2022 film, 2021 screenplay",
+      "reference": {
+        "author": "Pádraic (Martin McDonagh, screenwriter)",
+        "work": "The Banshees of Inisherin (screenplay)",
+        "date": "2022 film, screenplay draft dated 2021-06-29",
+        "locator": "Printed p. 93, PDF p. 94 of 95, the final beach conversation with Colm.",
+        "url": "https://assets.scriptslug.com/live/pdf/scripts/the-banshees-of-inisherin-2022.pdf?v=1729115007",
+        "sourceType": "电影英语剧本，Script Slug 专业剧本档案镜像。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译。",
+        "englishStatus": "所核 2021 年剧本中 Pádraic 连续说出的两个完整句，保留第一句的逗号。",
+        "originalText": "I was nice, before all this. I don’t know what I am now.",
+        "context": "两人的争执已经酿成纵火。帕德里克回顾自己以前的为人，也意识到报复已经改变了他对自己的认识。",
+        "question": "一场争执持续太久时，我有没有开始做原本不愿做的事？",
+        "verification": "2026-11-06 核验。实际下载 95 页剧本，读封面的 Martin McDonagh 署名与 2021-06-29 日期，视觉核对 PDF 第 94 页、印刷页 93 的 PADRAIC 发言和随后与 Colm 的对话。2022 是影片年份，措辞据剧本。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-06-07",
+      "zh": "有多少人读书？又有多少人敞开心扉读书？",
+      "en": "How many people read a book? How many people read a book with an open heart?",
+      "category": "Reading",
+      "source": "Isabel Allende · Amanpour & Company interview · 2020",
+      "reference": {
+        "author": "Isabel Allende",
+        "work": "Isabel Allende on Immigration, Loss and Her New Novel, Amanpour & Company",
+        "date": "2020-02-07 PBS publication",
+        "locator": "Walter Isaacson interview on A Long Petal of the Sea, in the exchange about whether a book can change readers’ views.",
+        "url": "https://www.pbs.org/wnet/amanpour-and-company/video/isabel-allende-on-immigration-loss-and-her-new-novel/",
+        "sourceType": "PBS Amanpour & Company 发布的原始访谈及英语转录。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译。",
+        "englishStatus": "所核 PBS 访谈转录中的两个连续问句。",
+        "originalText": "How many people read a book? How many people read a book with an open heart?",
+        "context": "沃尔特·艾萨克森问，一部历史小说是否能让人理解流亡者的感受。阿连德回应时追问读者怎样读书，也怀疑一本书究竟能改变多少看法。",
+        "question": "最近读书时，有没有哪个人物让我愿意改一改原先的判断？",
+        "verification": "2026-11-06 核验。实际打开 PBS 节目转录，阅读 Isaacson 关于流亡处境和书籍影响力的问答，核对两个问句都由 Allende 连续说出。页面标题区及发布日期元数据均标明 2020-02-07。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-06-08",
+      "zh": "我觉得，人生本就是一个不断往复的过程。",
+      "en": "I think what it means to be human is to live a life that’s deeply cyclical.",
+      "category": "Life",
+      "source": "Katherine May · How ‘Wintering’ Replenishes · On Being, 2021",
+      "reference": {
+        "author": "Katherine May",
+        "work": "How ‘Wintering’ Replenishes, On Being",
+        "date": "2021-01-21 first broadcast, transcript updated 2021-12-09",
+        "locator": "Krista Tippett’s final interview question, on how thinking about wintering has changed May’s sense of being human.",
+        "url": "https://onbeing.org/programs/katherine-may-how-wintering-replenishes/",
+        "sourceType": "On Being 原始英语访谈及机构转录。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译。",
+        "englishStatus": "英语访谈完整句，据官网正文转录核对。",
+        "originalText": "I think what it means to be human is to live a life that’s deeply cyclical.",
+        "context": "在访谈最后，梅把生命中的艰难与恢复放在季节的节律里理解。她用一轮轮的变化来描述人生，也反思把人生想成一直向上攀登的习惯。",
+        "question": "如果把眼前的停滞看作一个阶段，我会怎样安排接下来的日子？",
+        "verification": "2026-11-06 核验。实际阅读官网正文最后一问及 May 的完整回答，核对首句和之后对人生周期的说明。页首分别注明首播 2021-01-21 与更新 2021-12-09。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-06-09",
+      "zh": "正如我需要花时间与这件乐器相处，我也需要花时间与人相处，才能读懂他们。",
+      "en": "So in the same way that I need time with this instrument, I need time with people in order to interpret them.",
+      "category": "Attention",
+      "source": "Evelyn Glennie · How to truly listen · TED2003",
+      "reference": {
+        "author": "Evelyn Glennie",
+        "work": "How to truly listen, TED2003",
+        "date": "February 2003 TED talk, TED web publication 2007-04-06",
+        "locator": "Official English transcript, 6:18, after demonstrating her touch on the drum.",
+        "url": "https://www.ted.com/talks/evelyn_glennie_how_to_truly_listen?view=transcript",
+        "sourceType": "TED2003 英语现场演讲，TED 页面附带的官方英文转录。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译。",
+        "englishStatus": "英语演讲的一个完整句，逐字据 TED 官方英文字幕核对。",
+        "originalText": "So in the same way that I need time with this instrument, I need time with people in order to interpret them.",
+        "context": "格兰妮把对陌生人的初步印象比作对乐谱的初读。她演示自己怎样与鼓相处，然后把演奏中逐渐形成的理解联系到人与人相处的时间。",
+        "question": "最近我对谁形成了一个太快的判断？多相处一会儿，可能会让我看见什么？",
+        "verification": "2026-11-06 核验。实际读取 TED 页面附带的英语转录数据，核对约 6:18 的完整句、前面的鼓声演示及关于初步印象的段落。网页活动信息注明 TED2003 和 2003 年 2 月，网页发布日取自同页元数据。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-06-10",
+      "zh": "一开始未能维护一个人的尊严，最终往往会酿成整个国家的灾难。",
+      "en": "What begins with the failure to uphold the dignity of one life, all too often ends with a calamity for entire nations.",
+      "category": "Others",
+      "source": "Kofi Annan · Nobel Peace Prize Lecture · 2001",
+      "reference": {
+        "author": "Kofi Annan",
+        "work": "Nobel Peace Prize Lecture",
+        "date": "2001-12-10",
+        "locator": "Oslo lecture, after the examples of persecution and exclusion, before the discussion of peace as belonging to each person.",
+        "url": "https://www.nobelprize.org/prizes/peace/2001/annan/lecture/",
+        "sourceType": "诺贝尔奖官网刊载的英语演讲全文。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译。",
+        "englishStatus": "英语原作摘录，保留所核版本的措辞和标点。",
+        "originalText": "What begins with the failure to uphold the dignity of one life, all too often ends with a calamity for entire nations.",
+        "context": "安南从《联合国宪章》开头的“我们人民”谈到每一个具体的人。他以迫害和失学等例子说明，国家层面的灾难可以从个人尊严被忽视开始。",
+        "question": "在一个集体里，有谁的尊严最容易被当成可以忽略的代价？",
+        "verification": "2026-11-06 核验。实际打开 NobelPrize.org 演讲全文，阅读有关个人权利和尊严的段落，核对所引句为 Annan 本人的论述。保留 one life 后的逗号，页首注明 Nobel Lecture, Oslo, December 10, 2001。",
         "additionalSources": []
       }
     }
