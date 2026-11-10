@@ -1,0 +1,272 @@
+{
+  "schema_version": 1,
+  "date": "2026-11-10",
+  "timezone": "Europe/Amsterdam",
+  "expected_count": 10,
+  "notes": [
+    {
+      "id": "daily-2026-11-10-01",
+      "zh": "她年轻时被迫谨慎，年岁渐长才学会浪漫：一个不自然的开端，倒有了顺理成章的后续。",
+      "en": "She had been forced into prudence in her youth, she learned romance as she grew older: the natural sequel of an unnatural beginning.",
+      "category": "Growth",
+      "source": "Jane Austen · Persuasion · 1818",
+      "reference": {
+        "author": "Jane Austen",
+        "work": "Persuasion",
+        "date": "1818 title date in the Gutenberg text",
+        "locator": "Chapter IV, end of the paragraph beginning “How eloquent could Anne Elliot have been!”",
+        "url": "https://www.gutenberg.org/cache/epub/105/pg105-images.html",
+        "sourceType": "Project Gutenberg 刊载的英语小说原作。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译。",
+        "englishStatus": "英语原作摘录，保留所核版本的措辞和标点。",
+        "originalText": "She had been forced into prudence in her youth, she learned romance as she grew older: the natural sequel of an unnatural beginning.",
+        "context": "安妮十九岁时听从罗素夫人的劝告，与温特沃思解除婚约。二十七岁的她重新衡量那份谨慎的代价，叙述者用这句话概括她的转变。",
+        "question": "我如今视为理所当然的谨慎，有多少源于当年别人替我做的判断？",
+        "verification": "2026-11-10 核验。对照 Gutenberg 电子版第四章末段，确认这是叙述者评论安妮的完整句子。卷首将作品标为 1818 年。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-10-02",
+      "zh": "比起不写诗的荒诞，\n我更喜欢写诗的荒诞。",
+      "en": "I prefer the absurdity of writing poems\nto the absurdity of not writing poems.",
+      "category": "Creativity",
+      "source": "Wisława Szymborska · Possibilities · 1986 collection, English translation",
+      "reference": {
+        "author": "Wisława Szymborska",
+        "work": "Possibilities (tr. Barańczak and Cavanagh)",
+        "date": "1986 Polish collection, Szymborska Foundation English reprint",
+        "locator": "Two consecutive lines after the preference for old fine-lined illustrations.",
+        "url": "https://www.szymborska.org.pl/en/wislawa/selected-poems/possibilities/",
+        "sourceType": "辛波斯卡基金会刊载的署名英译。",
+        "originalLanguage": "波兰语",
+        "chineseStatus": "本次据基金会所载的出版英译转译。",
+        "englishStatus": "Stanisław Barańczak 与 Clare Cavanagh 的出版英译。保留基金会版断行，所核底本为英译。",
+        "originalText": "I prefer the absurdity of writing poems\nto the absurdity of not writing poems.",
+        "context": "这首诗从日常的小偏好写到对存在的想法。轮到写诗时，说话者承认做与不做都可以是荒诞的，依然说出了自己的选择。",
+        "question": "哪件事即使说不出十足的理由，我依然愿意继续做？",
+        "verification": "2026-11-10 核验。在辛波斯卡基金会读到完整英译及页尾译者署名。华沙文学博物馆的展览目录确认诗收入 1986 年的波兰语诗集，并列出相同译者。此次未核对波兰语原文。",
+        "additionalSources": [
+          {
+            "label": "Museum of Literature in Warsaw, collection and translation credit",
+            "url": "https://muzeumliteratury.pl/wystawa-alexandra-grant-slowo-obraz-przestrzen/"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-11-10-03",
+      "zh": "从来如此，便对么？",
+      "en": "Is it right because it has always been like that?",
+      "category": "Wisdom",
+      "source": "Lu Xun · A Madman’s Diary · 1918, English translation",
+      "reference": {
+        "author": "Lu Xun (diarist’s dialogue)",
+        "work": "A Madman’s Diary (tr. Yang Hsien-yi and Gladys Yang)",
+        "date": "1918 story, 1972 Foreign Languages Press third edition",
+        "locator": "Section VIII, printed p. 14 of Selected Stories of Lu Hsun, third edition (PDF p. 14).",
+        "url": "https://www.marxists.org/archive/lu-xun/1918/04/x01.htm",
+        "sourceType": "维基文库中文转录、外文出版社第三版英译印本扫描和其电子转录。",
+        "originalLanguage": "中文",
+        "chineseStatus": "中文原文，以简体字显示。核验字段保留所据繁体文字。",
+        "englishStatus": "杨宪益（印本作 Yang Hsien-yi）与 Gladys Yang 的出版英译，核对第三版印本和其电子转录。",
+        "originalText": "從來如此，便對麽？",
+        "context": "日记中的叙述者与一名年轻来客争辩。在故事用吃人作讽刺的语境里，来客诉诸旧例，叙述者反问旧例凭什么构成正当性。",
+        "question": "哪些被我视为合理的做法，其实只凭着一句「一直都这样」？",
+        "verification": "2026-11-10 核验。核对中文第八节的反问、印本第 14 页同段及在线英译转录。1972 年第三版卷首（扫描 PDF 第 6 页）列出两位译者，1918 为小说年代。",
+        "additionalSources": [
+          {
+            "label": "Chinese text, Section VIII",
+            "url": "https://zh.wikisource.org/zh-hant/%E7%8B%82%E4%BA%BA%E6%97%A5%E8%A8%98"
+          },
+          {
+            "label": "Foreign Languages Press third edition, translator credits and printed p. 14",
+            "url": "https://www.bannedthought.net/China/Individuals/LuXun/SelectedStoriesOfLuHsun-1972.pdf"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-11-10-04",
+      "zh": "最好的人全无信念，最坏的人\n却满怀炽烈的热情。",
+      "en": "The best lack all conviction, while the worst\nAre full of passionate intensity.",
+      "category": "Uncertainty",
+      "source": "W. B. Yeats · The Second Coming · 1920",
+      "reference": {
+        "author": "W. B. Yeats",
+        "work": "The Second Coming",
+        "date": "1920 first publication, Academy of American Poets text",
+        "locator": "Lines 7–8, end of the first stanza.",
+        "url": "https://poets.org/poem/second-coming",
+        "sourceType": "美国诗人学会刊载的英语原诗。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译。",
+        "englishStatus": "英语原作摘录，保留所核版本的措辞和标点。",
+        "originalText": "The best lack all conviction, while the worst\nAre full of passionate intensity.",
+        "context": "叶芝在一战后写下这首想象世界失序的诗。第一节末尾将好人的信念消退和坏人的高涨热情并置。",
+        "question": "当最激烈的意见最容易被听见时，我会用什么标准判断它是否值得认同？",
+        "verification": "2026-11-10 核验。逐行核对 Poets.org 第一节结尾，保留断行和第二行首字母大写。University College Cork 校订版书目说明载明 1920 年 11 月刊印。",
+        "additionalSources": [
+          {
+            "label": "University College Cork edition and publication history",
+            "url": "https://celt.ucc.ie/published/E910001-066.html"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-11-10-05",
+      "zh": "马克，互联网上的话不是用铅笔写的，而是用墨水写的。",
+      "en": "The internet’s not written in pencil, Mark, it’s written in ink",
+      "category": "Attention",
+      "source": "Erica Albright · The Social Network (screenplay) · 2010",
+      "reference": {
+        "author": "Erica Albright (Aaron Sorkin, screenwriter)",
+        "work": "The Social Network (screenplay)",
+        "date": "2010 film, screenplay text",
+        "locator": "Printed p. 78 (PDF p. 79), Erica’s dialogue at the club after Mark approaches her.",
+        "url": "https://assets.scriptslug.com/live/pdf/scripts/the-social-network-2010.pdf",
+        "sourceType": "Script Slug 刊载的电影英语剧本 PDF。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译。",
+        "englishStatus": "所核剧本中 Erica 的连续台词节录，止于原句的 “ink”，保留原有标点。",
+        "originalText": "The internet’s not written in pencil, Mark, it’s written in ink",
+        "context": "在俱乐部里，埃里卡质问马克为何把伤人的话写进公开博客。她用铅笔与墨水来比喻网上言论难以收回的影响。",
+        "question": "如果这段话几年后仍可能被当事人读到，我今天还会原样发出去吗？",
+        "verification": "2026-11-10 核验。阅读剧本印刷第 77 至 78 页的俱乐部对话，并直接查看第 78 页图像，确认说话者和节录边界。AFI 目录核对了年份、角色和编剧。出处按剧本台词标注。",
+        "additionalSources": [
+          {
+            "label": "American Film Institute, film and screenplay credits",
+            "url": "https://catalog.afi.com/Catalog/moviedetails/66175"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-11-10-06",
+      "zh": "可这时你还不会鼓掌。光让东西消失还不够……你得把它变回来。",
+      "en": "But you couldn't clap yet. Because making something disappear isn't enough... you have to bring it back.",
+      "category": "Creativity",
+      "source": "Cutter · The Prestige (screenplay) · 2006",
+      "reference": {
+        "author": "Cutter (Jonathan Nolan and Christopher Nolan, screenwriters)",
+        "work": "The Prestige (screenplay)",
+        "date": "2006 film, screenplay text",
+        "locator": "Printed p. 4 (PDF p. 4), Cutter’s opening voice-over during the canary trick.",
+        "url": "https://assets.scriptslug.com/live/pdf/scripts/the-prestige-2006.pdf",
+        "sourceType": "Script Slug 刊载的电影英语剧本 PDF。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译。",
+        "englishStatus": "所核剧本中 Cutter 的连续旁白，保留三点省略号。",
+        "originalText": "But you couldn't clap yet. Because making something disappear isn't enough... you have to bring it back.",
+        "context": "卡特演示三段式魔术。笼中的鸟消失时，女孩仍在等待。随着鸟再度出现，表演才完整。",
+        "question": "当我解决一件棘手的事时，还有什么重要的东西需要重新建立？",
+        "verification": "2026-11-10 核验。阅读并查看剧本第 4 页，核对 CUTTER (V.O.) 的连续台词及金丝雀重新出现的场面。AFI 目录确认角色、编剧和电影发行年份。",
+        "additionalSources": [
+          {
+            "label": "American Film Institute, film and screenplay credits",
+            "url": "https://catalog.afi.com/Film/63992-THE-PRESTIGE"
+          }
+        ]
+      }
+    },
+    {
+      "id": "daily-2026-11-10-07",
+      "zh": "不过，年岁渐长，我逐渐发现自己深深地爱着这个世界。",
+      "en": "But, you know, there's something I'm finding out as I'm aging that I am in love with the world.",
+      "category": "Life",
+      "source": "Maurice Sendak · Fresh Air with Terry Gross · 2011",
+      "reference": {
+        "author": "Maurice Sendak",
+        "work": "Fresh Air, interview with Terry Gross",
+        "date": "2011-09-20 original broadcast",
+        "locator": "“This Pig Wants To Party: Maurice Sendak’s Latest,” Sendak’s response about getting older before he describes the maples outside his studio.",
+        "url": "https://freshairarchive.org/segments/pig-wants-party-maurice-sendaks-latest",
+        "sourceType": "Fresh Air Archive 刊载的原始英语访谈逐字稿。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译。",
+        "englishStatus": "英语原始访谈逐字稿摘录，沿用 2011 年首播版本。",
+        "originalText": "But, you know, there's something I'm finding out as I'm aging that I am in love with the world.",
+        "context": "谈到年老和好友离世时，桑达克也望向工作室外的老枫树。他说自己如今有时间细看这些树的美。",
+        "question": "身边什么寻常的景物，值得我今天停下来多看一会儿？",
+        "verification": "2026-11-10 核验。实际阅读 Fresh Air Archive 的 2011 年 9 月 20 日首播逐字稿，核对 SENDAK 发言和随后描写枫树的段落。使用首播转录的字样。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-10-08",
+      "zh": "母语是你望向世界的窗口。",
+      "en": "Your mother tongue is your window into the world.",
+      "category": "Reading",
+      "source": "Ngũgĩ wa Thiong’o · Between the Covers with David Naimon · 2023",
+      "reference": {
+        "author": "Ngũgĩ wa Thiong’o",
+        "work": "Between the Covers, interview with David Naimon",
+        "date": "2023-04-11 episode publication",
+        "locator": "“The Language of Languages” episode, Ngũgĩ’s response after the exchange about how names convey identity.",
+        "url": "https://milkweed.org/between-the-covers/ngugi-wa-thiongo-the-language-of-languages",
+        "sourceType": "访谈节目发布方 Milkweed Editions 刊载的英语逐字稿。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译。",
+        "englishStatus": "受访者的英语原始访谈摘录。",
+        "originalText": "Your mother tongue is your window into the world.",
+        "context": "谈过名字怎样唤起身份感之后，恩古吉把母语比作认识世界的窗口。他随后谈到不同语言能在平等交流与翻译中相互丰富。",
+        "question": "用另一种语言讲同一段经历时，我会留意到哪些从前忽略的细节？",
+        "verification": "2026-11-10 核验。阅读 Milkweed Editions 的原始访谈逐字稿，核对该句出自标为 NwT 的回应。页面日期和 datePublished 元数据均指向 2023 年 4 月 11 日。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-10-09",
+      "zh": "艺术与科学都是人类创造力的化身。",
+      "en": "The arts and sciences are avatars of human creativity.",
+      "category": "Creativity",
+      "source": "Mae Jemison · Teach Arts and Sciences Together · 2002",
+      "reference": {
+        "author": "Mae Jemison",
+        "work": "Teach Arts and Sciences Together (TED2002)",
+        "date": "2002 February talk, TED English transcript",
+        "locator": "TED2002, at 9:21 in the English transcript.",
+        "url": "https://www.ted.com/talks/mae_jemison_teach_arts_and_sciences_together?view=transcript",
+        "sourceType": "TED 官方演讲英语逐字稿。",
+        "originalLanguage": "英语",
+        "chineseStatus": "本次据所核英文摘录翻译。",
+        "englishStatus": "TED 逐字稿中演讲者的英语原句。",
+        "originalText": "The arts and sciences are avatars of human creativity.",
+        "context": "杰米森谈到科学发现和编舞都需要直觉与分析。她以航天工程、雕刻和舞蹈为例，说明同一种创造力怎样在不同实践中显现。",
+        "question": "我正在做的哪件事，可以同时借助一次大胆想象和一次扎实检验？",
+        "verification": "2026-11-10 核验。读取 TED 页面提供的英语逐字稿，在 561.054 秒对应的字幕单元核对完整句，并阅读前面关于航天与舞蹈的例子。页面标注 TED2002 和 2002 年 2 月。",
+        "additionalSources": []
+      }
+    },
+    {
+      "id": "daily-2026-11-10-10",
+      "zh": "我并非独自站在这讲台上……我的周围有声音，数百个声音。",
+      "en": "I do not stand alone at this podium… There are voices around me, hundreds of voices.",
+      "category": "Others",
+      "source": "Svetlana Alexievich · On the Battle Lost · 2015, English translation",
+      "reference": {
+        "author": "Svetlana Alexievich",
+        "work": "On the Battle Lost (Nobel Lecture, tr. Jamey Gambrell)",
+        "date": "2015-12-07 Nobel Lecture, official English translation",
+        "locator": "Nobel Lecture, opening paragraph on printed p. 1 (PDF p. 3).",
+        "url": "https://www.nobelprize.org/uploads/2018/06/alexievich-lecture_en-3.pdf",
+        "sourceType": "诺贝尔基金会发布的署名英译 PDF。",
+        "originalLanguage": "俄语",
+        "chineseStatus": "本次据所核 Gambrell 英译转译。",
+        "englishStatus": "Jamey Gambrell 的诺贝尔基金会英译，按 PDF 标点转录。",
+        "originalText": "I do not stand alone at this podium… There are voices around me, hundreds of voices.",
+        "context": "阿列克谢耶维奇以童年听村里妇女讲故事的记忆开场。她说的声音是自己多年聆听的人们留在记忆中的声音。",
+        "question": "讲述一段历史时，还有谁的亲历值得被听见？",
+        "verification": "2026-11-10 核验。核对基金会 PDF 第 3 页开头和第 21 页的译者署名。官方讲座页载明 2015 年 12 月 7 日在斯德哥尔摩的瑞典学院用俄语发表。本次所核引文字样为署名英译，未比对俄语原文。",
+        "additionalSources": [
+          {
+            "label": "Nobel Prize, lecture date and transcript",
+            "url": "https://www.nobelprize.org/prizes/literature/2015/alexievich/lecture/"
+          }
+        ]
+      }
+    }
+  ]
+}
